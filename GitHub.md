@@ -60,7 +60,7 @@ git官网下载：https://git-scm.com/downloads
 align=center>`  
 
 ### Git的工作区域
-- git Repository(git仓库)：最终确定的文件保存到仓库，成为一个新的版本，对他人可见。
+- 版本库(git Repository)：最终确定的文件保存到仓库，成为一个新的版本，对他人可见。
 - 暂存区：暂存已经修改的文件，最后统一提交到Git仓库中。
 - 工作区(Working Directory)：添加、编辑、修改文件等动作。
   
