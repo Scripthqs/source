@@ -1,4 +1,4 @@
-## 使用 github
+## 使用 GitHub
 
 ### 目的
 借助github托管代码
