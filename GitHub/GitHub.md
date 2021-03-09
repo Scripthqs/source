@@ -67,6 +67,7 @@ align=center>`
 ### Git基本命令
 - `git status` 查看当前状态
 - `git add xx` 提交到暂存区
+- `git restore --staged READEME.md` 可以撤回提交状态
 - `git commit -m "描述"` 提交到仓库
 
 ### Git基础设置
