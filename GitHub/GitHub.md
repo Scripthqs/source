@@ -69,6 +69,9 @@ align=center>`
 - `git add xx` 提交到暂存区
 - `git restore --staged READEME.md` 可以撤回提交状态
 - `git commit -m "描述"` 提交到仓库
+- `git remote add origin 仓库地址`
+- `git push -u origin master`
+- `git pull` 提交后和开发前，保证本地是最新版本
 
 ### Git基础设置
 1. 初始化用户名     
