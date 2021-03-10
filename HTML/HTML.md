@@ -18,8 +18,10 @@ HTML(HyperText Markup Language):超文本标记语言，负责描述文档**语�
 - 错误答案：给文字加粗、变黑、变大。  
   
 #### 元素和标签
-注意：元素就是标签，标签就是元素，标签一般成对出现，但是也存在自结束标签。
-`<head></head>,<meta>`
+注意：元素就是标签，标签就是元素，标签一般成对出现，但是也存在自结束标签。自结束标签的/可以省略。   
+`<head></head>,<img>或<img/>`   
+标签分为块元素(block element)和行内元素(inline element)。   
+块元素独占一行，行内元素不会独占一行。
 
 #### 属性
 在标签中(开始标签中或者自结束标签)可以设置属性，属性是一个名值对(X="Y")，属性和标签名中间空格隔开，多个属性也用空格隔开。  
@@ -39,7 +41,7 @@ HTML(HyperText Markup Language):超文本标记语言，负责描述文档**语�
     <title>Document</title>
 </head>
 <body>
-    
+    <!-- 我是 html 注释  -->
 </body>
 </html>
 ```
@@ -87,6 +89,9 @@ HTML(HyperText Markup Language):超文本标记语言，负责描述文档**语�
 - `rightmargin：网页的右边距；`
 - `bottommargin：网页的下边距；`
 body标签是网页的主体，其中会有排版标签、字体标签、图片标签、列表标签和超链接等各种标签组合形成网页。
+
+### 5 HTML注释
+`<!-- 我是 html 注释  -->`
 
 
 
