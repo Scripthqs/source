@@ -23,7 +23,7 @@ HTML(HyperText Markup Language):超文本标记语言，负责描述文档**语�
 标签分为**块元素(block element)和行内元素(inline element)**。   
 块元素独占一行，行内元素不会独占一行。  
 html将所有标签分为两种：
-- 文本级标签：p、span、a等，文本级标签只能放文字、图片、表单元素等,（a标签不能放a和input）
+- 文本级标签：p、span、a等，文本级标签只能放文字、图片、表单元素等,（a标签不能放a和input）。
 - 容量级标签:div、h、li、dt、dd等，容量级标签可以放任何东西。
 
 #### 属性
