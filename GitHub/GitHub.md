@@ -92,7 +92,7 @@ align=center>`
    `cd test`  
    `git init`  
 文件夹中会出现一个隐藏文件夹`.git`，如图：
-![](https://github.com/Scripthqs/IMG/raw/main/img/git.png)
+![](../material/github/git.png)
 - hooks：目录包含客户端或服务端的钩子脚本
 - info：包含一个全局性排除文件
 - logs：保存日志信息
