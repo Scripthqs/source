@@ -35,6 +35,230 @@ CSS中所有行都有行高，盒子模型的padding不是直接作用到文字�
 - 如果想让多行文本垂直居中，还需要计算盒子的padding。`padding=（盒子高度-行高*行数）/2`
 - `vertical-align: middle;` 属性可用于指定行内元素（inline）、行内块元素（inline-block）、表格的单元格（table-cell）的垂直对齐方式。主要是用于图片、表格、文本的对齐。
 
+字号、行高、字体三大属性可以连写，`font: 400 14px/24px "宋体";`
+其中：400是nomal，700是bold。 14px是字号，24px是行高。font属性连写至少要有字号和字体，否则连写是不生效的。连写有顺序要求。
+
+关于字体属性需要注意以下几点：
+- 网页中不是所有的字体都可以使用，要看用户的电脑有没有安装这个字体。
+- 多个字体间使用`,`隔开，提供备用。
+- 我们必须将英文的字体放在最前面，比如`Times New Roman`字体。
+- 所有的英文字体都有英文别名。
+  - 微软雅黑：`font-family:"Microsoft YaHei";`
+  - 宋体：`font-family:"SimSun";`
+- 行高可以用百分比，表示字号的百分之多少，一般都大于100%，因为行高一般都大于字号。`font:16px/200% "Mincrosoft YaHei";`等价于`font:16px/32px "Microsoft YaHei";`
+
+#### 字体的加粗属性
+- `font-weight: normal; /*正常*/`
+- `font-weight: bold;  /*加粗*/`
+- `font-weight: 100;`
+- `font-weight: 900;`  
+
+字体是否加粗可以使用normal或bold属性值，也可以写100-900的数字，400=normal，700=bold。
+
+### 文本属性
+CSS中常见的文本属性有以下几种:
+- `letter-spacing:0.5cm;`各字体之间的间距
+- `letter-spancing:1cm;`单词之间的间距
+- `text-decoration:none`字体装饰
+  - none：去掉下划线
+  - underline：下划线
+  - line-through：中划线
+  - over-line：上划线
+- `text-transform:lowercase/uppercase;`单词字体的大小写，capitalize：首字母大写。
+- `color:red;`字体颜色
+- `text-align:center;`在当前容器的对齐方式，属性值可以是left、right、center、justify
+
+### 列表属性
+`list-style-image:url(图片路径);`列表项前设置为图片。可以给再加一个`margin-left:80px;`属性让图片显示完整。
+
+### overflow属性
+`overflow`属性表示超出范围的内容怎么处理，属性值：
+- `visible`：默认值，多余的内容不剪切不加滚动条全部显示出来。
+- `hidden`：不显示多个尺寸的内容。
+- `auto`；内容不超出不显示滚动条，超出显示滚动条。
+- `scroll`：windows总是显示滚动条，Mac和auto一样。
+
+### 鼠标属性
+`cursor`鼠标的属性，属性值：
+- `auto`：默认值，浏览器根据当前情况自动选择光标类型。
+- `pointer`：手形鼠标
+
+### 滤镜
+让图片变成灰度图的效果，`<img src="图片路径" style="filter:gary()">`
+
+### 常见的背景属性
+- background-color：背景颜色
+- background-repeat：设置图片背景是否重复以及如何重复，默认平铺满。
+  - no-repeate：不要平铺
+  - repeat-x：横向平铺
+  - repeat-y：纵向平铺
+- background-positon：设置背景图片在当前容器的位置
+- background-attachment：设置背景图片是否和滚动条一起移动
+  - scroll(默认值，会)
+  - fixed(背景会被固定住)
+- background：可以将上面的属性写在一个声明里
+- background-origin：控制背景从什么地方开始显示
+- backgroud-clip：裁剪
+- background-size：调整尺寸
+
+#### background-color
+背景颜色的表示方法有：
+- 单词：red、black、gray、green、blue、orange
+- RGB表示：三原色Red、Green、Blue，每个值取值到0~255
+- RGBA：A代表Alpha，透明度，取值（0~1）
+- 十六进制表示：以`#`开头的，#aabbcc能够简化成#abc
+  - `#000黑` `#fff白` `#f00红` `#222深灰` `#333灰` `#ccc浅灰`
+- HSLA 表示法
+  - H 色调，取值范围 0~360。0或360表示红色、120表示绿色、240表示蓝色。
+  - S 饱和度，取值范围 0%~100%。值越大，越鲜艳。
+  - L 亮度，取值范围 0%~100%。亮度最大时为白色，最小时为黑色。
+  - A 透明度，取值范围 0~1。
+
+#### backgroud-repeat
+- 默认时会铺满。
+- 周期性的图片可以采用`backgroud-repeat:repeat-x;`此种方法进行平铺，实现渐变效果。
+
+#### backgroud-positon 
+背景定位属性，属性值可以用像素描述和用单词描述。
+- 用像素描述：属性值可以是正数也可以是负数
+   - `backgroud-position:向右偏移量 向下偏移量
+- 用单词描述属性值
+  - background-position：描述左右的词 描述上下的词
+  - 左右：left、center、right
+  - 上下：top、center、bottom
+
+使用场景：对于网站首页都会有banner图，对于通栏banner，横向宽度一般特别大，直接作为img标签插入网页时，会有以下两个问题：
+- 图片不在网页中间
+- 会出现横向滚动条 
+
+解决办法：  
+- 设置图片高度，宽度会自动霸行
+- 设置背景定位属性：`background-position: center top; `
+````css
+  div{
+            height: 500px;
+            background-image: url(图片路径);
+            background-position: center top;
+            background-repeat: no-repeat;
+        }
+````
+#### background-attachemnt
+设置图片是否固定，fixed和scroll
+
+#### backgroud
+一个综合属性，可以将多个属性写在一起。
+
+#### background-size
+设置背景图片的尺寸，属性值：
+- 指定具体的宽高值
+- 指定宽高的百分比
+- cover：图片始终填满容器，保证长宽比不变，图片超出部分会被隐藏
+- contain：将图片完整的显示在容器中，保证长宽比不变，可能导致容器部分留白。
+
+#### background-origin
+控制背景从什么地方开始显示。
+- padding-box：默认值，内边距开始显示
+- border-box：从边框开始显示，此时，边框部分也会显示图片
+- content-box：从内容区开始显示
+
+#### background-clip
+设置背景元素（背景图片或颜色）是否延伸到边框下边。
+background-clip：content-box；超出的部分将会被裁剪掉。属性值可以是：
+
+#### 多个背景
+可以给盒子设置多个背景，用`,`隔开，可用于自适应布局。
+
+#### background-image
+渐变属性，具有很强的适应性和可扩展性。
+- 线性渐变：
+  - `background-image:linear-gradient(方向，起始颜色，终止颜色);`
+  - `background-omage:linear-gradinet(to right,red,yellow);`
+  - 方向可以是：to right,to left,to top,to left,角度30deg(顺时针方向30°)
+  - 不写方向时，默认从上到下
+- 径向渐变：
+  - `background-image:radial-gradident(辐射的半径大小，中心的位置，起始颜色，终止颜色);`
+  - `background-image:radial-gradident(100px at center,yellow,green);`
+  - 中心点的位置可以是：at left right center bottom top。如果以像素为单位，则中心点参照的是盒子的左上角。
+- 重复渐变
+  
+#### clip-path
+裁剪出元素的部分区域做展示。`clip-path`虽然不是背景属性，但常常和背景属性搭配使用。即使做了任何裁剪，容器的占位是一样的。通过 `clip-path: (svg)` 可以导入svg矢量图，实现 iOS图标的圆角。
+
+### CSS选择器
+CSS四种基本选择器：
+- 标签（元素）选择器
+- 类选择器：`.`开头
+- ID选择器：`#`开头
+- 通用选择器：`*`，所有的元素
+
+一般来说，类上样式，ID上行为，CSS都使用class，JS上使用ID。
+
+CSS的扩展选择器:
+#### 复合选择器
+  - 交集选择器：选择器之间紧密连接`div#类`，元素选择器开头
+  - 并集选择器（分组选择器）：用逗号隔开`p,h1,.box1,#id`
+#### 关系选择器
+  - 后代选择器：使用空格隔开`ul li`
+  - 子代选择器：`div>p`这能选儿子，和后代不同，但是可以多写一个`>`号
+  - 下一个兄弟选择器：`兄+弟`
+  - 选择下面所有的兄弟选择器：`兄~弟`
+#### 属性选择器：
+  - `元素[属性名]{}`选择含有这种属性的选择器，元素可以省略不写
+  - `元素[属性名=属性值]{}`选择含有这种属性名和属性值的选择器，元素可以省略不写
+  - `元素[属性名^=属性值]{}`选择这种属性值开头的选择器，元素可以省略不写
+  - `元素[属性名$=属性值]{}`选择这种属性值结尾的选择器，元素可以省略不写
+  - `元素[属性名$=属性值]{}`选择含有这种属性值的选择器，元素可以省略不写
+
+#### 伪类
+伪类代表不存在的类，特殊的类，伪类用来描述一个元素的特殊状态，比如：第一个子元素，被点击的元素，鼠标移入的元素。伪元素表示页面中特殊的不存在的元素（特殊的位置）。`::`开头。`:`开头代表伪类，`::`代表伪元素。
+
+#### 伪类选择器：
+- `:first-child{}`第一个子元素
+- `:last-child{}`最后一个子元素
+- `:nth-child(n){}`第n个子元素，
+  - n 范围(0~+∞)
+  - 2n或even 选择偶数位
+  - 2n+1或odd 选择奇数位
+
+以上的伪类都是根据所有的子元素排序的。
+   - `:first-of-type`
+   - `:last-of-type`
+   - `:nth-of-type`
+
+以上的伪类都是根据同类型的子元素排序的。
+  
+- `:not`否定伪类：将符合条件的去除掉
+
+#### 超链接的伪类
+静态伪类（这两种这样超链接能用）：
+- `:link`: 超链接点击之前（正常的链接）.
+- `:visited`：链接被访问过之后，由于用户隐私的原因只能改颜色，使用很少。
+动态伪类：
+- `:hover`：鼠标放到标签上的时候
+- `:active`：鼠标点击标签，但是不松手时。
+- `:focus`：是某个标签获得焦点时的样式（比如某个输入框获得焦点）
+
+a标签有4种伪类：
+- `:link`：超链接点击之前（正常的链接）。
+- `:visited`：链接被访问过的。
+- `:hover`：鼠标悬停在标签时。
+- `:active`：鼠标点击标签，但是不松手时。
+
+在css中，这四种状态必须按照固定的顺序，`a:link 、a:visited 、a:hover 、a:active`，否则失效，“爱恨准则”：love hate，先爱后恨。
+
+#### 伪元素选择器
+- `::first-letter`：表示第一个字母
+- `::fitst-line`：表示第一行
+- `::selection`：表示选中的内容
+- `::before`：元素的开始
+- `::after`：元素的最后
+ - before和after必须结合content使用，很重要
 
 
 
+
+
+
+
+
+  
