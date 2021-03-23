@@ -303,7 +303,7 @@ a标签有4种伪类：
 
 ### 盒模型
 盒模型（box model)，无论是div、span、a都是盒模型。图片和表单看作文本，并不是盒子。盒子的属性：
-- width和height：内容的宽度和高度，不是盒子的。
+- width和height：内容区的宽度和高度，不是盒子的。
 - border：边框。设置边框至少要设置3个样式。
   -  宽度（width）：`border-width`如果指定4个值：顺时针；指定3个值：上、左右、下；2个值：上下、左右；1个值：上下左右；也可以使用`border-top-width`、`border-right-width`、`border-bottom-width`、`border-left-width`可以分别指定上下左右的值。
   -  颜色（color）：颜色也可以指定上下左右，同宽度一样。
@@ -320,6 +320,16 @@ a标签有4种伪类：
   - `margin-bottom`设置正值向下走，可以把别的元素挤开。
   - `margin-right`，默认情况下，没用。
 
+### 盒子的大小
+默认情况下，盒子可见框的大小由内容区、内边距和边框共同决定。
+`box-sizing`属性可以设置盒子尺寸的计算方式，属性值：
+- `content-box`：默认值，`width`和`height`用来设置内区的大小。
+- `border-box`：`width`和`height`是设置盒子可见框的大小，即设置的是内容区、内边距和边框的和。
+
+### 轮廓阴影和圆角
+
+
+
 ### 盒子的水平布局
 元素在其父元素中水平布局的位置必须满足：
 - 子元素`margin-left` + `border-left` + `padding-left` + `width` + `padding-right` + `padding-right` + `margin-right` = `父元素内容区的宽度`
@@ -331,7 +341,16 @@ a标签有4种伪类：
 - 如果`margin-left和margin-right`设置为`auto`，则两个值会相等。这个特点可以用来设置元素的水平居中。`margin:0 auto;`
 - `marin-right`有可能是负值。
 
-总结：只要`width`设置了`auto`（width默认值也是auto），则`width`会最大。
+总结：
+- 只要`width`设置了`auto`（width默认值也是auto），则`width`会最大。
+- `margin:0 auto;`让盒子居中只有在文档流中才有效，脱离文档流后失效。
+- `margin:0 auto;`并不能让文本居中，文本的居中，要使用`text-align:center;`
+````css
+div{
+    margin:0 auto;    //让这个div自己在大容器中的水平方向居中。
+    text-align: center;  //让这个div内部的文本居中。
+}
+````
 
 ### 盒子的垂直布局
 - 默认情况下父元素的高度被内容撑开。
@@ -348,6 +367,10 @@ a标签有4种伪类：
 相邻的垂直方向外边距会发生重叠现象。
 - 兄弟元素之间垂直外边距（同号）会取两者之间（绝对值）最大值。异号取相加值。
 - 父子元素之间的垂直外边距（上边距），子元素会传递给父元素。
+- **`margin`这个属性，本质上描述的是兄弟和兄弟之间的距离； 最好不要用这个marign表达父子之间的距离。**
+- **要表达父子之间的距离，我们一定要善于使用父亲的`padding`，而不是儿子的`margin`。**
+- 只有竖直方向的`margin`才会有塌陷（叠加）现象。
+- 当元素脱离文档流后，`margin`塌陷（叠加）现象会消失。兄弟元素的外边距始终会相加。
 
 ### 行内元素的盒模型
 - 行内元素不支持设置宽高。
@@ -380,6 +403,74 @@ a标签有4种伪类：
 - 浮动的元素不会挡住文字。
 - 设置浮动时要注意，浮动大家一起浮动，不能一个标签单独浮动。
 - 浮动的元素没有设置`width`时，自动收缩为内容的宽度。
+  
+### 清除浮动的影响
+清除浮动和浮动之间的影响的方法：
+- 给浮动元素的祖先元素增加高度，如果一个元素要浮动，那么它的祖先元素一定要有高度，有高度的盒子才能关住浮动。（实际用的不多）
+````html
+<div class="box1">//设置height
+  <p></p>
+  <p></p>
+</div>
+<div class="box2">//设置height
+  <p></p>
+  <p></p>
+</div>
+````
+
+- 属性`clear:both;`：不允许左侧和右侧有浮动对象。但是这个方法有个大问题，它所在的标签，`margin`属性会失效。此时两个div之间，没有任何的间隙了。
+````html
+<div class="box1">
+  <p></p>
+  <p></p>
+</div>
+<div class="box2">//直接给box2设置clear:both;
+  <p></p>
+  <p></p>
+</div>
+````
+
+- 外墙法，再两个浮动之间加一个`div`设置`clear:both;`，再设置`div`的`height`可以实现功能。但box1和box2仍然没有高度。
+
+````html
+<div class="box1">
+  <p></p>
+  <p></p>
+</div>
+<div class="cl"><div>//设置clear:both;
+<div class="box2">
+  <p></p>
+  <p></p>
+</div>
+````
+
+- 内墙法，如果两个`p`都浮动，则父元素不能被撑起高度，如果在家里修一堵墙，`div`就能够被浮动的子元素撑起高度，能够自适应内容。
+
+````html
+<div class="box1">
+  <p></p>
+  <p></p>
+  <div class="cl"><div>//设置clear:both;
+</div>
+<div class="box2">
+  <p></p>
+  <p></p>
+  <div class="cl"><div>//设置clear:both;
+</div>
+````
+
+- `overflow:hidden;`属性，所有溢出边框的内容都隐藏掉。对于浮动，可以用作偏方，如果父元素设置这个属性后，就可以被浮动的子元素撑起高度。
+````html
+<div class="box1">//设置overflow:hidden;
+  <p></p>
+  <p></p>
+</div>
+<div class="box2">//设置overflow:hidden;
+  <p></p>
+  <p></p>
+</div>
+````
+
 
 
 
