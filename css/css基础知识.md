@@ -23,6 +23,7 @@ html的单位只有像素px一种，可以省略不写。CSS没有没有单位�
 CSS中有很多非布局样式，包括：字体、行高、颜色、背景、边框、滚动、换行、装饰（粗体、斜体、下划线）。常见的字体属性有以下几种：
 ````css
 p{
+    color:red;/*设置前景色，一般用于设置字体颜色*/
     font-size: 50px;/*字体大小*/
     line-height: 30px;/*行高*/
     font-family: 华文行楷,黑体;/*字体类型*/
@@ -33,6 +34,51 @@ p{
 ````
 - CSS的注释：`/* 我是注释*/`
 - HTML的注释：`<!--我是注释-->`
+
+#### 字体族font-family
+字体族就是字体的样式，可选值有：
+- `serif`：衬线字体（字有些勾）
+- `sans-serif`：非衬线字体
+- `monospace`：等宽字体（字母的宽度一样）
+
+font-face可以将服务器中的字体直接提供给用户使用，会有两个问题：
+- 加载速度
+- 版权问题
+````css
+@font-family{
+  font-family:'myfont';//指定字体的名字
+  src:url('服务器字体路径);
+}
+````
+字体的格式一般都是`.ttf`。
+
+### 图标字体
+图标字体(iconfont)：在页面中使用一些图标，可以将图标直接设置为字体，通过`font-face`的形式来对字体引入，可以使用字体的形式使用图标。图标字体库：font awesome使用方法：
+1. 下载解压
+2. 将CSS和webfonts移动到项目中，必须在同一级目录下
+3. 使用link将all.css引入网页
+4. 直接通过类名使用图标字体，一般有两种，在两种格式中尝试。
+   - fab:`<i class=fas fa-bell></i>`
+   - fas:`<i class=fab fa-bell></i>`
+5. 通过伪元素设置图标字体,一般有两种：
+   - 找到要设置的图标元素通过before或after选中
+   - 在content中设置字体编码`一定要加反斜杠`（\字体编码）
+   - 设置字体的格式
+````css
+li::before{
+  content:"/字体编码";
+  font-family: 'Font Awesome 5 Brands';//fab格式
+  font-family: 'Font Awesome 5 Free';//fas格式
+  font-weight: 900;
+}
+````
+6. 通过实体来使用图标字体，`&#x字体编码;`一般有两种：
+   - fab:`<i class=fab>&#x字体编码</i>`
+   - fas:`<i class=fas>&#x字体编码</i>`
+7. 通过改字体的方式更改图标字体的样式
+
+#### iconfont(国内阿里的图标字体库)
+
 
 #### 行高
 CSS中所有行都有行高，盒子模型的padding不是直接作用到文字上，而是作用到行上的。行高、字号，一般都是偶数。这样可以保证，它们的差一定偶数，就能够被2整除。
@@ -633,3 +679,4 @@ BFC(Block Formatting Context)：块级格式化环境。BFC是一个CSS的隐含
 - 元素层级一样，优先显示靠下的元素。
 - 祖先元素的层级再高也不会盖住后代元素，“水涨船高”。
 
+### 
