@@ -180,19 +180,43 @@ text-flow:ellipsis;
 让图片变成灰度图的效果，`<img src="图片路径" style="filter:gary()">`
 
 ### 常见的背景属性
-- background-color：背景颜色
-- background-repeat：设置图片背景是否重复以及如何重复，默认平铺满。
-  - no-repeate：不要平铺
-  - repeat-x：横向平铺
-  - repeat-y：纵向平铺
-- background-positon：设置背景图片在当前容器的位置
-- background-attachment：设置背景图片是否和滚动条一起移动
+- `background-color`：背景颜色
+- `background-imge:url("图片路径")；`:背景图片
+  - 可以同时设置背景颜色和背景图片，这样背景颜色会成为图片的背景颜色。
+  - 如果背景图片小于元素，则背景图片会自动在元素中铺满
+  - 如果背景图片大于元素，将会有一部分背景无法完全显示
+  - 背景图片和元素一样大，则会直接正常显示
+
+- `background-repeat`：设置图片背景是否重复以及如何重复，默认平铺满。
+  - `repeat`：默认值，平铺
+  - `no-repeate`：不要平铺
+  - `repeat-x`：横向平铺
+  - `repeat-y`：纵向平铺
+- `background-positon`：设置背景图片在当前容器的位置，
+  - 属性值：`top`、`left` 、`right`、 `bottom`、`center`，使用方位词必须同时指定两个值，如果只写一个值，第二个值默认是center。
+  - 通过偏移量来指定图片的位置，跟垂直偏移量和水平偏移量。
+- `background-clip`：裁剪，可选值：
+  - `border-box`：默认值。背景会出现在边框下面
+  - `padding-box`：背景不会出现在边框，只出现在内容区和内边距
+  - `content-box`：背景只会出现在内容区
+- `background-origin`：控制背景从什么地方开始显示，偏移量计算的原点，可选值：
+  - `border-box`：从内边距开始显示
+  - `padding-box`：从内容区处计算
+  - `content-box`：从边框处开始计算 
+
+- `background-size`：调整尺寸
+  - 第一个值表示宽度
+  - 第二个字表示高度
+  - 只写一个值，第二个值默认是auto
+  - `cover`：图片比例不变，图片在元素中铺满
+  - `contain`：图片比例不变，将图片在元素中完整显示
+
+- `background-attachment`：设置背景图片是否和滚动条一起移动
   - scroll(默认值，会)
   - fixed(背景会被固定住)
-- background：可以将上面的属性写在一个声明里
-- background-origin：控制背景从什么地方开始显示
-- backgroud-clip：裁剪
-- background-size：调整尺寸
+- `background`：可以将上面的属性写在一个声明里，简写属性：
+  - background-size必须在background-position后面，并且使用`/`隔开`background-position/background-size`
+  - origin和clip两个样式，orgin必须在clip前面。
 
 #### background-color
 背景颜色的表示方法有：
@@ -235,7 +259,7 @@ text-flow:ellipsis;
             background-repeat: no-repeat;
         }
 ````
-#### background-attachemnt
+#### background-attachment
 设置图片是否固定，fixed和scroll
 
 #### backgroud
@@ -261,21 +285,39 @@ background-clip：content-box；超出的部分将会被裁剪掉。属性值可
 #### 多个背景
 可以给盒子设置多个背景，用`,`隔开，可用于自适应布局。
 
-#### background-image
-渐变属性，具有很强的适应性和可扩展性。
+#### background-image（可以设置渐变）
+通过渐变可以设置一些复杂的背景颜色，可以实现从一个颜色向其他颜色过渡的效果，**注意渐变是图片**。渐变属性，具有很强的适应性和可扩展性。
+
 - 线性渐变：
-  - `background-image:linear-gradient(方向，起始颜色，终止颜色);`
-  - `background-omage:linear-gradinet(to right,red,yellow);`
-  - 方向可以是：to right,to left,to top,to left,角度30deg(顺时针方向30°)
-  - 不写方向时，默认从上到下
-- 径向渐变：
-  - `background-image:radial-gradident(辐射的半径大小，中心的位置，起始颜色，终止颜色);`
-  - `background-image:radial-gradident(100px at center,yellow,green);`
-  - 中心点的位置可以是：at left right center bottom top。如果以像素为单位，则中心点参照的是盒子的左上角。
-- 重复渐变
+  * `background-image:linear-gradient(方向，起始颜色，终止颜色);`
+  * `background-omage:linear-gradinet(to right,red,yellow);`
+  * 方向可以是：to right,to left,to top,to left,角度30deg(顺时针方向30°)
+  * 不写方向时，默认从上到下
   
+- 径向渐变：
+  * `background-image:radial-gradident(辐射的半径大小，中心的位置，起始颜色，终止颜色);`
+  * `background-image:radial-gradident(100px at center,yellow,green);`
+  * 中心点的位置可以是：at left/right/center/bottom/top。如果以像素为单位，则中心点参照的是盒子的左上角。
+  * 也可以通过`circle`、`ellipse`指定渐变的圆或椭圆形状。
+
+- 重复渐变：
+  * `repeating-linear-gradient()`可以平铺的线性渐变。
+  * `background-image: repeating-linear-gradient(red 0px,yellow 50px);`
+
 #### clip-path
 裁剪出元素的部分区域做展示。`clip-path`虽然不是背景属性，但常常和背景属性搭配使用。即使做了任何裁剪，容器的占位是一样的。通过 `clip-path: (svg)` 可以导入svg矢量图，实现 iOS图标的圆角。
+
+### 雪碧图
+图片属于外部资源，外部资源都需要浏览器单独发送请求加载，浏览器加载外部资源是按需加载的，用则加载，不用则不加载。图片会出现短暂的闪烁。
+
+解决方法：可以将多个小图片统一保存到一个大图片中，这样图片会同时加载在网页中，然后调整`background-position`，就可以避免闪烁问题。这个技术应用广泛，被称为`CSS-sprite`，这种图片称为雪碧图。使用步骤：
+- 确定需要使用的图标
+- 测量图标的大小
+- 根据测量的结果创建元素
+- 将雪碧图设置为元素的背景图片
+- 设置偏移量以显示正确的图片
+
+雪碧图特点：降低请求次数，加快访问速度，提升用户体验。
 
 ### CSS选择器
 CSS四种基本选择器：
