@@ -763,4 +763,19 @@ BFC(Block Formatting Context)：块级格式化环境。BFC是一个CSS的隐含
 - 元素层级一样，优先显示靠下的元素。
 - 祖先元素的层级再高也不会盖住后代元素，“水涨船高”。
 
-### 
+### text-shadow
+文本可以通过`text-shadow`设置阴影。
+- `text-shadow: 20px 27px 22px red;//水平位移 垂直位移 模糊程度 阴影颜色。`
+
+text-shadow 可以设置多个阴影，每个阴影之间使用逗号隔开。可以实现凹凸文字效果，给左上角放白色的阴影，右下角放黑色的阴影，就达到了凹下去的效果。
+- `text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;`
+-  `text-shadow: -1px -1px 1px #000, 1px 1px 1px #fff;`
+
+### css3兼容性问题
+处理兼容性问题的常见方法：为属性添加私有前缀。
+````html
+    -webkit-: 谷歌 苹果
+    -moz-:火狐
+    -ms-：IE
+    -o-：欧朋
+````
