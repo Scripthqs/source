@@ -784,7 +784,7 @@ text-shadow 可以设置多个阴影，每个阴影之间使用逗号隔开。�
 通过过渡可以指定一个属性发生变化时的切换方式。`transition: 变化的属性 时间;`
 - `transition-property`指定要执行过渡的属性，多个属性使用`,`隔开，可以写`all`。大部分属性都支持过渡。一个有效值到另一个有效值就可以。
 - `transition-duration`指定过渡的持续时间，`1s=1000ms`，也可以分别指定时间。
-- `transiton-timing-function`指定过渡的时序函数，属性值：
+- `transition-timing-function`指定过渡的时序函数，属性值：
   - `ease`默认值，慢速开始，先加速再减速。
   - `linear`匀速运动
   - `ease-in`加速运动
@@ -793,3 +793,37 @@ text-shadow 可以设置多个阴影，每个阴影之间使用逗号隔开。�
 
   - `cubic-zezier()`来指定时序函数。
   - `steps()`分步执行时序函数
+- `transition-delay`过渡效果的延迟
+
+`transition`可以同时设置过渡的相关属性，如果要写延迟，第一个时间是持续时间，第二个是延迟时间。
+
+### 动画(animation)
+设置动画，必须要先设置关键帧，关键帧设置了动画的每一个步骤。`from-to`可以用百分比代替`0%-100%`。
+````css
+        @keyframes 动画名字{
+            from{
+                margin-left: 0;        
+            }
+            to{
+                margin-left: 700px;
+            }
+        }
+````
+设关键帧后，再通过`animation:;`属性设置动画。
+- `animation-iteration-count: ;`
+  - `infinite`属性值表示无限次。
+
+- `animation-direction: ;`动画运行的方向
+  - `reverse`属性值表示动画从`to`向`from`运行。
+  - `alternate`属性值表示轮流执行
+  - `alternate-reverse`属性值表示轮流执行
+
+- `animation-play-state`动画的运行状态
+  - `running`默认值，动画运行
+  - `paused`动画暂停
+  
+- `animation-fill-mode: ;`动画的填充模式
+  - `forwards` 动画完毕停止在到开始时
+  - `backwards`动画延时等待时，元素处于开始位置
+  - `both`结合上面两种
+
