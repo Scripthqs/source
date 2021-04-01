@@ -115,7 +115,7 @@ translate() 函数中使用百分比值时，是以这个元素自身的宽度�
 
 3. 将父容器设置为 Flex 布局`display:flex;`，子元素设置以下两个属性就可以实现居中：
    - 水平居中：父容器加个属性`justify-content: center;`
-   - 垂直居中：给父容器加个属性 `align-items: center`
+   - 垂直居中：给父容器加个属性 `align-items: center;`
 
 这种方法会让父容器里的所有子元素们都垂直居中。
 
