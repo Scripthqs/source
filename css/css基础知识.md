@@ -993,3 +993,7 @@ VW布局
   - 大于1200 大屏幕 min-width=1200px
 
 - `@media only screen and (min-width:500px)(max-width；700px){}`
+- 响应式设计的网页
+  1. 移动端优先。
+  2. 渐进增强
+  3. 
