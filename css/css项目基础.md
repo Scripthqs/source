@@ -245,3 +245,31 @@ translate() 函数中使用百分比值时，是以这个元素自身的宽度�
     border:2px solid rgba(255, 255, 255, 0);
 }
 ````
+
+### CSS布局
+- 等高布局 利用margin-tottom负值与padding-bottom配合实现。
+````css
+        .box2{
+            width: 100px;
+            background: #bfa;
+            margin-bottom: -2000px;
+            padding-bottom: 2000px;
+            float: left;
+        }
+        .box3{
+            width: 100px;
+            background: blue;
+            float: right;
+            margin-bottom: -2000px;
+            padding-bottom: 2000px;
+        }
+````
+- 三列布局 左右固定，中间自适应
+  - BFC方式
+  - 定位
+  - 浮动（双飞翼布局、圣杯布局）
+     - 利用margin负值`margin-left: -100%;`
+     - 定位
+  - flex布局
+
+
