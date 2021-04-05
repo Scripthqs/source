@@ -332,7 +332,34 @@ undefined未定义，使用的情况：
 
 
 ### 强制的类型转换
-将一个数据类型强制转换成其它的数据类型。
+将一个数据类型强制转换成其它的数据类型。类型转换主要指将其他的数据类型转换为String Number Boolean。
+
+#### 将其他数据类型转换成String
+- 调用被转换数据类型的toString()方法。
+  - 该方法不会影响原变量，它会将转换的结果返回
+  - 调用xxx的yyy方法，就是xxx.yyy
+  - `var a = a.toString();`
+  - 注意：null和undefined两者值没有toString()方法。
+- 调用String()函数，并将转换的数据作为参数传递给函数。
+  - 调用xxx函数，就是xxx();
+  - `var a = String(a);`
+  - 使用String()函数做强制转换时，对于Number和Boolean实际上就是调用的toString()方法，对于Null和Undefined则是直接转换成"Null"和"Undefined"
+
+#### 将其他数据类型转换成Number
+- 调用Number()函数，并将转换的数据作为参数传递给函数。
+  - `var b = Number(b);`
+  - 纯数字字符串转换成数字
+  - 含有非数字内容转换成NaN
+  - 空串和全空格转换成0
+  - 布尔值true转换成1，false转换成0
+  - null转换成0，undefined转换成NaN
+- parseInt()将一个字符串转换成整数，专门处理字符串
+  - 可以将一个字符串的有效整数取出来
+  - `var c = parseInt(c);`
+- parseFloat()将一个字符串转换成小数
+  - 可以将一个字符串的有效小数取出来，专门处理字符串
+  - `var c = parseInt(c);`
+- parseInt()和parseFloat()会将非字符串会先转换字符串再操作。
 
 
 
