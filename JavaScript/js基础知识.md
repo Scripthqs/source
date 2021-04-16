@@ -945,6 +945,10 @@ for...in语句，对象中有几个属性，循环体就会执行几次，每次
 
 将函数定义在全局作用域中，会污染全局作用域的命名空间，也很不安全。
 
+JavaScript 的构造函数中可以添加一些成员，可以在构造函数本身上添加，也可以在构造函数内部的 this 上添加。通过这两种方式添加的成员，就分别称为静态成员和实例成员。
+- 静态成员：在构造函数本上添加的成员称为静态成员，只能由构造函数本身来访问。
+- 实例成员：在构造函数内部创建的对象成员称为实例成员，只能由实例化的对象来访问。
+
 #### 原型(prototype)
 创建的每一个函数，解析器都会向函数中添加一个prototype属性，这个属性对应一个对象，这个对象就是原型对象。
 - 如果函数作为普通函数调用prototype没有任何作用
@@ -1056,6 +1060,20 @@ obj = null;
   - 第二个参数index：当前正在遍历元素的索引
   - 第三个参数obj：正在遍历的数组
 - IE8以下，这种方法不兼容
+
+ES6 中，如果我们要遍历一个数组，可以这样做
+````js
+        let arr1 = [2, 6, 8, 5];
+
+        for (let value of arr1) {
+            console.log(value);
+}
+````
+- for ... of获取的是数组里的值；如果采用for ... in遍历数组，则获取的是 index 索引值
+- for ... in主要用于遍历对象，不建议用来遍历数组
+- `for (const 变量 in 对象) {}`
+- for ... of 的循环可以避免我们开拓内存空间，增加代码运行效率，使用 for…of 遍历数组比较好
+
 
 #### 函数的方法
 - call()和apply()这两种是函数对象的方法，需要通过函数对象来调用
@@ -1236,3 +1254,164 @@ obj = null;
   - `var emailReg = /^\w{3,}(\.\w+)*@[A-z0-9]+(\.[A-z]{2,5}){1,2}$/`
 
 
+### 高阶函数
+当函数A接收函数B作为参数，或者把函数C作为返回值输出时，我们称函数A为高阶函数。高阶函数是对其他函数进行操作的函数。
+- 把其他函数作为参数
+````js
+        function fn1(a,b,f){
+            console.log(a+b);
+            f && f();
+        }
+        fn1(10,20,function(){
+            console.log('我是一个函数')
+        })
+````
+- 把其他函数作为返回值
+````js
+        function fn1(){
+            let a = 20;
+            return function(){
+                console.log(a);
+            };
+        }
+        const foo = fn1();
+        foo();
+````
+变量a是函数内的局部变量，所以外部无法访问。
+
+### 闭包
+- 有权访问另一个函数作用域中变量的函数称为闭包。
+- 闭包是一种函数，闭包是一种现象。
+- 这个作用域可以访问另一个函数内部的局部变量，就产生了闭包（这时理解为一种现象），另外那个作用域所在的函数称之为闭包函数。
+- 强调的是访问局部变量
+````js
+        function fn1() {
+            let a = 10;
+
+            function fn2() {
+                console.log(a); //在 chrome 浏览器控制台中，设置断点，可以调试闭包Closure
+            }
+            fn2();
+        }
+
+        fn1();
+````
+- 函数fn2的作用域访问了fn1中的局部变量，此时，fn1中就产生了闭包，fn1称之为闭包函数。
+- 一般来说，在 fn1 函数执行完毕后，它里面的变量 a 会立即销毁
+- 由于产生了闭包，所以 fn1 函数中的变量 a 不会立即销毁，因为 fn2 函数还要继续调用变量 a
+- 只有等所有函数把变量 a 调用完了，变量 a 才会销毁。
+- 闭包的主要作用就是：延伸了变量的作用范围。
+
+### 面向过程和面向对象
+面向过程：先分析号具体的步骤，然后按照步骤，一步步解决问题。
+- 优点：性能比面向对象高，史和跟硬件联系紧密的东西，例如单片机就是采用面向过程编程
+- 缺点：没有面向对象易维护、易复用、易拓展
+
+面向对象：以对象功能来划分问题，而不是步骤。
+- 优点：面向对象有封装、继承、多态性的特性，可以设计出低耦合的系统，更加灵活，易于维护
+
+面向对象的编程思想：对代码和数据进行封装，并以对象调用的方式，对外提供统一的调用接口。
+- 开车时，无需关心汽车内部构造多复杂，对大多数人来说，只需要会开，知道有哪些功能就行了
+
+面向对象的特性：在面向对象程序开发思想中，每一个对象都是功能中心，具有明确分工，面向对象编程适合多人合作。
+
+JS中的面向对象，是基于原型的面向对象。ES6中，新引入了类(Class)和继承(Extends)来面向对象。
+
+JS中的对象(Object)是依靠构造器(constructor)和原型(prototype)构造出来的。
+
+### JSON介绍
+JSON(Javascript Object Notation)（javascript对象表示形式）和对象字面量很像。
+- JSON的属性必须使用双引号引起来，对象字面量可以省略
+- 注：json 里一般放常量、数组、对象等，但很少放 function
+- 对象和 json 没有长度，json.length 的打印结果是 undefined
+- 不能使用for循环遍历
+- json 采用 for...in...进行遍历，和数组的遍历方式不同
+
+
+### 浅拷贝和深拷贝
+- 浅拷贝：只拷贝最外面一层的数据，更深层次的对象，只拷贝引用
+- 深拷贝：拷贝多层数据，每一层级别的数据都会拷贝
+- 拷贝引用时，属于传址，而非传值
+- 深拷贝会把对象里所有的的数据重新复制到新的内存空间，是最彻底的拷贝
+
+#### 浅拷贝的实现方式：
+- 用for in 实现浅拷贝
+````js
+        var obj1 = {
+            a : 1,
+            b :'2',
+            f:{
+                name:'haha'
+            }
+        };
+        var obj2 = {};
+        for(var key in obj1){
+            obj2[key] = obj1[key];
+        }
+        console.log(obj1);
+        console.log(obj2);
+        obj1.a = 999;
+        obj1.f.name='hehe';//修改obj1的属性
+        console.log(obj1);
+        console.log(obj2);
+````
+在 obj2 中， a 和 b 这两个属性会单独存放在新的内存地址中，和 obj1 没有关系，但是 obj2.f 属性还是和 obj1.f 指向同一个堆内存地址
+
+- 用 Object.assgin() 实现浅拷贝（ES6新语法，推荐的方式）
+- 语法1`obj2 = Object.assgin(obj2, obj1);`
+- 语法2`Object.assign(目标对象, 源对象1, 源对象2...);`
+- `const obj2 = Object.assign({}, obj1);`
+- `Object.assign(obj2,obj1);`相当于常量中的`obj2=obj1`
+- 将obj1 拷贝给 obj2。执行完毕后，obj2 的值会被更新，如果对象里的属性名相同，会被覆盖
+- Object.assign() 可以将多个“源对象”拷贝到“目标对象”中
+````js
+    const myObj = {
+        name: '法外狂徒张三',
+        age: 17,
+    };
+
+    // 【写法1】浅拷贝：把 myObj 拷贝给 obj1
+    const obj1 = {};
+    Object.assign(obj1, myObj);
+
+    // 【写法2】浅拷贝：把 myObj 拷贝给 obj2
+    const obj2 = Object.assign({}, myObj);
+
+    // 【写法3】浅拷贝：把 myObj 拷贝给 obj31。注意，这里的 obj31 和 obj32 其实是等价的，他们指向了同一个内存地址
+    const obj31 = {};
+    const obj32 = Object.assign(obj31, myObj);
+````
+
+#### 深拷贝的实现方式：
+深拷贝其实就是将浅拷贝进行递归。
+- 用 for in 递归实现深拷贝
+````js
+        var obj1 = {
+            a: 1,
+            b: '2',
+            f: {
+                name: 'haha'
+            },
+            color: ['red', 'blue', 'green']
+        };
+        var obj2 = {};
+        deepCopy(obj2, obj1);
+        console.log(obj2);
+        obj1.f.name = 'hehe';
+        console.log(obj1);
+        console.log(obj2);
+        function deepCopy(newObj, oldObj) {
+            for (let key in oldObj) {
+                //let item = oldObj[key];
+                if (oldObj[key] instanceof Array) {
+                    newObj[key] = [];
+                    deepCopy(newObj[key], oldObj[key]);
+                } else if (oldObj[key] instanceof Object) {
+                    newObj[key] = {};
+                    deepCopy(newObj[key], oldObj[key]);
+                } else {
+                    newObj[key] = oldObj[key];
+                }
+            }
+        }
+````
