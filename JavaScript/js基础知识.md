@@ -846,7 +846,7 @@ var obj = {
 - 如果函数中不写return或者return后面不写值，都返回`undefined`
 - 返回值可以是任意的数据类型
 - `return` 只能返回一个值。如果用逗号隔开多个值，则以最后一个为准
-
+- fn代表的是整个函数，而fn()代表的是返回值。
 
   
 #### 枚举对象中的属性
@@ -899,7 +899,7 @@ for...in语句，对象中有几个属性，循环体就会执行几次，每次
 - 以方法的形式调用时，this就是调用这个方法的对象
 - 以构造函数的形式调用时，this就是实例，即`var per = new Penson();`的`per`
 - 以call()和apply()调用时，this是指定的那个对象，即`fun.call(obj1)和fun.apply(obj2);`中的obj1和obj2
-
+- 在事件的响应函数中，响应函数是给谁绑定的，this就是谁，即`btn.onclick = function () {console.log(this);}`，此时，this是btn
 
 #### arguments
 调用函数时的隐含参数除了this还有arguments
@@ -1415,3 +1415,82 @@ JSON(Javascript Object Notation)（javascript对象表示形式）和对象字�
             }
         }
 ````
+
+### DOM
+Javascript基础分为3个部分：
+- ECMAScript:JavaScript的语法标准，包括变量、表达式、运算符、函数、if语句、for语句。
+- DOM：文档对象模型(Document  Object Model)，操作网页上的元素的API。比如让盒子移动、变色、轮播图等。
+- BOM：浏览器对象模型(Browser Object Model)，操作浏览器部分功能的API。比如让浏览器自动滚动。
+
+JS通过DOM来对HTML文档进行操作，只要理解DOM就可以操作WEB页面。
+- Document文档：文档表示整个HTML网页文档。
+- Object对象：将网页中每一个部分都转换成了对象，网页中的标签、文本、注释都是对象。
+- Model模型：使用模型来表示对象之间的关系，这样方便我们获取对象。
+
+#### 节点
+节点(node)：构成元素HTML网页的最基本单元。网页中的每一个部分都可以称为一个节点，比如：HTML标签、属性、文本、注释、整个文档都是一个节点。
+
+节点的分类：
+- 文档节点（文档）：整个HTML文档。
+- 元素节点（标签）：HTML标签。
+- 属性节点（属性）：元素的属性。
+- 文本节点（文本）：HTML标签中的文本内容（包括标签之间的空格、换行）。
+
+节点的类型不同，属性和方法也不同，所有的节点都是Object。
+
+节点的属性：
+
+|              | nodeName  | nodeType | nodeValue |
+| :----------: | :-------: | :------: | :-------: |
+| **文档节点** | #document |    9     |   null    |
+| **元素节点** |  标签名   |    1     |   null    |
+| **属性节点** |  属性名   |    2     |  属性值   |
+| **文本节点** |   #text   |    3     | 文本内容  |
+
+DOM由节点组成，在HTML中，一切都是节点。
+
+#### 解析过程
+HTML加载完毕，渲染引擎会在内存中把HTML文档生成一个DOM树，getElementById是获取内中BOM上的元素节点。然后操作的时候修改该元素的属性。DOM的作用：
+- 找对象（元素节点）
+- 设置元素的属性值
+- 设置元素的样式
+- 动态创建和删除元素
+- 事件的触发响应：事件源、事件、事件的驱动程序
+
+#### 元素节点的获取
+浏览器为我们提供文档节点对象，这个对象是window的属性。可以在页面中直接使用，文档节点代表的是整个网页。
+- `console.log(document)` 文档对象
+- 通过document对象找到元素节点
+- `var div1 = document.getElementById("box1");`通过 id 获取 一个 元素节点（为什么是一个呢？因为 id 是唯一的）
+- `var div2 = douument.getElementsByTagName("div")`通过 标签名 获取 元素节点数组，所以有s
+  - 这个方法会给我返回一个类数组对象，所有查询的元素都会封装到对象中。
+- `var div3 = document.getElementsByClassName("haha")` //方式三：通过 类名 获取 元素节点数组，所以有s
+- 都是通过document调用的
+
+#### 事件
+用户和浏览器之间的交互行为。点击某个元素、鼠标移动，关闭弹窗等等。
+
+JavaScript是以事件驱动为核心的语言。js和html之间的交互是通过事件实现的。
+
+我们可以在事件对应的属性中，设置一些JS代码，当事件被触发时，这些代码将会执行。
+
+事件的三要素：事件源、事件、事件驱动程序
+- 网页上弹出一个广告，我点击右上角的X，广告就关闭了。这件事情里，事件源是：X。事件是：onclick。事件驱动程序是：广告关闭了。
+- 谁引发的后续事件，谁就是事件源。
+
+#### 浏览器加载顺序
+浏览器加载页面是按照从上到下的顺序加载的，如果将script标签写在页面上边，代码执行时，页面还没加载。
+- 可以为window绑定一个onload事件，该事件对应的响应函数将会在页面加载完毕后执行
+- `window.onload = function(){}`
+
+#### DOM查询
+- `innerHTML` 这个属性可以获取到元素内部的html代码，对于自结束标签没有意义
+- 如果需要读取元素节点属性：`元素.id` `元素.name` `元素.value`
+- class属性不能采用这种方式，读取class采用：`元素.className`
+
+获取元素节点的子节点
+- `元素.getElementsByTagName('li');`
+- `子节点数组 = 父节点.childNodes;`  获取所有子节点。根据DOM，标签中的空白和换行也会当成文本节点。
+- `子节点数组 = 父节点.children;` 获取当前元素的所有子元素
+- `.innerHTML`和`.innerText`的区别，innerText没有标签，只有文本
+- 在事件的响应函数中，响应函数是给谁绑定的，this就是谁
