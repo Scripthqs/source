@@ -33,8 +33,8 @@ HTML中推荐双引号，js中推荐单引号。js严格区分大小写。以分
 
 变量的声明和赋值可以写在一起。
 - var a = 100;
-- const b = hello
-- let b = world
+- const b = 'hello'
+- let b = 'world'
 
 声明一个变量并赋值，称为变量的初始化。
 
