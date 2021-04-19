@@ -1464,7 +1464,7 @@ HTML加载完毕，渲染引擎会在内存中把HTML文档生成一个DOM树，
 - `var div1 = document.getElementById("box1");`通过 id 获取 一个 元素节点（为什么是一个呢？因为 id 是唯一的）
 - `var div2 = douument.getElementsByTagName("div")`通过 标签名 获取 元素节点数组，所以有s
   - 这个方法会给我返回一个类数组对象，所有查询的元素都会封装到对象中。
-- `var div3 = document.getElementsByClassName("haha")` //方式三：通过 类名 获取 元素节点数组，所以有s
+- `var div3 = document.getElementsByClassName("haha")` //方式三：通过 类名 获取 元素节点数组，所以有s，ie8及以下不支持
 - 都是通过document调用的
 
 #### 事件
@@ -1494,3 +1494,25 @@ JavaScript是以事件驱动为核心的语言。js和html之间的交互是通�
 - `子节点数组 = 父节点.children;` 获取当前元素的所有子元素
 - `.innerHTML`和`.innerText`的区别，innerText没有标签，只有文本
 - 在事件的响应函数中，响应函数是给谁绑定的，this就是谁
+
+- `var html = document.documentElement;`获取html根标签
+- `var body = document.body;`获取body标签
+- `var all = documment.all;`获取页面中所有元素
+-  `var div = document.querySelector(".box1 div");`这个方法总会返回第一个元素，兼容IE8及以上
+-  `var div = document.querySelectorAll(".box1 div");`这个方法会返回符合条件的数组，兼容IE8及以上
+
+
+#### DOM的增删改
+- `createElement()`	创建元素节点
+- `createTextNode()`	创建文本节点
+- `元素.innerHTML="新标签"`
+- `appendChild()`	把新的子节点添加到指定节点
+- `父节点.insertBefore(前节点,后节点)`	在指定的子节点前面插入新的子节点
+- `父节点.replaceChild(新节点,旧节点)`	在指定的子节点前面插入新的子节点
+- `父节点.removeChild(新节点,旧节点)` 删除指定节点
+- `需要删除的节点.parentNode.removeChild(需要删除的节点);`
+- 使用innerHTML也能完成DOM增删改的相关操作
+- `父元素.innerHTML += "<li>新标签</li>";` 但是修改的内容较大
+- 一般会将两种方法结合使用
+- 在响应函数的末尾加`return false;`可以取消默认行为
+-  `confirm("确认删除吗?")`可以弹出确认取消框
