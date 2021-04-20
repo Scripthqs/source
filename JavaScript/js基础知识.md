@@ -1516,3 +1516,22 @@ JavaScript是以事件驱动为核心的语言。js和html之间的交互是通�
 - 一般会将两种方法结合使用
 - 在响应函数的末尾加`return false;`可以取消默认行为
 -  `confirm("确认删除吗?")`可以弹出确认取消框
+
+#### DOM操作CSS
+通过JS修改元素的样式
+- 内联样式
+  - `元素.style.样式名 = "样式值"`
+  - 如果CSS中的样式名中含有`-`，比如`background-color`，需要将这种样式名修改为驼峰命名法,`backgroundColor`
+  - `border-top-width`修改为`borderTopWidth`
+  - w3cschool中css的参考手册可以查到
+  - 通过这种方法设置的样式是内联样式，具有较高的优先级
+  - 通过`元素.style.样式名`可以读取内联样式的属性值
+- 元素当前显示的样式
+  - `元素.currentStyle.样式` 但是这种方法只有IE才能用
+  - `getComputedStyle()`这个方法IE9以上及其他浏览器可以使用，这是window的方法，可以直接使用，需要两个参数
+     - 需要获取的样式
+     - 可以传递一个伪元素，一般都传null
+     - 该方法会返回一个对象，对象封装了当前元素对应的样式
+     - `getComputedStyle(box1,null).width`
+     - 该方法或获取真实的值，而不是默认值，比如宽度，不会获取auto，而是真实的像素值
+  - 
