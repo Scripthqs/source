@@ -34,7 +34,7 @@ socks5代理协议：
 - `git config --global --unset https.proxy`
 
 
-取消github网站的代理：
+取消全局代理的命令并不能取消github网站的代理，如需取消，则要使用以下命令：
 - `git config --global --unset http.https://github.com.proxy`
 - `git config --global --unset https.https://github.com.proxy`
 
