@@ -13,6 +13,9 @@
    - `git config --global https.proxy socks5://127.0.0.1:1080`
 
 
+
+比如，我的代理端口是10808，而不是1080，我的代理协议使用socks5，而不是http。
+
 此时，可以使用`git clone`通过代理下载，只对https协议的仓库地址有效，对SSH协议的仓库地址依然无效。
 
 #### 只对github网站进行代理（推荐）
@@ -29,6 +32,20 @@ socks5代理协议：
 如果在输入以上命令之前，已经设置了全局代理，可以使用以下命令取消：
 - `git config --global --unset http.proxy`
 - `git config --global --unset https.proxy`
+
+
+取消github网站的代理：
+- `git config --global --unset http.https://github.com.proxy`
+- `git config --global --unset https.https://github.com.proxy`
+
+可以通过以下命令检查设置的代理是否成功，
+- `git config --list`
+- 按键盘`q`可以退出列表
+比如我的config list中可以看到设置的代码，我的代理端口是10808，我的代理协议使用socks5
+````linux
+http.https://github.com.proxy=socks5://127.0.0.1:10808
+https.https://github.com.proxy=socks5://127.0.0.1:10808
+````
 
 #### 使用镜像网站替换（尝试了一次好像没成功）
 - 将原本仓库地址的`github.com`替换成`github.com.cnpmjs.org`
