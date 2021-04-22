@@ -45,8 +45,8 @@ socks5代理协议：
 - `git config --global --unset https.https://github.com.proxy`
 
 可以通过以下命令检查设置的代理是否成功，
-- `git config --list`
-- 按键盘`q`可以退出列表
+- `git config --list`（按键盘`q`可以退出列表）
+
 比如我的config list中可以看到设置的代码，我的代理端口是10808，我的代理协议使用socks5
 ````linux
 http.https://github.com.proxy=socks5://127.0.0.1:10808
