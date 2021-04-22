@@ -16,7 +16,12 @@
 
 比如，我的代理端口是10808，而不是1080，我的代理协议使用socks5，而不是http。
 
-此时，可以使用`git clone`下载的速度是代理网络的速度了，但是只对https协议的仓库地址有效，对SSH协议的仓库地址依然无效。
+此时，使用`git clone`下载的速度是代理网络的速度了，但是只对https协议的仓库地址有效，对SSH协议的仓库地址依然无效。
+如需取消全局代理，使用：
+- `git config --global --unset http.proxy`
+- `git config --global --unset https.proxy`
+
+通过`git config --list`可以检查代理网络，按键盘`q`可以退出列表
 
 #### 只对github网站进行代理（推荐）
 使用全局代理，会对国内的仓库造成影响，所有只对github网站进行代理，**确认端口和协议后**，开始配置代理。
@@ -29,7 +34,7 @@ socks5代理协议：
 - `git config --global http.https://github.com.proxy socks5://127.0.0.1:1080`
 - `git config --global https.https://github.com.proxy socks5://127.0.0.1:1080`
 
-如果在输入以上命令之前，已经设置了全局代理，可以使用以下命令取消：
+如果在输入以上命令之前，已经设置了全局代理，先使用以下命令取消：
 - `git config --global --unset http.proxy`
 - `git config --global --unset https.proxy`
 
