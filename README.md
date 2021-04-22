@@ -1,6 +1,6 @@
 ### 使用MarkDown写的学习笔记
 
-### github文件夹
+### GitHub文件夹
 1. git的基本使用 GitHub网站的介绍
 3. 使用git为GitHub设置代理
 
