@@ -4,13 +4,13 @@
 #### 全局代理（不推荐）
 1. 确定打开了ss/ssr/v2rayN代理
 2. 设置全局代理
-   - `git config --global http.proxy http://127.0.0.1:1080`
-   - `git config --global https.proxy https://127.0.0.1:1080`
+- `git config --global http.proxy http://127.0.0.1:1080`
+- `git config --global https.proxy https://127.0.0.1:1080`
 
 注意：需要打开代理查看设置，确认后面的端口是不是1080，确认是http还是socks5代理，如果是socks5则使用以下命令
 
-   - `git config --global http.proxy socks5://127.0.0.1:1080`
-   - `git config --global https.proxy socks5://127.0.0.1:1080`
+- `git config --global http.proxy socks5://127.0.0.1:1080`
+- `git config --global https.proxy socks5://127.0.0.1:1080`
 
 
 
