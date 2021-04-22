@@ -17,6 +17,7 @@
 比如，我的代理端口是10808，而不是1080，我的代理协议使用socks5，而不是http。
 
 此时，使用`git clone`下载的速度是代理网络的速度了，但是只对https协议的仓库地址有效，对SSH协议的仓库地址依然无效。
+
 如需取消全局代理，使用：
 - `git config --global --unset http.proxy`
 - `git config --global --unset https.proxy`
