@@ -5,11 +5,11 @@
 3. 使用git为GitHub设置代理
 
 ### HTML文件夹
-1.HTML的基础知识
+1. HTML的基础知识
 
 ### CSS文件夹
 1. CSS的基础知识
 2. CC的项目知识
 
 ### JavaScript文件夹
-1.javascript基础知识
+1. javascript基础知识
