@@ -1820,9 +1820,31 @@ DOM由节点组成，在HTML中，一切都是节点。
 - `clientY` 鼠标距离可视区域上侧距离。
 - `clientTop` 盒子的上border。
 - `clientLeft` 盒子的左border。
-- `pageX = clientX + scrollLeft`
-- `pageY = clientY + scrollTop`
+- `pageX = clientX + scrollLeft`(IE不支持)
+- `pageY = clientY + scrollTop`(IE不支持)
+
+## 事件对象
+
+当事件的响应函数被触发时，会产生一个事件对象event。浏览器每次都会将这个事件event作为实参传递给之前的响应函数。
   
+这个对象中，包含了与当前事件相关的一切信息，比如鼠标的坐标、键盘的哪个按键被按下、鼠标滚轮滚动的方向。
+
+- 所有浏览器都支持event对象
+- 普通浏览器写法：`event`
+- IE8及以下写法：`window.event`
+- 兼容的写法：`event = event || window.event;`
+
+事件对象的常用属性：
+
+- `timeStamp`返回事件生成的日期和事件
+- `bubbles`返回布尔值，指示事件是否时冒泡事件类型
+- `button`返回事件被触发时，哪个鼠标按钮被点击
+- `target`该事件被传送到的对象
+- `type`事件的类型
+- `pageX`和`pageY`光标在该网页的距离
+- `clientX`和`clientY`光标在可视区域的距离
+- `screenX`和`screenY`光标相对于浏览器的距离
+
 ## 事件的冒泡（Bubble）
 
 - 指事件的向上传导，当后代元素上的事件被触发时，其祖先元素的相同事件也会被触发。
@@ -1836,6 +1858,29 @@ DOM由节点组成，在HTML中，一切都是节点。
 - 事件的委派利用了冒泡的原理，通过委派减少事件的绑定次数，提高程序的性能。
 - 如果触发事件的对象是我们期望的元素，则执行,否则不执行。
 - event中的target表示触发事件的对象。
+
+## 事件的绑定（注册）
+
+绑定（注册）事件的两种方式：
+
+- `onclick`
+  - `element.onclick = functon(){}`
+  - `DOM对象.事件 = 函数`的这种绑定事件的方式，一个元素的一个事件只能绑定一个响应函数。绑定多个时，后者会覆盖前者。
+
+- `addEventListener` 
+  - `element.addEventListener("click",function(){},false);
+  - 需要3个参数(IE8及以下不支持)
+  - 1事件的字符串（不要on）
+  - 2回调函数，当事件触发时，该函数会被执行
+  - 3true表示捕获阶段触发，false表示冒泡阶段触发（默认），如果不写，就是默认值。
+
+- `attachEvent`
+  - element.attachEvent("onclick",function(){});
+  - 需要两个参数（IE8及以下版本浏览器）
+  - 1事件的字符串（要on）
+  - 2回调函数：当事件触发时，该函数会被执行
+  - 注意：执行顺序是，后绑定的先执行。
+  - attachEvent()中的this，是window
 
 ## 事件的传播
 
