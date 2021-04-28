@@ -90,13 +90,41 @@ Vue.js分为开发版本和生产版本。
 - `view Model`
   - 视图模型层
   - 是View和Model沟通的桥梁
-  - 一方面实现了Data Bindings（数据绑定），将Model的改变实时的反应到View
-  - 另一方面它实现了DOM Listener（DOM 监听），当DOM发生一些事件（点击、滚动、touch等）时，可以监听到，并在需要的情况下改变对应的Data。
+  - 一方面实现了`Data Bindings`（数据绑定），将Model的改变实时的反应到View
+  - 另一方面它实现了`DOM Listener`（DOM 监听），当DOM发生一些事件（点击、滚动、touch等）时，可以监听到，并在需要的情况下改变对应的Data。
   - 负责业务逻辑的处理（比如Ajax请求），对数据进行加工后交给视图展示 同步连接V和M的对象
 
 ### 计数器中的MVVM
 
-- `h1、button`标签就是`View`
-- `data`属性和属性值就是`Model`
-- `new Vue()`就是`View Model`
+- `h1、button`标签就是`View`，就是DOM
+- `data`这个对象的属性值就是`Model`，就是我们抽离出来的obj
+- `new Vue()`就是`View Model`，我们创建的Vue实例
 
+工作流程：
+
+- `View Model`通过`Data Bindings`让obj的数据实时在DOM中显示。
+- View Model`通过`DOM Listener`来监听`methods`中的操作，来改变obj中的数据。
+
+好处：
+
+- Vue可以帮助我们完成Vue Model层任务，避免手动操作DOM元素，让前端开发者有更多的时间去关注数据的业务逻辑处理。
+
+### 创建Vue实例传入的options
+
+最基础的options
+
+- el
+  - 类型：string | HTMLElement
+  - 决定之后的Vue实例会管理哪个DOM
+- data
+  - 类型：Object | Function（组件当中时，data必须是函数）
+  - Vue实例对应的数据类型
+- methods
+  - 类型：{[key:string]:Function}
+  - ES6写法：() =>{}
+  - 定义属于Vue的一些方法，可以在其他地方调用，也可以在指令中调用
+
+方法和函数的区别：
+
+- 方法（method）：在类里面的函数就
+- 函数（function）
