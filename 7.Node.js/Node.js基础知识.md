@@ -113,7 +113,37 @@ V8 的内存限制：在一般的后端开发语言中，在基本的内存使�
 
 ## Node.js安装
 
+通过Node.js安装包（不推荐）
 
+- 注意一定要选择偶数版本，因为奇数版不稳定。
+- 如果需要选择其他的版本，重新下载新的安装包，覆盖安装。
+- 覆盖旧版本后，以前版本安装的全局工具包，要重新安装。
+- 无法在多个版本之间切换
+
+通过NVM安装（推荐）
+
+- NVM：node.js version manager，用来管理node的版本。
+- 先在github上安装NVM，然后通过NVM安装Node.js。
+  - nvm-noinstall.zip：绿色免安装版，但使用时需进行配置。
+  - nvm-setup.zip：安装版，推荐使用
+- 安装时，选择NVM和Node.js快捷方式的安装路径
+- 打开CMD命令行，输入`nvm`可以看到里面列出了各种命令
+- `nvm -v`，查看已安装的nvm版本。
+- `nvm ls`查看本地安装的node所有版本
+- `node -v`，查看正在使用的 node 版本。
+
+安装Node.js
+
+- `nvm install 14.16.1`安装，命令中的版本号可自定义
+- `nvm use 14.16.1`使用特定版本
+- `nvm uninstall 14.16.1`卸载指定版本
+
+如果 Node 安装失败，可以在安装路径中找到的settings.txt文件中，新增如下两行，修改镜像源：
+
+````text
+node_mirror: https://npm.taobao.org/mirrors/node/
+npm_mirror: https://npm.taobao.org/mirrors/npm/
+````
 
 ## NPM使用介绍
 
@@ -122,3 +152,27 @@ NPM是随同Node.js一起安装的包管理工具，能解决NodeJS代码部署�
 - 允许用户从NPM服务器下载别人编写的第三方包到本地使用。
 - 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。
 - 允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。
+
+- `npm -v` 查看npm的版本，npm相当于手机的app应用商店。
+
+由于 npm 默认的下载地址在国外（npmjs.com），有时候会被墙，导致无法下载或者下载很慢。因此，我们可以尝试切换成，从其他的镜像源下载 npm 包。
+
+通过 NRM 切换镜像源（推荐），让下载更快
+
+- NRM：Node Registry Manager。作用是：切换和管理 npm 包的镜像源。
+- `npm i -g nrm`安装 NRM
+- `nrm ls`显示全部的镜像
+- `nrm use taobao` 使用淘宝的镜像
+
+`nrm ls`显示全部的镜像报错`code: ERR_INVALID_ARG_TYPE`
+
+解决方法:
+
+- 打开`cli.js`第17行修改成
+
+````text
+//const NRMRC = path.join(process.env.HOME, '.nrmrc'); (删除)
+const NRMRC = path.join(process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'], '.nrmrc');
+````
+
+重启CMD生效。
