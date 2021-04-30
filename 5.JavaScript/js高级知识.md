@@ -205,3 +205,15 @@ IIFE；Immediately-Invoked Function Expression（立即调用的函数表达式�
 - 中方括号开头的前一条语句
 
 Vue.js框架的代码全部不带分号
+
+## 函数高级
+
+### 原型与原型链
+
+#### 原型(prototype)
+
+### 执行上下文与执行上下文栈
+
+### 作用域与作用域链
+
+### 闭包
