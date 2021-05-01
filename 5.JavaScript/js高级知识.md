@@ -212,7 +212,7 @@ Vue.js框架的代码全部不带分号
 
 #### 原型(prototype)
 
-- 每个函数对象都有一个prototype属性，该属性对应一个对象，称为原型对象。
+- 每个函数对象都有一个prototype属性，该属性默认对应一个`{}`(空对象)，称为原型对象。这个空对象`{}`是Object的实例对象。
 - 原型对象都有一个constructor属性，指向函数对象。
 
 空对象表示没有我们自己添加的属性。
@@ -221,8 +221,8 @@ Vue.js框架的代码全部不带分号
 
 #### 显式原型和隐式原型
 
-- 每个函数对象都有一个prototype属性，称为显式原型属性，默认指向原型对象。
-- 每个实例对象都有一个__proto__属性，称为隐式原型属性，默认指向原型对象。
+- 每个函数对象都有一个prototype属性，称为显式原型属性，默认指向`{}`空实例对象。
+- 每个实例对象都有一个__proto__属性，称为隐式原型属性。
 - 构造函数对象的显示原型===实例对象的隐式原型
 - Function是new Function()产生的
 - Object也是new Function()产生的
@@ -246,14 +246,21 @@ Vue.js框架的代码全部不带分号
 - 构造函数的实例对象自动拥有构造函数原型对象的属性（方法）
 - 原理：原型链
 
-1. 函数的显示原型指向的对象是空Object实例对象(Object不满足)
+1. 所有函数的显示原型指向的对象是空Object实例对象(Object不满足)
    - `Object.prototype instanceof Object`//false
-2. 所有函数都是Function的实例，包括Function本身
+2. 所有函数都是Function的实例，包括Function本身和Object
    - `Function.__proto===Function.prototype`
 3. Object的原型对象是原型链的尽头
    - `object.prototype.__proto__`//null
 
+#### instanceof
+
+- A instanceof B
+- 如果B函数的显式原型对象在A对象的原型链上，返回true，否则返回false。
+
 ### 执行上下文与执行上下文栈
+
+#### 变量提升与函数提升
 
 ### 作用域与作用域链
 
