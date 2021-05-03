@@ -13,3 +13,6 @@
 
 ## JavaScript文件夹
 1. javascript基础知识
+2. javascript高级知识
+3. ES6新语法
+
