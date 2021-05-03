@@ -9,7 +9,7 @@
 
 ## CSS文件夹
 1. CSS的基础知识
-2. CC的项目知识
+2. CSS的项目知识
 
 ## JavaScript文件夹
 1. javascript基础知识
