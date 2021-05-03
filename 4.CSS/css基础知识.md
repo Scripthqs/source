@@ -106,11 +106,13 @@ span::before{
 2. 通过改字体的方式更改图标字体的样式
 
 #### iconfont(国内阿里的图标字体库)
+
 - 通过实体来使用图标字体，`&#x字体编码;`
   - `<i class=iconfont>&#x字体编码</i>`
 - 通过类名使用图标字体
   - `<i class=iconfont 字体></i>`
 - 通过伪元素设置图标字体
+
 ````css
 span::before{
   content:"/字体编码";
@@ -118,24 +120,30 @@ span::before{
   font-size:100px;
   }
 ````
+
 - 可以在线引用直接复制粘贴就可以了
 
 #### 行高(line height)
+
 行高指的是文字占有的实际高度，可以通过`line-height`属性设置行高。
-- 行高可以直接指定一个大小（px em)
+
+- 行高可以直接指定一个大小（px em）
 - 可以直接设置一个整数，行高将会是字体大小指定的倍数。
 - 行高经常用来设置文字的行间距
   - `行间距=行高-字体大小`
 
 #### 行框（字体框）
+
 字体框就是字体存在的格子，设置`font-size`实际就是在设置字体框的高度。行高会在字体框的上下平均分配。
 
 CSS中所有行都有行高，盒子模型的padding不是直接作用到文字上，而是作用到行上的。行高、字号，一般都是偶数。这样可以保证，它们的差一定偶数，就能够被2整除。
+
 - 单行文本垂直居中的方法：**设置行高 = 盒子高**。
 - 如果想让多行文本垂直居中，还需要计算盒子的padding。`padding=（盒子高度-行高*行数）/2`
 - `vertical-align: middle;` 属性可用于指定行内元素（inline）、行内块元素（inline-block）、表格的单元格（table-cell）的垂直对齐方式。主要是用于**图片、表格、文本**的对齐。
 
 关于字体属性需要注意以下几点：
+
 - 网页中不是所有的字体都可以使用，要看用户的电脑有没有安装这个字体。
 - 多个字体间使用`,`隔开，提供备用。
 - 我们必须将英文的字体放在最前面，比如`Times New Roman`字体。
@@ -145,6 +153,7 @@ CSS中所有行都有行高，盒子模型的padding不是直接作用到文字�
 - 行高可以用百分比，表示字号的百分之多少，一般都大于100%，因为行高一般都大于字号。`font:16px/200% "Mincrosoft YaHei";`等价于`font:16px/32px "Microsoft YaHei";`
 
 #### 字体的加粗属性
+
 - `font-weight: normal; /*正常*/`
 - `font-weight: bold;  /*加粗*/`
 - `font-weight: 100;`
@@ -153,16 +162,19 @@ CSS中所有行都有行高，盒子模型的padding不是直接作用到文字�
 字体是否加粗可以使用normal或bold属性值，也可以写100-900的数字，400=normal，700=bold。
 
 ### 字体的简写属性
+
 字号、行高、字体三大属性可以连写，`font: 字体样式 字重 字体大小/行高 '字体族，字体族';`
+
 - `font: italic 400 14px/24px "宋体";`
 
 其中：400是nomal，700是bold。 14px是字号，24px是行高。font属性连写至少要有字体大小和字体族，否则连写是不生效的。连写有顺序要求。前面也可以加`italic`斜体或者`normal`正常。
 
 行高、样式、自重可以省略不写，如果不写，会使用默认值。此时会覆盖之前设置的行高。
 
-
 ### 文本属性
+
 CSS中常见的文本属性有以下几种:
+
 - `letter-spacing:0.5cm;`各字体之间的间距
 - `letter-spancing:1cm;`单词之间的间距
 - `text-transform:lowercase/uppercase/capitalize;`单词字体的大小写，capitalize表示首字母大写。
@@ -182,32 +194,41 @@ CSS中常见的文本属性有以下几种:
   - `normal`默认值，正常
   - `nowrap`不换行
   - `pre`保留空白，会保留空格换行
+
 ````css
 white-space:nowrap;
 overflow:hidden;
 text-flow:ellipsis;
 ````
+
 这段代码让溢出的文字内容以省略号显示。
 
 ### 列表属性
+
 `list-style-image:url(图片路径);`列表项前设置为图片。可以给再加一个`margin-left:80px;`属性让图片显示完整。
 
 ### overflow属性
+
 `overflow`属性表示超出范围的内容怎么处理，属性值：
+
 - `visible`：默认值，多余的内容不剪切不加滚动条全部显示出来。
 - `hidden`：不显示多个尺寸的内容。
 - `auto`；内容不超出不显示滚动条，超出显示滚动条。
 - `scroll`：windows总是显示滚动条，Mac和auto一样。
 
 ### 鼠标属性
+
 `cursor`鼠标的属性，属性值：
+
 - `auto`：默认值，浏览器根据当前情况自动选择光标类型。
 - `pointer`：手形鼠标
 
 ### 滤镜
+
 让图片变成灰度图的效果，`<img src="图片路径" style="filter:gary()">`
 
 ### 常见的背景属性
+
 - `background-color`：背景颜色
 - `background-imge:url("图片路径")；`:背景图片
   - 可以同时设置背景颜色和背景图片，这样背景颜色会成为图片的背景颜色。
@@ -247,7 +268,9 @@ text-flow:ellipsis;
   - origin和clip两个样式，orgin必须在clip前面。
 
 #### background-color
+
 背景颜色的表示方法有：
+
 - 单词：red、black、gray、green、blue、orange
 - RGB表示：三原色Red、Green、Blue，每个值取值到0~255
 - RGBA：A代表Alpha，透明度，取值（0~1）
@@ -260,10 +283,12 @@ text-flow:ellipsis;
   - A 透明度，取值范围 0~1。
 
 #### backgroud-repeat
+
 - 默认时会铺满。
 - 周期性的图片可以采用`backgroud-repeat:repeat-x;`此种方法进行平铺，实现渐变效果。
 
 #### backgroud-positon 
+
 背景定位属性，属性值可以用像素描述和用单词描述。
 - 用像素描述：属性值可以是正数也可以是负数
    - `backgroud-position:向右偏移量 向下偏移量
