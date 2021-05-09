@@ -323,4 +323,5 @@ filter过滤器，可以用在两个地方：双花括号插值和 v-bind 表达
 
 v-model指令配合表单使用，实现双向绑定
 
-- `v-model:radio`
+- `v-model`结合单选框`radio`使用
+- `v-model`结合多选框使用`checkbox`使用
