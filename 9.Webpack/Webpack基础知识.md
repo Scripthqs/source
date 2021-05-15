@@ -87,10 +87,25 @@ webpack将所有得资源文件（js/json/css/img/less...）都会作为模块�
 - 在项目运行时，并不需要webpack，只在打包和开发阶段需要
 - `npm install --save-dev webpack@<version>`
 - `npm install webpack@<version> -D`
+- **注意：package.json中的name属性不能为“webpack”，否则这里会报错**
 
 如何使用局部的webpack来打包？
 
 - 一个项目往往依赖特定的webpack版本，全局的版本很可能和这个项目的webpack版本不一样，导致打包出现问题
 - 通常一个项目都有自己的局部webpack版本
 
-项目中先局部安装webpack，此时在终端直接使用webpack还是全局的版本，需要使用脚本npm run
+项目中先局部安装webpack，此时在终端直接使用webpack还是全局的版本，需要使用脚本`npm run`
+
+## Loader的安装
+
+当我们需要处理加载css，图片，高级的ES6，TS，less，.vue等等文件时，就需要使用loader
+
+- 通过npm安装需要使用的loader，不同的文件需要不同的loader
+- 在webpack.config.js中的modules关键字下进行配置
+
+- style-loader 将模块导出的内容作为样式并添加到 DOM 中
+- css-loader 加载 CSS 文件并解析 import 的 CSS 文件，最终返回 CSS 代码
+- less-loader 加载并编译 LESS 文件
+- 注意style-loader需要放在css-loader前面，因为webpack读取loader时是从右向左的顺序读取的。
+
+安装时要注意版本问题，报错很可能是版本的原因。
