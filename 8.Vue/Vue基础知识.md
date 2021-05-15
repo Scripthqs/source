@@ -434,4 +434,58 @@ props基本使用
 
 ## 模块化开发
 
-### 
+### 为什么使用模块化
+
+- 解决全局变量命名冲突问题
+- 解决js文件必须按照一定顺序引入的问题
+
+### 如何使用模块化
+
+- 使用匿名函数，还需要使用一个模块作为出口，暴露函数里面的变量
+- 在匿名函数中定义一个对象
+- 给对象添加各种需要暴露的属性和方法
+- 最后将这个对象返回，并且在外面使用一个MoudleA接收
+
+### 常见的模块化规范
+
+- 模块化已经有很多既有的规范和对应的实现方案，常见的模块化规范：
+- CommonJS
+- AMD
+- CMD
+- ES6的Modules
+
+模块化两个核心：导出和导入
+
+CommonJS模块化的导出和导入
+
+- 导出：`module.exports = {}`
+- 导入：`let {flag,sum} = require('aaa.js')`
+
+ES6模块化实现
+
+`<script type="module"></script>`使用type可以让模块中的变量在单独的空间，此时，可以通过import命令加载这个对应的模块
+
+方式1：
+
+- `export`使用`export{需要导出的变量}`
+- `import`使用`import {需要导入的变量} from "./aaa.js"`
+
+方式2：
+
+- `export let 变量 = 变量值`
+- 导入方式一样
+
+方式3：导出函数/类
+
+- `export function fn1(){}`
+- `export class Person{}`
+
+方式4：
+
+- `export default`
+- 导入时，可以根据需要自主命名
+- `export default`在同一模块中，不允许同时存在多个
+
+如果需要导入的变量很多时，使用：
+
+- `import * as aaa from "./aaa.js"`
