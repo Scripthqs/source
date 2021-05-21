@@ -6,12 +6,12 @@
 
 ## 下载和安装
 
-git官网下载：https://git-scm.com/downloads
+git官网下载：<https://git-scm.com/downloads>
 
 - 安装完后打开git bash命令行窗口
 - `git --version` 可以使用这条命令查看当前git版本
 
-`![](img/GitInstall.png)默认Markdown不支持指定图片的显示大小，不过可以通过直接插入<img />标签来指定相关属性。<img src="链接" width="宽度" height="高度" alt="图片名称" 
+`![](img/GitInstall.png)默认Markdown不支持指定图片的显示大小，不过可以通过直接插入<img />标签来指定相关属性。<img src="链接" width="宽度" height="高度" alt="图片名称"
 align=center>`  
 
 ## Git的工作区域
@@ -26,7 +26,7 @@ git有3个工作区域
 
 git使用前需要先配置，使用git可以多人协作，可以做到责任分工。
 
-1. 初始化用户名     
+1. 初始化用户名
    `git config --global user.name 'Scripthqs'`
 2. 设置用户名邮箱  
    `git config --global user.email '1941186772@qq.com'`
@@ -81,14 +81,17 @@ git使用前需要先配置，使用git可以多人协作，可以做到责任�
 ### 情况1
 
 用暂存区的文件覆盖工作目录的文件  
-- `git checkout 文件` 
+
+- `git checkout 文件`
 
 ### 情况2
 
 将文件从暂存区中删除  
-- `git rm --cached 文件` 
 
-将暂存区的文件从暂存区撤出，但不会更改文件   
+- `git rm --cached 文件`
+
+将暂存区的文件从暂存区撤出，但不会更改文件
+
 - `git restore --staged 文件`
 
 这两种方法的效果区别不大
@@ -96,6 +99,7 @@ git使用前需要先配置，使用git可以多人协作，可以做到责任�
 ### 情况3
 
 将git仓库中指定的更新记录恢复出来，并且覆盖暂存区和工作目录
+
 - `git reset --hard commitID`
 
 ## Git分支
@@ -167,7 +171,7 @@ Fork他人项目后，自己添加修改代码，发起请求，项目作者可�
 
 一个git库对应一个开源项目，通过git管理git库。新建或者导入文件。
 
-###  修改项目
+### 修改项目
 
 直接在项目上修改或者本地修改再上传到仓库。
 
@@ -320,10 +324,10 @@ win10会自动记住github提交的地址和密码，其他环境不一定。可
 
 - `vi .git/config`  
 将[remote 'origin']  
-url = https://github.com/用户名/仓库名.git  
+url = <https://github.com/用户名/仓库名.git>  
 修改为：
 [remote 'origin']  
-url = https://用户名：密码@github.com/用户名/仓库名.git
+url = <https://用户名：密码@github.com/用户名/仓库名.git>
 
 ## Github Pages 搭建网站
 
