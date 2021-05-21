@@ -48,15 +48,12 @@ git使用前需要先配置，使用git可以多人协作，可以做到责任�
    `cd test`
 4. 返回上一级目录  
    `cd ..`
-5. 创建名为`index.html`的文件
+5. 创建名为`index.html`的文件  
    `touch index.html`
-
-**前5步的作用主要通过命令行创建文件夹和文件，熟悉命令行**
-
 6. 在文件内初始化Git（创建Git仓库）  
    `git init`  
    文件夹中会出现一个隐藏文件夹`.git`，如图：
-![](../material/github/git.png)
+![.git](../material/github/git.png)
 
    - hooks：目录包含客户端或服务端的钩子脚本
    - info：包含一个全局性排除文件
@@ -67,6 +64,8 @@ git使用前需要先配置，使用git可以多人协作，可以做到责任�
    - desciption：用来显示对仓库的描述信息
    - HEAD：文件指示目前被检出的分支
    - index：文件保存暂存区信息
+
+前5步的作用主要通过命令行创建文件夹和文件，熟悉命令行
 
 ## Git基本提交命令
 
@@ -136,15 +135,13 @@ git使用前需要先配置，使用git可以多人协作，可以做到责任�
 
 ## Git管理远程仓库GitHub
 
-## 目的
+目的：借助github托管代码，备份，实现代码共享集中化管理。
 
-借助github托管代码，备份，实现代码共享集中化管理。
-
-## 注册github账号
+### 注册github账号
 
 官网：github.com
 
-### Github基本概念
+## Github基本概念
 
 ### 仓库(Repository)
 
