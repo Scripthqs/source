@@ -109,3 +109,5 @@ webpack将所有得资源文件（js/json/css/img/less...）都会作为模块�
 - 注意style-loader需要放在css-loader前面，因为webpack读取loader时是从右向左的顺序读取的。
 
 安装时要注意版本问题，报错很可能是版本的原因。
+
+除了图片时，options中的limit，大于该值编译成base64，小于该值，使用file-loader模块进行加载
