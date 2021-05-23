@@ -506,3 +506,6 @@ ES6模块化实现
 
 - `webpack ./src/main.js ./dist/bundle.js`可以将`main.js`打包成`bundle.js`
 
+### el和template区别
+
+WPA单页面复应用，只有一个index.html，一般这个文件是不会变的，此时就可以将index.html与#app进行绑定，让Vue实例管理其中的内容。
