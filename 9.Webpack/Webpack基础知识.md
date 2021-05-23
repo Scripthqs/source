@@ -110,4 +110,41 @@ webpack将所有得资源文件（js/json/css/img/less...）都会作为模块�
 
 安装时要注意版本问题，报错很可能是版本的原因。
 
-除了图片时，options中的limit，大于该值编译成base64，小于该值，使用file-loader模块进行加载
+### 图片文件的处理
+
+`url-loader`安装该loader处理图片文件，配置config时，注意options中的limit值，当加载的图片小于该值时，编译成base64，大于该值时，使用file-loader模块进行加载。
+
+该limit默认值时8Kb，8*1024=8192
+
+使用file-loader模块加载时，图片会一起打包到dist文件夹
+
+webpack会自动帮助我们生成一个32位hash值，目的防止名字重复，但是实际开发中，我们可能对图片的名字有一定的要求，比如将所有的图片放在一个文件夹中，跟上图片原来的名称，同时也要防止重复。所以，我们可以在options中，添加配置：
+
+- `img`：文件要打包的文件夹
+- `name`：获取图片原来的名字，放在该位置
+- `hash:8`：防止图片名称冲突，依然使用hash，但是只保留8位
+- `ext`：使用图片原来的拓展名
+- 完整写法：`name:'img/[name].[hash:8].[ext]'`
+
+最后，还需要在output出口中配置路径：`publicPath: 'dist/'`
+
+## webpack配置Vue
+
+实际项目中需要使用Vuejs进行开发，必须对Vue进行依赖，需要安装
+
+- `npm install vue --save`
+
+此时，使用Vue很可能会报错，Vue会构建2类版本，runtime-only和runtime-compiler，前者不允许存在template，后者有compiler可以用于编译tempplate。
+
+解决方案：添加配置
+
+````js
+ resolve:{
+      alias: {
+        'vue$': 'vue/dist/vue.esm.js'
+      }
+    }
+````
+
+SPA单页面
+
