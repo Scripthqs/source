@@ -509,3 +509,25 @@ ES6模块化实现
 ### el和template区别
 
 WPA单页面复应用，只有一个index.html，一般这个文件是不会变的，此时就可以将index.html与#app进行绑定，让Vue实例管理其中的内容。
+
+## Vue CLI脚手架
+
+在开发大型项目，必然会使用Vue CLI工具
+
+- 在Vue.js开发大型应用时，需要考虑代码目录结构，项目结构和部署、热加载，代码单元测试等事情
+- 使用脚手架工具可以帮助我们完成这些事情
+
+CLI全称Command-Line Interface，翻译为命令行界面，但是俗称脚手架，Vue CLI是官方发布vue.js项目脚手架，可以快速搭建Vue开发环境和对应的webpack配置。
+
+脚手架依赖node和webpack
+
+### 安装Vue CLI脚手架
+
+全局安装
+
+- `npm install -g @vue/cli`
+- `npm install -g @vue/cli-init`拉取 2.x 模板 (旧版本)
+
+- Vue CLI2初始化项目：`vue init webpack my-project`
+- Vue CLI3初始化项目：`vue create my-project`
+
