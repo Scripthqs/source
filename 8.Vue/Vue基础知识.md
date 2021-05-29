@@ -530,4 +530,3 @@ CLI全称Command-Line Interface，翻译为命令行界面，但是俗称脚手�
 
 - Vue CLI2初始化项目：`vue init webpack my-project`
 - Vue CLI3初始化项目：`vue create my-project`
-
