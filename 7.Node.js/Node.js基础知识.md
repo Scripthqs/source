@@ -255,12 +255,165 @@ Buffer的结构和数组很像，操作的方法和数组类似。数组不能�
 
 - 使用buffer不需要引入模块，直接使用即可
 - buffer中存储的都是二进制数据，但是显示时都是16进制的形式显示
-- buffer中每一个元素的范围是从00-ff，（十进制中的90-255，二进制中的0000000-1111111）
+- buffer中每一个元素的范围是从00-ff，（十进制中的90-255，二进制中的0000000-1111111），超过就省略
 - 计算机中一个0或1，称为1位（1 bit），8位（5 bit）=1字节（1 byte）
 - buffer中的一个元素，占用内存的一个字节
 - 一个汉字占3个字节，一个字母占1个字节
 
-### Buffer创建
+### Buffer方法
 
-- 使用`Buffer.alloc()`方法创建指定大小的Buffer
+- `Buffer.from(str)`方法将一个字符串转换buffer
+- 使用`Buffer.alloc(size)`方法创建指定大小的Buffer
+- 使用`Buffer.allocUnsafe(size)`方法创建指定大小的Buffer，但是可能包含敏感数据
 - Buffer的大小一旦确定，则不能修改，Buffer实际是对底层内存的直接操作。
+- 只要数字在控制台或页面中输出一定是10进制
+- `b`uf.toString()`将缓冲区中的数据转换成字符串
+
+## 文件系统File System
+
+文件系统就是通过node来操作系统中的文件，简称fs，在node中与文件的交互是非常重要的。
+
+- 服务器的本质就是将本地文件发送给远程的客户端
+- Node通过fs模块来和文件进行交互
+- 该模块提供了一些标准文件访问API来打开、读取、写入文件，以及与其交互
+- 要使用fs模块，首先需要对其进行加载 `const fs = require('fs')`
+
+### 同步和异步调用
+
+fs模块中所有的操作都有两种形式可供选择同步和异步。
+
+- 同步文件系统会阻塞程序的执行，除非操作完毕，否则不会向下执行代码
+- 异步文件系统不会阻塞程序的执行，而是在操作完成时，通过回调函数将结果返回
+
+异步方法有回调函数，同步方法带Sync
+
+### 文件的写入
+
+打开文件-向文件写入内容-保存并关闭文件
+
+#### 同步文件写入
+
+打开文件同步调用：`fs.openSync(path[, flags, mode])`
+
+- 参数：路径，打开文件的操作，设置文件的权限，一般不传，r只读，w可写，a追加
+- 该方法会返回一个文件的描述作为结果，可以通过该描述对文件进行各种操作
+
+添加内容同步调用：`fs.writeSync(fd, string[, position[, encoding]])`
+
+- 参数：文件的描述符，要写入的内容，写入的起始位置
+
+关闭文件：`fs.closeSync(fd)`
+
+#### 异步文件写法
+
+打开文件：`fs.open(path[, flags[, mode]], callback)`
+
+- 异步调用的方法都是通过回调函数返回的
+- 回调函数的两个参数：
+  - err：错误对象，如果没有错误返回null，错误优先
+  - fd：文件描述符
+
+写入文件：`fs.write(fd, string[, position[, encoding]], callback)`
+
+关闭文件：`fs.close(fd,callback)`
+
+异步文件的回调函数会后执行
+
+#### 简单文件写入
+
+- fs.writeFile(file, data[, options], callback)
+
+#### 流式文件写入
+
+同步，异步，简单文件的写入都不适合大文件的写入，性能较差，容易导致内存溢出
+
+创建可写流：
+
+- `fs.createWriteStream(path[, options])`
+- `ws.write(data)`
+
+可以通过监听流的open和close事件来监听流的打开和关闭
+
+- `ws.once('open',function())`
+- `ws.once('close',function())`
+
+on可以为事件绑定一个事件，once会在触发一次以后自动失效
+
+调用`ws.close()或者ws.end()`
+
+### 文件的读取
+
+文件的读取也分为：同步文件的读取，异步文件的读取，简单文件的读取和流式文件的读取。
+
+#### 简单文件读取
+
+- `fs.readFile(path[,option],callback)`
+- `fs.readFileSync(path[,option],callback)`
+- 参数：读取的路径，读取的选项，回调函数（返回值err,data会返回一个Buffer)
+- 为什么返回buffer，因为读取的文件有可能是图片，音频
+
+#### 流式文件读取
+
+创建可读流
+
+- `fs.createReadStream()`
+
+必须为可读流绑定一个data事件，data事件绑定完毕，它会自动读取数据
+
+````js
+rs.on('data',function(data){
+    console.log(data);
+})
+````
+
+简单的方法：
+
+- 创建可读流
+- 创建可写流
+- 导入数据`rs.pipe(ws)`
+
+### 文件的其他操作
+
+验证路径是否存在：
+
+- `fs.exists(path,callback)`异步该方法已废弃
+- `fs.existsSync(path)`
+
+获取文件的信息：
+
+- `fs.stat(path,callback)`
+- `fs.statSync(path)`
+
+删除文件：
+
+- `fs.unlink(path,callback)`
+- `fs.unlinkSync(path)`
+
+列出文件：
+
+- `fs.readdir()`
+- `fs.readdirSync()`
+
+截断文件：
+
+- `fs.truncate()`
+- `fs.truncateSync()`
+
+建立目录；
+
+- `fs.mkdir()`
+- `fs.mkdirSync()`
+
+删除目录：
+
+- `fs.rmdir()`
+- `fs.rmdirSync()`
+
+重命名文件和目录：
+
+- `rs.rename(oldpath,newpath,callcack)`
+- `rs.renameSync(oldpath,newpath)`
+
+监视文件更改写入：
+
+- `rs.watchFile(filename,[option],listener)`
