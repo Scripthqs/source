@@ -145,9 +145,71 @@ node_mirror: https://npm.taobao.org/mirrors/node/
 npm_mirror: https://npm.taobao.org/mirrors/npm/
 ````
 
+## 模块化
+
+### 模块的定义
+
+- 在node中，一个js文件就是一个模块。
+
+### 如何使用模块
+
+- 通过require()函数引入外部的模块，传递一个文件的路径作为参数，node将会自动根据该路径来引入外部模块
+- 如果使用相对路径，必须以.或..开头
+- 使用require()引入模块后，该函数会返回一个对象，这个对象代表的是引入的模块
+- 在node中，每一个文件中的js代码独立运行在一个函数中，一个模块中给的变量，其他模块不能直接访问
+- 需要通过exports向外部暴露变量和方法，需要将暴露的变量和方法设置为exports的属性
+
+### 模块的分类
+
+模块分为两大类：
+
+- 核心模块：由node引擎提供，核心模块的标识就是模块的名字
+- 文件模块：由用户自己创建的模块，文件模块的标识就是文件的路径，相对路径必须以.或..开头
+
+### global
+
+在node中有一个全局对象global，它的作用和网页中的window类似
+
+- 在全局中创建的变量会作为global的属性保存
+- 在全局中创建的函数会作为global的方法保存
+
+当node在执行模块中的代码时，他会首先在代码的最顶部，添加如下代码
+
+- `function (exports,require,module,__filename,__dirname){}`
+
+实际中模块中的代码都是包装在一个函数中执行的，并且在函数执行时，同时传递了5个实参
+
+- exports：该对象将变量和函数暴露在外面
+- require：函数，用来引入外部的模块
+- module：module代表是当前模块的本身，exports就是module的属性，既可以使用exports导出，也可以使用module.exports
+- __filename：当前文件的完整路径
+- __firname：当前文件夹的完整路径
+
+### exports和module.exports的区别
+
+- 通过exports只能使用.的方式来向外暴露内部变量
+- module.exports既可以使用.的形式，也可以直接赋值
+
+## package包
+
+CommonJS的包规范将一组相关的模块组合在一起，形成一组完整的工具，CommonJS的包规范又包结构和包描述文件两部分组成。
+
+- 包结构：用于组织包中的各种文件
+- 包描述文件：描述包的相关信息，以供外部读取分析
+
+包实际就是一个压缩文件，解压以后还原为目录。符合规范的目录，应该包含以下文件：
+
+- package.json：描述文件（必须的）
+- bin：可执行二进制文件
+- lib：js代码
+- doc：文档
+- test：单元测试
+
+.json文件不能写注释
+
 ## NPM使用介绍
 
-NPM是随同Node.js一起安装的包管理工具，能解决NodeJS代码部署上的很多问题，常见的使用场景有以下几种；
+NPM（Node Package Manager）是随同Node.js一起安装的包管理工具，能解决NodeJS代码部署上的很多问题，常见的使用场景有以下几种；
 
 - 允许用户从NPM服务器下载别人编写的第三方包到本地使用。
 - 允许用户从NPM服务器下载并安装别人编写的命令行程序到本地使用。
@@ -176,3 +238,29 @@ const NRMRC = path.join(process.env[(process.platform == 'win32') ? 'USERPROFILE
 ````
 
 重启CMD生效。
+
+- npm search：搜索模块包 切换淘宝源后就不可以使用search
+- npm init：初始化
+- npm installl(简写i)：安装
+- npm remove(简写r)：删除
+- npm install 包名 --save：安装包并添加到依赖中，重要，主要使用这一条
+- npm install：自动下载依赖所需的包
+- npm install 包名 -g：全局安装包，一般都是一些工具
+
+通过npm安装的包都放在node_modules文件夹中，直接通过包名引入即可
+
+## Buffer(缓冲区)
+
+Buffer的结构和数组很像，操作的方法和数组类似。数组不能存储二进制文件，而buffer就是专门存储二进制数据的。
+
+- 使用buffer不需要引入模块，直接使用即可
+- buffer中存储的都是二进制数据，但是显示时都是16进制的形式显示
+- buffer中每一个元素的范围是从00-ff，（十进制中的90-255，二进制中的0000000-1111111）
+- 计算机中一个0或1，称为1位（1 bit），8位（5 bit）=1字节（1 byte）
+- buffer中的一个元素，占用内存的一个字节
+- 一个汉字占3个字节，一个字母占1个字节
+
+### Buffer创建
+
+- 使用`Buffer.alloc()`方法创建指定大小的Buffer
+- Buffer的大小一旦确定，则不能修改，Buffer实际是对底层内存的直接操作。
