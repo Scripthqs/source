@@ -417,3 +417,4 @@ rs.on('data',function(data){
 监视文件更改写入：
 
 - `rs.watchFile(filename,[option],listener)`
+- 在回调函数中2个参数curr和prev
