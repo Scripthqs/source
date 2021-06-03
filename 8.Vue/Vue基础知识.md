@@ -561,7 +561,7 @@ Vue程序的运行流程；
 - ui（真实dom）
 
 - runtime-compiler：template->ast->render->vdom->ui
-- runtime-only：render->vdom->ui(性能更好，代码更少，小6kb)
+- runtime-only：render->vdom->ui(性能更好，代码更少)
 
 render函数中的h是createElement函数，createElement('标签','{标签属性}',['标签中的内容'])
 
@@ -576,9 +576,97 @@ render函数可以直接传入组件
 - vuecli3提供vue ui命令，提供了可视化配置，更加人性化
 - 移除了static文件夹，新增了public文件夹，并且将index.html移动到public中
 
-### Vue-Router
+### vuecli3目录解析
 
+vuecli3目录结构会简洁很多
 
-### Vuex
+- public文件夹：相当于cli2对static目录
+- .browserslistrc：浏览器相关支持情况
 
-### 网络请求封装（axios）
+### vuecli3修改配置
+
+vuecli3的很多相关配置被隐藏，使用vue ui即可使用图形化管理配置
+
+在node_modules文件夹下的@vue文件夹中可以找到隐藏的配置
+
+自己创建vue.config.js文件，mudule.exports = {}自定义配置文件
+
+## Vue-Router
+
+### 什么是路由
+
+路由是网络工程里面的术语，路由（routing）就是通过互联的网络将信息从源地址传输到目的地址的活动。
+
+路由提供两种机制，路由和转送/
+
+- 路由是决定数据包从来源到目的地的路径
+- 转送将输入端的数据转移到合适的输入端
+  
+路由有一个重要的概念叫路由表，路由表本质就是映射表，决定了数据包的指向。映射表将内网IP和电脑的mac地址一一对应。
+
+### 前端渲染和后端渲染
+
+后端渲染阶段：早期时，网页多使用jsp/php等语言开发，浏览器将url发送到服务器，服务器进行判断然后再后台通过jsp技术将网页写好，这个网页包含html，css，java，java代码的作用是数据库中读取数据，并将它动态的放在页面中。直接将最终的网页渲染出来给浏览器。后期处理url和页面之间的映射关系
+
+前后端分离阶段：后端只负责提供数据，不负责提供任何界面的内容。服务器连接数据库，服务器有静态服务器和提供API接口的服务器，有些两种合并在一起。输入url，从静态服务器中拿到html，css，js代码，浏览器执行js代码时，js代码会有对应的API请求，再从API服务器中将对应的大量数据返回，大量数据中有大量的js代码，将js相关的内容渲染到网页。静态资源服务器中有很多套html+css+js
+
+- ajax的出现就有了前后端分离
+- 后端只提供API来返回数据，前端通过Ajax获取数据，并且通过js将数据渲染到页面
+- 优势：前后端分工清晰
+
+前端渲染：浏览器中显示的大部分内容，都是由前端写的js代码在浏览器中执行，最终渲染出来的网页。
+
+SPA阶段：SPA单页面富应用在前后端分离的基础上加了一层前端路由。SPA整个网页只有一个html页面。静态资源服务器中只有一个index.html+css+js。减少了url向服务器请求的次数，一个url对应一个网页组件，url和页面的映射由前端路由管理，前端路由的核心是改变url，但是页面不进行整体刷新。
+
+### 改变url保持页面不刷新
+
+使用url的hash，url的hash就是锚点（#），本质就是改变window.location的href属性，直接复制location.hash来改变href，但是页面不会刷新。
+
+- `location.hash = 'xxx'`
+
+html5的方法：
+
+- `history.pushState({},'','home')`
+- `history.replaceState({},'','home')`该方法不能回退
+- `history.go(-1)`
+- `history.back()`
+- `history.forward()`
+- 上面的接口等同于浏览器界面的前进后退
+
+### 安装vue-router
+
+vue-router是vue.js官方插件，由vue.js深度集成，适合用于构建单页面应用，vue-router是基于路由和组件的，路由用于设定访问路径，将路径和组件映射起来，在vue-router单页面应用中，页面的路径的改变就是组件的切换。
+
+直接通过npm进行安装
+
+- `npm install vue-router --save`
+- 在模块化工程中使用，因为是一个插件，所以可以通过Vue.use()来安装路由功能
+  - 导入路由对象，并且调用Vue.use(VueRouter)
+  - 创建路由实例，并且传入路由映射配置
+  - 在Vue实例中挂载创建的路由实例
+
+### 使用Vue-router
+
+- 创建路由组件
+- 配置路由映射，组件和路径映射关系
+- 使用路由：通过`<router-link>和<router-view>`
+- `<router-link>`是vue-router中内置的组件，被渲染成一个`<a>`标签
+- `<router-view>`会根据当前路径，动态渲染出不同的组件
+- 网页的其他内容，比如标题，导航栏，等等和`<router-view>`处于同一等级
+- 在路由切换时，切换的是`<router-view>`挂载的组件，其他内容不会改变
+- `{path: '/',redirct:'/home'}`默认首页
+
+### `<router-link>`属性
+
+- to：用于跳转的路径
+- tag：指定渲染成什么组件，默认是超链接a，也可以是按钮，div等等
+- replace：不会留下历史记录，指定replace后，后退键不能返回到上一个页面中
+- active-class：当`<router-link>`对应的路由匹配成功时，会自动给当前元素设置一个router-link-active的class，设置active-class可以修改默认的名称
+  - 在进行高亮显示的导航菜单或底部tabbar时，会使用到该类
+  - 通常不会修改类的属性，会直接使用默认的router-link-active即可
+- `this.$router.push('/home')`
+- `this.$router.replace('/home')`
+
+## Vuex
+
+## 网络请求封装（axios）
