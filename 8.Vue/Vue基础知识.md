@@ -530,3 +530,55 @@ CLI全称Command-Line Interface，翻译为命令行界面，但是俗称脚手�
 
 - Vue CLI2初始化项目：`vue init webpack my-project`
 - Vue CLI3初始化项目：`vue create my-project`
+
+- ESlint：检测代码规范
+- unit test：单元测试
+- e2e test：e2e测试，end to end，安装Nightwatch，进行自动化测试的工具
+
+### vuecli2目录解析
+
+- package.json：包描述文件
+- package-lock.json：版本^和~，^1.1.1和~1.1.1，^代表后两位可变，~代表只能最后一位变
+- build文件夹：webpack相关的配置
+- config文件夹：webpack相关的配置
+- node_modules文件夹：node相关的配置
+- src文件夹：写代码的地方
+- static文件夹：静态资源，里面的资源会原封不动的复制到dist文件夹里面
+- .babelrc：ES代码相关转化配置
+- .editorconfig：项目文本相关配置
+- .eslintignore：代码规范你忽略文件配置
+- .gitignore：git仓库忽略文件配置
+- .postcssrc.js：CSS相关转化配置
+
+### runtime-compiler和runtime-only的区别
+
+Vue程序的运行流程；
+
+- template（模板）
+- parse（解析）成ast（抽象语法树）abstract syntax tree
+- compile（编译）成render函数
+- vdom（虚拟dom）
+- ui（真实dom）
+
+- runtime-compiler：template->ast->render->vdom->ui
+- runtime-only：render->vdom->ui(性能更好，代码更少，小6kb)
+
+render函数中的h是createElement函数，createElement('标签','{标签属性}',['标签中的内容'])
+
+render函数可以直接传入组件
+
+.vue文件的template由vue-template-compiler直接编译成render函数
+
+### vuecli3和vuecli2的区别
+
+- vuecli3是基于webpack4打造的，vuecli还是webpack3
+- vuecli3的设计原则是0配置，移除的配置文件根目录下的build和config等目录
+- vuecli3提供vue ui命令，提供了可视化配置，更加人性化
+- 移除了static文件夹，新增了public文件夹，并且将index.html移动到public中
+
+### Vue-Router
+
+
+### Vuex
+
+### 网络请求封装（axios）
