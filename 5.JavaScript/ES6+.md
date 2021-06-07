@@ -177,3 +177,36 @@ ES6允许给函数参数赋值初始值
 
 ### 生成器函数的参数传递
 
+## promise
+
+promise是ES6引入的异步编程的新解决方案。
+
+- async：异步
+- sync：同步
+
+### 异步事件的应用场景
+
+一个很常用的场景就是网络请求，封装一个网络请求函数，因为不能立即拿到结果，所以我们往往会传入另一个函数，在数据请求成功时，将数据通过传入的函数调回去。一个简单的网络请求时，这方案问题不大，当网络请求复杂时，就会出现回调地狱。
+
+有异步操作时，使用promise对异步操作进行包装。
+
+在new Promise()时，会传入两个参数，resolve和reject，resovle和reject本身也是函数。
+
+### Promise的三种状态
+
+异步操作之后会出现3中状态：
+
+- pending：等待状态，比如正在进行网络请求，或者定时器没有到时间
+- fulfill：满足状态，当我们主动回调resolve时，就处于该状态，并且会回调.then()
+- reject：拒绝状态，当我们主动回调reject时，就处于该状态，并且会回调.catch()
+
+- `async->promise->pending->fulfill/reject->then()/catch()`
+- .then(函数1,函数2)，可以传两个参数，一个成功一个失败
+
+### Promise链式调用
+
+new Promise((resolve() =>{resolve(data)}))可以简写成Promise.resolve(data)可以简写为return data
+
+### Promise的all方法
+
+- `Promise.all([promise1, promise2, promise3]).then().catch()`
