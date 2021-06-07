@@ -725,6 +725,10 @@ mutation还有另一种提交风格，它是一个包含type属性的对象。
 
 Vuex的store中的state是响应式的，当state中的数据发生改变时，Vue组件会自动更新。
 
+Mutation的响应式必须要遵守Vuex对应的规则，提前在store中初始化好所需的属性，当给state中的对象添加新属性时，使用下面的方式：
+
+- 使用Vue.set(obj,'newProp',123)
+- 用新对象给旧对象重新赋值
 
 - Action：
 - Module：
