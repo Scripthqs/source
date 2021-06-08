@@ -713,7 +713,7 @@ Vuex提出使用单一状态树（单一数据源）。一个人的户口、档�
 
 对象里面定义函数时，为了代码的可读性，最好使用对象的增强写法，不要写箭头函数
 
-#### Mutation
+#### Mutations
 
 更改Vuex的store中的状态的唯一方法是提交mutation。
 
@@ -730,7 +730,25 @@ Mutation的响应式必须要遵守Vuex对应的规则，提前在store中初始
 - 使用Vue.set(obj,'newProp',123)
 - 用新对象给旧对象重新赋值
 
-- Action：
-- Module：
+只有提前定义的属性才能做到响应式
+
+使用常量替代Mutation事件类型，新建mutations-types.js文件，重新定义常量
+
+Mutation中的方法必须是同步方法，主要原因是为了当我们使用devtools能很好的捕捉mutation的快照
+
+#### Actions
+
+当我们希望在Vuex中进行一些异步操作时，比如网络请求，必须使用Action，类似Mutation
+
+actions中的方法，有一个默认的参数，context上下文，一般代表store对象，在module中时，
+
+- 使用Actions中的方法时，应当使用`this.$store.dispatch()`
+- 使用mutations中的方法时，才使用`this.$store.commit()`
+
+actions中可以返回一个promise，然后在dispatch中拿到promise，然后在使用.then()
+
+#### Modules
+
+由于Vuex使用单一状态树，当应用变得非常复杂时，store对象就可能变得相当臃肿，为了解决这个问题，Vuex允许我们将store分割成模块Module，而每个模块拥有自己的state，mutations，actions，getters等
 
 ## 网络请求封装（axios）
