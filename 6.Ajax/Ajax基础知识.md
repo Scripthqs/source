@@ -73,4 +73,23 @@ HTTP协议，超文本传输协议，详细规定了浏览器和万维网服务�
 
 ### 服务端响应JSON数据
 
-在实际开发过程中，服务端返回的数据基本都是JSON数据
+在实际开发过程中，服务端返回的数据基本都是JSON数据，需要将JSON数据进行处理，将JSON转换成对象。
+
+- 手动对数据进行转化：`let data = JSON.parse(xhr.response)`
+- 自动对数据装换：`xhr.responseType = "json"`
+
+### nodemon自动重启工具
+
+每次修改服务端得代码时，都需要重新运行node xx.js才能运行，安装nodemon自动重启工具可以自动运行服务端代码。
+
+- npm install -g nodemon
+
+### ajax-ie缓存问题
+
+ie浏览器中会自动缓存ajax的数据，需要加这个时间戳解决，实际开发中，工具会自动帮我们处理。
+
+- `xhr.open('GEt','http://127.0.0.1:8000/ie?t='+Date.now())`
+
+### ajax请求超时和网络异常处理
+
+
