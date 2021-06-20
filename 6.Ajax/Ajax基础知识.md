@@ -75,6 +75,7 @@ HTTP协议，超文本传输协议，详细规定了浏览器和万维网服务�
 
 在实际开发过程中，服务端返回的数据基本都是JSON数据，需要将JSON数据进行处理，将JSON转换成对象。
 
+- response.send(JSON.stringify(data))
 - 手动对数据进行转化：`let data = JSON.parse(xhr.response)`
 - 自动对数据装换：`xhr.responseType = "json"`
 
@@ -92,4 +93,117 @@ ie浏览器中会自动缓存ajax的数据，需要加这个时间戳解决，�
 
 ### ajax请求超时和网络异常处理
 
-在实际开发中，会出现
+在实际开发中，会出现请求超时和网络异常。
+
+- xhr.timeout = 2000
+- xhr.ontimeout = function(){alert('网络异常，请稍后再试')}
+- xhr.onerror = function(){alert('你的网络似乎出现了一些问题')}
+
+### ajax取消请求
+
+ajax可以手动取消请求。调用xhr.abort即可取消请求。
+
+- xhr.abort();
+
+### ajax请求重复发送问题
+
+设置一个标识变量
+
+- let isSending = false;
+
+### jQuery发送ajax请求
+
+````js
+$('button').eq(0).click(function(){
+    $.get('http://127.0.0.1:8000/jquery-server'),{a:100,b:200},function(data){console.log(data)}
+  },'json')
+````
+
+### jQuery通用方法发送ajax请求
+
+````js
+$('button').eq(1).click(function(){
+    $.ajax({
+        url: 'http://127.0.0.1:8000/jquery-server'
+        data: {a:100,b:200}
+        type: 'GET'
+        success: function(data){
+            console.log(data)
+        }
+        timeout:2000
+        error: function(){
+            console.log('出错了')
+        }
+        headers: {
+            c:300,
+            d:400
+        }
+    })
+  })
+````
+
+## 网络模块封装
+
+在开发中，需要发送对应的网络请求，去服务器请求数据，再进行进一步的展示，此时就需要用到网络请求，我们可以使用第三方框架，但是我们需要进行进一步的封装，我们时使用自己封装好的模块进行网络请求，而不是直接使用第三方。因为第三方有可能某天不维护，出现bug，这个时候再去切换框架是个非常麻烦的事。
+
+### 选择什么网络模块
+
+Vue中发送网络请求有非常多的方式，那么在开发中，如何选择？
+
+- 传统的Ajax，开发中不会使用，配置调用方式复杂，
+- 使用jQuery-Ajax，是jQuery中的一个功能
+- 在Vue等三大框架中，不需要jQuery，在Vue1.x中，有Vue.resource，但是Vue2.0中，已经不再维护
+- Vue作者推荐axios框架
+
+在前端开发中，一种常见的网络请求方式是JSONP，主要原因是为了解决跨域访问的问题。
+
+JSONP的核心在于通过`<script>`标签中的src来帮助我们请求数据。我们项目部署在domain1.com服务器上时，是不能直接访问domain2.com服务器上的资料，这时，我们利用`<script>`标签中的src帮助我们请求数据，当数据当作一个JavaScript的函数执行，并且执行的过程中传入我们需要的JSON，所以，封装JSONP的核心就在于监听window上的jsonp进行回调时的名称。
+
+### 安装axios
+
+- `npm install axios --save`
+
+### axios请求方式
+
+- get
+- post
+
+### 全局配置
+
+一些BaseRUL是一样的，可以进行全局配置
+
+- `axios.defaults.baseURL`
+- `axios.default.timeout`
+
+### 常见的配置
+
+- 请求地址url
+- 请求类型
+- 请求根路径
+
+### axios的实例
+
+- `const instance1 = axios.create({baseURL,timeout})`
+- `instance1({url:,params:{}})
+
+### axios拦截器
+
+axios提供了拦截器，用于我们发送每次请求或者得到响应后，进行对应的处理。
+
+请求成功、请求失败、响应成功、响应失败
+
+- `axios.interceptors`
+- `instance.interceptors.request.use();`
+- `instance.interceptor.response.use()`
+
+#### 什么时候需要拦截器
+
+1. config的一些信息不符合浏览器的要求
+2. 每次发送网络请求时，都希望在界面中显示一个请求的图标
+3. 某些网络请求（比如登录），必须携带一些特殊的信息，登录必须要token
+
+## 使用fetch函数发送ajax请求
+
+fetch是全局对象，可以直接调用，返回的是一个promise对象，接收两个参数，url和可选的其他配置。
+
+## 跨域
