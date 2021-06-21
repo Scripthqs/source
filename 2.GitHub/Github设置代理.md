@@ -1,8 +1,8 @@
-### 通过git命令给github网站设置代理
+# 通过git命令给github网站设置代理
 
 由于github是国外网站，正常访问速度可能非常慢，使用ss/ssr/v2rayN配置的网络能够轻松快速的访问google和github，但是，使用`git clone`克隆github上仓库代码时，发现克隆的速度仍然非常慢。
 
-#### 全局代理（不推荐）
+## 全局代理（不推荐）
 
 1. 确定打开了ss/ssr/v2rayN代理
 2. 设置全局代理
@@ -26,7 +26,7 @@
 
 通过`git config --list`可以检查代理网络，按键盘`q`可以退出列表
 
-#### 只对github网站进行代理（推荐）
+## 只对github网站进行代理（推荐）
 
 使用全局代理，会对国内的仓库造成影响，所有只对github网站进行代理，**确认端口和协议后**，开始配置代理。
 
@@ -61,12 +61,12 @@ http.https://github.com.proxy=socks5://127.0.0.1:10808
 https.https://github.com.proxy=socks5://127.0.0.1:10808
 ````
 
-#### 使用镜像网站替换（尝试了一次好像没成功）
+## 使用镜像网站替换（尝试了一次好像没成功）
 
 - 将原本仓库地址的`github.com`替换成`github.com.cnpmjs.org`
 - `www.github.com/后面为代码库`替换成`www.github.com.cnpmjs.org/后面为代码库`
 
-#### 要针对SSH协议的仓库地址（没试过）
+## 要针对SSH协议的仓库地址（没试过）
 
 - 找到存储SSH密钥的地方`系统-用户-.ssh 文件夹`
 - 新建config（注意文件类型，没有后缀名，不是txt）
@@ -94,7 +94,7 @@ Host github.com
 ProxyCommand "git的安装路径" -H 127.0.0.1:1080 %h %p
 ````
 
-#### 注册国内的仓库（没试过，太麻烦）
+## 注册国内的仓库（没试过，太麻烦）
 
 - 注册码云
 - 通过码云 导入github中已有的项目
