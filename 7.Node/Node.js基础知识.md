@@ -80,7 +80,6 @@ V8 的内存限制：在一般的后端开发语言中，在基本的内存使�
    - 服务器返回的不是接口数据，而是一整个页面（或整个楼层）的HTML字符串，浏览器直接显示即可
    - 在服务器端直接就渲染好了，然后一次性打包返回给前端。
    - 优点是有利于 SEO、首屏渲染很快
-
 3. 做小型服务、小型网站的后端（基于 Express、Koa 框架）
    - 很多公司的后台管理系统，都是用 Node.js 来开发接口
    - 后台管理系统对性能和并发的要求不是太高
@@ -145,28 +144,7 @@ node_mirror: https://npm.taobao.org/mirrors/node/
 npm_mirror: https://npm.taobao.org/mirrors/npm/
 ````
 
-## 模块化
-
-### 模块的定义
-
-- 在node中，一个js文件就是一个模块。
-
-### 如何使用模块
-
-- 通过require()函数引入外部的模块，传递一个文件的路径作为参数，node将会自动根据该路径来引入外部模块
-- 如果使用相对路径，必须以.或..开头
-- 使用require()引入模块后，该函数会返回一个对象，这个对象代表的是引入的模块
-- 在node中，每一个文件中的js代码独立运行在一个函数中，一个模块中给的变量，其他模块不能直接访问
-- 需要通过exports向外部暴露变量和方法，需要将暴露的变量和方法设置为exports的属性
-
-### 模块的分类
-
-模块分为两大类：
-
-- 核心模块：由node引擎提供，核心模块的标识就是模块的名字
-- 文件模块：由用户自己创建的模块，文件模块的标识就是文件的路径，相对路径必须以.或..开头
-
-### global
+## 全局变量
 
 在node中有一个全局对象global，它的作用和网页中的window类似
 
@@ -184,11 +162,6 @@ npm_mirror: https://npm.taobao.org/mirrors/npm/
 - module：module代表是当前模块的本身，exports就是module的属性，既可以使用exports导出，也可以使用module.exports
 - __filename：当前文件的完整路径
 - __firname：当前文件夹的完整路径
-
-### exports和module.exports的区别
-
-- 通过exports只能使用.的方式来向外暴露内部变量
-- module.exports既可以使用.的形式，也可以直接赋值
 
 ## package包
 
@@ -248,6 +221,61 @@ const NRMRC = path.join(process.env[(process.platform == 'win32') ? 'USERPROFILE
 - npm install 包名 -g：全局安装包，一般都是一些工具
 
 通过npm安装的包都放在node_modules文件夹中，直接通过包名引入即可
+
+## 模块化
+
+### 模块的定义
+
+- 在node中，一个js文件就是一个模块。
+
+### 如何使用模块
+
+- 通过require()函数引入外部的模块，传递一个文件的路径作为参数，node将会自动根据该路径来引入外部模块
+- 如果使用相对路径，必须以.或..开头
+- 使用require()引入模块后，该函数会返回一个对象，这个对象代表的是引入的模块
+- 在node中，每一个文件中的js代码独立运行在一个函数中，一个模块中给的变量，其他模块不能直接访问
+- 需要通过exports向外部暴露变量和方法，需要将暴露的变量和方法设置为exports的属性
+
+### 模块的分类
+
+模块分为三大类：
+
+- 核心模块：由node引擎提供，核心模块的标识就是模块的名字
+- 文件模块：由用户自己创建的模块，文件模块的标识就是文件的路径，相对路径必须以.或..开头
+- 自定义模块：开发着自己编写
+  
+### exports和module.exports的区别
+
+- 通过exports只能使用.的方式来向外暴露内部变量
+- module.exports既可以使用.的形式，也可以直接赋值
+
+## os模块
+
+os(operation system)模块，提供了与操作系统相关的实用方法和属性。
+
+- `os.EOL` End of Line换行符 ELF，F是file
+- `os.cups()`查看cpu
+- `os.totalmem()`查看总内存，单位字节
+- `os.freemem()`空余内存大小，单位字节
+- `os.hostname()`主机名
+- `os.type()`系统类型
+
+## path模块
+
+- path.basename() 获取文件名称
+- path.dirname() 获取目录名
+- path.extname() 获取文件拓展名（后缀）
+- path.join() 给指定路径连在一起
+- path.resolve() 模拟cd（切换目录）操作的同时拼接路径
+
+'/'表示当前磁盘的根目录，window系统下，目录分割符可以是'/'或'\'，linux系统下，系统的分割符是'/'，不能使用'\'。
+
+## url模块
+
+url模块是专门用来解析处理url模块的，完整的url包含了：协议（https:），//，用户名和密码，域名（@sub.example.com），端口（8080），路径，查询，哈希。
+
+- url.parse() 将一个地址转化成对象模式
+- url.resolve() 将多个路径拼接成一个完整的url
 
 ## Buffer(缓冲区)
 
