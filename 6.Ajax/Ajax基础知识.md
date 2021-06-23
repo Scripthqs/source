@@ -159,7 +159,7 @@ Vue中发送网络请求有非常多的方式，那么在开发中，如何选�
 
 JSONP的核心在于通过`<script>`标签中的src来帮助我们请求数据。我们项目部署在domain1.com服务器上时，是不能直接访问domain2.com服务器上的资料，这时，我们利用`<script>`标签中的src帮助我们请求数据，当数据当作一个JavaScript的函数执行，并且执行的过程中传入我们需要的JSON，所以，封装JSONP的核心就在于监听window上的jsonp进行回调时的名称。
 
-### 安装axios
+## 安装axios
 
 - `npm install axios --save`
 
