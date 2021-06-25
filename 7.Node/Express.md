@@ -125,3 +125,5 @@ app.use()一般情况下都写在具体的路由监听之前。
    - app.use(express.urlencodeed({extended:false}))
    - extended:false表示要求在解析数据的时候使用querystring库，ture表示使用qs库，前面一个库会剔除传递过来的方法和对象。
    - 其在接收完数据后，会将数据的对象形式挂载到req对象的body属性上
+
+### 自定义中间件
