@@ -150,3 +150,5 @@ app.use()一般情况下都写在具体的路由监听之前。
 2. 应用文件中导入body-parse
 3. 通过中间件调用app.use(body.urlencoded({extend:false}))
 4. 在匹配的路由中通过req.body获取post数据
+
+### 
