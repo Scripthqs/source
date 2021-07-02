@@ -203,5 +203,10 @@ cookie-parser模块也是中间件，设置cookie通过`res.cookie(name,value,[�
 
 ### session
 
-cookie操作很方便，但是安全性不高，cookie中的所有数据存储在客户端浏览器中，数据很容易被伪造，所以一些重要的数据就不能放在cookie中，而且cookie还有一个缺点就是不能存放太多数据，一般就4kb左右，为了解决这些问题，session产生了，session中的数据保留在服务端。数据放在cookie中式不安全的，在cookie中存放一个sessionid值，该值会和服务器端产生一种映射关系，如果sessionid被篡改的话，他就不会与服务器端数据产生映射，因此安全性更好，并且session的有效期比较短，一般都是20分钟左右，在20分钟内，客户端和服务器没有产生交互，服务器端就会将数据删除。
+cookie操作很方便，但是安全性不高，cookie中的所有数据存储在客户端浏览器中，数据很容易被伪造，所以一些重要的数据就不能放在cookie中，而且cookie还有一个缺点就是不能存放太多数据，一般就4kb左右，为了解决这些问题，session产生了，session中的数据保留在服务端。数据放在cookie中是不安全的，在cookie中存放一个sessionid值，该值会和服务器端产生一种映射关系，如果sessionid被篡改的话，他就不会与服务器端数据产生映射，因此安全性更好，并且session的有效期比较短，一般都是20分钟左右，在20分钟内，客户端和服务器没有产生交互，服务器端就会将数据删除。
 
+#### 安装session
+
+- npm i cookie-session
+
+cookie-session设置与获取都是基于req请求对象。
