@@ -119,4 +119,16 @@ MongoDB数据库结构:库，表（集合），行（文档），列（字段，
 
 ### Mongoose介绍
 
-mongoos是Node环境下异步操作mongodb数据库的拓展，仅限Node环境下使用
+mongoos是Node环境下异步操作mongodb数据库的拓展，仅限Node环境下使用。
+
+使用mongoose操作mongodb的步骤：
+
+1. 安装mongoose
+   - `npm i -S mongoose'
+2. 导入模块mongoose
+3. 连接mongodb数据库
+4. 定义Schema（表字段约束）
+   - 简单来讲就是规定了表结构的操作，比如：要求表中有username字段，该字段接着要求必填，可以继续要求该字段的类型是string，还可以要求这个字段长度是10
+5. 定义model
+   - mvc开发模式，模型视图控制器，m负责业务逻辑与数据库的交互部分，v负责展示给用户，c控制器负责请求与响应的整体调度
+6. 使用model进行输增删改查（curd）交互操作
