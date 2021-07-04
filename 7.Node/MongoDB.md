@@ -37,6 +37,7 @@ MongoDB数据库结构:库，表（集合），行（文档），列（字段，
 在cmd进入D:\MongoDB\bin目录下，然后执行
 
 - `mongod -dbpath D:\MongoDB\data\db`
+- `mongo` 运行
 
 这条命令是开启服务，它会一直运行，只要你要使用Mongodb，这个窗口就不能关）
 
