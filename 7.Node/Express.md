@@ -153,6 +153,11 @@ app.use()一般情况下都写在具体的路由监听之前。
 
 这个中间件已经弃用
 
+新版写法：
+
+- `app.use(express.json())`
+- `app.use(express.urlencoded({extended: false}))`
+
 ### 错误类型中间件
 
 本质上属于自定义中间件，但是有些特殊。
