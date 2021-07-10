@@ -99,3 +99,10 @@ ProxyCommand "git的安装路径" -H 127.0.0.1:1080 %h %p
 - 注册码云
 - 通过码云 导入github中已有的项目
 - git clone 码云中的项目
+
+## github登录不了
+
+1. 在`C:\Windows\System32\drivers\etc`找到hosts文件
+2. 访问`http://tool.chinaz.com/dns?type=1&host=github.com&ip=`
+3. 找到下面响应的IP
+4. 在hosts文件末尾中追加`13.229.188.59 github`(根据查询到的IP为准)
