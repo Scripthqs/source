@@ -370,3 +370,10 @@ git push时报了这个错：fatal: unable to access '<https://github.com/>.....
 参考网上解决办法：解除ssl验证后，再次git即可
 
 - `git config --global http.sslVerify "false"`
+
+### github登录不了
+
+1. 在`C:\Windows\System32\drivers\etc`找到hosts文件
+2. 访问`http://tool.chinaz.com/dns?type=1&host=github.com&ip=`
+3. 找到下面响应的IP
+4. 在hosts文件末尾中追加`13.229.188.59 github`(根据查询到的IP为准)
