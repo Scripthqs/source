@@ -414,6 +414,15 @@ props基本使用
    - default 默认值 默认值时对象时，fefault必须是函数
    - required 必需的，true或者false
 
+子组件向父组件通信：
+
+1. 子组件发送自定义事件
+   - `this.$emit('itemclick',item)`
+2. 父组件监听自定义事件
+   - `@itemclick='cpnclick(参数)'`//参数省略，默认传item，类似event事件
+3. 父组件在定义methods中的方法
+   - `cpnclick(item){console.log(item)}`
+
 ### 父子组件的访问方式
 
 当需要父组件直接访问子组件，或者子组件直接访问父组件，或者子组件访问根组件
