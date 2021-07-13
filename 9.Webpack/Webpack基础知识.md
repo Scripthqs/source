@@ -150,6 +150,7 @@ webpack会自动帮助我们生成一个32位hash值，目的防止名字重复�
 
 ````js
  resolve:{
+      extensions: ['.js','.css','.vue'],//导入文件时，可以省略后缀
       alias: {
         'vue$': 'vue/dist/vue.esm.js'
       }
@@ -175,7 +176,7 @@ loader是用于转换某些类型的模块，是一个转换器，plugin是webpa
 
 ### 添加版权的plugin
 
-BannerPlugin为打包的文件添加版权声明，属于webpack自带的插件，修改配置`plugins:[new webpack.BannerPlugin('最终版权')]`，重新打包
+BannerPlugin为打包的文件添加版权声明，属于webpack自带的插件，不需要安装，修改配置`plugins:[new webpack.BannerPlugin('最终版权')]`，重新打包
 
 ### 打包html的plugin
 
@@ -185,7 +186,10 @@ HtmlWebpackPlugin插件可以自动生成index.html文件，将打包的js文件
 
 安装HtmlWebpackPlugin插件：`npm install html-webpack-plugin --save--dev`
 
-配置：template表示根据什么模板生成index.html，另外，我们需要删除之前在output中添加的publicPath属性，否则插入的script标签中的src可能有问题。
+配置：
+
+1. template表示根据什么模板生成index.html
+2. 我们需要删除之前在output中添加的publicPath属性，否则插入的script标签中的src可能有问题。
 
 ### js压缩的plugin
 
@@ -203,7 +207,7 @@ devServer也是作为webpack中的一个选项，选项本身可以设置如下�
 
 - contentBase：为哪个文件夹提供本地服务，默认是根文件夹，我们这里要填写./dist
 - port：端口号
-- inline：页面实时刷新
+- inline：页面实时刷新(true或false)
 - historyApiFallback：在SPA页面中，依赖HTML5的history模式
 
 还可以再配置一个scripts：
@@ -213,3 +217,18 @@ devServer也是作为webpack中的一个选项，选项本身可以设置如下�
 ctrl+c终止预处理命令
 
 ## webpack将开发和发布进行分离
+
+实际开发中，webpack的配置会因为项目的版本不一样，所需要的依赖也可能不一样，开发时和正式发布时的配置文件不一样。需要就配置文件进行分离。
+
+1. base.config.js 该文件放公共的配置
+2. prod.config.js 该文件放入生产时所需要的配置
+3. dev.config.js 该文件放入开发时所需要的配置
+4. 安装一个webpack-merge的plugin插件，
+   - `npm install webpack-merge --save-dev`
+5. 导入webpackMerge
+   - `const webpackMerge = require('webpack-merge')`
+6. 导出时使用，插件合并
+   - `module.exports = webpackMerge(baseConfig,{devServer:{},plugins:[]})`
+7. 在package.json文件中配置对应的脚本：
+    - `"build": "webpack --config ./build/prod.config.js"`
+    - `"dev": "webpack-dev-server --open --config ./build/dev.config.js"`
