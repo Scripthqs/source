@@ -178,7 +178,7 @@ CommonJS的包规范将一组相关的模块组合在一起，形成一组完整
 - doc：文档
 - test：单元测试
 
-.json文件不能写注释
+.json文件不能写注释，package.json文件可以自定义脚本
 
 ## NPM使用介绍
 

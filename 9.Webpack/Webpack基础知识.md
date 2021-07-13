@@ -20,7 +20,7 @@ grunt/gulp也是前端的构建工具，核心是Task，即流程自动化
 - 只需要进行简单的合并，压缩
 - 整个项目使用了模块化管理，而且依赖性非常强，就可以使用webpack
 
-Webpack要正常运行，必须依赖node环境，node环境为了可以正常执行很多代码，必须包含各种依赖的包，npm（mode packages manager）工具就是专门管理各种包的工具
+Webpack要正常运行，必须依赖node环境，node环境为了可以正常执行很多代码，必须包含各种依赖的包，npm（node packages manager）工具就是专门管理各种包的工具
 
 打包流程：
 
@@ -100,8 +100,10 @@ webpack将所有得资源文件（js/json/css/img/less...）都会作为模块�
 
 当我们需要处理加载css，图片，高级的ES6，TS，less，.vue等等文件时，就需要使用loader
 
-- 通过npm安装需要使用的loader，不同的文件需要不同的loader
-- 在webpack.config.js中的modules关键字下进行配置
+1. 在main.js中导入对应的文件，如css，图片。。。。。
+2. 通过npm安装需要使用的loader，不同的文件需要不同的loader
+3. 在webpack.config.js中的modules关键字下进行配置
+4. 实际配置中，直接复制过来就可以了
 
 - style-loader 将模块导出的内容作为样式并添加到 DOM 中
 - css-loader 加载 CSS 文件并解析 import 的 CSS 文件，最终返回 CSS 代码
@@ -116,9 +118,9 @@ webpack将所有得资源文件（js/json/css/img/less...）都会作为模块�
 
 该limit默认值时8Kb，8*1024=8192
 
-使用file-loader模块加载时，图片会一起打包到dist文件夹
+使用file-loader模块加载时，图片会一起打包到dist文件夹，**此时，图片的路径会发生变化，需要在webpack.config中配置公共的路径**
 
-webpack会自动帮助我们生成一个32位hash值，目的防止名字重复，但是实际开发中，我们可能对图片的名字有一定的要求，比如将所有的图片放在一个文件夹中，跟上图片原来的名称，同时也要防止重复。所以，我们可以在options中，添加配置：
+webpack会自动帮助我们生成一个32位hash值，目的防止名字重复，但是实际开发中，我们可能对图片的名字有一定的要求，比如将所有的图片放在一个文件夹中，跟上图片原来的名称，同时也要防止重复。所以，我们可以在loader下的options中，添加配置：
 
 - `img`：文件要打包的文件夹
 - `name`：获取图片原来的名字，放在该位置
@@ -127,6 +129,10 @@ webpack会自动帮助我们生成一个32位hash值，目的防止名字重复�
 - 完整写法：`name:'img/[name].[hash:8].[ext]'`
 
 最后，还需要在output出口中配置路径：`publicPath: 'dist/'`
+
+### ES6语法处理loader
+
+如果需要将ES6语法转化成ES5，那么需要使用babel。在webpack中，我们直接使用babel对应的loader就可以了
 
 ## webpack配置Vue
 

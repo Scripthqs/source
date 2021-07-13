@@ -501,7 +501,7 @@ CommonJS模块化的导出和导入
 - 导出：`module.exports = { flag,sum }`
 - 导入：`let {flag,sum} = require('./aaa.js')`
 
-ES6模块化实现
+ES6模块化实现：
 
 `<script type="module"></script>`使用type可以让模块中的变量在单独的空间，此时，可以通过import命令加载这个对应的模块
 
@@ -519,6 +519,7 @@ ES6模块化实现
 
 - `export function fn1(){}`
 - `export class Person{}`
+- 导入方式一样
 
 方式4：
 
@@ -526,9 +527,12 @@ ES6模块化实现
 - 导入时，可以根据需要自主命名
 - `export default`在同一模块中，不允许同时存在多个
 
+方式4：统一全部导入
+
 如果需要导入的变量很多时，使用：
 
-- `import * as aaa from "./aaa.js"`
+- `import * as 自定义名字 from "./aaa.js"`
+- 自定义名字.变量就可以拿到内容
 
 ### 使用webpack模块打包工具
 
