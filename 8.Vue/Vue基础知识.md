@@ -437,7 +437,7 @@ props基本使用
 
 子组件访问父组件使用`$parent`，使用`$root`可以直接访问根组件
 
-## v-slot插槽
+## 插槽
 
 `slot`插槽
 
@@ -563,23 +563,28 @@ WPA单页面复应用，只有一个index.html，一般这个文件是不会变�
 
 CLI全称Command-Line Interface，翻译为命令行界面，但是俗称脚手架，Vue CLI是官方发布vue.js项目脚手架，可以快速搭建Vue开发环境和对应的webpack配置。
 
-脚手架依赖node和webpack
+脚手架依赖node和webpack。
 
 ### 安装Vue CLI脚手架
+
+新版本中：Vue CLI 的包名称由 vue-cli 改成了 @vue/cli。
 
 全局安装
 
 - `npm install -g @vue/cli`
 - `npm install -g @vue/cli-init`拉取 2.x 模板 (旧版本)
 
-- Vue CLI2初始化项目：`vue init webpack my-project`
-- Vue CLI3初始化项目：`vue create my-project`
+- Vue CLI2旧版本初始化项目：`vue init webpack my-project`
+- Vue CLI3新版本初始化项目：`vue create my-project`
+- `vue ui`以图形化界面创建和管理项目
 
 - ESlint：检测代码规范
 - unit test：单元测试
 - e2e test：e2e测试，end to end，安装Nightwatch，进行自动化测试的工具
 
 ### vuecli2目录解析
+
+vuecli2目录中可以看到很多webpack配置。
 
 - package.json：包描述文件
 - package-lock.json：版本^和~，^1.1.1和~1.1.1，^代表后两位可变，~代表只能最后一位变
@@ -598,20 +603,20 @@ CLI全称Command-Line Interface，翻译为命令行界面，但是俗称脚手�
 
 Vue程序的运行流程；
 
-- template（模板）
-- parse（解析）成ast（抽象语法树）abstract syntax tree
-- compile（编译）成render函数
-- vdom（虚拟dom）
-- ui（真实dom）
+1. 写出template（模板）
+2. parse（解析）成ast（抽象语法树）abstract syntax tree
+3. compile（编译）成render函数
+4. vdom（虚拟dom）
+5. ui（真实dom）
 
-- runtime-compiler：template->ast->render->vdom->ui
-- runtime-only：render->vdom->ui(性能更好，代码更少)
+- runtime-compiler解析步骤：template->ast->render->vdom->ui
+- runtime-only解析步骤：render->vdom->ui(性能更好，代码更少)
 
 render函数中的h是createElement函数，createElement('标签','{标签属性}',['标签中的内容'])
 
 render函数可以直接传入组件
 
-.vue文件的template由vue-template-compiler直接编译成render函数
+使用runtime-only版本时，.vue文件的template由vue-template-compiler直接编译成render函数
 
 ### vuecli3和vuecli2的区别
 
@@ -634,6 +639,8 @@ vuecli3的很多相关配置被隐藏，使用vue ui即可使用图形化管理�
 在node_modules文件夹下的@vue文件夹中可以找到隐藏的配置
 
 自己创建vue.config.js文件，mudule.exports = {}自定义配置文件
+
+另外，在用户下找到.vuerc可删除修改一些保存的配置
 
 ## Vue-Router
 
