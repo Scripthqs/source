@@ -576,7 +576,7 @@ CLI全称Command-Line Interface，翻译为命令行界面，但是俗称脚手�
 
 - Vue CLI2旧版本初始化项目：`vue init webpack my-project`
 - Vue CLI3新版本初始化项目：`vue create my-project`
-- `vue ui`以图形化界面创建和管理项目
+- `vue ui`以图形化界面创建和管理项目，导入项目即可使用
 
 - ESlint：检测代码规范
 - unit test：单元测试
@@ -634,13 +634,13 @@ vuecli3目录结构会简洁很多
 
 ### vuecli3修改配置
 
-vuecli3的很多相关配置被隐藏，使用vue ui即可使用图形化管理配置
+1. vuecli3的很多相关配置被隐藏，使用vue ui即可使用图形化管理配置
 
-在node_modules文件夹下的@vue文件夹中可以找到隐藏的配置
+2. 在node_modules文件夹下的@vue文件夹中可以找到隐藏的配置
 
-自己创建vue.config.js文件，mudule.exports = {}自定义配置文件
+3. 自己创建vue.config.js文件，mudule.exports = {}自定义配置文件
 
-另外，在用户下找到.vuerc可删除修改一些保存的配置
+4. 另外，在用户下找到.vuerc可删除修改一些保存的配置
 
 ## Vue-Router
 
@@ -648,7 +648,7 @@ vuecli3的很多相关配置被隐藏，使用vue ui即可使用图形化管理�
 
 路由是网络工程里面的术语，路由（routing）就是通过互联的网络将信息从源地址传输到目的地址的活动。
 
-路由提供两种机制，路由和转送/
+路由提供两种机制，路由和转送
 
 - 路由是决定数据包从来源到目的地的路径
 - 转送将输入端的数据转移到合适的输入端
@@ -692,9 +692,11 @@ vue-router是vue.js官方插件，由vue.js深度集成，适合用于构建单�
 
 - `npm install vue-router --save`
 - 在模块化工程中使用，因为是一个插件，所以可以通过Vue.use()来安装路由功能
-  - 导入路由对象，并且调用Vue.use(VueRouter)
-  - 创建路由实例，并且传入路由映射配置
-  - 在Vue实例中挂载创建的路由实例
+
+1. 导入路由对象`import VueRouter from 'vue-router'`
+2. 调用Vue.use(VueRouter)
+3. 创建路由实例，并且传入路由映射配置
+4. 在Vue实例中挂载创建的路由实例
 
 ### 使用Vue-router
 
@@ -710,7 +712,7 @@ vue-router是vue.js官方插件，由vue.js深度集成，适合用于构建单�
 ### `<router-link>`属性
 
 - to：用于跳转的路径
-- tag：指定渲染成什么组件，默认是超链接a，也可以是按钮，div等等
+- tag：指定渲染成什么组件，默认是超链接a，也可以是按钮，div等等，新版本已经移除
 - replace：不会留下历史记录，指定replace后，后退键不能返回到上一个页面中
 - active-class：当`<router-link>`对应的路由匹配成功时，会自动给当前元素设置一个router-link-active的class，设置active-class可以修改默认的名称
   - 在进行高亮显示的导航菜单或底部tabbar时，会使用到该类
@@ -718,9 +720,18 @@ vue-router是vue.js官方插件，由vue.js深度集成，适合用于构建单�
 - `this.$router.push('/home')`
 - `this.$router.replace('/home')`
 
-动态路由：在某些情况下，一个页面的path路径是不确定的，需要使用`v-bind`
+### 动态路由
 
-路由的懒加载：打包构建应用时，JavaScript包会变得非常大，影响页面加载，能把不同路由对应的组件分割成不同的代码块，然后当路由被访问时才加载对应组件
+在某些情况下，一个页面的path路径是不确定的，需要使用`v-bind`。
+
+1. 配置路由`{ path: '/users/:id', component: User }`
+2. 当一个路由被匹配时，它的 params 的值将在每个组件中以 `this.$route.params` 的形式暴露出来，`$route.params.id`即可拿到id值
+
+`$route是谁处于活跃状态，拿到的就是哪个对象，$router是new VueRouter的实例对象`
+
+### 路由的懒加载
+
+打包构建应用时，JavaScript包会变得非常大，影响页面加载，能把不同路由对应的组件分割成不同的代码块，然后当路由被访问时才加载对应组件
 
 路由嵌套；组件中配置新路由
 
