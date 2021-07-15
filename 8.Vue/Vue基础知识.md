@@ -717,8 +717,12 @@ vue-router是vue.js官方插件，由vue.js深度集成，适合用于构建单�
 - active-class：当`<router-link>`对应的路由匹配成功时，会自动给当前元素设置一个router-link-active的class，设置active-class可以修改默认的名称
   - 在进行高亮显示的导航菜单或底部tabbar时，会使用到该类
   - 通常不会修改类的属性，会直接使用默认的router-link-active即可
+
+当使用事件监听响应函数时，跳转的路径写法：
+
 - `this.$router.push('/home')`
 - `this.$router.replace('/home')`
+- `this.$router.push({path:'/profile',query:{age:20}})`
 
 ### 动态路由
 
@@ -731,11 +735,38 @@ vue-router是vue.js官方插件，由vue.js深度集成，适合用于构建单�
 
 ### 路由的懒加载
 
-打包构建应用时，JavaScript包会变得非常大，影响页面加载，能把不同路由对应的组件分割成不同的代码块，然后当路由被访问时才加载对应组件
+打包构建应用时，JavaScript包会变得非常大，影响页面加载，能把不同路由对应的组件分割成不同的代码块，然后当路由被访问时才加载对应组件。
 
-路由嵌套；组件中配置新路由
+懒加载的写法：
 
-传递参数：params和query
+- `const Home =  () => import('../views/About.vue')`
+
+### 路由嵌套
+
+比如在home页面中，希望通过/home/news和/home/message访问一些内容。一个路径映射一个组件，访问这两个路径也会会分别渲染两个组件。
+
+实现路由嵌套的两个步骤：
+
+1. 创建对应的子组件，并且在路由映射中配置对应的子路由
+2. 在组件内部使用`<router-view>`标签
+
+### 参数传递
+
+当我们从一个页面跳转到另一个页面时，可能希望从前一个页面中获取一些参数。传递参数主要有两种类型：params和query。
+
+params的类型：
+
+1. 配置成动态路由格式：`/router/:id`
+2. 传递的方式：在path后面跟上对应的值
+   - `:to="'/router'+ id"
+3. 传递后形成的路径：`/router/123,/router/abc`
+   - 通过`$route.params.id`获取id参数
+
+query的类型：
+
+- 普通配置路由格式：`/router`
+- 传递方式：对象中使用query的key作为传递方式
+- 传递后形成的路径：`/router?id=123,/router?id=abc`
 
 ## Vuex
 
