@@ -351,6 +351,8 @@ v-model指令配合表单使用，实现双向绑定
 
 在开发中，将一个页面拆分成一个个小的、可复用的组件，每个组件完成属于自己这部分的独立功能，从而方便整个页面的管理和维护。
 
+Vue中，所有的组件都继承自Vue类的原型。
+
 ### 注册组件如何使用
 
 1. 创建组件构造器 调用`Vue.extend()`方法
@@ -731,8 +733,6 @@ vue-router是vue.js官方插件，由vue.js深度集成，适合用于构建单�
 1. 配置路由`{ path: '/users/:id', component: User }`
 2. 当一个路由被匹配时，它的 params 的值将在每个组件中以 `this.$route.params` 的形式暴露出来，`$route.params.id`即可拿到id值
 
-`$route是谁处于活跃状态，拿到的就是哪个对象，$router是new VueRouter的实例对象`
-
 ### 路由的懒加载
 
 打包构建应用时，JavaScript包会变得非常大，影响页面加载，能把不同路由对应的组件分割成不同的代码块，然后当路由被访问时才加载对应组件。
@@ -749,6 +749,8 @@ vue-router是vue.js官方插件，由vue.js深度集成，适合用于构建单�
 
 1. 创建对应的子组件，并且在路由映射中配置对应的子路由
 2. 在组件内部使用`<router-view>`标签
+
+当某个路由有子级路由时，父级路由需要一个默认的路由，因此父级路由不能定义name属性，去掉父级路由的name属性即可
 
 ### 参数传递
 
@@ -767,6 +769,38 @@ query的类型：
 - 普通配置路由格式：`/router`
 - 传递方式：对象中使用query的key作为传递方式
 - 传递后形成的路径：`/router?id=123,/router?id=abc`
+
+### $route和$router的区别
+
+`$route是谁处于活跃状态，拿到的就是哪个对象，$router是new VueRouter的实例对象`。
+
+- `$router`为VueRouter的实例，想要导航到不同的URL，则使用`$Router.push`方法
+- `$route`为当前router跳转对象里面可以获取name，path，query，params等
+
+### 导航守卫
+
+主要用来通过跳转或取消的方式守卫导航。
+
+1. 使用`beforeEach()`前置守卫（hook）可更改页面的title
+   - `router.beforeEach((to,from,next) => {document.title = to.name next()})`
+2. `afterEach()`后置钩子不会接受 next 函数也不会改变导航本身
+
+以上写的两个守卫，被成为全局守卫。
+
+除了全局守卫还有路由独享守卫`beforeEnter()`和组件内的守卫。
+
+### keep-alive和vue-router
+
+1. keep-alive是Vue内置的一个组件，可以是被包含的组件保留状态，或避免重新渲染
+2. router-view是VueRouter中的一个组件，如果直接被包在keep-alive里面，所有的路径匹配到的视图组件都会被缓存
+
+`activated()`和`deactivated()`这两个函数只有在keep-alive情况下才能使用。
+
+keep-alive有两个非常重要的属性：
+
+1. include 字符串或正则表达式，只有匹配的组件会被缓存
+2. exclude 字符串或正则表达式，任何匹配的组件都不会被缓存
+   - `exclude='Profile,User'`这里两个属性之间`,`左右不能加空格
 
 ## Vuex
 
