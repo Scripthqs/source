@@ -150,7 +150,7 @@ webpack会自动帮助我们生成一个32位hash值，目的防止名字重复�
 
 ````js
  resolve:{
-      extensions: ['.js','.css','.vue'],//导入文件时，可以省略后缀
+      extensions: ['.js','.css','.vue'],//配置这个参数后，导入文件时，可以省略后缀
       alias: {
         'vue$': 'vue/dist/vue.esm.js'
       }
@@ -232,3 +232,19 @@ ctrl+c终止预处理命令
 7. 在package.json文件中配置对应的脚本：
     - `"build": "webpack --config ./build/prod.config.js"`
     - `"dev": "webpack-dev-server --open --config ./build/dev.config.js"`
+
+## webpack配置别名
+
+````js
+ resolve:{
+      extensions: ['.js','.css','.vue'],//配置这个参数后，导入文件时，可以省略后缀
+      alias: {
+        'vue$': 'vue/dist/vue.esm.js'，
+        '@': resolve('src')//用@符号代替src文件夹
+        'assets': resolve('@/assets')//引入文件的路劲不用考虑层级，直接写assets就可以
+        'components': resolve('@/components')//引入文件的路劲不用考虑层级
+        'views': resolve('@/views')//引入文件的路劲不用考虑层级
+    }
+````
+
+注意：起别名后，通过import引入的路径别名可以直接生效，src引入的路径使用别名需要加~，`~assets/`
