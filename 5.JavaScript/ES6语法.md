@@ -208,3 +208,19 @@ new Promise((resolve() =>{resolve(data)}))可以简写成Promise.resolve(data)�
 ### Promise的all方法
 
 - `Promise.all([promise1, promise2, promise3]).then().catch()`
+
+## Object.defineProperty方法
+
+Object.defineProperty(对象,'属性age',{各种属性})，可传的常用属性有：
+
+- `value: 18`
+- `enumerable: true`//控制属性是否可以被枚举，默认值是false
+- `writable: true,`//控制属性是否可以被修改，默认值是false
+- `configurable: true`//控制属性是否可以被删除，默认值是false
+- `get()`：当有人读取age属性时，get函数（getter）会被调用，且返回值就是age的值
+- `set(value)`：当有人修改了age属性时，set函数（setter）会被调用，且会收到修改的具体值
+
+枚举对象中属性的方法：
+
+- `console.log(Object.keys(person));`
+- `for(let key in person){console.log(person[key]);}`
