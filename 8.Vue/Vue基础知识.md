@@ -200,6 +200,30 @@ Vue.js 使用了基于 HTML 的模板语法，允许开发者声明式地将 DOM
 </style>
 ````
 
+## 自定义指令
+
+在Vue中，我们可以自定义指令。
+
+定义语法：
+
+1. 局部指令：
+   - `new Vue({directives:{指令名:配置对象}})`
+   - `new Vue({directives{指令名:回调函数}})`
+2. 全局指令：
+   - `Vue.directive(指令名,配置对象)`
+   - `Vue.directive(指令名,回调函数)`
+
+配置对象中常用的3个回调函数：
+
+1. `.bind`：指令与元素成功绑定时调用
+2. `.inserted`：指令所在元素被插入页面时调用
+3. `.update`：指令所在模板结构被重新解析时调用
+
+注意：
+
+1. 指令定义时不加v-，但使用时要加v-
+2. 指令如果是多个单词，要使用kebab-case命名方式，不要用camelCase命名
+
 ## v-bind属性绑定机制
 
 ### v-bind绑定基本属性
@@ -337,6 +361,8 @@ Vue中的数据代理：通过vm对象来代理data对象中属性的操作，�
 - `get()`：当有人读取age属性时，get函数（getter）会被调用，且返回值就是age的值
 - `set(value)`：当有人修改了age属性时，set函数（setter）会被调用，且会收到修改的具体值
 
+数据劫持：将一个对象的属性都遍历一遍，变成getter或setter形式，属性一旦被修改或读取，就会重新代理，都是依赖这个属性Object.defineProperty
+
 ### Vue中data和_data
 
 vue中data到底层_data经历了2个步骤：
@@ -402,7 +428,12 @@ vue中data到底层_data经历了2个步骤：
 
 ### 过滤器
 
-filter过滤器，可以用在两个地方：双花括号插值和 v-bind 表达式
+对显示的数据进行特定格式化后的显示（适用于一些简单逻辑的处理）可以使用过滤器。
+
+1. 注册过滤器：`Vue.filter(name,callback)`或`new Vue({filters:{}})`
+2. 使用过滤器，filter过滤器，可以用在两个地方：双花括号插值和 v-bind 表达式。例如：{{xxx | 过滤器}}
+3. 过滤去也可以接收额外参数，多个过滤器可以串联
+4. 并没有改变原数据，是产生新的对应的数据
 
 ## v-model表单输入绑定
 
@@ -428,6 +459,15 @@ v-model指令配合表单使用，实现双向绑定
   - `.lazy`默认情况下，data中的数据会和input中的数据同步变化，`.lazy`修饰符可以在数据失去焦点或者回车时才更新
   - `.number`输入框中输入元素的值总会返回字符串类型，`.number`修饰符可以将用户的输入值转为数值类型
   - `.trim`自动过滤用户输入的首尾空白字符
+
+总结：
+
+1. 若`<input type='text' />`，则v-model收集的是value值，用户输入就就是value值
+2. 若`<input type='radio' />`，则v-model收集的是value值，且要给标签配置value值
+3. 若`<input type='checkbox' />`，则v-model收集的是value值，用户输入就就是value值
+   - 若没有配置value值，那么收集的就是checked（勾选或未选，是布尔值）
+   - 配置value值，v-model的初始值是非数组，和上面一样
+   - 配置value值，v-model的初始值是数组，收集的就是value组成的数组
 
 ## components组件化开发
 
