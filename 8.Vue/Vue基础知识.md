@@ -1017,4 +1017,19 @@ actions中可以返回一个promise，然后在dispatch中拿到promise，然后
 
 由于Vuex使用单一状态树，当应用变得非常复杂时，store对象就可能变得相当臃肿，为了解决这个问题，Vuex允许我们将store分割成模块Module，而每个模块拥有自己的state，mutations，actions，getters等
 
-## 网络请求封装（axios）
+## Vue中的ajax
+
+## Vue UI组件库
+
+移动端常用的UI组件库
+
+1. Vant
+2. Cube UI
+3. Mint UI
+
+PC端常用的UI组件库
+
+1. Element UI
+2. IView UI
+
+学习UI组件库要先知道2个问题：1.是基于哪个技术的，组件的概念是基于框架的。2.是PC端还是移动端。
