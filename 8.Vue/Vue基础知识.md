@@ -537,6 +537,7 @@ Vue中，所有的组件都继承自Vue类的原型。
 props基本使用
 
 1. 字符串数组，数组中的字符串就是传递时的名称
+   - `props:['name']`
 2. 对象，对象可以设置传递时的类型，可以设置默认值，也可以设置
    - type 类型
    - default 默认值 默认值时对象时，fefault必须是函数
@@ -551,7 +552,7 @@ props基本使用
 3. 父组件在定义methods中的方法
    - `cpnclick(item){console.log(item)}`
 
-注意：v-model双向绑定数据时，避免直接改变 prop，因为每当父组件重新渲染时，值都会被覆盖。正确方法是在data或计算属性中修改。
+注意：v-model双向绑定数据时，避免直接改变 props，因为每当父组件重新渲染时，值都会被覆盖。正确方法是在data或计算属性中修改。
 
 ### 父子组件的访问方式
 
@@ -564,6 +565,12 @@ props基本使用
 - `$refs`是一个对象类型，默认是一个空的对象，必须在组件上加一个`ref='aaa'`的属性才能读取
 
 子组件访问父组件使用`$parent`，使用`$root`可以直接访问根组件
+
+ref属性
+
+1. 用来给元素或子组件组成引用信息（id的替代者）
+2. 被应用在html标签上获取的是真实的dom元素，应用在组件标签上是组件的实例对象
+3. this.$refs.xxx获取
 
 ## 插槽
 
@@ -742,7 +749,7 @@ Vue程序的运行流程；
 
 render函数中的h是createElement函数，createElement('标签','{标签属性}',['标签中的内容'])
 
-render函数可以直接传入组件
+render函数可以直接传入组件，`render:createElement => createElement(App)`
 
 使用runtime-only版本时，.vue文件的template由vue-template-compiler直接编译成render函数
 
@@ -761,6 +768,12 @@ vuecli3目录结构会简洁很多
 - .browserslistrc：浏览器相关支持情况
 
 ### vuecli3修改配置
+
+Vue脚手架隐藏了所有webpack相关的配置，若想查看具体的配置可以执行
+
+- `vue inspect > output.js` 只能查看，不能修改
+
+修改配置的方法：
 
 1. vuecli3的很多相关配置被隐藏，使用vue ui即可使用图形化管理配置
 
