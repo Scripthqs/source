@@ -1019,6 +1019,8 @@ actions中可以返回一个promise，然后在dispatch中拿到promise，然后
 
 ## Vue中的ajax
 
+Vue作者推荐axios框架
+
 ## Vue UI组件库
 
 移动端常用的UI组件库
