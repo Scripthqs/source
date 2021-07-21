@@ -99,6 +99,7 @@ git使用前需要先配置，使用git可以多人协作，可以做到责任�
 
 将git仓库中指定的更新记录恢复出来，并且覆盖暂存区和工作目录
 
+- `git log` 查看之间版本的commitID
 - `git reset --hard commitID`
 
 ## Git分支
