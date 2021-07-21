@@ -173,6 +173,34 @@ JSONP的核心在于通过`<script>`标签中的src来帮助我们请求数据�
 - get
 - post
 
+写法1:
+
+- `axios(config)`config是一个对象，传入url和method等
+- `axios({}).then(res=>{})
+
+写法2：
+
+- `axios.get().then(res=>{})`
+- `axios.post().then(res=>{})`
+
+axios发送并发请求：
+
+````js
+axios.all([axios({
+  url:'http://localhost:8081/api/students'
+}),axios({
+  url:'http://localhost:8081/test/cars'
+})]).then(res=>{
+  console.log(res);
+})
+````
+
+`.then(axios.spread((res1,res2) => {}))`这种写法可以展开数组
+
+### 请求服务器时报错
+
+请求服务器时报错，出现这`CORS` `Access-Control-Allow-Origin`两个关键词，说明我们跨域了。解决方法见下面跨越的章节。
+
 ### 全局配置
 
 一些BaseRUL是一样的，可以进行全局配置
@@ -185,6 +213,9 @@ JSONP的核心在于通过`<script>`标签中的src来帮助我们请求数据�
 - 请求地址url
 - 请求类型
 - 请求根路径
+
+- get请求时，请求体参数放在params中
+- post请求时，请求体参数放在data中
 
 ### axios的实例
 
@@ -217,14 +248,22 @@ fetch是全局对象，可以直接调用，返回的是一个promise对象，�
 
 同源策略是浏览器的一种安全策略。同源：协议、域名、端口号、必须完全相同。违背同源就是跨越。
 
-服务器和服务器之间通信是http请求，不用ajax
-
 ### 如何解决跨域
 
-1. JSONP(JSOP with padding)，是一个非官方的跨域解决方案，只支持get请求。  
-原理：在网页中，一些标签自带跨越功能，比如，img link iframe script，jsonp就是利用script标签的跨域功能（src属性）来发送请求。
+1. JSONP(JSON with padding)，是一个非官方的跨域解决方案，只支持get请求，而且需要前后端配合所以太鸡肋。  
+JSONP原理：在网页中，一些标签自带跨域功能，比如，img link iframe script，jsonp就是利用script标签的跨域功能（src属性）来发送请求。
+
 2. CORS跨域资源共享，是官方的跨域解决方案，它的特点是不需要在客户端做任何特殊的操作，完全在服务器中进行处理，支持get和post请求。  
-CORS 是通过设置一个响应头来告诉浏览器，该请求允许跨域，浏览器收到该响应以后就会对响应放行。
+CORS原理：通过设置一个响应头来告诉浏览器，该请求允许跨域，浏览器收到该响应以后就会对响应放行。这个才是真正的解决跨域问题。但需要后端完成
+
 3. 配置代理服务器。
    - 可以通过nginx开启代理服务器，但是需要学习后端等很多知识。
    - 通过vue-cli的api的`module.exports = {devServer: {proxy: 'http://localhost:4000'}}`
+
+流程：
+
+1. 本地浏览器地址(localhost:8080)
+2. 向代理服务器发送请求(localhost:8080)
+3. 代理服务器向服务器发送请求(localhost:5000)
+
+注意：浏览器和服务器之间通信时ajax，服务器和服务器之间通信是http请求，不用ajax。
