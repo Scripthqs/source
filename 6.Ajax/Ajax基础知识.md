@@ -224,11 +224,11 @@ axios.all([axios({
 
 ### axios拦截器
 
-axios提供了拦截器，用于我们发送每次请求或者得到响应后，进行对应的处理。
+axios提供了拦截器，用于我们发送每次请求或者得到响应后，进行对应的处理。比如需要将请求进行拼接，请求时在页面增加一些效果等等
 
 请求成功、请求失败、响应成功、响应失败
 
-- `axios.interceptors`
+- `axios.interceptors` 拦截全局
 - `instance.interceptors.request.use();`
 - `instance.interceptor.response.use()`
 
