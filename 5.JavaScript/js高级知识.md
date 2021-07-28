@@ -186,7 +186,7 @@ IIFE；Immediately-Invoked Function Expression（立即调用的函数表达式�
 使用IIFE的好处：
 
 - 不必为函数命名，避免了污染全局变量
-- IFE 内部形成了一个单独的作用域，可以封装一些外部无法读取的私有变量。
+- IIFE 内部形成了一个单独的作用域，可以封装一些外部无法读取的私有变量。
 
 #### this
 
