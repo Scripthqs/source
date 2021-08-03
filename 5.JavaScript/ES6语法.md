@@ -224,3 +224,4 @@ Object.defineProperty(对象,'属性age',{各种属性})，可传的常用属性
 
 - `console.log(Object.keys(person));`
 - `for(let key in person){console.log(person[key]);}`
+
