@@ -84,7 +84,7 @@ background-attachment属性设置图片**固定或者滚动**
 background-clip设置元素的背景（颜色或图片）是否**延伸到边框下边**
 
 ```css
-	background-clip: border-box;/*背景会出现在边框下边*/
+	background-clip: border-box;/*背景会出现在边框下边，*/
 	background-clip: padding-box;/*超出 padding-box 的部分，将裁剪掉*/	
 	background-clip: content-box;/*超出 content-box 的部分，将裁剪掉*/	
 ```

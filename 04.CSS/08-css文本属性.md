@@ -84,3 +84,12 @@ img {
 }
 ```
 
+## 7、text-shadow
+
+text-shadow属性可以将阴影应用于文本
+
+```css
+	text-shadow: 水平阴影 垂直阴影 模糊距离 阴影颜色
+	text-shadow: 5px 5px 6px rgba(0)
+```
+
