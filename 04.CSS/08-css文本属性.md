@@ -74,7 +74,7 @@ p {
 
 ## 6、vertical-align
 
-vertical-align属性可以用于指定文字的垂直对齐。但不限于文字，可用于指定**行内元素**（inline）、**行内块元素**（inline-block）、**表格的单元格**（table-cell）的垂直对齐方式。主要是用于**图片、表格、文本**的对齐。
+vertical-align属性可以用于指定文字的垂直对齐。但不限于文字，可用于指定**行内元素**（inline）、**行内块元素**（inline-block）、**表格的单元格**（table-cell）的垂直对齐方式。主要是用于**图片、表格、文本**的**对齐**。
 
 ```
 vertical-align: middle; /*居中对齐*/
