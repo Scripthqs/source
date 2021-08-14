@@ -77,11 +77,10 @@ p {
 vertical-align属性可以用于指定文字的垂直对齐。但不限于文字，可用于指定**行内元素**（inline）、**行内块元素**（inline-block）、**表格的单元格**（table-cell）的垂直对齐方式。主要是用于**图片、表格、文本**的**对齐**。
 
 ```
-vertical-align: middle; /*居中对齐*/
-vertical-align: baseline; /*元素放置在父元素的基线上默认值*/
-img {
-	vertical-align: middle;/*处理图片*/
-}
+ 	vertical-align: baseline; /*基线对齐，默认值*/
+    vertical-align: middle; /*居中对齐*/
+    vertical-align: top; /*顶端对齐*/
+    vertical-align: bottom; /*底端对齐*/
 ```
 
 ## 7、text-shadow
@@ -91,5 +90,31 @@ text-shadow属性可以将阴影应用于文本
 ```css
 	text-shadow: 水平阴影 垂直阴影 模糊距离 阴影颜色
 	text-shadow: 5px 5px 6px rgba(0)
+```
+
+## 8、text-overflow 
+
+text-overflow 属性规定当文本溢出包含元素时发生的事情。
+
+```css
+    text-overflow: clip;/*修剪文本*/    
+    text-overflow: ellipsis;/*显示省略符号来代表被修剪的文本*/    
+    text-overflow: string;/*使用给定的字符串来代表被修剪的文本*/ 
+```
+
+## 8、white-space
+
+white-space属性可以设置网页如何处理空白，属性值有:
+
+- `normal`默认值，正常
+- `nowrap`不换行
+- `pre`保留空白，会保留空格换行
+
+网页中常常需要将溢出的文字内容以省略号显示
+
+```css
+    white-space:nowrap;/*强制一行显示文本*/
+    overflow:hidden;/*超出部分隐藏*/
+    text-overflow: ellipsis;/*文字用省略号替代超出部分*/
 ```
 
