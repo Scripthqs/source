@@ -158,6 +158,13 @@ div:hover{
 	outline: none;/*取消表单文本框的默认轮廓*/
 ```
 
+outline属性不会贴合盒子的圆角
+
+```css
+	 border-radius: 10px;
+	 outline: 1px solid red;
+```
+
 ## 9、box-shadow
 
 `box-shadow`属性用来设置元素的**阴影效果**，也不会影响布局。
@@ -165,6 +172,13 @@ div:hover{
 ````css
 	box-shadow:10px 10px 50px 10px rgba;//水平偏移量 垂直偏移量  阴影的模糊半径 阴影尺寸 阴影颜色`
 ````
+
+box-shadow支持逗号分割语法，可以创建任意数量的投影
+
+```css
+	box-shadow: 0 0 0 10px #655,
+				0 0 0 15px red;
+```
 
 ## 10、margin布局
 
