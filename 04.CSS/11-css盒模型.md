@@ -247,4 +247,4 @@ div{
 - 通配选择器同时设置`margin:0;`和`padding:0;`可以去除大多数默认样式。
 
 - 引入reset.css重置样式表
-- 引入[normalize.css](https://github.com/necolas/normalize.css)重置样式表
+- 引入[normalize.css](https://github.com/necolas/normalize.css)重置样式表(移动端)
