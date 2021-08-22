@@ -83,6 +83,8 @@ Web存储的特性：
 
 ```
 <link href="style.css" rel="stylesheet" />
+<a href=""></a>
+
 ```
 
 浏览器加载到这里的时候，`html` 的渲染和解析不会暂停，`css` 文件的加载是同时进行的
