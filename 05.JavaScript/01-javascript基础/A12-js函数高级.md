@@ -16,8 +16,8 @@
 - 每个函数对象都有一个prototype属性，称为显式原型属性，默认指向`{}`空实例对象。
 - 每个实例对象都有一个__proto__属性，称为隐式原型属性。
 - 构造函数对象的显示原型===实例对象的隐式原型
-- Function是new Function()产生的
-- Object也是new Function()产生的
+  - Function是new Function()产生的
+  - Object也是new Function()产生的
 - 所有函数的__proto__都是一样的
 
 - 函数的prototype属性：在定义函数时自动添加的，默认值是Object空对象。
@@ -36,7 +36,7 @@
 ### 1.4、原型的继承
 
 - 构造函数的实例对象自动拥有构造函数原型对象的属性（方法）
-- 原理：原型链
+-  原理：原型链
 
 1. 所有函数的显示原型指向的对象是空Object实例对象(Object不满足)
    - `Object.prototype instanceof Object`//false

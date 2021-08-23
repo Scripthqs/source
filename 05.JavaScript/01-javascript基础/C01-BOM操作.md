@@ -15,7 +15,7 @@ JavaScript基础分为三个部分：
 
 **BOM结构图：**
 
-![BOM](D:\user\Desktop\Script\note\05.JavaScript\img\BOM.png)
+![BOM](D:\user\Desktop\scripthqs\note\material\js\BOM.png)
 
 - **window对象是BOM的顶层(核心)对象**，所有对象都是通过它延伸出来的，也可以称为window的子对象。
 - DOM也是BOM的一部分。
