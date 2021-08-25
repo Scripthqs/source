@@ -1,4 +1,4 @@
-# call()、apply()、bind()
+# call、apply、bind
 
 ## 1.call()
 
@@ -149,4 +149,54 @@ bind()传参的方式与call()相同。
 ```
 
 ## 6.手写
+
+call()的手写：
+
+```js
+    Function.prototype.myCall = function (obj, ...args) {
+      // 判断 context 是否传入，如果未传入则设置为 window
+      obj = obj || window
+      //新建一个唯一的Symbol变量避免重复,作为obj的属性
+      const key = Symbol()
+      // this是调用myCall的函数，将this赋值成obj对象的方法
+      obj[key] = this
+      //以对象调用形式调用这个方法
+      obj[key](...args)
+      //删除该方法，不然会对传入对象造成污染（添加该方法）
+      delete obj[key]
+    }
+```
+
+apply的手写：
+
+```js
+ Function.prototype.myApply = function (obj, args = []) {
+      // 判断 context 是否传入，如果未传入则设置为 window
+      obj = obj || window
+      //新建一个唯一的Symbol变量避免重复,作为obj的属性
+      const key = Symbol()
+      // this是调用myCall的函数，将this赋值成obj对象的方法
+      obj[key] = this
+      //判断传入的参数是否是数组
+      if (!Array.isArray(args)) {
+        console.error('第二个参数必须传数组');
+      } else {
+        obj[key](...args)
+      }
+      //删除该方法，不然会对传入对象造成污染（添加该方法）
+      delete obj[key]
+    }
+```
+
+bind的手写：
+
+```js
+    Function.prototype.myBind = function (obj, ...args) {
+      let that = this
+      return function () {
+        let newArgs = args.concat(...arguments)
+        that.myCall(obj, newArgs)//手写myCall的基础上
+      }
+    }
+```
 
