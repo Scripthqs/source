@@ -192,10 +192,10 @@ bind的手写：
 
 ```js
     Function.prototype.myBind = function (obj, ...args) {
-      let that = this
+      let _this = this
       return function () {
         let newArgs = args.concat(...arguments)
-        that.myCall(obj, newArgs)//手写myCall的基础上
+        _this.myCall(obj, newArgs)//手写myCall的基础上
       }
     }
 ```
