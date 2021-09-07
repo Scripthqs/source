@@ -27,7 +27,7 @@ module.exports = {
   entry: path.join(_dirname,'./src/index.js'),// 入口文件
   output: {// 输出配置
     filename: 'bundle.js',// 输出文件名
-    path: path.j(__dirname, './dist')// 输出文件路径配置
+    path: path.join(__dirname, './dist')// 输出文件路径配置
   },
    mode: 'development' //开发环境
 };
