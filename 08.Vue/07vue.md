@@ -96,6 +96,8 @@ new Vue({
 })
 ```
 
+**浏览器无法解析.vue文件，通过vue-template-compiler将vue文件转换成js文件**
+
 ## 7 vue 项目的运行流程
 
 通过**main.js把App.vue渲染到index.html**的指定区域中。
