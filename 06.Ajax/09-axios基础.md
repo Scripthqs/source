@@ -43,42 +43,112 @@
 
 ## 4、axios 的基本使用
 
-1. 发起 GET 请求：**通过params传参**
+### 4.1 axios发送get请求
 
-   ```js
-   axios({
-     // 请求方式
-     method: 'GET',
-     // 请求的地址
-     url: 'http://www.liulongbin.top:3006/api/getbooks',
-     // URL 中的查询参数
-     params: {
-       id: 1
-     }
-   }).then(function (result) {
-     console.log(result)
-   })
+发起 GET 请求：**通过params传参**
+
+1.通过`axios({})`通用方式发送
+
+```js
+    axios({
+      // 请求方式
+      method: 'GET',
+      // 请求的地址
+      url: 'https://autumnfish.cn/top/playlist',
+      // URL 中的查询参数
+      params: {
+        limit: 10,
+        order: 'new'
+      }
+    }).then(function (result) {
+      console.log(result)
+    })
+```
+
+2.通过`axios('url',{})`发送
+
+```
+axios("https://autumnfish.cn/top/playlist", {
+      // 请求方式
+      method: 'GET',
+      params: {
+        limit: 10,
+        order: 'new'
+      }
+    }).then(function (result) {
+      console.log(result)
+    })
+```
+
+3.通过`axios.get('url',{})`发送
+
+get请求传递2个参数：
+
+1. 请求的地址
+
+2. 表示配置信息，
+
+   - params 表示传递到服务器的数据，以url参数的形式拼接
+
+   ```
+   https://autumnfish.cn/top/playlist?limit=10&order=new
    ```
 
-2. 发起 POST 请求：**通过data传参**
+```js
+    axios.get('https://autumnfish.cn/top/playlist', {
+      // URL 中的查询参数
+      params: {
+        limit: 10,
+        order: 'new'
+      }
+    }).then(function (result) {
+      console.log(result)
+    })
+```
 
-   ```js
-   document.querySelector('#btnPost').addEventListener('click', async function () {
-     // 如果调用某个方法的返回值是 Promise 实例，则前面可以添加 await！
-     // await 只能用在被 async “修饰”的方法中
-     const { data: res } = await axios({
-       method: 'POST', 
-       url: 'http://www.liulongbin.top:3006/api/post',
-       data: {
-         name: 'zs',
-         age: 20
-       }
-     })
-   
-     console.log(res)
-   })
-   ```
+### 4.2 axios发送post请求
+
+发起 POST 请求：**通过data传参**，**上面的前两种方法，get和post都可以使用。**
+
+通过`axios.post("",{},{})`发送
+
+```
+axios.post("",{},{})
+```
+
+post请求传递3个参数，
+
+1. 请求地址
+2. 传递的数据，在请求体中传递，默认是json格式
+3. 配置的信息，header等
+
+```js
+    axios.post("https://autumnfish.cn/login/cellphone", {
+      phone: '15588889999',
+      password: '123456789'
+    }, {}).then(res => {
+      console.log(res)
+    })
+  },
+```
+
+可以使用async和await简化promise
+
+```js
+  // 如果调用某个方法的返回值是 Promise 实例，则前面可以添加 await！
+	async created () {
+  // await 只能用在被 async “修饰”的方法中  
+    const { data: res } = await axios.post("https://autumnfish.cn/login/cellphone", {
+      phone: '15588889999',
+      password: '123456789'
+    })
+    console.log(res)
+  },
+```
 
 1. 调用axios之后，使用async/await进行简化
 2. 使用结构赋值，从axios封装的大对象中，把data属性解构出来
 3. 把解构出来的data属性，使用冒号`:`进行重命名{data: res}
+
+
+

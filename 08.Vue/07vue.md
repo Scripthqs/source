@@ -106,3 +106,10 @@ new Vue({
 - **index.html** 中需要预留一个 **el 区域**
 - main.js 把 **App.vue** 渲染到了 **index.html** 所预留的区域中
 
+## 8 components和views文件夹
+
+- 两个文件夹都是用来方组件的，
+
+- 如果每个组件是通**过路由来切换的**，就放在**views里面**
+- **不使用路由**切换，**可复用**的组件，放在**components里面**
+

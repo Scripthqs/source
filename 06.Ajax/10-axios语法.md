@@ -1,4 +1,4 @@
-# axios语法
+# axios拦截器
 
 ## 1、 axios.create(config)
 
