@@ -292,6 +292,5 @@ this.$store.dispatch('personAbout/addPersonWang',person)
 this.$store.commit('personAbout/ADD_PERSON',person)
 //方式二：借助mapMutations：
 ...mapMutations('countAbout',{increment:'JIA',decrement:'JIAN'}),
-
 ```
 
