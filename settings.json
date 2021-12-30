@@ -1,0 +1,116 @@
+{
+    "editor.formatOnSave": true,
+    // eslint配置项，保存时自动修复错误
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+        "source.fixAll.markdownlint": true
+    },
+    // 让vetur使用vs自带的js格式化工具，以便在函数前面加个空格
+    "vetur.format.defaultFormatter.js": "vscode-typescript",
+    "javascript.format.semicolons": "remove",
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+    "vetur.format.defaultFormatterOptions": {
+        "js-beautify-html": {
+            "wrap_line_length": 180, //换行长度
+            "wrap_attributes": "aligned-multiple" //属性换行
+            // 对属性进行换行。
+            // - auto: 仅在超出行长度时才对属性进行换行。
+            // - force: 对除第一个属性外的其他每个属性进行换行。
+            // - force-aligned: 对除第一个属性外的其他每个属性进行换行，并保持对齐。
+            // - force-expand-multiline: 对每个属性进行换行。
+            // - aligned-multiple: 当超出折行长度时，将属性进行垂直对齐。
+        },
+        "prettyhtml": {
+            "printWidth": 100, // 超过最大值换行
+            "singleQuote": false, // 使用单引号代替双引号
+            "wrapAttributes": false,
+            "sortAttributes": false,
+            "Prettier:HTMLWhitespaceSensitivity": "ignore",
+            "tabWidth": 2, // 缩进字节数
+            "useTabs": false, // 缩进不使用tab，使用空格
+            "semi": false, // 句尾添加分号
+            "proseWrap": "preserve", // 默认值。因为使用了一些折行敏感型的渲染器（如GitHub comment）而按照markdown文本样式进行折行
+            "arrowParens": "avoid", //  (x) => {} 箭头函数参数只有一个时是否要有小括号。avoid：省略括号
+            "bracketSpacing": true, // 在对象，数组括号与文字之间加空格 "{ foo: bar }"
+            "disableLanguages": [
+                "vue"
+            ], // 不格式化vue文件，vue文件的格式化单独设置
+            "endOfLine": "auto", // 结尾是 \n \r \n\r auto
+            "eslintIntegration": false, //不让prettier使用eslint的代码格式进行校验
+            "htmlWhitespaceSensitivity": "ignore" //包裹文字时候结束标签的结尾尖括号掉到了下一行
+        }
+    },
+    "editor.tabSize": 2,
+    "vetur.format.defaultFormatter.html": "js-beautify-html",
+    "workbench.colorCustomizations": {
+        // "editorLineNumber.foreground": "#17a346",
+        // "editorGutter.background": "#020230",
+        "editorCursor.foreground": "#f00",
+        // "editor.foreground": "#201515",//
+        "editor.selectionHighlightBorder": "#94767c00",
+        "editor.selectionHighlightBackground": "#ff000078",
+        "editorIndentGuide.activeBackground": "#81868d",
+        "editorBracketMatch.background": "#ca9fdb5e",
+        "editorBracketMatch.border": "#ff0000",
+        "tab.activeBackground": "#ad9cd4b2",
+        "textLink.foreground": "#d6561ac4",
+        "descriptionForeground": "#ff0000",
+        "selection.background": "#b98cd693",
+        "textBlockQuote.background": "#b89a9a",
+        "textSeparator.foreground": "#86c2df",
+        "editor.selectionBackground": "#aa0000" // 选中高亮的颜色
+    },
+    "editor.tokenColorCustomizations": {
+        "comments": "#999", // 注释
+        "keywords": "#0a0", // 关键字
+        "variables": "#FF0000", // 变量名
+        "strings": "#e2d75dbd", // 字符串
+        "functions": "#AE81FF", // 函数名
+        "numbers": "#665bfcc9" // 数字
+    },
+    "workbench.colorTheme": "Monokai",
+    "files.autoSave": "afterDelay",
+    "[html]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "git.enableSmartCommit": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    "git.confirmSync": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "[python]": {
+        "editor.wordBasedSuggestions": false
+    },
+    "editor.tabCompletion": "on",
+    "editor.wordWrap": "wordWrapColumn",
+    "beautify.config": {
+        "brace_style": "none,preserve-inline",
+        "indent_size": 2,
+        "indent_char": " ",
+        "jslint_happy": true,
+        "unformatted": [
+            ""
+        ],
+        "css": {
+            "indent_size": 2
+        },
+        "max_preserve_newlines": 10,
+        "wrap_line_length": 0
+    },
+    "editor.wordWrapColumn": 120,
+    "markdownlint.focusMode": true,
+    "markdownlint.run": "onSave",
+    "less.compile": {
+        "compress": false, //是否压缩
+        "sourceMap": false, //是否生成map文件，有了这个可以在调试台看到less行数
+        "out": false, // 是否输出css文件，false为不输出
+        "outExt": ".css", // 输出文件的后缀
+    },
+    "path-autocomplete.extensionOnImport": true,
+    "path-autocomplete.pathMappings": {
+        "@": "${folder}/src/",
+        "@views": "${folder}/src/views/",
+    },
+}
