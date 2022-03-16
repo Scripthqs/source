@@ -32,33 +32,33 @@ interface Option {
 
 ```js
 /* 查询一级商品分类 */
-    const queryOnesType = (id: any) => {
-      $axios.get($api.getClassification, { params: { parentId: id } }).then((res: any) => {
-        // console.log(res, '里面的leaf属性');
-        res.data.data.forEach((item: any) => {
-          item.value = item.gbpsPrdCategoryId;
-          item.label = item.name;
-          item.isLeaf = item.leaf;
-        });
-        options.value = res.data.data;
-      });
-    };
+const queryOnesType = (id: any) => {
+  $axios.get($api.getClassification, { params: { parentId: id } }).then((res: any) => {
+    // console.log(res, '里面的leaf属性');
+    res.data.data.forEach((item: any) => {
+      item.value = item.gbpsPrdCategoryId;
+      item.label = item.name;
+      item.isLeaf = item.leaf;
+    });
+    options.value = res.data.data;
+  });
+};
 
-    const loadData: CascaderProps['loadData'] = selectedOptions => {
-      const targetOption = selectedOptions[selectedOptions.length - 1];
-      targetOption.loading = true;
-      searchForm.formValue['categoryCode'] = targetOption.gbpsPrdCategoryId;
-      $axios.get($api.getClassification, { params: { parentId: targetOption.gbpsPrdCategoryId } }).then((res: any) => {
-        console.log(res);
-        targetOption.loading = false;
-        res.data.data.forEach((item: any) => {
-          item.value = item.gbpsPrdCategoryId;
-          item.label = item.name;
-          item.isLeaf = item.leaf;
-        });
-        targetOption.children = res.data.data;
-      });
-    };
+const loadData: CascaderProps['loadData'] = selectedOptions => {
+  const targetOption = selectedOptions[selectedOptions.length - 1];
+  targetOption.loading = true;
+  searchForm.formValue['categoryCode'] = targetOption.gbpsPrdCategoryId;
+  $axios.get($api.getClassification, { params: { parentId: targetOption.gbpsPrdCategoryId } }).then((res: any) => {
+    console.log(res);
+    targetOption.loading = false;
+    res.data.data.forEach((item: any) => {
+      item.value = item.gbpsPrdCategoryId;
+      item.label = item.name;
+      item.isLeaf = item.leaf;
+    });
+    targetOption.children = res.data.data;
+  });
+};
 ```
 
 ### 搜索重置功能
@@ -81,15 +81,16 @@ interface Option {
           </a-form-item>
         </a-col>
         <a-col :span="6">
-          <a-button type="primary" html-type="submit">搜索</a-button>
-          <a-button style="margin: 0 8px" @click="reset">重置</a-button>
-        </a-col>
-        <a-col :span="6">
           <a-form-item name="name3" label="分类">
             <a-cascader v-model:value="formState['name3']" :options="options" :load-data="loadData" placeholder="请选择" change-on-select />
           </a-form-item>
         </a-col>
+        <a-col :span="6">
+          <a-button type="primary" html-type="submit">搜索</a-button>
+          <a-button style="margin: 0 8px" @click="reset">重置</a-button>
+        </a-col>
       </a-row>
+      
     </a-form>
   </div>
 </template>
@@ -224,7 +225,7 @@ export default defineComponent({
 将返回的数据页码相关信息进行赋值
 
 ```js
-const getTableDate = function(p: Iparams) {
+const getTableDate = function (p: Iparams) {
   $axios.post($api.queryByPage, p).then((res: any) => {
     console.log('分页查询全部商品', res);
     state.data = res.data.data.data;
