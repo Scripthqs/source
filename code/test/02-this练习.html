@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this</title>
+</head>
+<body>
+    <script>
+        var name = 222
+        var a = {
+            name: 111,
+            say: function(){
+                console.log(this.name);
+            }
+        }
+        var fun = a.say
+        fun()//222
+        a.say()//111
+        var b = {
+            name: 333,
+            say: function(fun){
+                fun()
+            }
+        }
+        b.say(a.say)//222
+        b.say = a.say
+        b.say()//333
+    </script>
+</body>
+</html>

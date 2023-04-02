@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>js变量</title>
+</head>
+
+<body>
+  <script>
+    {
+      var a = 1;
+      const b = 2;
+      let c = 'hello world'
+    }
+    console.log(a);
+    // console.log(b);
+    // console.log(c);
+    let m = 1,
+      n = 2
+    let temp
+    temp = m
+    m = n
+    n = temp
+    console.log(m, n);
+    let max = Number.MAX_VALUE
+    console.log(max);
+    let min = Number.MIN_VALUE
+    console.log(min);
+    console.log(18); //数字型是蓝色
+    console.log('18'); //字符串黑色
+    console.log(true); //布尔是深蓝 
+    console.log('true'); //布尔是深蓝 
+    console.log(undefined); // 浅灰
+    console.log(null); //浅灰
+    var b = '123'
+    var b = +b
+    console.log(typeof b);
+    // var p = prompt()
+    // console.log(p);
+    document.write('<h1>标题1</h1>')
+    document.write('a')
+    var a = 1;
+    a = a++; //a=1
+    console.log(a);
+    a = ++a; //a=2
+    console.log(a);
+    console.log(1 > NaN);
+    console.log(2 && 3);
+    console.log(5 || 0);
+    console.log(1 || 2 && 3);
+  </script>
+</body>
+
+</html>

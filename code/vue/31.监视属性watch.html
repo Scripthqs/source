@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>watch监视属性</title>
+  <script src="./vue.js"></script>
+  <script src="./axios.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <h2>今天天气{{info}}</h2>
+    <button @click='changeWeather'>点击切换天气</button>
+    <hr />
+    <h3>a的值:{{num.a}}</h3>
+    <button @click='num.a++'>点我a加1</button>
+    <h3>b的值:{{num.b}}</h3>
+    <button @click='num.b++'>点我b加1</button>
+    <button @click='num={}'>点我num</button>
+    <input type="text" v-model="message">
+    <input type="text" v-model="username">
+    <input type="text" v-model="name.username">
+
+  </div>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        isHot: true,
+        num: {
+          a: 1,
+          b: 2
+        },
+        message: 'hello world',
+        username: '',
+        name: {
+          username: 'admin'
+        }
+      },
+      computed: {
+        info() {
+          return this.isHot ? '炎热' : '凉爽'
+        }
+      },
+      methods: {
+        changeWeather() {
+          this.isHot = !this.isHot
+        }
+      },
+      watch: {
+        // message(newVal, oldVal) {
+        //   console.log(newVal)
+        //   console.log(oldVal)
+        // },
+
+        message(newVal, oldVal) {
+          console.log(newVal)
+          console.log(oldVal)
+        },
+        // 监听 username 值的变化
+        async username(newVal) {
+          if (newVal === '') return
+          // 使用 axios 发起请求，判断用户名是否可用
+          const { data: res } = await axios.get('https://www.escook.cn/api/finduser/' + newVal)
+          console.log(res)
+        },
+        username: {
+          handler(newVal, oldVal) {
+            console.log(newVal, oldVal);
+          },
+          immediate: true
+        },
+
+        name: {
+          handler(newVal) {
+            console.log(newVal)
+          },
+          deep: true
+        },
+        'name.username': {
+          handler(newVal) {
+            console.log(newVal)
+          },
+          deep: true
+        },
+
+        // isHot: {
+        //     // immediate: true,深度监视
+        //     handler(newvalue,oldvalue){
+        //         console.log('ishot被修改了',newvalue,oldvalue);
+        //     }
+        // },
+        // 'num.a':{
+        //     handler(newvalue,oldvalue){
+        //         console.log('a被修改了',newvalue,oldvalue);
+        //     }
+        // },
+        // num:{
+        //     handler(){
+        //         deep:true,
+        //         console.log('num改变了');
+        //     }
+        // }
+        isHot(n, o) {
+          console.log('isHot被修改', n, o);
+        }
+      }
+    })
+    // app.$watch('isHot',{
+    //         handler(newvalue,oldvalue){
+    //             console.log('ishot被修改了',newvalue,oldvalue);
+    //         }
+    // })
+    // app.$watch('isHot',function(newvalue,oldvalue){
+    //     console.log('ishot被修改了',newvalue,oldvalue,this);
+    // })
+  </script>
+</body>
+
+</html>

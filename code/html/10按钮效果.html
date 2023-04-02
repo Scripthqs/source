@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格</title>
+    <style>
+        body{
+            background-color: #666;
+        }
+        table {
+            width: 50%;
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin: 0 auto;
+            /* text-align: center; */
+        }
+
+        td {
+            border: 1px solid black;
+  
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        tr:nth-child(2n) {
+            background-color: red;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .box2 {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            margin: 0 auto;
+        }
+        p{
+            font-size: 100px;
+            font-weight: bold;
+            text-shadow: -1px -1px 1px #000, 1px 1px 1px #fff;
+            /* text-shadow: -1px -1px 1px #fff,1px 1px 1px #000; */
+        }
+    </style>
+</head>
+
+<body>
+    <p>哈哈哈</p>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+
+    <table>
+        <tr>
+            <td>学号</td>
+            <td>姓名</td>
+            <td>性别</td>
+            <td>年龄</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>小明</td>
+            <td>男</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>小花</td>
+            <td>女</td>
+            <td>22</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>小红</td>
+            <td>女</td>
+            <td>19</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>小红</td>
+            <td>女</td>
+            <td>19</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>小红</td>
+            <td>女</td>
+            <td>19</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>小红</td>
+            <td>女</td>
+            <td>19</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>小红</td>
+            <td>女</td>
+            <td>19</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>小红</td>
+            <td>女</td>
+            <td>19</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>小红</td>
+            <td>女</td>
+            <td>19</td>
+        </tr>
+    </table>
+    <form action="jd.html">
+        账号<input type="text" name="username">
+        密码：<input type="password" name="mimahaha">
+
+        单选按钮
+        <input type="radio" name="jj" value="a">
+        <input type="radio" name="jj" value="b">
+        <input type="radio" name="jj" value="c" checked>
+        多选按钮
+        <input type="checkbox" name="dd">
+        <input type="checkbox" name="dd">
+        <input type="checkbox" name="dd">
+        <input type="submit">
+
+        <br>
+        <select name="xiala" id="">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option selected value="3">3</option>
+        </select>
+    </form>
+</body>
+
+</html>

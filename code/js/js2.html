@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据类型转换</title>
+    <script>
+        var a = 1;
+        // a = a.toString();
+        a = String(a);
+        console.log(typeof a);
+        console.log(a);
+        var b = '123hin';
+        var b = Number(b);
+        console.log(typeof b)
+        console.log(b);
+        var c = 0123;
+        var c = parseFloat(c);
+        console.log(typeof c)
+        console.log(c);
+        var d = ' ';
+        var d = Boolean(d);
+        console.log(typeof (typeof d))
+        console.log(d);
+        var e = +true;
+        console.log(typeof e);
+        console.log(e);
+
+        var m = 1;
+        m = m++;
+        m = ++m
+        console.log(m);
+        console.log(m++);
+        a = false;
+        a&&alert('我出不出来');
+        var a=1;
+        var b=2;
+        var c=3
+
+        console.log((1||2)&&3) 
+
+
+        if(a>5 || a<2){
+            alert('a比5大')
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

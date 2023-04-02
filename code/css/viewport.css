@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.w,
+.top_bar,
+.banner,
+.menu,
+.course_list {
+  width: 17.5rem;
+  margin: 0 auto;
+}
+a {
+  text-decoration: none;
+}
+html {
+  font-size: 5.33333333vw;
+  background-color: #eff0f4;
+}
+.top_bar {
+  display: flex;
+  height: 4.375rem;
+  line-height: 4.375rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.top_bar a {
+  color: #24253d;
+  font-size: 1.25rem;
+}
+.top_bar a i {
+  color: #999999;
+  font-size: 1rem;
+}
+.banner img {
+  width: 100%;
+}
+.menu {
+  height: 8.25rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-content: space-around;
+  text-align: center;
+}
+.menu a {
+  width: 8rem;
+  height: 3rem;
+  line-height: 3.05rem;
+  color: white;
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+}
+.menu a i {
+  margin-right: 0.5rem;
+}
+.menu a:nth-child(1) {
+  background-color: #f97053;
+}
+.menu a:nth-child(2) {
+  background-color: #c960ff;
+}
+.menu a:nth-child(3) {
+  background-color: #ff3971;
+}
+.menu a:nth-child(4) {
+  background-color: #1d98ff;
+}
+.course_list {
+  height: 9.85rem;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+  margin-bottom: 0.5rem;
+}
+.course_list .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.course_list h2 {
+  font-size: 0.825rem;
+  color: #24253d;
+  border-left: 2px solid #1d98ff;
+  padding-left: 4px;
+}
+.course_list a {
+  font-size: 0.7rem;
+  color: #969494;
+}
+.item_list {
+  width: 18rem;
+  display: flex;
+  overflow: auto;
+}
+.item {
+  flex: none;
+  box-sizing: border-box;
+  width: 8rem;
+  height: 8.1rem;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 0.25rem;
+  padding: 0 0.55rem;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  margin-right: 0.6rem;
+}
+.item img {
+  width: 100%;
+}
+.item h3 {
+  font-size: 0.8rem;
+}
+.item .info {
+  display: flex;
+  align-items: center;
+}
+.item .avatar {
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-left: 0.125rem;
+}
+.item .username {
+  font-size: 0.6rem;
+}
+/*# sourceMappingURL=./viewport.css.map */

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板抽离写法</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <cpn1></cpn1>
+        <cpn2></cpn2>
+        <cpn3></cpn3>
+        <countcpn></countcpn>
+    </div>
+
+<!-- <script type="text/x-template" id="cpn1"> -->
+<script type="text/html" id="cpn1">
+    <div>
+        <h2>我是cpn1中的标题</h2>
+        <p>我是cpn1中的内容</p>
+    </div>
+</script>
+
+
+<template id="cpn2">
+    <div>
+        <h2>我是cpn2中的标题</h2>
+        <p>我是cpn2中的内容</p>
+    </div>
+</template>
+
+
+<template id="cpn3">
+    <div>
+        <h2>{{ title }}</h2>
+        <p>{{ p }}</p>
+    </div>
+</template>
+
+
+<template id="countcpn">
+    <div>
+        <div>当前计数：{{ counter }}</div>
+        <button @click="increment">+</button>
+        <button @click="decrement">-</button>
+    </div>
+</template>
+
+
+<script>
+    Vue.component('cpn1',{
+        template: "#cpn1",
+
+    })
+    Vue.component('cpn2',{
+        template: "#cpn2"
+    })
+    Vue.component('cpn3',{
+        template: "#cpn3",
+        data(){
+            return {
+                title: '我是3中的标题',
+                p: '我是3的内容'
+            }
+        }
+    })
+
+
+    // const obj = {
+    //     counter: 0
+    // }
+
+
+
+    Vue.component('countcpn',{
+        template: "#countcpn",
+        data(){
+            return {
+                counter: 0
+            }
+        },
+        methods: {
+            increment(){
+                this.counter++
+            },
+            decrement(){
+                this.counter--
+            }
+        }
+    })
+
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "你好，Vue",
+        }
+    })
+</script>
+</body>
+</html>

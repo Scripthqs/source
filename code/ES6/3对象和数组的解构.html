@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解构赋值</title>
+</head>
+
+<body>
+    <script>
+        // const A = [1, 2, 3, 4]
+        // let [a, b, c, d] = A
+        // let [m, n] = A
+        // console.log(m);
+        // console.log(n);
+        // console.log(a, b, c, d);
+
+        // const Person = {
+        //     name: '小明',
+        //     age: '20',
+        //     fun1: function () {
+        //         console.log(1);
+        //     },
+        //     fun2: function (age) {
+        //         console.log(2);
+        //     }
+        // }
+        // let { age, name, fun2 } = Person
+        // console.log(name, age, fun2);
+        // let { fun1 } = Person
+        // console.log(fun1);
+        // fun1()
+
+
+
+        const per1 = {
+            msg1: 'hello',
+            arr1: ['吃饭', '睡觉', '喝水', '倒立']
+        };
+        let { msg1, arr1 } = per1;
+        console.log(msg1, arr1);
+        //复杂解构
+        let per2 = {
+            msg2: 'world',
+            age: 18,
+            arr2: ['吃饭', '睡觉', '喝水', '倒立'],
+            arr3: [
+                { name: 'aaa' },
+                { name: 'bbb' },
+                { name: 'ccc' }
+            ]
+        };
+        let { arr2: [one, two, three],
+            arr3: [first, second, third] } = per2;
+        console.log(one);
+        console.log(first);
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        .clock{
+            width: 400px;
+            height: 400px;
+            background-image: url(../img/1024px-Analogue_clock_face.svg.png) ;
+            background-size: cover;
+            margin: 100px auto;
+            border-radius: 50%;
+            position: relative;
+            /* border: 10px solid black; */
+        }
+        .clock>div{
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+        }
+        .sec_box{
+            width: 80%;
+            height: 80%;
+
+            animation: run steps(60) 0.6s infinite;
+        }
+        .min_box{
+            width: 70%;
+            height: 60%;
+
+
+            animation: run steps(60) 36s infinite;
+        }
+        .hour_box{
+            width: 50%;
+            height: 40%;
+
+            animation: run linear 432s infinite;
+        }
+
+        .sec{
+            width: 4px;
+            height: 50%;
+            background: red;
+            margin: 0 auto;
+
+        }
+        .min{
+            width: 6px;
+            height: 50%;
+            background: yellow;
+            margin: 0 auto;
+
+        }
+        .hour{
+            width: 8px;
+            height: 50%;
+            background: black;
+            margin: 0 auto;
+
+        }
+
+        @keyframes run {
+            from{
+                transform: rotateZ(0deg);
+            }
+            to{
+                transform: rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="sec_box">
+            <div class="sec"></div>
+        </div>
+        <div class="min_box">
+            <div class="min"></div>
+        </div>
+        <div class="hour_box">
+            <div class="hour"></div>
+        </div>
+
+    </div>
+</body>
+</html>

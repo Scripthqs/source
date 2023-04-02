@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <input type="button" value="跑马灯走起" @click="startMethod">
+        <input type="button" value="跑马灯停止" @click="stopMethod">
+
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '你好，世界，哈哈哈',
+                intervalId: null
+            },
+            methods: {
+                startMethod: function () {
+
+                    //【重要】在开启定时器之前，先进行判断，避免出现多个定时器
+                    //如果出现了多个定时器，后面的“停止定时器”操作是无效的
+                    if (this.intervalId != null) return; //【注意】这个定时器的this，一定不要忘记了
+
+                    //添加定时器：点击按钮后，让字符串连续滚动
+                    this.intervalId = setInterval(() => {
+                        // 获取 msg 的第一个字符
+                        var start = this.msg.substring(0, 1);
+                        // 获取 后面的所有字符
+                        var end = this.msg.substring(1);
+                        // 重新拼接得到新的字符串，并赋值给 this.msg
+                        // 注意： VM实例，会监听自己身上 data 中所有数据的改变，只要数据一发生变化，就会自动把 最新的数据，从data 上同步到页面中去
+                        this.msg = end + start;
+                        console.log(this.msg);
+                    }, 400);
+                },
+
+                stopMethod: function () {
+                    // 停止定时器：点击按钮后，停止字符串的滚动
+                    clearInterval(this.intervalId);
+                    // 每当清除了定时器之后，需要重新把 intervalId 置为 null
+                    this.intervalId = null;
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>

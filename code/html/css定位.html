@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>定位</title>
+  <style>
+    /* .box1 {
+      width: 200px;
+      height: 200px;
+      background-color: #f00;
+      position: relative;
+      top: 100px;
+      left: 100px;
+      right: 100px;
+      bottom: 100px;
+    }
+    .box2 {
+      width: 200px;
+      height: 200px;
+      background-color: #0f0;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      top: 0;
+    } */
+    /* .box3 {
+      position: relative;
+      width: 400px;
+      height: 400px;
+      background-color: #ff0;
+    }
+    .box4 {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-color: #00f;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      top: 0;
+    } */
+    body {
+      height: 2000px;
+    }
+
+    .box1 {
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background-color: #f00;
+      bottom: 0;
+    }
+
+    .box2 {
+      position: fixed;
+      width: 200px;
+      height: 200px;
+      background-color: #0f0;
+      bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box1"></div>
+  <div class="box2"></div>
+  <div class="box3">
+    <div class="box4"></div>
+  </div>
+
+
+</body>
+
+</html>

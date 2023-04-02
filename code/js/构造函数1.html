@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>构造函数1</title>
+    <script>
+        function Person(name,age,gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            this.fun=fun;
+            
+        }
+
+        function fun(){
+                console.log('我是内部的'+this.name)
+        };
+
+        var per = new  Person('黄天霸','18','男');
+        var per1 = new  Person('黄地霸','20','女');
+        per.fun();
+        per1.fun();
+
+        console.log(typeof per);
+        console.log(typeof Person);
+        console.log(per.fun===per1.fun);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

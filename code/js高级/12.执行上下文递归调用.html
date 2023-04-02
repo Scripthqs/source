@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>递归调用</title>
+</head>
+
+<body>
+    <script>
+        console.log('gb ' + i);//gb undefined
+        var i = 1;
+        foo(1);
+        function foo(i) {
+            if (i == 4) {
+                return;
+            }
+            console.log('fb ' + i);//fb 1 2 3 
+            foo(i + 1)
+            console.log('fe ' + i);//fe 3 2 1
+
+        }
+        console.log('ge ' + i);//ge 1
+
+
+        function a() { }
+        var a;
+        console.log(typeof a);
+
+
+        if (!(b in window)) {
+            var b = 1;
+        }
+        console.log(b);
+
+        //window.c = undefined
+        //window.c = function(){}
+        //window.c = 1
+        var c = 1
+        function c(c) {
+            console.log(c);
+            var c = 3;
+        }
+        c(2);
+
+
+        // if(true){
+        //     var x = 1
+        // }
+        // console.log(x);
+    </script>
+</body>
+
+</html>

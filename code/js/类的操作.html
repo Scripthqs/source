@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>类的操作</title>
+    <style>
+      .b1 {
+        width: 100px;
+        height: 100px;
+        background: red;
+      }
+      .b2 {
+        /* width: 200px; */
+        height: 200px;
+        background: #bfa;
+      }
+    </style>
+    <script>
+      window.onload = function () {
+        var box1 = document.getElementById("box1");
+        var btn1 = document.getElementById("btn1");
+        btn1.onclick = function () {
+          // box1.style.width = "200px";
+          // box1.className  += " b2"
+          // addClass(box1,"b2");
+          // removeClass(box1,"b1");
+          toggleClass(box1, "b2");
+        };
+
+        function addClass(obj, cn) {
+          if (!hasClass(obj, cn)) {
+            obj.className += " " + cn;
+          }
+        }
+        function hasClass(obj, cn) {
+          // var reg = /\bb2\b/;
+          var reg = new RegExp("\\b" + cn + "\\b");
+          return reg.test(obj.className);
+        }
+        function removeClass(obj, cn) {
+          var reg = new RegExp("\\b" + cn + "\\b");
+          obj.className = obj.className.replace(reg, "");
+        }
+
+        function toggleClass(obj, cn) {
+          if (hasClass(obj, cn)) {
+            removeClass(obj, cn);
+          } else {
+            addClass(obj, cn);
+          }
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <button id="btn1">点击修改样式</button>
+    <div id="box1" class="b1"></div>
+    <!-- <div id="box2"></div> -->
+  </body>
+</html>

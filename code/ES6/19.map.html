@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>map</title>
+</head>
+
+<body>
+  <script>
+    let m = new Map()
+    m.set('msg', 'hello world')
+    m.set('fun1', function () {
+      console.log(this)
+    })
+    let key = {
+      type: 'type'
+    }
+    m.set(key, ['number', 'string', 'boolean'])
+    console.log(m.size)
+    console.log(m);
+    console.log(m.get('fun1')())
+
+    //获取
+    console.log(m.get('msg'))
+    console.log(m);
+
+    // 删除
+    // m.delete('msg')
+    // console.log(m)
+
+    //清空
+    // m.clear()
+    // console.log(m)
+
+    //遍历
+    for (let v of m) {
+      console.log(v)
+      console.log(v instanceof Array)
+    }
+
+
+  </script>
+</body>
+
+</html>

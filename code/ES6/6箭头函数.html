@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数</title>
+    <style>
+        #ad {
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="ad"></div>
+    <script>
+        const arr = [1, 2, 3, 4, 5]
+        const res = arr.filter(function (item) {
+            return (item % 2 == 0)
+        })
+        console.log(res);
+        const res1 = arr.filter(item => item % 2)
+        console.log(res);
+        // const result = arr.filter(item => item % 2 === 0)
+        // console.log(result);
+        var fn = function (arg1, arg2, arg3) {
+            return arg1 + arg2 + arg3;
+        }
+
+        let fn1 = (arg1, arg2, arg3) => {
+            return arg1 + arg2 + arg3;
+        }
+        console.log(fn(1, 2, 3))
+        console.log(fn1(1, 2, 3));
+
+        //2. 省略小括号的情况
+
+        let fn2 = num => {
+            return num * 10;
+        }
+        console.log(fn2(10));
+
+        window.msg = 'hello'
+        const obj = {
+            msg: 'world'
+        }
+        function fun1() {
+            console.log(this.msg);
+        }
+        let fun2 = () => {
+            console.log(this.msg);
+        }
+        fun1()
+        fun2()
+        fun1.call(obj)
+        fun2.call(obj)
+
+
+        let ad = document.getElementById("ad")
+        // ad.onclick = function () {
+        //     setTimeout(() => {
+        //         this.style.background = "blue"
+        //     }, 1000)
+        // }
+        // ad.addEventListener('click', function () {
+        //     setTimeout(function () {
+        //         console.log(this);
+        //         this.style.background = 'blue'
+        //     })
+        // })
+        ad.onclick = function () {
+            setTimeout(function () {
+                console.log(this);
+                this.style.background = "blue"
+            }, 1000)
+        }
+    </script>
+</body>
+
+</html>

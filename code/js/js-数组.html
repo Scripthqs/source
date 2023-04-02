@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数组</title>
+</head>
+
+<body>
+  <script>
+    var arr = [2, 3, 4, 5, 6, 7]
+    var sum = 0
+    var ave = 0
+    for (var i = 0; i < arr.length; i++) {
+      sum += arr[i];
+    }
+    ave = sum / arr.length
+    console.log(sum, ave);
+
+    var arr = [22, 6, 16, 77, 54, 15, 29]
+    var max = arr[0]
+    for (var i = 1; i < arr.length; i++) {
+      if (arr[i] > max) {
+        max = arr[i]
+      }
+    }
+    console.log(max);
+    var min = arr[0]
+    for (var i = 1; i < arr.length; i++) {
+      if (arr[i] < min) {
+        min = arr[i]
+      }
+    }
+    console.log(min);
+    var arr = ['red', 'green', 'blue', 'pink']
+    var str = ''
+    for (var i = 0; i < arr.length; i++) {
+      str += arr[i] + '|'
+
+    }
+    console.log(str);
+    console.log(arr.length);
+    arr[arr.length] = 'yellow'
+    arr[5] = 'black'
+    console.log(arr);
+    var arr = []
+    for (let i = 0; i < 10; i++) {
+      arr[i] = i
+    }
+    console.log(arr);
+    var newArr = []
+    var j = 0
+    for (var i = 0; i < arr.length; i++) {
+      if (arr[i] >= 4) {
+        newArr[newArr.length] = arr[i]
+        j++
+      }
+    }
+    console.log(newArr);
+    var newArr2 = []
+    for (var i = newArr.length - 1; i >= 0; i--) {
+      newArr2[newArr2.length] = newArr[i]
+    }
+    console.log(newArr2);
+
+    var num = [12, 42, 5, 8, 66, 2, 1, 1, 33, 13]
+
+    // for (let i = 0; i < num.length; i++) {
+    //   for (let j = 0; j < num.length - i; j++) {
+    //     if (num[j] > num[j + 1]) {
+    //       var temp = num[j]
+    //       num[j] = num[j + 1]
+    //       num[j + 1] = temp
+    //     }
+    //   }
+    // }
+    console.log(num);
+    for (let i in num) {
+      console.log(num[i]);
+    }
+    for (const v of num) {
+      console.log(v);
+    }
+    num.forEach((v, i, o) => {
+
+      console.log(i, v, o)
+      // console.log(this)
+    });
+    var num = ['a', 'b', 'c', 'd']
+    console.log('--------------------------');
+    console.log(num);
+    console.log('--------------------------');
+    // num.push('a');
+    console.log(num);
+    console.log(num.push('a', 4));
+    console.log(num);
+    console.log('--------------------------');
+    num.pop()
+    console.log(num);
+    console.log(num.pop());
+    console.log('--------------------------');
+
+    var arr = [1599, 1234, 2000, 3424, 1234, 1234, 2222]
+    var newArr = []
+    var arr2 = []
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] < 2000) {
+        newArr.push(arr[i])
+      }
+    }
+    console.log(newArr);
+    console.log(arr.indexOf(1234));
+    console.log(arr.lastIndexOf(1234));
+
+    for (let i = 0; i < arr.length; i++) {
+      if (arr2.indexOf(arr[i]) === -1) {
+        arr2.push(arr[i])
+      }
+    }
+    console.log(arr2);
+  </script>
+</body>
+
+</html>

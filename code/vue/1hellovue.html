@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hello vue</title>
+    <script src="vue.js"></script>
+
+
+</head>
+
+<body>
+    <div id="app">
+        <p>{{ message }}</p>
+        <p>{{ age }}</p>
+        <p>{{ gender }}</p>
+        <p>{{ _data }}</p>
+        <ul>
+            <li v-for="(item,index) in arr">{{ index+1 }}--{{ item }}</li>
+        </ul>
+    </div>
+
+
+
+    <script>
+        Vue.config.productionTip=false
+        let  data = {
+                message: '你好，Vue！',
+                age: 23,
+                gender: '男',
+                arr: ['篮球','游泳','健身','跑步']
+            }
+        const app = new Vue({
+            // el: '#app',
+            data
+        })
+        console.log(app);
+     
+        app.$mount('#app')
+
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>父子通信和v-model</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <cpn :n1=num1 :n2=num2 @n1change='n1change' @n2change='n2change'></cpn>
+    </div>
+
+
+    <template id="cpn">
+        <div>
+            <p>props:{{ n1 }}</p>
+            <p>data:{{ dn1 }}</p>
+            <input type='text' v-model=dn1>
+            <input type='text' :value='dn1' @input='dn1 = $event.target.value'>
+            <input type='text' :value='dn1' @input='n1put'>
+            <input type='text' v-model=dn1>
+
+            <p>props:{{ n2 }}</p>
+            <p>data:{{ dn2 }}</p>
+
+            <input type='text' v-model=dn2>
+            <input type='text' :value='dn2' @input='dn2 = $event.target.value'>
+            <input type='text' :value='dn2' @input='n2put'>
+            <input type='text' v-model=dn2>
+
+        </div>
+    </template>
+
+
+<script>
+    
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "你好，Vue",
+            num1: 1,
+            num2: 2
+        },
+        components: {
+            cpn:{
+                template: "#cpn",
+                props: {
+                    n1: Number,
+                    n2: Number
+                },
+                data(){
+                    return {
+                        dn1: this.n1,
+                        dn2: this.n2
+                    }
+                },
+                methods: {
+                    n1put(event){
+                        this.dn1 = event.target.value
+                        this.$emit('n1change',this.dn1)
+                        this.dn2 = this.dn1 * 2
+                        this.$emit('n2change',this.dn2)
+                    },
+                    n2put(event){
+                        this.dn2 = event.target.value
+                        this.$emit('n2change',this.dn2)
+                        this.dn1 = this.dn2 / 2
+                        this.$emit('n1change',this.dn1)
+                    }
+                },
+                watch:{
+                    dn1(newValue){
+                        this.$emit('n1change',newValue)
+                        this.dn2 = newValue * 2;
+                    },
+                    dn2(newValue){
+                        this.$emit('n2change',newValue)
+                        this.dn1 = newValue / 2;
+                    }
+                }
+            }
+        },
+        methods: {
+            n1change(value){
+                this.num1 = +value
+            },
+            n2change(value){
+                this.num2 = +value
+            }
+        }
+    })
+</script>
+</body>
+</html>

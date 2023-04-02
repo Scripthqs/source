@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>watch</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{message}}</h1>
+        <cpn :number1='num1' :number2='num2' @num1c="num1c" @num2c="num2c"></cpn>
+    </div>
+
+    <template id="cpn">
+        <div>
+            <h2>props:{{number1}}</h2>
+            <h2>data:{{dnumber1}}</h2>
+            <input type="text" v-model="dnumber1">
+            <!-- <input type="text" :value='dnumber1' @input='dn1fun'> -->
+            <h2>props:{{number2}}</h2>
+            <h2>data:{{dnumber2}}</h2>
+            <input type="text" v-model="dnumber2">
+            <!-- <input type="text" :value='dnumber2' @input='dn2fun'> -->
+
+        </div>
+    </template>
+
+<script>
+    
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "你好，Vue",
+            num1: 1,
+            num2: 2
+        },
+        methods: {
+            num1c(value){
+                // console.log(value);
+                
+                this.num1 = +value
+            },
+            num2c(value){
+                // console.log(value);
+                
+                this.num2 = +value
+            }
+        },
+        components:{
+            cpn:{
+                template: '#cpn',
+                props:{
+                    number1: Number,
+                    number2: Number
+                },
+                data(){
+                    return{
+                        dnumber1: this.number1,
+                        dnumber2: this.number2
+                    }
+                },
+                // methods:{
+                //     dn1fun(event){
+                //         this.dnumber1 = event.target.value
+                //         this.$emit('num1c',this.dnumber1)
+                //         this.dnumber2 = this.dnumber1 * 2
+                //         this.$emit('num2c',this.dnumber2)
+                //     },
+                //     dn2fun(event){
+                //         this.dnumber2 = event.target.value
+                //         this.$emit('num2c',this.dnumber2 )
+                //         this.dnumber1 = this.dnumber2 / 2
+                //         this.$emit('num1c',this.dnumber1)
+                //     }
+                // }
+                watch:{
+                    dnumber1(newValue){
+                        this.dnumber2 = newValue * 2;
+                        this.$emit('num1c',newValue)
+                    },
+                    dnumber2(newValue){
+                        this.dnumber1 = newValue / 2;
+                        this.$emit('num2c',newValue)
+                    }
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

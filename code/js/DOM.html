@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <script>
+        window.onload = function () {
+            console.log(document);
+            var btn = document.getElementById("btn");
+            console.log(btn);
+            console.log(typeof btn);
+            btn.innerText = '不准点';
+            btn.onclick = function () {
+                alert('hahah')
+            };
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <button id="btn" ondblclick="alert('点你吗')">
+        我是一个按钮
+    </button>
+
+</body>
+
+</html>

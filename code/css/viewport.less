@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+@total_width: 750;
+
+.w{
+    width: (700/40rem);
+    margin: 0 auto;
+}
+a{
+    text-decoration: none;
+}
+html{
+    font-size: (100vw/@total_width)*40;
+    background-color: rgb(239, 240, 244);
+}
+.top_bar:extend(.w){
+    display: flex;
+    height: (175/40rem);
+    line-height: (175/40rem);
+    justify-content: space-between;
+    align-items: center;
+    a{
+        color: rgb(36, 37, 61);
+        font-size: (50/40rem);
+        i{
+            color: #999999;
+            font-size: (40/40rem);
+        }
+    }
+}
+.banner:extend(.w){
+    img{
+        width: 100%
+    }
+}
+.menu:extend(.w){
+    height: (330/40rem);
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: space-around;
+    text-align:center;
+    a{
+        width: (320/40rem);
+        height: (120/40rem);
+        line-height:(122/40rem);
+        color: white;
+        font-size:(30/40rem);
+        border-radius: (20/40rem);
+        i{
+            margin-right: (20/40rem);
+        }
+    }
+}
+.menu a:nth-child(1){
+    background-color: #f97053;
+}
+.menu a:nth-child(2){
+    background-color: #c960ff;
+}
+.menu a:nth-child(3){
+    background-color: #ff3971;
+}
+.menu a:nth-child(4){
+    background-color: #1d98ff;
+}
+
+.course_list:extend(.w){
+    height: (394/40rem);
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    margin-bottom: (20/40rem);
+
+    .title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    h2{
+        font-size: (33/40rem);
+        color: #24253d;
+        border-left: 2px solid #1d98ff;
+        padding-left: 4px;
+    }
+
+    a{
+        font-size: (28/40rem);
+        color: #969494;
+    }
+}
+.item_list{
+    width: (720/40rem);
+    display: flex;
+    overflow: auto;
+}
+.item{
+    flex: none;
+    box-sizing: border-box;
+    width: (320/40rem);
+    height: (324/40rem);
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: (10/40rem);
+    padding: 0 (22/40rem);
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    margin-right: (24/40rem);
+    img{
+        width: 100%;
+    }
+   h3{
+       font-size: (32/40rem);
+   }
+   .info{
+       display: flex;
+       align-items: center;
+   }
+   .avatar{
+       width: (42/40rem);
+       height: (42/40rem);
+       margin-left: (5/40rem);
+   }
+   .username{
+       font-size: (24/40rem);
+   }
+}

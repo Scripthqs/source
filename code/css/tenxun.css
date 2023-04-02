@@ -1,0 +1,112 @@
+/* body{
+    font-size: 14px;
+    font-family: "Microsoft YaHei","SimSun";
+    height: 8888px;
+ } */
+ .clearfix::before,
+.clearfix::after{
+  content:'';
+  display:table;
+  clear:both;
+}
+.header{
+    height: 58px;
+    background-color: #191D3A;
+}
+.inner_c{
+    width: 1000px;
+    margin: 0 auto;
+
+}
+.header .logo_box{
+    float: left;
+    margin: 10px 40px;
+
+}
+.header .logo_box img{
+ height: 38px ;
+}
+.header .nav_box{
+    float: left;
+}
+.header .nav_box ul li{
+    float: left;
+    width: 100px;
+    line-height: 58px;
+
+}
+.header .nav_box ul li a{
+    display: block;
+    height: 58px;
+    text-decoration: none;
+    color: #818496;;
+    text-align: center;
+}
+.header .nav_box ul li a.current{
+    color:white;
+    background: #252947;
+}
+.header .nav_box ul li a:hover{
+    color: white;
+    background: #252947;
+}
+.header .join{
+    float: left;
+    margin-left: 100px;
+}
+.header .join_box{
+    height: 40px;
+    width: 100px;
+    background-color: #38B774;
+    border-radius: 5px;
+    margin:10px;
+    
+
+}
+.header .join_box a{
+    display: block;
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+}
+
+
+.img-list{
+    width: 590px;
+    height: 470px;
+    margin: 0 auto;
+    /* overflow: hidden; */
+    position: relative;
+}
+.img-list img{
+    width: 590px;
+    height: 470px;
+}
+.img-list li{
+    position: absolute;
+}
+
+.pointer{
+    position: absolute;
+    z-index: 10;
+    bottom: 20px;
+    left: 35px;
+}
+
+.pointer a{
+    float: left;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin:0 2px;
+    background-color: rgba(255, 255, 255, 0.3);
+    background-clip:content-box;
+    border:2px solid rgba(255, 255, 255, 0);
+}
+
+.pointer a.active,
+.pointer a:hover{
+    background-color: #fff;
+    border:2px solid rgba(255, 255, 255, 0.3);
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高阶函数</title>
+    <script>
+/*         function fn1(a,b,f){
+            console.log(a+b);
+            f && f();
+        }
+        fn1(10,20,function(){
+            console.log('我是一个函数')
+        }) */
+
+/*         function fn1(){
+            let a = 20;
+            return function(){
+                console.log(a);
+            };
+        }
+        const foo = fn1();
+        foo(); */
+
+        function fn1(){
+            var a = 10;
+            
+            function fn2(){
+                console.log(a)
+            };
+            fn2();
+        }
+        fn1();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

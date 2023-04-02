@@ -1,0 +1,24 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "main": "01.hello.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "hello": "echo 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "body-parse": "^0.1.0",
+    "cookie-parser": "^1.4.5",
+    "cookie-session": "^1.4.0",
+    "express": "^4.17.1",
+    "express-art-template": "^1.0.1",
+    "math": "0.0.3",
+    "mongoose": "^5.13.0"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "description": ""
+}

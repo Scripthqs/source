@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1.Object构造函数模式
+        // var p = new Object()
+        // p.name = "hello"
+        // p.age = 19
+        // p.fun = function (name) {
+        //     this.name = name
+        // }
+        // console.log(p.name);
+        // p.fun('world')
+        // console.log(p.name);
+
+
+        //2.对象字面量 
+        // var p1 = {
+        //     name: "hello",
+        //     age: 20,
+        //     fun: function (name) {
+        //         this.name = name
+        //     }
+        // }
+        // console.log(p1.name);
+        // p1.fun('world')
+        // console.log(p1.name);
+
+
+        //3.工厂模式
+        // function Person(name, age) {
+        //     var obj = {
+        //         name: name,
+        //         age: age,
+        //         fun: function (name) {
+        //             this.name
+        //         }
+        //     }
+        //     return obj
+        // }
+        // var p1 = Person('hello', 20)
+        // var p2 = Person('world', 23)
+        // console.log(p1);
+
+
+        //4.自定义构造函数
+        // function Person(name, age) {
+        //     this.name = name;
+        //     this.age = age;
+        //     this.say = function () {
+        //         console.log(this.age);
+        //     }
+        // }
+        // const p1 = new Person('hello', 20)
+        // const p2 = new Person('world', 22)
+        // console.log(p1, p2);//打印是个Person
+
+        //5.自定义构造函数+原型组合模式
+
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype.fun = function (name) {
+            console.log(this);
+            this.name = name
+        }
+        const p1 = new Person('hello', 20)
+        const p2 = new Person('world', 22)
+        p1.fun()
+        console.log(p1, p2);//打印是个Person
+
+
+
+
+        // function Dog(name, age) {
+        //     this.name = name,
+        //         this.age = age,
+        //         this.fun = function (name) {
+        //             this.name = name
+        //         }
+        // }
+        // var d1 = new Dog('小白', 3)
+        // var d2 = new Dog('小黑', 4)
+        // d1.fun('小花')
+        // console.log(d1, d2);
+        // console.log(d1.name, d2.name);
+
+
+
+        // function Cat(name, age) {
+        //     this.name = name,
+        //         this.age = age
+        // }
+        // Cat.prototype.fun = function (name) {
+        //     this.name = name
+        // }
+        // var c1 = new Cat("汤姆", 8)
+        // var c2 = new Cat("黑猫警长", 2)
+        // console.log(c1, c2);
+    </script>
+</body>
+
+</html>

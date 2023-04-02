@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手自一体</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #outer {
+            width: 200px;
+            margin: 50px auto;
+            background: #999;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var prev = document.getElementById("prev");
+            var next = document.getElementById("next");
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+            var img = document.getElementsByTagName('img')[0];
+            var imgArr = ["../img/复仇者/1.jpg", "../img/复仇者/2.jpg", "../img/复仇者/3.jpg", "../img/复仇者/4.jpg", "../img/复仇者/5.jpg", "../img/复仇者/6.jpg"]
+            var index = 0;
+            var info = document.getElementById('info');
+            info.innerHTML= `${(index+1)}/${imgArr.length}`
+            console.log(imgArr.length - 1)
+            prev.onclick = function () {
+                index--;
+                if (index < 0) {
+                    index = imgArr.length - 1;
+                }
+                img.src = imgArr[index];
+                info.innerHTML= `${(index+1)}/${imgArr.length}`
+            }
+            next.onclick = function () {
+                index++;
+                if (index > imgArr.length - 1) {
+                    index = 0;
+                }
+                img.src = imgArr[index];
+                info.innerHTML= `${(index+1)}/${imgArr.length}`
+            }
+
+
+            var timer;
+            var i = 0;
+            btn01.onclick = function(){
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    i++;
+    
+                    i %= imgArr.length;
+                    img.src = imgArr[i];
+                }, 500)
+                console.log(timer);
+
+            };
+            console.log(timer);
+            var btn02 = document.getElementById("btn02");
+            btn02.onclick = function(){
+                clearInterval(timer);
+                console.log(timer);
+        }
+
+
+
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="outer">
+
+        <img src="../img/复仇者/1.jpg" alt="复仇">
+
+
+        <button id="prev">上一张</button>
+        <button id="next">下一张</button>
+        <button id="btn01">开始</button>
+        <button id="btn02">停止</button>
+        <p id='info'>
+            n/img.length
+        </p>
+    </div>
+</body>
+
+</html>

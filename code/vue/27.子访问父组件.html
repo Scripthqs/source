@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>template</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{message}}</h1>
+        <cpn></cpn>
+        
+    </div>
+
+
+
+
+    <template id="cpn">
+        <div>
+            <h2>我是cpn</h2>
+            <button @click='btnClick'>点击获取父组件的方法</button>
+            <ccpn></ccpn>
+        </div>
+    </template>
+    <template id="ccpn">
+        <div>
+            <h2>我是ccpn</h2>
+            <button @click='bbtnClick'>点击获取父组件的方法</button>
+        </div>
+    </template>
+
+
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "你好，Vue",
+            name: "我是Vue下面中data的name"
+        },
+        components: {
+            cpn: {
+                template: '#cpn',
+                data(){
+                    return {
+                        name: '我是cpn中data下的name'
+                    }
+                },
+                methods: {
+                    btnClick(){
+                        console.log(this.$parent);
+                        console.log(this.$parent.message);
+                        console.log(this.$parent.name);
+                        console.log(this.$children[0].name);
+                    }
+                },
+                components: {
+                    ccpn: {
+                        template: '#ccpn',
+                        data(){
+                            return {
+                                name: '我是ccpn中data下的name'
+                            }
+                        },
+                        methods: {
+                            bbtnClick(){
+                                console.log(this.$parent);
+                                console.log(this.$parent.name);
+                                console.log(this.$root);
+                                console.log(this.$root.name);
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

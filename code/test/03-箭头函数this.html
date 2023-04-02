@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>箭头函数this</title>
+</head>
+<body>
+    箭头函数的this是定义函数时绑定的，内部的this就是外层代码块的this，所以箭头函数不能当作构造函数
+
+    <script>
+        var x = 11
+        var obj = {
+            x:22,
+            say:() => {
+                console.log(this.x);
+            }
+        }
+        obj.say()
+        var obj = {
+            x:22,
+            say:function(){
+                var b = this.x;
+                var fn = () =>{
+                    console.log(this.x);
+                }
+                return fn()
+            }
+        }
+        obj.say()
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAI API Example</title>
+  </head>
+  <body>
+    <h1>OpenAI API Example</h1>
+    <p>Ask me a question:</p>
+    <input type="text" id="prompt" />
+    <button onclick="sendPrompt()">Submit</button>
+    <p id="response"></p>
+
+    <script>
+      function sendPrompt() {
+        const prompt = document.getElementById("prompt").value;
+        const model = "text-davinci-002";
+        // const apiKey = "your-api-key";
+        const apiKey = "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";
+        // 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
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "https://api.openai.com/v1/engines/davinci/jobs");
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader("Authorization", `Bearer ${apiKey}`);
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState === XMLHttpRequest.DONE) {
+            const response = JSON.parse(xhr.responseText);
+            document.getElementById("response").innerText = response.choices[0].text;
+          }
+        };
+        xhr.send(
+          JSON.stringify({
+            prompt: prompt,
+            max_tokens: 100,
+            n: 1,
+            temperature: 0.5,
+            model: model,
+          })
+        );
+      }
+    </script>
+  </body>
+</html>

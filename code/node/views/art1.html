@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>art1</h1>
+    <!-- 显示数据，需要特有的语法 -->
+    <p>{{name}}</p>
+    <p>{{age}}</p>
+    <p>{{gender}}</p>
+    <p><%=name%></p>
+    <p><%=age%></p>
+    <p><%=gender%></p>
+    <p>
+        {{each arr}}
+        {{$index}}--{{$value}}
+        {{/each}}
+    </p>
+    <p>
+        {{each arr v i}}
+        {{i}}--{{v}}
+        {{/each}}
+    </p>
+
+    <h2>{{age}}</h2>
+
+    {{if(age < 12)}}
+        儿童
+    {{else if(age >= 12 && age <= 18)}}
+        青少年
+    {{else if(age >= 18 && age <= 30)}}
+        青年
+    {{else}}
+        老年
+    {{/if}}
+
+    <%if(age < 12){%>
+        儿童
+    <%}else if(age >= 12 && age <= 18){%>
+        青少年
+    <%}else if(age >= 18 && age <= 30){%>
+        青年
+    <%}else{%>
+        老年
+    <%}%>
+    
+    {{@ str}}
+    <%- str %>
+    {{include './base.html'}}
+    {{include './art2.html'}}
+
+    <% include('./base.html') %>
+
+</body>
+</html>

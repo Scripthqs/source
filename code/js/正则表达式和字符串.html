@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式和字符串</title>
+    <script>
+        var str = "DAWdDAWFjhjk3g24kk1kj432"
+/*         console.log(str.split(/[a-z]/))
+        console.log(str.match(/[A-z]/gi))
+        console.log(typeof str.match(/[A-z]/gi)) */
+        // console.log(str)
+        // console.log(str.replace(/[a-z]/gi,""))
+
+        // var reg = /^a$/;
+        // console.log(reg.test('a'))
+
+        // var reg = /^1[3-9][0-9]{9}$/;
+
+        // console.log(reg.test(str));
+        // var reg = new RegExp('\\.')
+        // console.log(reg)
+
+        // var str = '             14236548784   a            ';
+        // console.log(str);
+        // console.log(str.replace(/^\s*/,''));
+        // console.log(str.replace(/\s*$/,''));
+
+
+        var email = '1941186772@qq.com'
+        var emailReg = /^\w{3,}(\.\w+)*@[A-z0-9]+(\.[A-z]{2,5}){1,2}$/;
+        console.log(emailReg.test(email));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

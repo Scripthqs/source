@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            left: 300px;
+            top: 100px;
+            background-color: black;
+            position: relative
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" draggable="true"></div>
+    <div class="box1"></div>
+</body>
+<script>
+    var box = document.querySelector(".box");
+    box.ondragstart = function () {
+        console.log("开始拖拽了")
+    }
+    box.ondragleave = function () {
+        console.log("拖拽离开了")
+    }
+    box.ondragend = function () {
+        console.log("拖拽结束了")
+    }
+    box.ondrag = function () {
+        console.log("拖拽过程中")
+    }
+
+    var box1 = document.querySelector(".box1")
+    box1.ondragenter = function () {
+        console.log("进来了")
+    }
+    box1.ondragleave = function () {
+        console.log("出来了")
+    }
+    box1.ondragover = function (e) {
+// 需要加event.preventDefault()这个方法，否则后面ondrop()方法无法触发。
+        e.preventDefault();
+        console.log("还在里面")
+    }
+    box1.ondrop = function () {
+        console.log("松开鼠标了....");
+    }
+
+
+
+
+</script>
+
+</html>

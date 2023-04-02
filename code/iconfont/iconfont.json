@@ -1,0 +1,37 @@
+{
+  "id": "2445938",
+  "name": "text",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "10130861",
+      "name": "其他垃圾",
+      "font_class": "qitalaji",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    },
+    {
+      "icon_id": "10130863",
+      "name": "有害垃圾",
+      "font_class": "youhailaji",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "10135343",
+      "name": "其他垃圾-烟头",
+      "font_class": "qitalaji-yantou",
+      "unicode": "e634",
+      "unicode_decimal": 58932
+    },
+    {
+      "icon_id": "10135348",
+      "name": "其他垃圾-污染纸张",
+      "font_class": "qitalaji-wuranzhizhang",
+      "unicode": "e635",
+      "unicode_decimal": 58933
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数</title>
+    <script>
+        var fun = new Function('console.log(1)');
+        fun();
+        console.log(fun);
+        console.log(typeof fun);
+
+
+        function fun2() {
+            console.log(2);
+
+        }
+        fun2();
+        console.log(fun2);
+
+
+        var fun3 = function () {
+            console.log(3);
+        };
+        fun3();
+        console.log(fun3);
+
+
+        function fun4(a, b) {
+
+            console.log(a + b);
+        }
+
+        fun4(999, 999)
+
+        function sum(a, b) {
+            var d = a + b
+            console.log(d)
+            return d;
+
+        }
+        sum(1, 2);
+        var d = sum(1, 2)
+        console.log(d);
+
+        /*         var e = alert('hahah')
+                console.log(e) */
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

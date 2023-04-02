@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图标字体</title>
+    <link rel="stylesheet" href="../fa/css/all.css">
+    <link rel="stylesheet" href="../iconfont/iconfont.css">
+    <style>
+        li {
+            list-style: none;
+        }
+
+        li::before {
+            content: '\f304';
+            /* font-family: 'Font Awesome 5 Brands'; */
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            margin: 0 10px;
+        }
+
+        i.iconfont {
+            font-size: 100px;
+        }
+
+        span::before {
+            content: '\e634';
+            font-family: 'iconfont';
+            font-size: 100px;
+        }
+
+        @font-face {
+            font-family: 'iconfont';
+            /* project id 2445938 */
+            src: url('//at.alicdn.com/t/font_2445938_xgo9alfn5vc.eot');
+            src: url('//at.alicdn.com/t/font_2445938_xgo9alfn5vc.eot?#iefix') format('embedded-opentype'),
+                url('//at.alicdn.com/t/font_2445938_xgo9alfn5vc.woff2') format('woff2'),
+                url('//at.alicdn.com/t/font_2445938_xgo9alfn5vc.woff') format('woff'),
+                url('//at.alicdn.com/t/font_2445938_xgo9alfn5vc.ttf') format('truetype'),
+                url('//at.alicdn.com/t/font_2445938_xgo9alfn5vc.svg#iconfont') format('svg');
+        }
+
+        .iconfont {
+            font-family: "iconfont" !important;
+            font-size: 100px;
+            font-style: normal;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>有人辞官归故里</li>
+        <li>有人星夜赶科场</li>
+        <li>年少不知愁滋味</li>
+        <li>老来方知行路难</li>
+    </ul>
+    <i class="fas fa-cat"></i>
+    <!-- 实体&#x文档中字体的编码; -->
+    <i class="fas">&#xf2a3;</i>
+    <i class="iconfont">&#xe624;</i>
+    <i class="iconfont icon-youhailaji"></i>
+    <span></span>
+    <span class="iconfont">&#xe63a;</span>
+</body>
+
+</html>

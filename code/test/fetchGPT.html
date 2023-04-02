@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenAI API Example</title>
+  </head>
+  <body>
+    <h1>Ask me anything!</h1>
+    <form id="question-form">
+      <textarea id="question-input" rows="3"></textarea><br />
+      <button type="submit">Submit</button>
+    </form>
+    <br />
+    <div id="answer-container">
+      <p id="answer"></p>
+    </div>
+
+    <script>
+      const API_KEY = "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";
+      const API_ENDPOINT = "https://api.openai.com/v1/engines/davinci/jobs";
+      const questionForm = document.getElementById("question-form");
+      const questionInput = document.getElementById("question-input");
+      const answerContainer = document.getElementById("answer-container");
+      const answer = document.getElementById("answer");
+
+      async function generateText(prompt) {
+        const response = await fetch(API_ENDPOINT, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${API_KEY}`,
+          },
+          body: JSON.stringify({
+            prompt: prompt,
+            max_tokens: 100,
+            n: 1,
+            stop: "",
+            temperature: 0.5,
+          }),
+        });
+
+        const json = await response.json();
+        const text = json.choices[0].text;
+        return text;
+      }
+
+      questionForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const question = questionInput.value;
+        generateText(question).then((text) => {
+          answer.innerText = text;
+          answerContainer.style.display = "block";
+        });
+      });
+    </script>
+  </body>
+</html>

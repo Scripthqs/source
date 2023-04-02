@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class</title>
+</head>
+
+<body>
+  <script>
+    // function Phone1(brand, price) {
+    //   this.brand = brand
+    //   this.price = price
+    // }
+    // Phone1.prototype.call = function () {
+    //   console.log('我可以打电话')
+    // }
+    // let mi = new Phone1('小米', 4999)
+    // mi.call()
+    // console.log(mi)
+
+    // class Phone {
+    //   static msg = 'hello world'
+    //   //构造方法
+    //   constructor(brand, color, price) {
+    //     this.brand = brand
+    //     this.color = color
+    //     this.price = price
+    //   }
+    //   //方法只能使用ES6的简写形式
+    //   call() {
+    //     console.log('我可以打电话')
+    //   }
+    // }
+    // Phone.msg = 'hello world'
+    // let HuaWei = new Phone('HuaWei', 'gold', 49999)
+    // console.log(HuaWei)
+
+    // let nokia = new Phone()
+    // console.log(nokia.name)
+    // console.log(Phone.msg)
+
+    class Phone {
+      constructor(brand, price) {
+        this.brand = brand
+        this.price = price
+      }
+      call() {
+        console.log('我可以打电话')
+      }
+      game() {
+        console.log('我可以打游戏')
+      }
+    }
+    class smartPhone extends Phone {
+      constructor(brand, price, color, size) {
+        super(brand, price)
+        this.color = color
+        this.size = size
+      }
+      photo() {
+        console.log('我可以拍照')
+      }
+      call() {
+        console.log('我可以免费打电话')
+      }
+    }
+    const xm = new smartPhone('mi', 3999, 'black', 9)
+    console.log(xm)
+    xm.call()
+    xm.game()
+
+    class Person {
+      get name() {
+        console.log('name被读取了')
+        return 'xiaoming'
+      }
+      set name(newName) {
+        console.log('name被修改了')
+      }
+
+    }
+    let p = new Person()
+    console.log(p.name)
+    p.name = 'zhangsan'
+    console.log(p.name)
+  </script>
+</body>
+
+</html>

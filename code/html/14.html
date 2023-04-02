@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>米兔动画</title>
+    <style>
+        .box1{
+            width: 132px;
+            height: 271px;
+            background: url(../img/bigtap-mitu-queue-big.png);
+            margin: 0 auto;
+            background-position: 0 0;
+            animation: mitu steps(4) 0.2s infinite;
+        }
+        /* .box1:hover{
+            background-position: -396px 0;
+            transition:steps(3) background-position  0.3s infinite;
+        } */
+        @keyframes mitu {
+            from{
+                background-position: 0 0;
+            }
+            to{
+                background-position: -528px 0;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

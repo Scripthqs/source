@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>正则表达式</title>
+    <script>
+/*         var reg = new RegExp('a')
+        var str = 'a'
+        console.log(reg)
+        console.log(typeof reg)
+        console.log(reg.test(str))
+
+        var reg = /[^0-9]/;
+        var str = '';
+        console.log(reg.test(str)) */
+
+
+
+        const reg = /test/g;
+        const str = '_test_test';
+
+        console.log(reg.test(str)); // true
+        console.log(reg.lastIndex); // 5
+
+        console.log(reg.test(str)); // true
+        console.log(reg.lastIndex); // 10
+
+        console.log(reg.test(str)); // false
+        console.log(reg.lastIndex); // 0
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

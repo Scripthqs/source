@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a;
+        console.log(a, typeof a, a === undefined, typeof a === "undefined");
+        a = 1;
+        console.log(typeof a === "number");
+        a = "hah"
+        console.log(typeof a === "string");
+        a = true;
+        console.log(typeof a, typeof a === "boolean");
+        a = null;
+        console.log(typeof a, a === null);
+        console.log("-------------------------")
+        var b1 = {
+            b2: [1, 'abc', console.log],
+            b3: function () {
+                console.log('b3');
+                return function () {
+                    return '出来'
+                }
+            }
+        };
+        // console.log(b1 instanceof Object, b1 instanceof Array);
+        // console.log(b1.b2 instanceof Array, b1.b2 instanceof Function);
+        // console.log(b1.b3 instanceof Function);
+        // console.log(b1.b2[2]);
+        // console.log(typeof b1.b2[2] === "function");
+        // b1.b2[2]('哈哈哈啊哈哈');
+         var a=b1.b3()()
+         console.log(a)
+         console.log(typeof b1.b2)
+        // console.log(b1.b3()());
+
+
+    </script>
+</body>
+
+</html>

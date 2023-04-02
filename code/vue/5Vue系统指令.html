@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>template</title>
+    <script src="vue.js"></script>
+    <style>
+        .box1{
+            color:red;
+        }
+        .box2{
+            color:green;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h2 class="box1">{{ message }}</h2>
+        <h2 :class="c1">{{ message }}</h2>
+        <h2 :class="c2">{{ message }}</h2>
+        <h2 :class="{box1:ist,box2:isf}">{{ message }}</h2>
+        <button @click='bc'>按钮</button>
+        <h2 :class="gc()">{{message}}</h2>
+        <h2 :class="['box1','box2','box3',c1,c2]">{{message}}</h2>
+
+
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "你好,世界",
+                c1:'box1',
+                c2:'box2',
+                ist: false,
+                isf:false
+            },
+            methods: {
+                bc: function(){
+                    this.ist = !this.ist;
+                },
+                gc: function(){
+                    return {box1:this.ist,box2:this.isf};
+                }
+            }
+        })
+    </script>
+</body>
+</html>

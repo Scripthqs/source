@@ -1,0 +1,54 @@
+/* p{
+    font:16px/200% "Mincrosoft YaHei";
+    font-weight: 900;
+
+} */
+/* p:hover{
+    cursor: hand;
+} */
+/* div{
+    width:400px;
+    height:400px;
+    margin:10px auto;
+    border: solid 1px black;
+} */
+        /* 语法：
+            linear-gradient(方向，起始颜色，终止颜色);
+            方向：to left   to right  to top   to bottom 　角度　30deg
+            起始颜色
+            终止颜色
+        */
+        /* .box1 {
+            width: 320px;
+            height: 320px;
+            border: 1px solid red;
+            background: url(http://img.smyhvae.com/20191006_1410.png) no-repeat;
+            background-size: cover;
+    
+ 
+            clip-path: circle(50px at 100px 100px);
+            transition: clip-path .4s;
+        }
+        .box1:hover{
+         
+            clip-path: circle(80px at 100px 100px);
+            
+        } */
+/* *{
+    margin: 0;
+    padding: 0;
+} */
+
+li{
+    float: left;
+    width: 100px;
+    height: 20px;
+    background-color: red;
+    margin: 10px;
+}
+.cl{
+    clear: both;
+}
+/* .box2{
+    margin: 50px 0;
+} */

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue系统指定</title>
+    <script src="vue.js"></script>
+    <style>
+        [v-cloak]{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <h1>{{ message }}</h1>
+        <h1>{{ message }}，你好Vue</h1>
+        <h1>{{ n1 + n2 }}</h1>
+        <h1>{{ n1 + ' ' + n2 }}</h1>
+        <h1>{{ n1 }} {{n2}}</h1>
+        <h1>{{ num * 2 }}</h1>
+        <h2>================================</h2> 
+        <h2>{{ message }}</h2>
+        <h2 v-once>{{ message }}</h2>
+        <h2>================================</h2> 
+        <h2>{{ url }}</h2>
+        <h2 v-html="url"></h2>
+        <h2 v-text="url"></h2>
+        <h2 v-pre>{{ message }}</h2>
+        <h2>================================</h2> 
+        <a v-bind:href="ahref">qq</a>
+        <img v-bind:src=" imgURL" alt="">
+    </div>
+    
+    <script>
+        setInterval(function(){
+            const app = new Vue({
+                el: "#app",
+                data: {
+                    message: "你好世界",
+                    n1: "hello",
+                    n2: "world",
+                    num: 20,
+                    url: "<a href='https://www.baidu.com'>百度一下</a>",
+                    imgURL: "https://img1.baidu.com/it/u=275912806,2672201394&fm=26&fmt=auto&gp=0.jpg",
+                    ahref: "https://www.qq.com"
+                }
+            })
+        },1000)
+
+    </script>
+</body>
+</html>

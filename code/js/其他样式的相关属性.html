@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>其他样式的属性</title>
+    <script>
+        window.onload = function(){
+            var btn01 = document.getElementById("btn01");
+            var box3 = document.getElementById("box3");
+            btn01.onclick = () =>{
+                // console.log(box1.clientHeight);
+                // console.log(box1.clientWidth);
+                // console.log(box1.offsetHeight);
+                // console.log(box1.offsetWidth);
+                // console.log(box1.offsetParent);
+                // console.log(box1.parentNode);
+                // console.log(box1.offsetParent===box1.parentNode);
+                // console.log(box1.offsetLeft);
+
+
+                console.log(box3.clientHeight);
+                console.log(box3.offsetHeight);
+                console.log(box3.scrollHeight);
+                // console.log(box3.scrollLeft);
+                console.log(box3.scrollTop);
+                console.log(box3.scrollHeight - box3.scrollTop)
+            }
+
+
+
+
+
+        }
+    </script>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            background: red;
+            /* padding: 20px; */
+            /* border: 10px solid black; */
+        }
+        .box2{
+            padding: 100px;
+            background: #bfa;
+        }
+
+
+        #box3{
+            width: 200px;
+            height: 300px;
+            background: black;
+            overflow: auto;
+            /* padding: 20px; */
+            /* border: 10px solid #bfa; */
+        }
+        #box4{
+            width: 400px;
+            height: 600px;
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn01">btn01</button>
+    <div id="box3">
+        <div id="box4">
+
+        </div>
+    </div>
+
+<!--     <div class="box2">
+
+        <div id="box1">
+    
+        </div>
+    </div> -->
+    
+</body>
+</html>

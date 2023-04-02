@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拓展运算符</title>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+        // const arr = ['a', 'b', 'c', 'd']
+        // function fn() {
+        //     console.log(arguments);
+        // }
+        // fn(arr)
+        // fn(...arr)
+
+        // const obj1 = [1, 2, 3, 4]
+        // const obj2 = ['a', 'b', 'c', 'd']
+        // // const obj3 = obj1.concat(obj2)
+        // const obj3 = [...obj1, ...obj2]
+        // console.log(obj3);
+
+        // const o1 = ['x', 'y', 'z']
+        // const o2 = [...o1]
+        // console.log(o2);
+
+        // const div = document.getElementsByTagName("div")
+        // const D = [...div]
+        // console.log(D);
+
+
+        // let lol = ['德玛西亚之力', '德玛西亚之翼', '德玛西亚皇子'];
+        // function fn() {
+        //     console.log(arguments);
+        // }
+        // fn(...lol)
+        // /**
+        // * 展开对象
+        // */
+        // let skillOne = {
+        //     q: '致命打击',
+        // };
+        // let skillTwo = {
+        //     w: '勇气'
+        // };
+        // let skillThree = {
+        //     e: '审判'
+        // };
+        // let skillFour = {
+        //     r: '德玛西亚正义'
+        // };
+        // let gailun = { ...skillOne, ...skillTwo, ...skillThree, ...skillFour };
+
+        const arr1 = [1, 2, 3]
+        const arr2 = ['a', 'b', 'c']
+        const arrES5 = arr1.concat(arr2)
+        const arrES6 = [...arr1, ...arr2]
+        console.log(arrES5);
+        console.log(arrES6);
+        const obj = {
+            msg: 'hello',
+            num: 20,
+            fun() {
+                console.log(this.msg);
+            }
+        }
+        const obj1 = { ...obj }
+        console.log(obj1);
+
+        // function fun() {
+        //     console.log(arguments);
+        //     // arguments.push('a')报错
+        //     arguments = Array.prototype.slice.call(arguments, 0)
+        //     console.log(arguments);
+        //     arguments.push('a')//可以成功添加
+        //     console.log(arguments);
+        // }
+        // fun(1, 2, 3)
+        function fun() {
+            console.log(arguments);
+            // arguments.push('a')报错
+            const args = [...arguments]
+            args.push('a')
+            console.log(args);
+        }
+        fun(1, 2, 3)
+    </script>
+</body>
+
+</html>

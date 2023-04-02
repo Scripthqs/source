@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组的方法</title>
+    <script>
+        var arr = [1,2,3,4];
+        var a = arr.push('a','b','1',2);
+        var b = arr.pop();
+        var c = arr.unshift('qqqq','ssss');
+        arr.shift();
+
+        /* console.log(c);
+        console.log(b);
+        console.log(a); */
+        console.log(arr);
+        for(var i = 0; i<arr.length ; i++){
+            console.log(arr[i]);
+        }
+        arr.forEach(function(a,b,c){
+            console.log(`a=${a}`);
+            console.log(`b=${b}`);
+            console.log(`c=${c}`);
+        });
+        console.log(arr.slice(1,3));
+        console.log(arr.splice(1,0,'a',99));
+        console.log(arr);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

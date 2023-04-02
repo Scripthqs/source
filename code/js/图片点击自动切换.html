@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片点击自动切换</title>
+    <script>
+        window.onload = function () {
+            var img1 = document.getElementById("img1");
+            var imgArr = ["../img/复仇者/1.jpg", "../img/复仇者/2.jpg", "../img/复仇者/3.jpg", "../img/复仇者/4.jpg", "../img/复仇者/5.jpg", "../img/复仇者/6.jpg",]
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+            var timer;
+            var i = 0;
+            btn01.onclick = function(){
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    i++;
+                    /*                 if(i>=imgArr.length){
+                                        i = 0;
+                                    } */
+    
+                    i %= imgArr.length;
+                    img1.src = imgArr[i];
+                }, 500)
+                console.log(timer);
+
+            };
+            console.log(timer);
+            var btn02 = document.getElementById("btn02");
+            btn02.onclick = function(){
+                clearInterval(timer);
+                console.log(timer);
+        }
+    }
+    </script>
+</head>
+
+<body>
+    <img src="../img/复仇者/1.jpg" id="img1">
+    <button id="btn01">开始</button>
+    <button id="btn02">停止</button>
+</body>
+
+</html>

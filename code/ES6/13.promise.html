@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+
+<body>
+    <script>
+        // const name = '我是name'
+        // console.log(name);
+        // const result = 3 + 5
+        // console.log(result);
+        // console.log('=========================');
+        // console.log(Promise);
+        // console.log(Promise.prototype);
+
+        // // console.log(promise);
+
+        // setTimeout(function () {
+        //     console.log('普通函数hello world');
+        // }, 1000)
+        // setTimeout(() => {
+        //     console.log('箭头函数hello world');
+        // }, 1000)
+        // console.log('我在后面但是先执行');
+        // //参数 ->函数resolve,reject,resolve和reject
+        // // new Promise((resolve,reject)=>{
+
+        // // })
+
+        // console.log('=========================================');
+        // new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         console.log('hello world');
+        //         setTimeout(() => {
+        //             console.log('hello vue');
+        //             setTimeout(() => {
+        //                 console.log('hello promise');
+        //             }, 1000)
+        //         }, 1000)
+        //     }, 1000)
+        // })
+        // console.log('=========================================');
+        // new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         resolve()
+        //     }, 1000)
+        // }).then(() => {
+        //     console.log('hello world');
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             resolve()
+        //         }, 1000)
+        //     })
+        // }).then(() => {
+        //     console.log('hello vue');
+        //     return new Promise((resolve, reject) => {
+        //         setTimeout(() => {
+        //             resolve()
+        //         }, 1000)
+        //     })
+        // }).then(() => {
+        //     console.log('hello promise');
+        // })
+        // console.log('=========================================');
+
+        // new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         resolve('data加载成功 ---------------')
+        //         reject('data加载失败 ----------------')
+        //     }, 1000)
+        // }).then((data) => {
+        //     console.log(data);
+        // }).catch((err) => {
+        //     console.log(err);
+        // })
+
+
+        // new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         resolve('hello 正确')
+        //         // reject('hello 错误')
+        //     }, 5000)
+        // }).then(data => {
+        //     console.log(data);
+        // }, err => {
+        //     console.log(err);
+        // })
+        console.log('---------------------------');
+        // let p = new Promise((resolve, reject) => {
+        //     setTimeout(() => {
+        //         let data = '数据库中的数据'
+        //         let err = '读取数据失败'
+        //         // resolve(data)
+        //         reject(err)
+        //     }, 1000)
+        // })
+        // p.then(function (value) {
+        //     console.log(value);
+        // }, function (reason) {
+        //     console.error(reason);
+        // })
+        //1.创建一个新的Promise对象
+        const p = new Promise((resolve, reject) => {//执行器函数
+            console.log('执行executor函数');
+            //2.执行异步操作任务
+            setTimeout(() => {
+                const time = Date.now()//当前时间时偶数代表成功,奇数代表失败
+                if (time % 2 === 0) {
+                    //3.1.如果成功调用resolve(value)
+                    resolve(`成功的数据,time=${time}`)
+                } else {
+                    //3.2.如果失败调用reject(reason)
+                    reject(`失败的数据,time=${time}`)
+                }
+            }, 1000);
+        })
+        console.log(Promise.prototype);
+        console.log(p);
+        console.log(p.then);
+        //4.1接收成功的value数据,onResolved回调函数
+        p.then(value => {
+            console.log('成功的回调', value);
+        })
+        //4.2接收失败的value数据,onRejected回调函数
+        p.catch(reason => {
+            console.log('失败的回调', reason);
+        })
+
+
+
+    </script>
+</body>
+
+</html>

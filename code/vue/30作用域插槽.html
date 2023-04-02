@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编译作用域</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <!-- <cpn></cpn>
+        <cpn>
+            <template slot-scope='slot'>
+                <span v-for="item in slot.data">{{ item }}-</span>
+                <h2>-------------------</h2>
+                <span >{{ slot.data.join(' - ') }}</span>
+            </template>
+        </cpn> -->
+        <cpn>
+            <template v-slot:son="slotProps">
+                <span >{{ slotProps.data.join(' - ') }}</span>
+            </template>
+        </cpn>
+    </div>
+
+
+    <template id="cpn">
+        <div>
+            <slot :data='arr' name='son'>
+                <ul >
+                    <li v-for="item in arr">{{ item }}</li>
+                </ul>
+            </slot>
+            <slot><h2>==============</h2></slot>
+        </div>
+    </template>
+
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "你好，Vue",
+            isShow: true,
+            
+        },
+        components: {
+            cpn: {
+                template: "#cpn",
+                data(){
+                    return {
+                        isShow: false,
+                        arr:['a','b','c','d','e','f','g']
+                    }
+                },
+        
+            }
+            
+        }
+    })
+</script>
+</body>
+</html>

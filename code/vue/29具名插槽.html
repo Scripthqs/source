@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>插槽</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{message}}</h1>
+        <cpn>
+            <h1 slot="left">左标题</h1>
+            <h2 slot="center">标题</h2>
+            <h3 slot="right">右标题</h3>
+        </cpn>
+        <h2>==============================</h2>
+        <cpn>
+            <template v-slot:left>
+                <h1>左标题</h1>
+            </template>
+            <h1 slot="left">左标题</h1>
+            <h2 slot="center">标题</h2>
+            <h3 slot="right">右标题</h3>
+        </cpn>
+
+        <cpn><button slot="right">标题</button></cpn>
+
+    </div>
+
+    <template id="cpn">
+        <div>
+            <slot name='left'><span>左边</span></slot>
+            <slot name='center'><span>中间</span></slot>
+            <slot name='right'><span>右边</span></slot>
+        </div>
+    </template>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "你好，Vue"
+        },
+        components: {
+            cpn: {
+                template: "#cpn"
+            }
+        }
+    })
+</script>
+</body>
+</html>

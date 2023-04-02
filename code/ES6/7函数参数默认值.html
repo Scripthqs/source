@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function add(a, b, c = 10) {
+            return a + b + c;
+        }
+        var a = add(1, 2)
+        console.log(a);
+        function connect(options) {
+            console.log(options.host);
+            console.log(options.username);
+            console.log(options.password);
+            console.log(options.port);
+        }
+        function connect({ host, username, password, port = 8888 }) {
+            console.log(host);
+            console.log(username);
+            console.log(password);
+            console.log(port);
+        }
+        connect({
+            host: 'localhost',
+            username: 'root',
+            password: '123456'
+        })
+    </script>
+</body>
+
+</html>

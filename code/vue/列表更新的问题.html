@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列表过滤排序</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>人员列表</h2>
+        <button @click='updateMei'>更新马冬梅</button>
+        <ul>
+            <li v-for='(item,index) in persons' :key='item.id'>
+                {{item.name}}-{{item.age}}-{{item.gender}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data:{
+                persons: [
+                    {id:'001',name:'张天王',age:23,gender:'女'},
+                    {id:'002',name:'王二小',age:21,gender:'女'},
+                    {id:'003',name:'小金刚',age:20,gender:'男'},
+                    {id:'004',name:'小钢炮',age:25,gender:'女'},
+                ]
+            },
+            methods: {
+                updateMei(){
+                    // this.persons[0].name='马老师',
+                    // this.persons[0].age='50',
+                    // this.persons[0].gender='男'
+                    this.persons[0] = {id:'001',name:'马老师',age:50,gender:'男'}
+                }
+            }
+        })
+    </script>
+</body>
+</html>

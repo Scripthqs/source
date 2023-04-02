@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>魔方</title>
+    <link rel="stylesheet" href="../css/reset.css">
+<style>
+    html{
+        perspective: 800px;
+    }
+    .box{
+        width: 200px;
+        height: 200px;
+        margin: 100px auto;
+        position: relative;
+
+        transform-style: preserve-3d;
+        animation: run 10s linear infinite;
+    }
+    .box>div{
+        width: 200px;
+        height: 200px;
+        opacity: 0.7;
+        position: absolute;
+    }
+    img{
+        vertical-align: top;
+    }
+    .box1{
+        transform: rotateY(90deg) translateZ(100px);
+    }
+    .box2{
+        transform: rotateY(-90deg) translateZ(100px);
+    }
+    .box3{
+        transform: rotateX(90deg) translateZ(100px);
+    }
+    .box4{
+        transform: rotateX(-90deg) translateZ(100px);
+    }
+    .box5{
+        transform: rotateX(180deg) translateZ(100px);
+    }
+    .box6{
+        transform: rotateX(0deg) translateZ(100px);
+    }
+    @keyframes run {
+        from{
+            transform: rotateX(0) rotateZ(0) ;
+
+        }
+        to{
+            transform: rotateX(360deg) rotateZ(360deg) ;
+        }
+    }
+
+</style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1"><img src="../img/复仇者/1.jpg" alt=""></div>
+        <div class="box2"><img src="../img/复仇者/2.jpg" alt=""></div>
+        <div class="box3"><img src="../img/复仇者/3.jpg" alt=""></div>
+        <div class="box4"><img src="../img/复仇者/4.jpg" alt=""></div>
+        <div class="box5"><img src="../img/复仇者/5.jpg" alt=""></div>
+        <div class="box6"><img src="../img/复仇者/6.jpg" alt=""></div>
+    </div>
+</body>
+</html>

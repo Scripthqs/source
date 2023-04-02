@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型</title>
+    <script>
+        function F1(){
+
+        }
+        F1.prototype.name="原型中的name";
+        var fun = new F1();
+/*         console.log(fun.name);
+        console.log('name' in fun); */
+        console.log(fun);
+        console.log(fun.__proto__);
+        console.log(fun.__proto__.__proto__);
+        console.log(fun.__proto__.__proto__.__proto__);
+        console.log(Object.__proto__);
+
+       /*  console.log(fun.hasOwnProperty('name'));
+        console.log(fun.hasOwnProperty('hasOwnProperty'));
+
+        console.log(fun.__proto__.__proto__.hasOwnProperty('hasOwnProperty'));
+ */
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

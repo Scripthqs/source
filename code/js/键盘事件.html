@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘事件</title>
+    <script>
+        document.onkeydown = function(e){
+            console.log(e.key);
+            // console.log(typeof e.key);
+            // console.log(e.ctrlKey);
+  
+            if(e.key === "Backspace"){
+                return true;
+            }
+            if(/\D/.test(e.key)){
+                return false;
+            } 
+            
+        }
+    </script>
+</head>
+<body>
+    <input type="text">
+</body>
+</html>

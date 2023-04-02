@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function Person(name, age) {
+        //     this.name = name;
+        //     this.age - age;
+        // }
+        // var p = new Person();
+
+        // var a;
+        // console.log(a);
+        // a = null;
+        // console.log(a);
+
+        // var obj1 = { name: 'haha' };
+        // var obj2 = obj1;
+        // obj1.name = 'hei';
+        // console.log(obj2.name);
+        // function fn(obj) {
+        //     obj.age = 18;
+        // }
+        // fn(obj2);
+        // console.log(obj2)
+
+        // var a = { age: 12 };
+        // var b = a;
+        // a = { name: 'ha', age: 13 };
+        // console.log(b.age, b.name, a.name, a.age);
+        // function fn2(obj) {
+        //     obj = { age: 15 };
+        //     // obj = a;
+        // }
+        // fn2(a);
+        // console.log(a.age)
+        console.log('-------------------------------');
+        //1.赋值
+        // let obj1 = {
+        //     name: 'a',
+        //     fun: function () {
+        //         this.name = 'c'
+        //     }
+        // }
+        // let obj2 = obj1
+        // obj2.name = 'b'
+        // obj2.fun()
+        // console.log(obj1.name);
+        // console.log(obj2.name);
+        // console.log(obj1 === obj2);
+
+        //2.浅拷贝
+        //2.1 for...in
+        const obj1 = {
+            a: 1,
+            b: '2',
+            f: {
+                name: 'hello'
+            }
+        };
+        var obj2 = {};
+        for (let key in obj1) {
+            obj2[key] = obj1[key];
+        }
+        console.log(obj1);
+        console.log(obj2);
+        console.log(obj1 === obj2);
+        obj1.f.name = 'world'
+        obj1.a = 1234
+        // obj1.b = 'x'
+        // obj2.a = 2345
+        // obj2.b = 'y'
+        obj2.f.name = 'hello world'
+
+        console.log(obj1);
+        console.log(obj2);
+        console.log(obj1 === obj2);
+
+        //2.2 Object.assign(target, ...sources)
+        console.log('----------------------------');
+        const obj3 = Object.assign({}, obj1)
+        console.log(obj3);
+        const obj4 = Object.assign({}, obj1)
+        console.log(obj3 === obj4)//false
+        const obj51 = {};
+        const obj52 = Object.assign(obj51, obj1);
+        console.log(obj51 === obj52)//true
+        //2.3 展开语法...
+        let obj6 = { ...obj1 }
+        console.log(obj6);
+
+        //3 深拷贝
+        //3.1 for...in递归
+        function deepCopy(newObj, oldObj) {
+            for (let key in oldObj) {
+                //let item = oldObj[key];
+                if (oldObj[key] instanceof Array) {
+                    newObj[key] = [];
+                    deepCopy(newObj[key], oldObj[key]);
+                } else if (oldObj[key] instanceof Object) {
+                    newObj[key] = {};
+                    deepCopy(newObj[key], oldObj[key]);
+                } else {
+                    newObj[key] = oldObj[key];
+                }
+            }
+        }
+        const objx = {}
+        deepCopy(objx, obj1)
+        console.log(objx);
+        objx.f.name = 'afdsks;aklfjdls;ka'
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>template</title>
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{message}}</h1>
+
+    </div>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "你好世界"
+            }
+        })
+
+        const nums = [1, 2, 3, 4, 5, 6, 5, 4, 3]
+        let newNums = nums.filter(function (n) {
+            return n < 5
+        })
+        console.log(newNums);
+        console.log('====================');
+
+        let new1Nums = newNums.map(function (n) {
+            return n * 2
+        })
+        console.log(new1Nums);
+        console.log('====================');
+
+        let new2Nums = new1Nums.reduce(function (preValue, n) {
+            return preValue + n
+        }, 0)
+        console.log(new2Nums);
+        console.log('====================');
+
+
+
+        let total = nums.filter(function (n) {
+            return n < 5
+        }).map(function (n) {
+            return n * 2
+        }).reduce(function (p, n) {
+            return p + n
+        }, 0)
+        console.log(total);
+        console.log('====================');
+
+        let total1 = nums.filter(n => n < 5).map(n => n * 2).reduce((p, n) => p + n)
+        console.log(total1);
+        console.log('====================');
+
+        var arr = [1, 2, 3, 4, 5];
+        var a = arr.forEach(function (value, index, arr) {
+            console.log(value + " " + index + " " + arr)
+        })
+    </script>
+</body>
+
+</html>

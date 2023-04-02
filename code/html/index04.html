@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>拖拽练习</title>
+    <style>
+        .box1 {
+            width: 300px;
+            height: 300px;
+            border: solid 1px black;
+            display: block;
+        }
+
+        .box1>div,
+        .box2>div {
+            width: 98px;
+            height: 98px;
+            border: solid 1px black;
+            border-radius: 50%;
+            float: left;
+            text-align: center;
+            line-height: 100px;
+            background-color: red;
+        }
+
+        .box2 {
+            width: 300px;
+            height: 300px;
+            border: solid 1px black;
+            position: absolute;
+            left: 600px;
+            top: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div draggable="true">1</div>
+        <div draggable="true">2</div>
+        <div draggable="true">3</div>
+        <div draggable="true">4</div>
+        <div draggable="true">5</div>
+        <div draggable="true">6</div>
+    </div>
+    <div class="box2">
+
+    </div>
+    <script>
+        var box1 = document.querySelectorAll(".box1>div")
+        var box2 = document.querySelector(".box2")
+        var temp = null
+        for (var i = 0; i < box1.length; i++) {
+            box1[i].ondragstart = function () {
+                temp = this
+            }
+
+            box1[i].ondragend = function () {
+                temp = null
+            }
+
+        }
+        box2.ondragover = function (e) {
+            e.preventDefault()
+        }
+        box2.ondrop = function () {
+            this.appendChild(temp)
+        }
+
+    </script>
+</body>
+
+</html>

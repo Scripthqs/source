@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p2 :style="{color:'red'}">{{ message }}</p2>
+        <p2 :style="{color:key1}">{{ message }}</p2>
+        <h2>=====================</h2>
+        <p2 :style="[baseStyle,baseStyle1]">{{ message }}</p2>
+        <h2>=====================</h2>
+        <p  :style="{fontSize: ff}">{{ message }}</p>
+        <p  :style="{fontSize: fs + 'px'}">{{ message }}</p>
+        <h2>====================</h2>
+        <p  :style="fn()">{{message}}</p>
+        <h2>====================</h2>
+        <p :style="{color:'green',fontSize:'30px'}">{{ message }}</p>
+
+    </div>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "hello world",
+                key1: 'green',
+                baseStyle:{backgroundColor: 'red'},
+                baseStyle1:{fontSize:"40px"},
+                ff: "30px",
+                fs: 40
+            },
+            methods:{
+                fn: function(){
+                    return {fontSize:"50px",color:"blue"}
+                }
+            }
+        })
+    </script>
+</body>
+</html>

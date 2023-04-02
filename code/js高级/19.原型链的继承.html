@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>继承</title>
+</head>
+
+<body>
+    <script>
+        // function Sup(){
+        //     this.supProp = 'Sup property'//加在Sup实例对象中
+
+        // }
+
+        // Sup.prototype.ssp = function(){//加在Sup原型对象中
+        //     console.log(this.supProp);
+        // }
+
+        // Sub.prototype = new Sup;//令Sup的实例对象=Sub的原型对象
+
+        // function Sub(){
+        //     this.subProp = 'Sub property'//加在Sub实例对象中
+        // }
+        // Sub.prototype.ssb = function(){//加在Sub原型对象中  Sup的实例对象
+        //     console.log(this.subProp);
+        // }
+
+        // var sub = new Sub();
+        // // var sup = new Sup()
+
+
+        // console.log(sub);
+
+        // sub.ssp()
+        // sup.ssb()
+
+        function Father() {
+            this.prop1 = 'father prototype'
+        }
+        Father.prototype.showProp1 = function () {
+            console.log(this.prop1);
+        }
+        function Son() {
+            this.prop2 = 'son prototype'
+        }
+        Son.prototype = new Father
+        Son.prototype.constructor = Son
+        Son.prototype.showProp2 = function () {
+            console.log(this.prop2);
+        }
+        var s1 = new Son()
+        var f1 = new Father()
+        console.log(s1);
+        s1.showProp1()
+        s1.showProp2()
+        f1.showProp1()
+        // f1.showProp2()
+        console.log(s1.constructor);
+        console.log(f1.constructor);
+
+    </script>
+</body>
+
+</html>

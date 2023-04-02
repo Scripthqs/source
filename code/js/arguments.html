@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>arguments</title>
+    <script>
+        function fun(){
+            console.log(arguments);
+            console.log(arguments.length);
+            console.log(arguments.callee ===fun);
+        }
+        fun(12,'a')
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

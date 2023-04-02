@@ -1,0 +1,52 @@
+
+@a:50px;
+body{
+    width: 600px;
+    height: 600px;
+    border: 1px solid black;
+    margin: 50px auto;
+}
+.box1{
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    
+}
+
+.box3 {
+    width: @a;
+    height: $width;
+    border: 1px solid red;
+    &:hover{
+        color: #bfa;
+    }
+
+}
+.box2:extend(.box1){
+    background-color: #bfa;
+}
+.box4{
+    .b;
+}
+
+.b(){
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+}
+
+.test(@w,@h){
+    width:@w;
+    height:@h;
+    background-color: blue;
+}
+div{
+    .test(@h:200px,@w:100px);
+}
+.test(@w:200px,@h:100px){
+    width:@w;
+    height:@h;
+}
+div{
+    .test(200px);
+}

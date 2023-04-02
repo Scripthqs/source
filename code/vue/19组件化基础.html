@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>template</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <h2>我是标题</h2>
+        <p>我是内容呵呵呵</p>
+        <p>我是内容哈哈哈</p>
+        <button-counter></button-counter>
+        <cpn1></cpn1>
+        <h2>===========================cpn1</h2>
+        <cpn2></cpn2>
+        <h2>===========================cpn2</h2>
+        <cpn3></cpn3>
+        <h2>===========================cpn3</h2>
+        <cpn4></cpn4>
+        <h2>===========================cpn4</h2>
+        <cpn5></cpn5>
+        <h2>===========================cpn5</h2>
+
+    </div>
+
+    <div id="app1">
+        <h2>===========================app1</h2>
+        <cpn1></cpn1>
+        <cpn2></cpn2>
+    </div>
+
+    
+<script>
+
+    Vue.component('button-counter', {
+    data: function () {
+        return {
+        count: 0
+        }
+    },
+    template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+    })
+    
+
+    //1.创建组件构造器
+    const cpn1 = Vue.extend({
+        template: `
+        <div>
+            <h2>我是标题1</h2>
+            <p>我是内容呵呵呵1</p>
+            <p>我是内容哈哈哈1</p>
+        </div>`
+        })
+
+        const cpn2 = Vue.extend({
+        template: `
+        <div>
+            <h2>我是标题2</h2>
+            <p>我是内容呵呵呵2</p>
+            <p>我是内容哈哈哈2</p>
+        </div>`
+        })
+
+    //2.注册组件
+    const cpn3 = Vue.extend({
+        template: `
+        <div>
+            <h2>我是标题3</h2>
+            <p>我是内容呵呵呵3</p>
+            <p>我是内容哈哈哈3</p>
+            <cpn1></cpn1>
+            <cpn2></cpn2>
+        </div>`,
+        components: {
+            cpn1: cpn1,
+            cpn2: cpn2
+        }
+    })
+
+
+
+    //注册组件的语法糖，将组件构造器和注册放在一起
+    Vue.component('cpn4',{
+        template: `
+        <div>
+            <h2>我是标题4</h2>
+            <p>我是内容呵呵呵4</p>
+            <p>我是内容哈哈哈4</p>
+        </div>`
+    }) 
+
+
+    new Vue({
+        el: "#app",
+        data: {
+            message: "你好世界"
+        },
+        components: {
+            cpn1: cpn1,
+            cpn2: cpn2,
+            cpn3: cpn3,
+            cpn5:{
+                template: `
+                    <div>
+                        <h2>我是标题5</h2>
+                        <p>我是内容呵呵呵5</p>
+                        <p>我是内容哈哈哈5</p>
+                    </div>`
+            }
+        }
+    })
+
+
+</script>
+</body>
+</html>

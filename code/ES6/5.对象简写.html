@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象的简写</title>
+</head>
+
+<body>
+    <script>
+        let msg = 'hello'
+        let fun = function () {
+            console.log("函数fun");
+        }
+        const obj = {
+            msg: msg,//ES5写法
+            fun,//ES6简写
+            fun1: function () {
+                console.log("对象中的函数fun1");
+            },
+            fun2() {
+                console.log("对象中的函数fun2,简写形式");
+            }
+        }
+        console.log(obj.msg);
+        console.log(obj.fun);
+        console.log(obj.fun1);
+        console.log(obj.fun2);
+
+    </script>
+</body>
+
+</html>

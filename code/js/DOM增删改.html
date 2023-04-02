@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function fun1(btn, fun) {
+            var btn = document.getElementById(btn);
+            btn.onclick = fun;
+        }
+        window.onload = function () {
+            fun1("btn01", function () {
+                var li = document.createElement("li");
+                var gzt = document.createTextNode("广州");
+                li.appendChild(gzt);
+                var city = document.getElementById("city");
+                city.appendChild(li);
+            })
+
+            fun1("btn02",function(){
+                var li = document.createElement("li");
+                var gzt = document.createTextNode("广州");
+                li.appendChild(gzt);
+                var bj = document.getElementById("bj");
+                                var bj = document.getElementById("bj");
+                var city = document.getElementById("city");
+                city.insertBefore(li,bj);
+
+            })
+
+            fun1("btn03",function(){
+                var li = document.createElement("li");
+                var gzt = document.createTextNode("广州");
+                li.appendChild(gzt);
+                var bj = document.getElementById("bj");
+                var city = document.getElementById("city");
+                city.replaceChild(li,bj)
+            })
+
+            fun1("btn04",function(){
+                var bj = document.getElementById("bj");
+                // var city = document.getElementById("city");
+                // city.removeChild(bj);
+                bj.parentNode.removeChild(bj);
+            })
+
+            fun1("btn05",function(){
+                var city = document.getElementById("city");
+                console.log(city.innerHTML);
+            })
+            fun1("btn06",function(){
+                var bj = document.getElementById("bj");
+                console.log(bj.innerHTML);
+                bj.innerHTML = "重庆";
+            })
+
+            fun1("btn07",function(){
+                var li = document.createElement("li");
+                li.innerHTML = "广州"
+                var city = document.getElementById("city");
+                city.appendChild(li);
+            })
+
+        }
+
+
+
+    </script>
+    <style>
+        #total {
+            float: left;
+        }
+
+        #btnlist {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="total">
+        <p>
+            你喜欢那个城市？
+        </p>
+        <ul id="city">
+            <li id="bj">北京</li>
+            <li>上海</li>
+            <li>东京</li>
+            <li>首尔</li>
+        </ul>
+    </div>
+    <div id="btnlist">
+        <div><button id="btn01">创建广州在#city下面</button></div>
+        <div><button id="btn02">将广州插入到#bj前面</button></div>
+        <div><button id="btn03">将广州替换成#bj</button></div>
+        <div><button id="btn04">删除#bj</button></div>
+        <div><button id="btn05">读取#city中的HTML代码</button></div>
+        <div><button id="btn06">读取#bj中的HTML代码</button></div>
+        <div><button id="btn07">创建广州在#city下面</button></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>宏队列和微队列</title>
+</head>
+
+<body>
+  <script>
+    setTimeout(() => {//会立即放入宏队列
+      console.log('定时器1');
+      Promise.resolve(3).then(//会立即放入微队列
+        value => {
+          console.log('Promise1', value);
+        }
+      )
+    }, 0);
+    setTimeout(() => {//会立即放入宏队列
+      console.log('定时器2');
+    }, 0);
+
+    Promise.resolve(4).then(//会立即放入微队列
+      value => {
+        console.log('Promise2', value);
+      }
+    )
+    Promise.resolve(5).then(//会立即放入微队列
+      value => {
+        console.log('Promise3', value);
+      }
+    )
+  </script>
+</body>
+
+</html>

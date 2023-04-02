@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promise</title>
+</head>
+
+<body>
+  <script>
+    // let p = Promise.reject(521);
+    // let p2 = Promise.reject('hello world');
+    // let p3 = Promise.reject(new Promise((resolve, reject) => {
+    //   resolve('OK');
+    // }));
+
+    // console.log(p);
+    // console.log(p2);
+    // console.log(p3);
+    // let p1 = new Promise((resolve, reject) => {
+    //   resolve('OK');
+    // })
+    // let p2 = Promise.resolve('Success');
+    // let p3 = Promise.resolve('Oh Yeah');
+
+    // const result = Promise.all([p1, p2, p3]);
+    // console.log(result);
+    // const p1 = Promise.resolve(1)
+    // const p2 = Promise.resolve(2)
+    // const p3 = Promise.reject(3)
+    // const pAll = Promise.all([p1, p2, p3])
+    // pAll.then(value => {
+    //   console.log(value);
+    // })
+    // pAll.catch(reason => {})
+
+    // const p1 = new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     resolve(1)
+    //   }, 1000)
+    // })
+    // const p2 = Promise.reject(2)
+    // const p3 = Promise.reject(3)
+
+    // const pRace = Promise.race([p1, p2, p3])
+    // // 谁先完成就输出谁(不管是成功还是失败)
+
+    // pRace.then(
+    //   value => {
+    //     console.log('race onResolved()', value)
+    //   },
+    //   reason => {
+    //     console.error('race onRejected()', reason)//race onResolved() 2
+    //   }
+    // )
+
+    // const p = new Promise((resolve, reject) => {
+    //   //resolve(1) // promise变为resolved成功状态
+    //   //reject(2) // promise变为rejected失败状态
+    //   // throw new Error('出错了') // 抛出异常，promise变为rejected失败状态，reason为抛出的error
+    //   throw 3
+    // })
+    // p.then(
+    //   value => { },
+    //   reason => { console.error('reason', reason) }// reason Error:出错了
+    // )
+
+    //     const p = new Promise((resolve, reject) => {
+    //       //resolve(1)
+    //       reject(2)
+    //     })
+    //     p.then(
+    //       value => { },
+    //       reason => { console.log('reason', reason) }
+    //     )
+    //     p.then(
+    //       value => { },
+    //       reason => { console.log('reason2', reason) }
+    //     )
+    // // reason 2
+    // // reason2 2
+    // let p = new Promise((resolve, reject) => {
+    //   // resolve('ok');
+    //   reject('ok')
+    // });
+    // //执行 then 方法
+    // let result = p.then(value => {
+    //   console.log(value);
+    // }, reason => {
+    //   console.warn(reason);
+    // });
+
+    // console.log(result);
+    // result.then(value => {
+    //   console.log(value);
+    // }, reason => {
+    //   console.warn(reason);
+    // })
+    // new Promise((resolve, reject) => {
+    //   resolve('ok');
+    //   // reject('no')
+    // }).then(value => {
+    //   console.log(value);
+    //   // return 2
+    //   // return Promise.resolve(3)
+    //   // return Promise.reject(4)
+    //   throw 5
+    // }, reason => {
+    //   console.warn(reason);
+    // }).then(value => {
+    //   console.log(value);
+    // }, reason => {
+    //   console.warn(reason);
+    // })
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        console.log('执行任务1(异步)')
+        resolve(1)
+      }, 1000)
+    }).then(
+      value => {
+        console.log('任务1的结果', value)
+        console.log('执行任务2(同步)')
+        return 2 // 同步任务直接return返回结果
+      }
+    ).then(
+      value => {
+        console.log('任务2的结果', value)
+        return new Promise((resolve, reject) => { // 异步任务需要包裹在Promise对象中
+          setTimeout(() => {
+            console.log('执行任务3(异步)')
+            resolve(3)
+          }, 1000)
+        })
+      }
+    ).then(
+      value => {
+        console.log('任务3的结果', value)
+      }
+    )
+  </script>
+</body>
+
+</html>

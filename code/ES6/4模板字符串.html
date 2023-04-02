@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板字符串</title>
+</head>
+
+<body>
+
+    <script>
+
+        let s = `我是字符串`
+        console.log(s);
+        console.log(typeof s);
+        //字符串中可以出现换行符
+        let str = `
+        <ul>
+            <li>列表1</li>
+            <li>列表2</li>
+            <li>列表3</li>
+        </ul>`
+        console.log(str);
+        //拼接变量，使用 ${xxx} 形式输出变量
+        let name = '小明'
+        let str2 = `姓名：${name}`
+        console.log(str2);
+    </script>
+</body>
+
+</html>

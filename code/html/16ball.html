@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小球下落</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        .box1 {
+            height: 500px;
+            border-bottom: 10px solid black;
+            overflow: hidden;
+
+
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background: #bfa;
+            border-radius: 50%;
+            animation: down 2s infinite ease-in;
+        }
+        @keyframes down {
+            from{
+                mmargin-top: 0px;
+            }
+            25%{
+                margin-top: 400px;
+            }
+            50%{
+                margin-top: 100px;
+            }
+            to {
+                margin-top: 400px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+    </div>
+</body>
+
+</html>

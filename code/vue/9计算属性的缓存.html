@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>template</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>{{ message }}</h2>
+        <h2>=======================</h2>
+        <p>{{a}} {{b}}</p>
+        <h2>=======================</h2>
+        <p>{{f()}}</p>
+        <p>{{f()}}</p>
+        <p>{{f()}}</p>
+        <h2>=======================</h2>
+        <p>{{ f1 }}</p>
+        <p>{{ f1 }}</p>
+        <p>{{ f1 }}</p>
+        <p>{{ f2 }}</p>
+
+
+
+    </div>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "你好 世界",
+                a: '你好',
+                b: "世界"
+            },
+            methods:{
+                f: function(){
+                    console.log('f');
+                    return this.a + " " + this.b
+                }
+            },
+            computed:{
+                f1: function(){
+                    console.log('f1');
+                    return this.a + " " + this.b
+                },
+                f2: {
+                    set: function(newValue){
+                        console.log('===============',newValue);
+                        const n = newValue.split(' ')
+                        console.log(n);
+                        this.a = n[0]
+                        this.b = n[1]
+
+                    },
+                    get: function(){
+                        return this.a + " " + this.b
+                    }
+                }
+     
+            }
+        })
+    </script>
+</body>
+</html>

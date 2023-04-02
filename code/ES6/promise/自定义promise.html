@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>自定义Promise</title>
+</head>
+
+<body>
+  <!-- <script src="./Promise.js"></script> -->
+  <script src="./Promise_class.js"></script>
+  <!-- <script src="./Promise纯净版本.js"></script> -->
+  <!-- <script src="./手写Promise.js"></script> -->
+  <script>
+    // const p = new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     // resolve(1)
+    //     reject(2)
+    //     // console.log('reject()改变状态之后');
+    //   }, 0);
+    // })
+    // const res = p.then(
+    //   value => {
+    //     console.log('成功1', value);
+    //     console.log('aaaaaaaaaaaaaa');
+    //     return 'hello world'
+    //   },
+    //   reason => {
+    //     console.log('失败2', reason);
+    //     throw 4
+    //   }
+    // )
+
+    // p.then(
+    //   value => {
+    //     alert('成功2', value);
+    //   },
+    //   reason => {
+    //     alert('失败2', reason);
+    //   }
+    // )
+
+    // res.catch(reason => {
+    //   console.log('onRejected3()', reason);
+    //   // return new Promise(() => { })
+    // }).then(value => {
+    //   console.log('onResolved()', value);
+    // })
+    // console.log(p);
+    // console.log(res);
+    const p1 = Promise.resolve(2)
+    const p5 = Promise.resolve(5)
+    const p2 = Promise.resolve(Promise.resolve(3))
+    const p3 = Promise.resolve(Promise.reject(4))
+    const p4 = new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(5)
+      }, 1000);
+    })
+    // p1.then(value => {
+    //   console.log('p1', value);
+    // })
+    // p2.then(value => {
+    //   console.log('p2', value);
+    // })
+    // p3.catch(reason => {
+    //   console.log('p3', reason);
+    // })
+    const pAll = Promise.all([p4, p1, 7, p2, p4])
+
+    pAll.then(
+      v => {
+        console.log(v);
+      },
+      r => {
+        console.log(r);
+      }
+    )
+
+    const PRace = Promise.race([7, p5, p2, p1, p3])
+    PRace.then(
+      v => {
+        console.log(v);
+      },
+      r => {
+        console.log(r);
+      }
+    )
+  </script>
+</body>
+
+</html>

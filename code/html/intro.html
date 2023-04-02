@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>道</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: #eee;
+        }
+
+        @keyframes x {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        #道 {
+            /* border: 10px solid red; */
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+            animation: x 10s infinite linear;
+            box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.75);
+        }
+        @media (max-width:500px){
+            #道{
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        #道>div:first-child {
+            /* border: 10px solid black; */
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            background: black;
+        }
+
+        #道>div:nth-child(2) {
+            /* border: 10px solid blue; */
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            background: white
+        }
+
+        #道>div:nth-child(3) {
+            /* border: 10px solid yellow; */
+            position: absolute;
+            left: 25%;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: black;
+        }
+        @media (max-width:500px){
+            #道>div:nth-child(3){
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        #道>div:nth-child(4) {
+            /* border: 10px solid yellow; */
+            position: absolute;
+            left: 25%;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-top: 200px;
+            background-color: white;
+        }
+        @media (max-width:500px){
+            #道>div:nth-child(4){
+                width: 100px;
+                height: 100px;
+                margin-top: 100px;
+
+            }
+        }
+
+        #道>div:nth-child(5) {
+            /* border: 10px solid yellow; */
+            position: absolute;
+            left: 50%;
+            top: 75px;
+            margin-left: -25px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: white;
+        }
+        @media (max-width:500px){
+            #道>div:nth-child(5){
+                width: 25px;
+                height: 25px;
+                margin-left:-12.5px ;
+                top: 32.5px;
+            }
+        }
+
+        #道>div:nth-child(6) {
+            /* border: 10px solid yellow; */
+            position: absolute;
+            left: 50%;
+            bottom: 75px;
+            margin-left: -25px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: black;
+        }
+        @media (max-width: 500px)
+        {
+            #道>div:nth-child(6){
+                width: 25px;
+                height: 25px;
+                margin-left: -12.5px;
+                bottom: 32.5px;
+            }
+        }
+
+        #道-wrapper {
+            /* border: 1px solid red; */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        p{
+            margin-top: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="道-wrapper">
+        <div id="道">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <p>道可道，非常道</p>
+    </div>
+
+
+</body>
+
+</html>

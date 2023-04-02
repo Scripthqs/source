@@ -1,0 +1,18 @@
+
+.box1{
+	width: 200rpx;
+	height: 200rpx;
+	background-color: blue;
+}
+.box1-active{
+	background-color: pink;
+}
+.box2{
+	width: 100rpx;
+	height: 100rpx;
+	background-color: green;
+}
+.box2-active{
+	background-color: red;
+}
+

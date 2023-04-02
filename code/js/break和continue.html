@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>break和continue</title>
+    <script>
+        /*         for (var i = 0; i < 5; i++) {
+                    console.log('i的值:' + i);
+                    if (i == 2) {
+                        break; // 注意，虽然在 if 里 使用了 break，但这里的 break 是服务于外面的 for 循环。
+                    }
+                } */
+
+        /*         h:for (var i = 0; i < 5; i++) {
+                    console.log('外层循环 i 的值：' + i);
+                    for (var j = 0; j < 5; j++) {
+                        break h;
+                        console.log('内层循环 j 的值:' + j);
+        
+                    }
+                } */
+        /*         for (var i = 0; i < 5; i++) {
+                    if (i == 2) {
+                        continue; 
+                    }
+                    console.log('i的值:' + i);
+                } */
+
+
+            for (var i = 0; i < 5; i++) {
+            console.log('外层循环 i 的值：' + i);
+            for (var j = 0; j < 5; j++) {
+
+
+                continue ;
+                console.log('内层循环 j 的值:' + j);
+
+
+
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

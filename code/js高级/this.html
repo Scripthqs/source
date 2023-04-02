@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const per1 = {
+      name: 'hello',
+      age: 20,
+      fun(...args) {
+        console.log(`姓名:${this.name},年龄:${this.age},参数:${args}`);
+      }
+    }
+    const per2 = {
+      name: 'world',
+      age: 21
+    }
+    per1.fun()
+    per1.fun.call(per2, 1, 2, 3, 'call')
+    per1.fun.apply(per2, [1, 2, 3, 'apply'])//参数只能是数组
+    per1.fun.bind(per2, 1, 2, 3, 'bind')()//是函数，需要调用
+  </script>
+</body>
+
+</html>

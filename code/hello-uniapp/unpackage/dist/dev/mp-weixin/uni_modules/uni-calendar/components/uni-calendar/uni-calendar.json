@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "calendar-item": "/uni_modules/uni-calendar/components/uni-calendar/uni-calendar-item"
+  },
+  "component": true
+}

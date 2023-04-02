@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>template</title>
+    <script src="vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <textarea name="" id="" cols="30" rows="10" v-model="message"></textarea>
+        <input type="text" v-model.lazy="message">
+
+
+        <input type="text" :value="message" @input='fn1'>
+        <input type="text" :value="message" @input='message = $event.target.value'>
+        <h1>{{message}}</h1>
+
+        <label>
+            <input type="radio" id="male"  value="男" v-model="sex">男
+        </label>
+
+        <label>
+            <input type="radio" id="famale" value="女" v-model="sex">女
+        </label>
+    
+        <h2>你的性别是：{{sex}}</h2>
+
+        <label>
+            <input type="checkbox" id="license" v-model='license'>同意协议
+        </label>
+        <h2>你选择的是：{{ license }}</h2>
+        <button :disabled="!license">下一步</button>
+        <br>
+
+        <input type="checkbox" value="篮球" v-model="hobbies">篮球
+        <input type="checkbox" value="游泳" v-model="hobbies">游泳
+        <input type="checkbox" value="滑雪" v-model="hobbies">滑雪
+        <input type="checkbox" value="跳舞" v-model="hobbies">跳舞
+        <h2>您最喜欢的运动是：{{hobbies}}</h2>
+        <br>
+
+        <label v-for="n in originHobbies" :for="n">
+            <input type="checkbox" :value="n" :id="n" v-model="hobbies">{{n}}
+        </label>
+        <h2>您最喜欢的运动是：{{hobbies}}</h2>
+    
+        <br>
+
+        <select name="abc" id="单选" v-model="fruit">
+            <option value="苹果">苹果</option>
+            <option value="香蕉">香蕉</option>
+            <option value="草莓">草莓</option>
+            <option value="西瓜">西瓜</option>
+        </select>
+        <h2>您最爱的水果：{{fruit}}</h2>
+
+        <select name="abc" id="多选" v-model="fruits" multiple>
+            <option value="苹果">苹果</option>
+            <option value="香蕉">香蕉</option>
+            <option value="草莓">草莓</option>
+            <option value="西瓜">西瓜</option>
+        </select>
+        <h2>您最爱的水果：{{fruits}}</h2>
+
+        <br>
+
+        <label for="">
+            <input type="number" v-model.number="age">
+        </label>
+        <h2>{{age}}---{{typeof age}}</h2>
+        <br>
+
+        <input type="text" v-model.trim="message">
+        <h2>您输入的内容：{{message}}</h2>
+
+
+    </div>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "你好世界",
+                sex: '男',
+                license: false,
+                hobbies: [],
+                fruit: '香蕉',
+                fruits: [],
+                originHobbies: ['吃饭','睡觉','喝水','倒立'],
+                age: 0
+            },
+            methods:{
+                fn1(event){
+                    console.log(event);
+                    this.message = event.target.value
+                }
+            }
+        })
+    </script>
+</body>
+</html>

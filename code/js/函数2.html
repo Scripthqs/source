@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数</title>
+    <script>
+        (function (a,b){
+            console.log(a,b);
+        })(1,2);
+
+
+        var obj = new Object;
+        obj.name = 'a';
+        obj.age = 20;
+        obj.fun = function(){
+            console.log(obj.age);
+        };
+        obj.fun();
+
+
+       function fun(){
+            console.log(obj.age);
+        }
+        fun();
+
+
+        var obj2 = {
+            name:'ddd',
+            age:'15',
+            fun:function(){
+                console.log(obj2.age);
+            }
+        }
+        obj2.fun();
+
+
+
+
+        document.write('aa')
+
+
+
+        for(var n in obj){
+            console.log(`属性名${n}`);
+            console.log(`属性值${obj[n]}`);
+        }
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

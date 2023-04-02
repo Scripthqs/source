@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>过渡</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        .box1{
+            width: 800px;
+            height: 400px;
+            background:#333;
+            overflow: hidden;
+
+        }
+        .box2{
+            width: 100px;
+            height: 100px;
+            background:#bfa;
+            margin-bottom: 100px;
+            margin-left: 0px;
+            transition-property:margin-left;
+            transition-duration:1s;
+            transition-timing-function: linear;
+        }
+        .box3{
+            width: 100px;
+            height: 100px;
+            background:red;
+            margin-left: 0px;
+            transition-property:margin-left;
+            transition-duration:1s;
+            transition-timing-function: steps(2,start);
+        }
+
+        .box1:hover div{
+            margin-left: 700px;
+
+
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box1">
+
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件的委派</title>
+    <script>
+        window.onload = () =>{
+/*             var a = document.getElementsByTagName("a");
+            for(var i=0;i<a.length;i++){
+                a[i].onclick = () =>{
+                    console.log(`我是的a单击响应函数`)
+                }
+            } */
+ 
+            var u1 = document.getElementById("u1");
+            u1.onclick = function(e) {
+                
+                // console.log(e.target);
+                if(e.target.className === "link"){
+                    console.log("我是a")
+                }
+
+                
+            }
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = () =>{
+                var li = document.createElement("li");
+                li.innerHTML = "<a href='#' class='link'>新超链接</a>";
+                u1.appendChild(li);
+                console.log('b');
+            }
+
+
+
+        }
+    </script>
+    <style>
+        #u1{
+            background: #bfa;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn01">添加超链接</button>
+    <ul id="u1">
+        <li><a href="#" class="link">超链接1</a></li>
+        <li><a href="#" class="link">超链接2</a></li>
+        <li><a href="#" class="link">超链接3</a></li>
+        <li><a href="#" class="link">超链接4</a></li>
+    </ul>
+
+</body>
+</html>

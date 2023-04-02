@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>遍历点击</title>
+    <script src="vue.js"></script>
+    <style>
+        .red{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul v-for="(n,i) in arr" :class="{red:j===i}" @click="liClick(i)">
+            <li>{{i}}{{n}}</li>
+        </ul>
+    </div>
+<script>
+    const app = new Vue({
+        el: "#app",
+        data: {
+            arr: ["吃饭","睡觉","喝水","上网"],
+            j:0
+        },
+        methods:{
+            liClick(i){
+                console.log(i);
+                this.j = i;
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数的方法</title>
+    <script>
+        function fun(a,b){
+            console.log(`a=${a}`);
+            console.log(`b=${b}`);
+            // console.log(this.n)
+        }
+        var obj1 = {n:1,fun:function(){
+            console.log(this.n)
+        }};
+        var obj2 = {n:2};
+        fun();
+
+        obj1.fun.apply(obj2);
+        fun.call(obj1,2,3);
+        fun.apply(obj2,[2,3]);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

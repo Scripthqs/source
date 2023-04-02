@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文档流</title>
+  <style>
+    * { 
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      float: left;
+      background-color: #f00;
+      width: 100px;
+      height: 100px;
+      text-align: center;
+      /* vertical-align: middle; */
+      line-height: 100px;
+    }
+
+    .box1 {
+      width: 200px;
+      height: 200px;
+      background-color: #bfa;
+      float: left;
+    }
+    .box2 {
+      width: 200px;
+      height: 200px;
+      background-color: #333;
+      float: left;
+    }
+    .box3 {
+
+
+      border: 10px solid blue;
+      
+
+
+    }
+    .box4 {
+      width: 100px;
+      height: 100px;
+      background-color: #0f0;
+      /* float: left; */
+
+    }
+  </style>
+</head>
+<body>
+  <a href="#">超链接</a>
+  <div class="box1"></div>
+  <div class="box2"></div>
+  <div class="box3">
+    <div class="box4"></div>
+  </div>
+</body>
+</html>

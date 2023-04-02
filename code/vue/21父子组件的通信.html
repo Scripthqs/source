@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>父子组件通信</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <!-- <cpn :cmovies="movies" :cmessage="message"></cpn> -->
+        <cpn  :c1="message" :c2="movies"></cpn>
+        <cpn :c1="message" :c2='arr'></cpn>
+    </div>  
+
+    <template id="cpn">
+        <div>
+            <p>{{c1}}</p>
+            <p>{{c2}}</p>
+            <ul>
+                <li v-for="item in c2">{{item}}</li>
+            </ul>
+        </div>
+    </template>
+
+<script>
+    
+    const cpn = {
+        template: '#cpn',
+        // props:['cmovies','cmessage'],
+        props:{
+            // cmovies: Array,
+            // cmessage: String,
+            c1:{
+                type: String,
+                default:'aaaaaaaaa',
+                required: true
+            },
+            c2: {
+                type: Array,
+                default(){
+                    return []
+                }
+            }
+
+        },
+        data(){
+            return{
+            }
+        }
+    }
+
+    const app = new Vue({
+        el: "#app",
+        data: {
+            message: "你好，Vue",
+            movies: ['电视','电脑','电话','电影'],
+            arr:[1,2,3,4,5]
+        },
+        components: {
+            cpn
+        }
+    })
+</script>
+</body>
+</html>

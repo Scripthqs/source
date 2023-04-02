@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM查询</title>
+    <script>
+        window.onload = function () {
+            // var body = document.getElementsByTagName('body');
+            // console.log(body[0]);
+            // var body = document.body;
+            // var html = document.documentElement;
+            // console.log(html)
+            // console.log(body);
+            var all = document.all;
+            console.log(all)
+
+            // var box = document.getElementsByClassName('box');
+            // console.log(box);
+            var box1 = document.querySelector(".box");
+            var div = document.querySelector(".box1 div");
+            console.log(box1);
+
+        }
+
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+
+    <div class="box1">
+        <div>aaaa</div>
+    </div>
+    <div class="box1">
+        <div>aaaa</div>
+    </div>
+    <div class="box1">
+        <div>aaaa</div>
+    </div>
+</body>
+
+</html>

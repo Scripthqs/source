@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多选练习</title>
+    <script>
+        window.onload = function () {
+            var items = document.getElementsByName("items");
+            var qx = document.getElementById("checkAllBtn");
+            var xbx = document.getElementById("checkAllBox");
+            qx.onclick = function () {
+                for (var i = 0; i < items.length; i++) {
+                    items[i].checked = true;
+                }
+                xbx.checked = true;
+            }
+
+            var qbx = document.getElementById("checkNoBtn");
+            qbx.onclick = function () {
+                for (var i = 0; i < items.length; i++) {
+                    items[i].checked = false;
+                }
+                xbx.checked = false;
+            }
+
+            var fx = document.getElementById("checkRevBtn");
+            fx.onclick = function () {
+                xbx.checked = true;
+                for (var i = 0; i < items.length; i++) {
+                    items[i].checked = !items[i].checked;
+
+                    if(!items[i].checked){
+                            xbx.checked = false;
+                        }
+                }
+
+
+
+
+            }
+
+            var tj = document.getElementById("sendBtn");
+            tj.onclick = function () {
+                for (var i = 0; i < items.length; i++) {
+                    if(items[i].checked){
+                        console.log(items[i].value);
+                    }
+                }
+
+            }
+
+
+
+            xbx.onclick = function () {
+                for (var i = 0; i < items.length; i++) {
+                    items[i].checked = this.checked
+                    console.log(this===xbx);
+                }
+
+            }
+
+            
+            for(var i = 0; i < items.length; i++){
+                items[i].onclick = function(){
+                    xbx.checked = true;
+
+                    for(var j = 0; j < items.length; j++){
+                        if(!items[j].checked){
+                            xbx.checked = false;
+                            break;
+                        }
+                    }
+                }
+            }
+
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    <form method="post" action="">
+        你爱好的运动是什么<input type="checkbox" id="checkAllBox" />全选/全不选
+        <br>
+        <input type="checkbox" name='items' value="足球" />足球
+        <input type="checkbox" name='items' value="篮球" />篮球
+        <input type="checkbox" name='items' value="羽毛球" />羽毛球
+        <input type="checkbox" name='items' value="乒乓球" />乒乓球
+        <br>
+        <input type="button" id="checkAllBtn" value="全 选">
+        <input type="button" id="checkNoBtn" value="全不选">
+        <input type="button" id="checkRevBtn" value="反 选">
+        <input type="button" id="sendBtn" value="提 交">
+    </form>
+</body>
+
+</html>

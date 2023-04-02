@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>卡片</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../fa/css/all.css">
+    <style>
+        .box1 {
+            width: 240px;
+            margin: 100px auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .img_box img {
+            width: 100%;
+            vertical-align: center;
+        }
+
+        .content_box {
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        .content_box .title {
+            font-size: 18px;
+            font-family: 'Times New Roman', serif;
+            color: #717171;
+            margin: 15px 0px;
+        }
+
+        .content_box .loction {
+            font-size: 12px;
+            font-family: 'Times New Roman', 华文行楷;
+            color: #acaaaa;
+            margin: 10px 0px;
+        }
+        
+        .content_box .intro{
+            font-size: 14px;
+            font-family: 'Times New Roman', 华文行楷;
+            color: #acaaaa;
+            margin: 10px 0px;
+        }
+        
+
+        .content_box .loction::before {
+            content: '\f3c5';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            font-size: 12px;
+            margin-right: 7px;
+        }
+
+        .star_box {
+            height: 46px;
+            line-height: 46px;
+            border-top: 1px solid #e9e9e9;
+            color: #ddd;
+            padding: 0 16px;
+        }
+
+        .star_box .star {
+            float: left;
+        }
+
+        .star_box .weibo {
+            float: right;
+        }
+
+        .star .light {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="img_box">
+            <img src="../img/马.png" alt="马">
+        </div>
+
+        <div class="content_box">
+            <h2 class="title">Animation films</h2>
+            <div class="loction">3D动画城</div>
+            <p class="intro">我是一匹马，咬着一把刀，以前我是马仔，现在我是马哥，社会我马哥，人狠话不多。</p>
+        </div>
+
+        <div class="star_box">
+            <ul class="star">
+                <li class="fas light">&#xf005;</li>
+                <li class="fas light">&#xf005;</li>
+                <li class="fas">&#xf005;</li>
+                <li class="fas">&#xf005;</li>
+
+            </ul>
+            <ul class="weibo">
+                <li class="fab">&#xf18a;</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

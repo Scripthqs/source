@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // // 获取当前时间
+      // let date = new Date();
+      // let myDate = new Date("2020-02-05");
+      // console.log(date, myDate);
+
+      // // 获取当前时间戳
+      // const timestamp1 = Date.now();
+      // console.log(timestamp1);
+      // // 将date对象转成时间戳
+      // const timestamp2 = date.getTime();
+      // const timestamp3 = myDate.valueOf();
+      // console.log(timestamp2);
+      // console.log(timestamp3);
+      // console.log(+date);
+      // // 计算操作花费的时间
+      // let startTime = Date.now();
+      // for (let i = 0; i < 10000; i++) {
+      //   // console.log(i);
+      // }
+      // let endTime = Date.now();
+      // console.log("for循环的时间:", endTime - startTime, "ms");
+
+      // //封装一个函数测试性能
+      // const testFn = () => {
+      //   for (let i = 0; i < 10000; i++) {
+      //     // console.log(i);
+      //   }
+      // };
+      // const testFnTime = (fn) => {
+      //   let startTime = Date.now();
+      //   fn();
+      //   let endTime = Date.now();
+      //   console.log("fn执行时间:", endTime - startTime, "ms");
+      // };
+      // testFnTime(testFn);
+
+      console.log("===========将字符串时间转成时间戳=================");
+      //将字符串时间转成时间戳
+      let timeString = "2023-02-05";
+      let date = new Date(timeString);
+      let sjc1 = date.getTime();
+      let sjc2 = date.valueOf();
+      let scj3 = +date;
+      console.log(sjc1, sjc2, scj3);
+      let timestamp = Date.parse(timeString);
+      console.log(timestamp);
+    </script>
+  </body>
+</html>

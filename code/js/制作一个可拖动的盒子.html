@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>拖拽</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+        #box2{
+            width: 100px;
+            height: 100px;
+            background: #999;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+
+            var box1 = document.getElementById("box1");
+            var flag = false;
+            var lx,ly;
+/*             box1.onmousedown = function(e){
+                 
+                lx = e.pageX;
+                ly = e.pageY;
+                flag = true;
+     
+            
+            };
+            document.onmousemove = function(e){
+                if(flag){
+      
+                    var dx = e.pageX - lx;
+                    var dy = e.pageY -ly;
+
+                    var top = parseInt(box1.style.top)||8;
+                    var left = parseInt(box1.style.left)||8;
+                    var rx = dx + left;
+                    var ry = dy + top;
+
+                    
+                    box1.style.left = rx + "px";
+                    box1.style.top = ry + "px";
+                   
+                    lx = e.pageX;
+                    ly = e.pageY;
+                    
+                    
+                }
+            }
+            document.onmouseup = function(e){
+                flag = false;
+            }
+*/
+        box1.onmousedown = function(e){
+            var ox = e.pageX - box1.offsetLeft;
+            var oy = e.pageY - box1.offsetTop;
+
+            document.onmousemove = function(e){
+                box1.style.left = e.pageX - ox + "px";
+                box1.style.top = e.pageY - oy + "px";
+
+            };
+            document.onmouseup = function(){
+                document.onmousemove = null;
+                // document.onmouseup = null;
+                
+            }
+            return false;
+        };
+
+
+    }
+    </script>
+</head>
+<body>
+    wos
+    <div id="box1"></div>
+    <div id="box2"></div>
+</body>
+</html>

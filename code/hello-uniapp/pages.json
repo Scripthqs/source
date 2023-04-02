@@ -1,0 +1,70 @@
+{
+	"pages": [
+		{
+			"path": "pages/index/index"
+		},
+		{
+			"path": "pages/message/message",
+			"style":{
+				"navigationBarTitleText": "喝水"
+			}
+		},
+		{
+			"path": "pages/contact/contact",
+			"style":{
+			      "enablePullDownRefresh": true,
+				  "onReachBottomDistance": 50
+			    }
+		},
+		{
+			"path": "pages/detail/detail"
+		}
+		
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "吃饭睡觉",
+		"navigationBarBackgroundColor": "#aa0000",
+		"backgroundColor": "#000000",
+		"app-plus": {
+			"background": "#efeff4"
+		}
+		// "enablePullDownRefresh":true
+	},
+	"tabBar":{
+		"color":"#1785FF",
+		"selectedColor":"#FF0000",
+		// "position":"top",
+		"list":[
+			{
+				"text":"首页",
+				"pagePath": "pages/index/index",
+				"iconPath":"static/icon/home.png",
+				"selectedIconPath":"static/icon/home-active.png"
+			},
+			{
+				"text":"信息",
+				"pagePath": "pages/message/message",
+				"iconPath":"static/icon/news.png",
+				"selectedIconPath":"static/icon/news-active.png"
+			},
+			{
+				"text":"我们",
+				"pagePath": "pages/contact/contact",
+				"iconPath":"static/icon/member.png",
+				"selectedIconPath":"static/icon/member-active.png"
+			}
+		]
+	},
+	"condition":{
+		"current": 0,
+		"list":[
+			{
+				"name":"详情页",
+				"path": "pages/detail/detail",
+				"query":"id=80"
+			}
+		]
+	}
+	
+}

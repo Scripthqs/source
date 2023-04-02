@@ -1,0 +1,41 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/message/message",
+        "pages/contact/contact",
+        "pages/detail/detail"
+    ],
+    "subPackages": [],
+    "window": {
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "吃饭睡觉",
+        "navigationBarBackgroundColor": "#aa0000",
+        "backgroundColor": "#000000"
+    },
+    "tabBar": {
+        "color": "#1785FF",
+        "selectedColor": "#FF0000",
+        "list": [
+            {
+                "text": "首页",
+                "pagePath": "pages/index/index",
+                "iconPath": "static/icon/home.png",
+                "selectedIconPath": "static/icon/home-active.png"
+            },
+            {
+                "text": "信息",
+                "pagePath": "pages/message/message",
+                "iconPath": "static/icon/news.png",
+                "selectedIconPath": "static/icon/news-active.png"
+            },
+            {
+                "text": "我们",
+                "pagePath": "pages/contact/contact",
+                "iconPath": "static/icon/member.png",
+                "selectedIconPath": "static/icon/member-active.png"
+            }
+        ]
+    },
+    "usingComponents": {},
+    "sitemapLocation": "sitemap.json"
+}

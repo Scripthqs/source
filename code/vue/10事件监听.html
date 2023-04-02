@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>template</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>{{message}}</h2>
+        <p>{{ n }}</p>
+        <button v-on:click="inc">+</button>
+        <button @click="dec">-</button>
+        <h2>=================</h2>
+
+        <button @click="fun1">按钮3</button>
+        <button @click="fun2('参数1',$event)">按钮4</button>
+        <button @click="fun2(n,$event)">按钮5</button>
+        <h2>=================</h2>
+
+        <div @click="divfun">
+          <button @click.stop="btnfun">阻止冒泡</button>
+        </div>
+        <h2>=================</h2>
+
+        <div>
+          <a href="https://www.baidu.com" @click.prevent="afun">百度一下</a>
+        </div>
+        <h2>=================</h2>
+
+        <input type="text" @keyup.enter="keyfun">
+        <h2>=================</h2>
+
+        <button @click.once="btnfun">按钮只触发一次</button>
+        <h2>=================</h2>
+    </div>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "你好世界",
+                n: 100
+            },
+            methods:{
+              inc(){
+                this.n++
+              },
+              dec(){
+                this.n--
+              },
+              fun1(e){
+                console.log(e);
+              },
+              fun2(a,event){
+                console.log(a,event);
+              },
+              btnfun(){
+                console.log("btn触发");
+              },
+              divfun(){
+                console.log("div触发");
+              },
+              afun(){
+                console.log('阻止浏览器默认事件，让超链接不跳转');
+              },
+              keyfun(){
+                console.log("keyfun只触发一次");
+              }
+            }
+        })
+    </script>
+</body>
+</html>

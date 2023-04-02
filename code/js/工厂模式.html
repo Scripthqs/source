@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工厂模式</title>
+    <script>
+/*         var obj ={
+            name:'a',
+            age:12,
+            fun:function(){
+                console.log(this.name)
+            }
+        }
+        var obj1 ={
+            name:'b',
+            age:13,
+            fun:function(){
+                console.log(this.name)
+            }
+        }
+        var obj2 ={
+            name:'c',
+            age:14,
+            fun:function(){
+                console.log(this.name)
+            }
+        }
+        obj.fun();
+        obj1.fun();
+        obj2.fun(); */
+
+
+        function creatren(name,age,gender){
+            var obj = new Object();
+            obj.name=name;
+            obj.age=age;
+            obj.gender=gender
+            obj.fun=function(){
+                console.log(this.name)
+            }
+            return obj; 
+        }
+        var obj2 = new creatren('a',12,'男');
+        var obj3 = new creatren('b',13,'女');
+        var obj4 = creatren('c',14,'男');
+        console.log(obj2);
+        console.log(obj3);
+        console.log(obj4);
+        obj2.fun();
+
+        function creatdog(name,age,gender){
+            var obj = new Object();
+            obj.name=name;
+            obj.age= age;
+            obj.gender=gender;
+            obj.fun=function(){
+                console.log(this.name)
+            }
+            return obj;
+        }
+        var dog = creatdog('旺财',3,'公');
+        console.log(dog);
+        dog.fun();
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

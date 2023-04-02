@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>组合继承</title>
+</head>
+
+<body>
+  <script>
+    function Father(name, age) {
+      this.name = name
+      this.age = age
+    }
+    Father.prototype.setName = function (name) {
+      this.name = name
+    }
+    function Son(name, age, height) {
+      Father.call(this, name, age)//为了得到属性
+      this.height = height
+    }
+    Son.prototype = new Father()//为了得到方法
+    Son.prototype.constructor = Son//指向自身的构造函数
+    Son.prototype.setHeight = function (height) {
+      this.height = height
+    }
+    var s = new Son('hello', 20, 1.81)
+    s.setName('world')
+    s.setHeight(1.77)
+    console.log(s.name, s.age, s.height);
+  </script>
+</body>
+
+</html>

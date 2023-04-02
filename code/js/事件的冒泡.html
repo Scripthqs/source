@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件的冒泡</title>
+    <script>
+        window.onload = () =>{
+            var s1 = document.getElementById("s1");
+            s1.onclick = (e) =>{
+                e.cancelBubble = true;
+                console.log("我是span的单击响应函数");
+            }
+
+            var box1 = document.getElementById("box1");
+            box1.onclick = () =>{
+                console.log("我是box1的单击响应函数");
+            }
+
+        
+            document.body.onclick = () =>{
+                console.log("我是body的单击响应函数");
+            }
+
+
+        }
+    </script>
+    <style>
+        
+        #box1{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+        #s1{
+            background: #bfa;
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <div id="box1">
+        我是box1
+        <span id="s1">我是span</span>
+    </div>
+</body>
+</html>

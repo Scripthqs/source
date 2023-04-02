@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排序</title>
+    <script>
+        var a = +prompt('请输入第一个数')
+        var b = +prompt('请输入第二个数')
+        var c = +prompt('请输入第三个数')
+        var temp
+        console.log(a)
+        console.log(b)
+        console.log(c)
+/*         if(a<b && a<c){
+            if(b>c){
+                console.log('b>c>a')
+            }else{
+                console.log('c>b>a')
+            }
+        }else if(b<a && b<c){
+            if(a>c){
+                console.log('a>c>b')
+            }else{
+                console.log('c>a>b')
+            }
+        }else if(c<a && c<b){
+            if(a>b){
+                console.log('a>b>c')
+            }else{
+                console.log('b>a>c')
+            }
+        } */
+
+/*         if(a>b){
+            temp = a;
+            a = b;
+            b = temp
+        }
+        if(b>c){
+            temp = b;
+            b = c;
+            c = temp;
+        }
+        if(a>b){
+            temp = a;
+            a = b;
+            b = temp
+        }
+        console.log(a,b,c)
+ */
+        if(a>b){
+            temp = a;
+            a = b;
+            b = temp; 
+        }
+        if(a>c){
+            temp = a;
+            a = c;
+            c = temp;
+        }
+        if(b>c){
+            temp = b;
+            b = c;
+            c = temp;
+        }
+        console.log(a,b,c)
+
+
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

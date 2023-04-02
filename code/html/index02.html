@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-cpmpatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>表单</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        form {
+            max-width: 500px;
+            width: 100%;
+            margin: 50px auto 0;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input {
+            width: 100%;
+            display: block;
+        }
+    </style>
+</head>
+
+
+<body>
+    <form action="" method="">
+        <!-- <fieldset> 标签将表单里的内容进行打包，代表一组；而<legend> 标签的则是 fieldset 里的元素定义标题 -->
+        <fieldset>
+            <legend>表单类型</legend>
+            <label for="">用户名
+                <input type="text" placeholder="例如：smyhvae" autofocus name="userName" autocomplete="on" required />
+            </label>
+            <label for="">邮件地址
+                <input type="email" name="email" id='email'>
+            </label>
+            <label for="">学历
+                <!-- input里的list属性和 datalist 进行绑定 -->
+                <input type="text" name="datelist" list="myData">
+                <datalist id="myData">
+                    <option>大专</option>
+                    <option>本科</option>
+                    <option>硕士</option>
+                    <option>博士</option>
+                    <option>学龄前儿童</option>
+                </datalist>
+            </label>
+
+            <label for="">电话号码
+                <input type="tel" name="tel" pattern="1\d{10}">
+            </label>
+            <label for="">网址
+                <input type="url" name="url">
+            </label>
+            <label for="">数字
+                <input type="number" name="number">
+            </label>
+            <label for="">搜索
+                <input type="search" name="search">
+            </label>
+            <label for="">滑动条
+                <input type="range" name="range">
+            </label>
+            <label for=""> 拾色器
+                <input type="color" name="color">
+            </label>
+            <label for="">时间
+                <input type="time" name="time">
+            </label>
+            <label for="">日期
+                <input type="date" name="date">
+            </label>
+            <label for="">时间日期
+                <input type="datetime" name="datetime">
+            </label>
+            <label for="">月份
+                <input type="month" name="month">
+            </label>
+            <label for="">星期
+                <input type="week" name="week">
+            </label>
+            <label for="">本地时间
+                datetime-local: <input type="datetime-local" name="datetime-local">
+            </label>
+
+            <!-- 上传文件-->
+            <input type="file" name="file" multiple />
+
+            <input type="submit">
+        </fieldset>
+    </form>
+    <script>
+        var text = document.getElementsByTagName("input");
+        text.oninvalid = function () {  //验证不通过时触发
+            this.setCustomValidity('hamapi');  //设置验证不通过时的提示文字
+        }
+    </script>
+</body>
+
+</html>

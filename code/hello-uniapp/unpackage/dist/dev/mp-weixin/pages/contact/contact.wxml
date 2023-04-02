@@ -1,0 +1,1 @@
+<view><view>联系我们</view><view class="box1">测试文字</view><block wx:for="{{list}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view>{{''+item+''}}</view></block></view>

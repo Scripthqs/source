@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轮播图</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <script src="tool.js"></script>
+    <style>
+        #outer {
+            width: 220px;
+            height: 200px;
+            border: 1px solid red;
+            margin: 100px auto;
+            background: #bfa;
+            padding: 10px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #imgList {
+            /* width: 220px; */
+            position: absolute;
+            /* left: 220px; */
+        }
+
+        #imgList li {
+            float: left;
+            margin: 0 10px;
+        }
+
+        #navbox {
+            position: absolute;
+            z-index: 1;
+            bottom: 10px;
+            /* background: red; */
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #navbox a {
+            float: left;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin: 0 1px;
+            background-color: rgb(255, 0, 0, 0.8);
+            background-clip: content-box;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        #navbox a.active,
+        #navbox a:hover {
+            background-color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0);
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var imgList = document.getElementById("imgList");
+            var imgArr = document.getElementsByTagName("img");
+            var allA = document.getElementsByTagName("a");
+
+            imgList.style.width = 220 * imgArr.length + "px";
+
+            var index = 0;
+            console.log(index);
+
+            allA[index].style.backgroundColor = "white";
+
+            function setA() {
+                if (index >= imgArr.length - 1) {
+                    index = 0;
+                    imgList.style.left = 0;
+                }
+                for (var i = 0; i < allA.length; i++) {
+                    allA[i].style.backgroundColor = "";
+                }
+                allA[index].style.backgroundColor = "white";
+            }
+
+            for (var i = 0; i < allA.length; i++) {
+                allA[i].num = i;
+                allA[i].onclick = function () {
+                    index = this.num;
+                    setA();
+                    move(imgList, "left", -220 * index, 30, function () {
+                    });
+                };
+            }
+            autoChange();
+
+            var timer;
+            function autoChange() {
+                timer = setInterval(function () {
+                    index++;
+                    index %= imgArr.length;
+                    move(imgList, "left", -220 * index, 40, function () {
+                        setA();
+                    });
+
+
+                }, 2000);
+            }
+        };
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="navbox">
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+
+        <ul id="imgList">
+            <li><img src="../img/复仇者/1.jpg"></li>
+            <li><img src="../img/复仇者/2.jpg"></li>
+            <li><img src="../img/复仇者/3.jpg"></li>
+            <li><img src="../img/复仇者/4.jpg"></li>
+            <li><img src="../img/复仇者/5.jpg"></li>
+            <li><img src="../img/复仇者/6.jpg"></li>
+            <li><img src="../img/复仇者/1.jpg"></li>
+
+
+
+        </ul>
+
+    </div>
+</body>
+
+</html>

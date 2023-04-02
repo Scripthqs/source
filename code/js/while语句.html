@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while</title>
+    <script>
+        /*          var n=1;
+                while(n<=10){
+                    console.log(n);
+                    n++;
+                } */
+
+        /*         var m = 1000;
+                var y = 0;
+                while(m<5000){
+                    m = m*(1+0.05);
+                    y++;
+                    console.log(y);
+                    console.log(m);
+                    console.log(`存够5000需要${y}年，此时余额为${m}元`)
+                } */
+
+
+        while (true) {
+            var p = +prompt('请输入成绩0-100');
+            if(p>=0 && p<=100){
+                break;
+            }
+            alert('请输入有效的成绩')
+        }
+
+        if (p == 100) {
+            console.log('满分')
+        } else if (p >= 80) {
+            console.log('优秀')
+        } else if (p >= 60) {
+            console.log('及格')
+        } else{
+            console.log('不及格')
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

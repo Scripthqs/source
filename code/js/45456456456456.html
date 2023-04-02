@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+/*
+CSS优先级
+https://www.cnblogs.com/qilin-3611/p/7018706.html
+*/
+ul{
+    margin:0;
+    padding:0;
+    list-style:none ;
+}
+
+ul>li{
+    background-color:gray ;
+}
+
+ul>li:hover{
+    background-color:blue !important;
+}
+    </style>
+
+</head>
+<body>
+
+
+<ul id="item-list">
+    <li id="item1">项目1</li>
+    <li id="item2">项目2</li>
+    <li id="item3">项目3</li>
+    <li id="item4">项目4</li>
+</ul>
+
+
+<script>
+var items = new Array();
+
+len= document.getElementById('item-list').getElementsByTagName('li').length;
+
+for (i=0;i<len;i++){
+    items[i]=document.getElementById('item'+(i+1))
+}
+
+items.forEach(function(item){
+    item.onclick=function(){
+        items.forEach(function(item_){
+            item_.style.backgroundColor='gray';
+        })
+        item.style.backgroundColor='red';
+    }
+})
+
+</script>
+
+</body>
+</html>

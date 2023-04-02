@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item{
+            width: 100px;
+            height: 100px;
+            background: red;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>点击查看索引</h2>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <script>
+
+        let items = document.getElementsByClassName("item");
+        
+        // for(let i= 0 ;i < items.length; i++){
+  
+        //     items[i].j = i;
+
+        //     items[i].onclick = function(){
+        //         j = this.j;
+        //         // console.log(i);
+        //         console.log(j);
+        //         this.style.backgroundColor = "blue";
+        //         // items[i].style.backgroundColor = "blue";
+        //     }
+        // }
+
+        for(let i=0; i<items.length;i++){//var改成let
+            // items[i].onclick = function(){
+            //     console.log(i);//i都是3
+            // }
+
+            // (function(i){
+            //     items[i].onclick = function(){
+            //         console.log(i)
+            //     }
+            // })(i)//使用闭包解决
+
+
+            items[i].onclick = function(){
+                console.log(i);//var 改成let
+            }
+        }
+
+        let a;
+        let b,c,d;
+        if(true){
+            let x = 10
+        console.log(x);
+
+        }
+        // console.log(x);//报错，不能访问块级作用域中的变量
+        // console.log(y);//报错，不存在变量提升
+        // let y =1 
+
+        var m = 10
+        function f1(m){
+            console.log(m);
+        }
+        m = 20
+        console.log(m);
+
+        f1(m)
+
+
+
+    </script>
+</body>
+</html>

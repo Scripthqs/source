@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>鼠标滚轮事件</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+        
+            box1.addEventListener('mousewheel', function (event) {
+                console.log(event.wheelDelta);
+                if(event.wheelDelta>0){
+                    box1.style.height = box1.clientHeight -10 +"px";
+                }else{
+                    box1.style.height = box1.clientHeight +10 +"px";
+                }
+                
+            }, false)
+
+            box1.addEventListener('DOMMouseScroll',function(event){
+                console.log(event.detail);
+                if(event.detail>0){
+                    box1.style.height = box1.clientHeight +10 +"px";
+                }else{
+                    box1.style.height = box1.clientHeight -10 +"px";
+                }
+            },false) 
+          
+            
+        }
+
+    </script>
+</head>
+
+<body>
+    <div></div>
+    <div id="box1"></div>
+</body>
+
+</html>

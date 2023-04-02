@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>键盘控制盒子</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function (e) {
+            var dir;
+            var sp = 10;
+            setInterval(function(){
+                switch(dir){
+                    case "ArrowUp":
+                        box1.style.top = box1.offsetTop - sp +"px";
+                        break;
+                    case "ArrowDown":
+                        box1.style.top = box1.offsetTop + sp +"px";
+                        break;
+                    case "ArrowLeft":
+                        box1.style.left = box1.offsetLeft - sp +"px";
+                        break;
+                    case "ArrowRight":
+                        box1.style.left = box1.offsetLeft + sp +"px";
+                        break;
+                }
+            },50)
+            var box1 = document.getElementById("box1");
+            document.onkeydown = function (e) {
+                console.log(e.key);
+                if(e.ctrlKey){
+                    sp = 30;
+                }else{
+                    sp = 10;
+                }
+                dir = e.key;
+
+/*                 if (e.key === "ArrowUp") {
+                    box1.style.top = box1.offsetTop - 10 +"px";
+                }
+                if (e.key === "ArrowDown") {
+                    box1.style.top = box1.offsetTop + 10 +"px";
+                }
+                if (e.key === "ArrowLeft") {
+                    box1.style.left = box1.offsetLeft - 10 +"px";
+                }
+                if (e.key === "ArrowRight") {
+                    box1.style.left = box1.offsetLeft + 10 +"px";
+                } */
+            };
+
+            document.onkeyup = function(){
+                dir = 0;
+            };
+        };
+
+
+    </script>
+</head>
+
+<body>
+    <div id="box1"></div>
+</body>
+
+</html>

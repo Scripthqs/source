@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>移动端布局</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 100%;
+      min-width: 320px;
+      max-width: 640px;
+      margin: 0 auto;
+      background-color: #ccc;
+    }
+
+    /* section {
+      width: 100%;
+      overflow: hidden;
+    }
+    section div{
+      float: left;
+      width: 50%;
+      height: 40px;
+    }
+    section div:nth-child(1){
+      background-color: #f00;
+    }
+    section div:nth-child(2){
+      background-color: #00f;
+    }
+
+    .father {
+      position: relative;
+      height: 44px;
+      width: 100%;
+
+    }
+    .son1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #333;
+      width: 40px;
+      height: 44px;
+    }
+    .son2 {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 40px;
+      height: 44px;
+      background-color: #0f0;
+    }
+    .m-son {
+      height: 44px;
+      background-color: #fff;
+      margin: 0 50px;
+      border-radius: 15px;
+    } */
+    .f-section {
+      display: flex;
+      width: 100%;
+      height: 150px;
+      background-color: pink;
+      margin: 0 auto;
+    }
+
+    .box1 {
+      width: 100px;
+      height: 150px;
+      background-color: red;
+    }
+
+    .box2 {
+      flex: 1;
+      background-color: green;
+    }
+
+    .box3 {
+      width: 100px;
+      height: 150px;
+      background-color: blue;
+    }
+
+    p {
+      display: flex;
+      width: 100%;
+      height: 30px;
+      background-color: #999;
+
+    }
+    span {
+      flex: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <div>
+    可不可以看见我
+    <a href="#">超链接</a>
+  </div> -->
+  <section>
+    <div></div>
+    <div></div>
+  </section>
+
+  <div class="father">
+    <div class="son1"></div>
+    <div class="m-son"></div>
+    <div class="son2"></div>
+  </div>
+
+  <section class='f-section'>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+  </section>
+
+  <p>
+    <span></span>
+    <span></span>
+    <span></span>
+  </p>
+</body>
+
+</html>

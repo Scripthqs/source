@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象</title>
+    <script>
+        var obj = new Object();
+        console.log(obj);
+        obj.name = 'a';
+        console.log(obj);
+        obj.age = obj;
+        console.log(obj);
+        console.log(obj.age);
+        delete obj.name;
+        console.log(obj.name);
+        obj['123']=456;
+        obj['a']=4;
+        console.log(obj);
+        var n = '123';
+        console.log(obj[n]);
+
+
+        obj2 = new Object();
+        // obj2.name = '哈哈哈';
+        obj2 = obj;
+        console.log(obj);
+        console.log(obj2);
+        console.log(obj.test.name);
+        console.log('age' in obj)
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

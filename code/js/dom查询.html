@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+
+        /* 定义一个函数专门用力来绑定单机响应函数，参数：
+        idstr 
+        fun
+        */
+
+
+
+
+        function myd(idstr, fun) {
+            var btn = document.getElementById(idstr);
+            btn.onclick = fun;
+        }
+
+
+
+
+        window.onload = function () {
+            var btn01 = document.getElementById('btn01');
+            btn01.onclick = function () {
+                var bj = document.getElementById('bj');
+                console.log(bj.innerHTML);
+            }
+
+            var btn02 = document.getElementById('btn02');
+            btn02.onclick = function () {
+                var lis = document.getElementsByTagName('li');
+                console.log(lis.length);
+                console.log(lis[0].innerHTML);
+                for (var n = 0; n < lis.length; n++) {
+                    console.log(lis[n].innerHTML);
+                }
+            }
+
+            var btn03 = document.getElementById('btn03');
+            btn03.onclick = function () {
+                var inputs = document.getElementsByName('gender');
+                for (var n = 0; n < inputs.length; n++) {
+                    console.log(inputs[n].value)
+                }
+            };
+
+            var btn04 = document.getElementById('btn04');
+            btn04.onclick = function () {
+                var city = document.getElementById('city');
+                var lis = city.getElementsByTagName('li');
+                for (var n = 0; n < lis.length; n++) {
+                    console.log(lis[n].innerHTML);
+                }
+            };
+
+            var btn05 = document.getElementById('btn05');
+            btn05.onclick = function () {
+                var city = document.getElementById('city');
+                // var cns = city.childNodes;
+                var cns = city.children;
+                console.log(cns);
+            };
+
+            var btn06 = document.getElementById('btn06');
+            btn06.onclick = function () {
+                var game = document.getElementById('game');
+                // var fir = city.childNodes[0];
+                //  var fir = game.firstChild;
+                var fir = game.firstElementChild;
+                console.log(fir);
+            };
+
+            myd('btn07', function () {
+                var bj = document.getElementById('bj');
+                var pn = bj.parentNode;
+                console.log(pn.innerHTML);
+                console.log(pn.innerText);
+            })
+
+            myd('btn08', function () {
+                var lol = document.getElementById('lol');
+                // var prev = lol.previousSibling;
+                var prev = lol.previousElementSibling;
+                console.log(prev.innerHTML)
+            })
+
+
+
+
+            myd('btn09',function(){
+                var va = document.getElementById('username');
+                console.log(va.value);
+            })
+
+
+            myd('btn10',function(){
+                var va = document.getElementById('username');
+                va.value = 'xyz'
+                console.log(va.value);
+            })
+
+            myd('btn11',function(){
+                var bj = document.getElementById('bj');
+                // console.log(bj.innerText)
+                console.log(bj.firstChild.nodeValue)
+            })
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+    </script>
+    <style>
+        #total {
+            float: left;
+        }
+
+        #btnlist {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="total">
+        <p>
+            你喜欢那个城市？
+        </p>
+        <ul id="city">
+            <li id="bj">北京</li>
+            <li>上海</li>
+            <li>东京</li>
+            <li>首尔</li>
+        </ul>
+        <br>
+        <br>
+
+        <p>
+            你喜欢哪款游戏？
+        </p>
+        <ul id="game">
+            <li>和平精英</li>
+            <li id="lol">英雄联盟</li>
+            <li>王者荣耀</li>
+            <li>欢乐斗地主</li>
+        </ul>
+        <br>
+        <br>
+
+        <div class="inner">
+            gender:
+            <input type='radio' name='gender' value='male' />
+            male
+            <input type='radio' name='gender' value='fmale' />
+            fmale
+            <br>
+            <br>
+            <input type='text' name='name' id='username' value='abcde' />
+        </div>
+    </div>
+    <br>
+    <br>
+    <div id="btnlist">
+        <div><button id="btn01">查找#bj节点</button></div>
+        <div><button id="btn02">查找所有li节点</button></div>
+        <div><button id="btn03">查找name=gender的所有节点</button></div>
+        <div><button id="btn04">查找#city下的所有li节点</button></div>
+        <div><button id="btn05">返回#city的所有子节点</button></div>
+        <div><button id="btn06">返回#game的第一个子节点</button></div>
+        <div><button id="btn07">返回#bj的父节点</button></div>
+        <div><button id="btn08">返回#lol的前一个兄弟节点</button></div>
+        <div><button id="btn09">返回#username的vaule属性值</button></div>
+        <div><button id="btn10">设置#username的vaule属性值</button></div>
+        <div><button id="btn11">返回#bj的文本值</button></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件的绑定</title>
+    <script>
+        window.onload = function(){
+            
+/*             var btn01 = document.getElementById("btn01");
+            btn01.onclick = function(){
+                console.log(1);
+            }
+            btn01.onclick = function(){
+                console.log(2);
+            }
+
+            btn01.addEventListener("click",function(){
+                console.log(3);
+            },false)
+            btn01.addEventListener("click",function(){
+                console.log(4);
+            },false) */
+
+
+            function bind(obj,eventStr,callback){
+                if(obj.addEventListener){
+                    obj.addEventListener(eventStr,callback,false);
+                }else{
+                    obj.attachEvent("on" + eventStr,function(){
+                        callback.call(obj);
+                    });
+                }
+            }
+            var btn01 = document.getElementById("btn01");
+            bind(btn01,'click',function(){
+                alert(this);
+
+            });
+
+        }
+
+/*         btn1.onclick = function(){
+                                                    console.log(2);
+                                                } */
+    </script>
+</head>
+
+<body>
+    <button id="btn01">btn01</button>
+  <img src="" alt="">
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动画</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        .box1 {
+            width: 800px;
+            height: 400px;
+            background: #333;
+
+        }
+
+        .box2 {
+            width: 100px;
+            height: 100px;
+            background: #bfa;
+            animation: test 3s infinite alternate;
+        }
+
+        .box1:hover .box2{
+            animation-play-state: paused;
+
+        }
+
+        @keyframes test {
+            from {
+                margin-left: 0;
+            }
+
+            to {
+                margin-left: 700px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
+</body>
+
+</html>

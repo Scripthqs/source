@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+/*         function oushu(a){
+         return a%2 == 0;
+        }
+        var r = oushu(4);
+
+        console.log(`r=${r}`); */
+
+/*         function mj(r){
+            return 3.14*r*r;
+        }
+        var re = mj(1);
+        console.log(`mj=${re}`) */
+
+
+        function ren(o){
+
+            console.log(`我是${o.name}，今年${o.age}岁，性别${o.gender}，地址${o.address}`)
+        }
+        // ren('scripthqs',20,'男','重庆');
+
+
+        var obj = {
+            name:'scripthqs',
+            age:20,
+            gender:'男',
+            address:'重庆'
+        }
+
+
+        ren(obj);
+
+        fun1(ren(obj));
+        function fun1(a){
+            console.log(a);
+            a(obj);//此时a不是一个函数会报错
+        }
+
+       
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,9 @@
+$.ajax('url1',function(data1){
+    $.ajax(data1['url2'],function(data2){
+        $.ajax(data2['url3'],function(data3){
+            $.ajax(data3['url4'],function(data4){
+                console.log(data4)
+            })
+        })
+    })
+})

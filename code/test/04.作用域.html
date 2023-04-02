@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+            #line1 {
+            border-bottom: 1px solid black;
+            
+        }
+  </style>
+</head>
+<body>
+  <h1>1px粗线</h1>
+  <div id="line"></div>
+  <h4>方法一：transform</h4>
+  <div id="line1"></div>
+  <h4>方法二：渐变</h4>
+  <div id="line2"></div>
+  <script>
+    function foo(a){
+      var b = a*2
+      function bar(c){
+        console.log(a,b,c);
+      }
+      bar(b*3)
+    }
+    foo(2)
+  </script>
+</body>
+</html>

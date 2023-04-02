@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>原型</title>
+</head>
+
+<body>
+    <script>
+        /*         console.log(Date.prototype,typeof Date.prototype);
+                function Fun(){
+        
+                }
+                Fun.prototype.test = function(){
+                     console.log('a')
+                }
+                
+                console.log(Fun.prototype.constructor === Fun )
+                var f = new Fun()
+                f.test() */
+
+        // function Fn(){
+        //     this.test1 = function(){
+
+        //     }
+        // }
+        // var fn = new Fn();
+        // console.log(Fn.prototype)
+        // Fn.prototype.test2 = '2';
+        // console.log(Fn.prototype);
+
+        // console.log(Object.prototype)
+        //构造函数和普通函数的创建方式一样，为了区分，首字母大写
+        function Person() {
+            //使用this对象，来指向将要生成的对象实例。
+            this.name = 'Tom';
+        }
+        //构造函数需要使用new关键字调用，此时确定Person是构造函数
+        var per = new Person();
+        //创建的对象称该构造函数的实例，per是Person类的实例，this指向per
+        console.log(Person.prototype);
+        console.log(per);
+        console.log(per.__proto__);
+
+        console.log(Person.prototype === per.__proto__);
+        console.log('-------------------------');
+        console.log(per.name); //'Tom'
+        console.log(this.name); //'Tom'
+        console.log(Person.prototype.constructor === Person);
+        console.log(Date.prototype.constructor === Date);
+        Person.prototype.test = 'hello world'
+        Person.prototype.fun = function () {
+            console.log('hello world');
+        }
+        console.log(per.test);
+        per.fun()
+        per.__proto__.test2 = 'aaa'
+        console.log(per.test2);
+
+        console.log(Object.prototype);
+        Object.prototype.hqs = function () {
+            console.log('原型链真简单');
+        }
+        per.hqs()
+        Person.hqs()
+        Function.hqs()
+        Object.hqs()
+        console.log(Function.__proto__);
+        var o1 = new Object()
+        console.log(o1.__proto__ === Object.prototype);
+        console.log(Function.prototype === Function.__proto__);
+        console.log(Function.prototype === Object.__proto__);
+        console.log(Function.prototype === Person.__proto__);
+        function f1() { }
+        console.log(Function.prototype === f1.__proto__);
+        console.log(Person.__proto__ === f1.__proto__);
+        function Foo() { }
+        console.log(Foo.prototype.__proto__ === Object.prototype);
+        console.log(Function.prototype.__proto__ === Object.prototype);
+        console.log(Function.prototype.__proto__ === Object.prototype);
+        console.log(Object.prototype.__proto__ === null);
+        console.log(Function.prototype.__proto__ === o1.__proto__);
+        console.log(Function.prototype.constructor === Function);
+
+        function Foo(name, age) {
+            this.name = name,
+                this.age = age
+        }
+        Foo.prototype.setName = function (name) {
+            this.name = name
+        }
+        var f1 = new Foo('a', 10)
+        f1.setName('b')
+        console.log(f1);
+        console.log(f1.name, f1.age);
+
+        console.log(Object instanceof Object);
+        console.log(Function instanceof Object);
+        console.log(Object instanceof Function);
+        console.log(Function instanceof Function);
+        console.log(Array instanceof Function);
+        console.log(Array instanceof Object);
+        console.log(Foo instanceof Object);
+        console.log(Foo instanceof Function);
+        console.log(Object.prototype instanceof Object);
+
+        function A() {
+
+        }
+        A.prototype.n = 1
+        var b = new A()
+        A.prototype = {
+            n: 2,
+            m: 3
+        }
+        var c = new A()
+        console.log(b);
+        console.log(c);
+        console.log(b.n, b.m, c.n, c.m);
+
+        console.log(per.__proto__.__proto__ === Object.prototype);
+        let qqq = Object.getPrototypeOf(per)
+        console.log(qqq);
+        console.log(null instanceof Object);
+
+        console.log("****************************************************");
+        // function myInstanceof(left, right) {
+        //     // 获取对象的原型
+        //     let proto = Object.getPrototypeOf(left)
+        //     // 获取构造函数的 prototype 对象
+        //     let prototype = right.prototype;
+        //     // 判断构造函数的 prototype 对象是否在对象的原型链上
+        //     while (true) {
+        //         if (proto === null) return false;
+        //         if (proto === prototype) return true;
+        //         // 如果没有找到，就继续从其原型上找，Object.getPrototypeOf方法用来获取指定对象的原型
+        //         proto = Object.getPrototypeOf(proto);
+        //     }
+        // }
+        // myInstanceof(per, Person)
+        // console.log(myInstanceof(per, Object));
+        function myInstanceof(left, right) {
+            let proto = Object.getPrototypeOf(left)
+            let prototype = right.prototype
+            while (true) {
+                if (proto === null) {
+                    return false
+                }
+                if (proto === prototype) {
+                    return true
+                }
+                proto = Object.getPrototypeOf(proto)
+            }
+        }
+        let res = myInstanceof(Object, Function)
+        let res1 = Object instanceof Function
+        console.log(res, res1);
+
+        var a = Object.prototype.toString;
+
+        console.log(a.call(2));
+        console.log(a.call(true));
+        console.log(a.call('str'));
+        console.log(a.call([]));
+        console.log(a.call(function () { }));
+        console.log(a.call({}));
+        console.log(a.call(undefined));
+        console.log(a.call(null));
+        console.log(a.call(/\d/));
+    </script>
+</body>
+
+</html>

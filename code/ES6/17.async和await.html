@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>async和await</title>
+</head>
+
+<body>
+  <script>
+    async function fn1() {
+      // return 1
+      throw 2
+    }
+    const result = fn1()
+    console.log(result);
+    result.then(value => {
+      console.log(value);
+    }).catch(reason => {
+      console.error(reason);
+    })
+
+    function fn2() {
+      // return Promise.resolve(2)
+      // return Promise.reject(3)
+      // return 2
+      throw 'xxx'
+    }
+    async function fn3() {
+      try {
+        const value = await fn2()
+        console.log(value);
+      } catch (error) {
+        console.log('得到失败的结果', error);
+      }
+    }
+    fn3()
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组</title>
+    <script>
+        var arr = new Array();
+        console.log(arr);
+        console.log(typeof arr);
+        arr[0]='h';
+        arr[1]='q';
+        arr[2]='s';
+        arr[3]={};
+        arr[100]=[];
+        console.log(arr.length)
+        console.log(arr);
+        arr[8]='hahah'
+        arr.length = 10;
+        arr.hello = 'abc';
+        arr[arr.length] ='2';
+        arr[arr.length] ='2';
+        arr[arr.length] ='2';
+        arr[arr.length] ='2';
+        arr[arr.length] ='2';
+        console.log(arr.length);
+        console.log(arr);
+        var arr1 = new Array(7);
+        var arr2 = [10];
+
+        console.log(arr1);
+        console.log(arr2);
+        arr = [{name:'hqs'},{age:12},function(){alert(1)},[1,2,3]];
+        console.log(arr[2]());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

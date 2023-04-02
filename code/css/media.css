@@ -1,0 +1,121 @@
+a {
+  text-decoration: none;
+  color: #fff;
+}
+aa:hover {
+  color: #c5c4c4;
+}
+.topbar_box {
+  background-color: #000;
+}
+.topbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 48px;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+}
+.left_box:hover .nav {
+  display: block;
+}
+.left_box .nav {
+  display: none;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #000;
+  padding-top: 50px;
+}
+.left_box .nav li {
+  width: 80%;
+  margin: 0 auto;
+  border-bottom: 1px solid #4e4e4e;
+}
+.left_box .nav li a {
+  display: block;
+  line-height: 44px;
+  font-size: 14px;
+}
+.left_box .nav li:last-child a {
+  display: inline-block;
+  margin-right: 10px;
+}
+.left_box .nav li span {
+  color: #fff;
+  font-size: 14px;
+}
+.left_box .left_icon {
+  width: 18px;
+  height: 48px;
+}
+.left_box .left_icon li {
+  width: 18px;
+  height: 1px;
+  background-color: #fff;
+  position: absolute;
+  transform-origin: left center;
+  transition: all 0.5s;
+}
+.left_box .left_icon li:nth-child(1) {
+  top: 18px;
+}
+.left_box .left_icon li:nth-child(2) {
+  top: 24px;
+}
+.left_box .left_icon li:nth-child(3) {
+  top: 30px;
+}
+.left_box .left_icon:hover li:nth-child(1) {
+  transform: rotate(40deg);
+}
+.left_box .left_icon:hover li:nth-child(2) {
+  opacity: 0;
+}
+.left_box .left_icon:hover li:nth-child(3) {
+  transform: rotate(-40deg);
+}
+.logo a {
+  text-indent: -9999px;
+  display: block;
+  width: 244px;
+  height: 64px;
+  background: url(../img/QQlogo.png) no-repeat center center;
+  background-size: 40%;
+}
+@media only screen and (min-width: 768px) {
+  .left_box {
+    order: 2;
+    flex: auto;
+    justify-content: space-around;
+  }
+  .left_box .nav {
+    position: static;
+    display: flex;
+    padding: 0;
+  }
+  .left_box .nav li {
+    width: auto;
+    border-bottom: none;
+  }
+  .left_box .nav li a {
+    line-height: 48px;
+  }
+  .left_box .nav li span {
+    display: none;
+  }
+  .left_box .left_icon {
+    display: none;
+  }
+  .logo {
+    order: 1;
+  }
+  .user_info {
+    order: 3;
+  }
+}
+/*# sourceMappingURL=./media.css.map */
