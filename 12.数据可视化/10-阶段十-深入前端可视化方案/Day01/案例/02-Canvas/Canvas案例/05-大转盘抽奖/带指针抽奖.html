@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="my-lucky"></div>
+
+<script src="./libs/lucky-canvas-1.7.11.js"></script>
+<script>
+  const myLucky = new LuckyCanvas.LuckyWheel('#my-lucky', {
+    width: '200px',
+    height: '200px',
+    blocks: [{ padding: '10px', background: '#869cfa' }],
+    prizes: [
+      { background: '#e9e8fe', fonts: [{ text: '0' }] },
+      { background: '#b8c5f2', fonts: [{ text: '1' }] },
+      { background: '#e9e8fe', fonts: [{ text: '2' }] },
+      { background: '#b8c5f2', fonts: [{ text: '3' }] },
+      { background: '#e9e8fe', fonts: [{ text: '4' }] },
+      { background: '#b8c5f2', fonts: [{ text: '5' }] },
+    ],
+    buttons: [
+      { radius: '40%', background: '#617df2' },
+      { radius: '35%', background: '#afc8ff' },
+      {
+        radius: '30%', background: '#869cfa',
+        pointer: true,
+        fonts: [{ text: '开始', top: '-10px' }]
+      },
+    ],
+    start: function() {
+      myLucky.play()
+      // 假设接口的请求速度是1s
+      setTimeout(_ => {
+        myLucky.stop(0)
+      }, 1000)
+    },
+    end: function(prize) {
+      alert('恭喜中奖: ' + prize.fonts[0].text)
+    }
+  })
+</script>
+</body>
+</html>

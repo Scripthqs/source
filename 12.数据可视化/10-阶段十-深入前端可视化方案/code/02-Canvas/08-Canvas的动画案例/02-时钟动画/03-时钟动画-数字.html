@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      background-image: url(../../images/grid.png);
+    }
+    canvas{
+      background-color: rgba(255, 0, 0, 0.1);
+    }
+    .clock{
+      width: 300px;
+      height: 300px;
+      margin: 10px;
+      background-color: black;
+      border-radius: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="clock">
+    <canvas id="tutorial" width="300" height="300px">
+      你的浏览器不兼容Canvas,请升级您的浏览器!
+    </canvas>
+  </div>
+
+  <script>
+    window.onload = function() {
+      let canvasEl = document.getElementById('tutorial')
+      if(!canvasEl.getContext){
+        return
+      }
+      let ctx = canvasEl.getContext('2d') // 2d | webgl
+
+
+      requestAnimationFrame(draw)
+
+      /**
+       1秒钟会回调 61次
+      */
+      function draw() {
+        ctx.clearRect(0, 0, 300, 300)
+        ctx.save()
+        
+        // 1.绘制背景(白色圆)
+        ctx.save()
+        ctx.translate(150, 150)
+        ctx.fillStyle ='white'
+        ctx.beginPath()
+        ctx.arc(0,0, 130, 0, Math.PI * 2)
+        ctx.fill()
+        ctx.restore()
+
+        // 2.绘制的数字
+        ctx.save()
+        ctx.translate(150, 150)
+
+        // 开始画 3 数字
+        ctx.font = "30px fangsong"
+        ctx.textBaseline = 'middle'
+        ctx.textAlign = 'center'
+
+        let numbers = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2]
+        for(let i =0; i<numbers.length; i++){
+          // i = 3 , 0 
+          // i = 4 , 占 1份, Math.PI * 2 / 12 * i  
+          let x = Math.cos(Math.PI * 2 / 12 * i) * 100
+          let y = Math.sin(Math.PI * 2 / 12 * i) * 100
+          ctx.fillText(numbers[i], x, y)
+        }
+        ctx.restore()
+
+
+
+        ctx.restore()
+        requestAnimationFrame(draw)
+      }
+
+    }
+  </script>
+</body>
+</html>

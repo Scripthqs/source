@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        background-image: url(../images/grid.png);
+      }
+      svg {
+        background-color: rgba(255, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="300" height="150" xmlns="http://www.w3.org/2000/svg">
+      <!-- 不需要给坐标 -->
+      <rect
+        id="rectangle1"
+        width="50"
+        height="50"
+        fill="red"
+        onclick="moveRect()"
+      ></rect>
+      <rect x="100" id="rectangle2" width="50" height="50" fill="red"></rect>
+      <rect x="200" id="rectangle3" width="50" height="50" fill="red"></rect>
+    </svg>
+
+    <script src="./libs/gsap.min.js"></script>
+    <script>
+      function moveRect() {
+        gsap.to("#rectangle1", {
+          scale: 0.5,
+          duration: 1,
+        });
+
+        gsap.to("#rectangle2", {
+          scale: 0.5,
+          duration: 1,
+          delay: 1, // 延迟, 默认没有延迟
+        });
+
+        gsap.to("#rectangle3", {
+          scale: 0.5,
+          duration: 1,
+          delay: 2,
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body, ul{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      background-image: url(../images/grid.png);
+    }
+    svg{
+      background-color: rgba(255, 0, 0, 0.1);
+    }
+
+    #line1{
+      /* 将线段设置为虚线 */
+      stroke-dasharray:130px;
+      /* 偏移 不可见 */
+      stroke-dashoffset: 130px;
+      animation:  line1Move 3s linear forwards;
+    }
+
+    @keyframes line1Move{
+      100%{
+        stroke-dashoffset: 0px;  /* 可见 */
+      }
+    }
+
+
+  </style>
+
+</head>
+<body>
+
+  <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg" >
+    
+    <!-- 
+      stroke , 而不是 fill
+     -->
+    <path
+     id="line1"
+     d="M 100 70, L 200 70, L 200 100"
+     stroke="red"
+     stroke-width="10"
+     fill="transparent"
+    >
+    </path>
+
+
+  </svg>
+
+</body>
+</html>

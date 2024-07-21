@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        background-image: url(../images/grid.png);
+      }
+      svg {
+        background-color: rgba(255, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="300" height="150" xmlns="http://www.w3.org/2000/svg">
+      <!-- 
+       特点：
+        默认会填充
+       三角形： 10 10, 60 60, 10 110 
+       stroke="red"
+        fill="transparent"
+       -->
+
+      <!-- 大写 - 绝对坐标 -->
+      <!-- <path
+        d="M 10 10 ,L 60  60 ,L 10 110 Z"
+        stroke="red"
+        fill="transparent"
+      ></path> -->
+
+      <!-- 小写 - 相对坐标 -->
+      <path
+        d="M 10 10 ,L 60  60 ,l -10 40 Z"
+        stroke="red"
+        fill="transparent"
+      ></path>
+    </svg>
+  </body>
+</html>

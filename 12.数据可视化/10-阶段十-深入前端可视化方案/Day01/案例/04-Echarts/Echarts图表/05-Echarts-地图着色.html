@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="main" style="height: 600px"></div>
+
+    <script src="../libs/echarts-5.3.3.js"></script>
+    <script src="./geojson/china_json.js"></script>
+    <script src="./geojson/gd_geojson.js"></script>
+    <script src="./geojson/南昌.js"></script>
+    <script>
+      // 注册地图
+      echarts.registerMap("china", { geoJSON: china_json });
+      // 1.基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById("main"), null, {
+        renderer: "svg",
+      });
+      // 2.指定图表的配置项和数据
+      var option = {
+        // backgroundColor: "rgba(40,46,72, 0.2)",
+        // grid: {
+        //   show: true,
+        //   backgroundColor: "rgba(0, 0, 255, 0.2)",
+        // },
+        geo: {
+          map: "china", // china 、gd、南昌
+          roam: false, // 是否开启鼠标缩放和平移漫游。默认不开启。
+          label: {
+            // 图形上的文本标签，可用于说明图形的一些数据信息，比如值，名称等。
+            show: false,
+          },
+          aspectScale: 0.75, // 这个参数用于 scale 地图的长宽比，如果设置了projection则无效。
+          itemStyle: {
+            areaColor: "#023677", // 地图区域的颜色。
+            borderColor: "#1180c7", // 图形的描边颜色。
+          },
+          emphasis: {
+            itemStyle: {
+              areaColor: "#4499d0",
+            },
+            label: {
+              color: "white",
+            },
+          },
+        },
+        series: [],
+      };
+      myChart.setOption(option);
+    </script>
+  </body>
+</html>

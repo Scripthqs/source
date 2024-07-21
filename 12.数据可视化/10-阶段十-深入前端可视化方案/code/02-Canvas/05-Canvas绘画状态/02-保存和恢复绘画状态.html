@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      background-image: url(../images/grid.png);
+    }
+    canvas{
+      background-color: rgba(255, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <canvas id="tutorial" width="300" height="300px">
+    你的浏览器不兼容Canvas,请升级您的浏览器!
+  </canvas>
+
+  <script>
+    window.onload = function() {
+      let canvasEl = document.getElementById('tutorial')
+      if(!canvasEl.getContext){
+        return
+      }
+      let ctx = canvasEl.getContext('2d') // 2d | webgl
+      
+      ctx.fillStyle ='red'
+      ctx.fillRect(10, 10, 30, 15)
+      ctx.save()
+
+      ctx.fillStyle = 'green'
+      ctx.fillRect(50, 10, 30, 15)
+      ctx.save()
+
+      ctx.fillStyle = 'blue'
+      ctx.fillRect(90, 10, 30, 15)
+      ctx.save()
+
+      ctx.restore() // blue
+      // ctx.fillStyle = 'blue'
+      ctx.fillRect(90, 40, 30, 80)
+
+      ctx.restore() // green
+      // ctx.fillStyle = 'green'
+      ctx.fillRect(50, 40, 30, 80)
+
+      ctx.restore() // red
+      // ctx.fillStyle = 'red'
+      ctx.fillRect(10, 40, 30, 80)
+
+    }
+  </script>
+</body>
+</html>

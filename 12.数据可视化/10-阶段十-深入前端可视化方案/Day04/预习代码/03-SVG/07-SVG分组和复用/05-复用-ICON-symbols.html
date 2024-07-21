@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        background-image: url(../images/grid.png);
+      }
+      svg {
+        background-color: rgba(255, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 类似一张精灵图 -->
+    <svg style="display: none">
+      <!-- 1.定义了2个 icon -->
+      <symbol id="pre" viewBox="0 0 30 40">
+        <polyline id="previous" points="30 0, 0 20, 30 40"></polyline>
+      </symbol>
+
+      <symbol id="next" viewBox="0 0 30 40">
+        <polyline id="next" points="0 0, 30 20, 0 40"></polyline>
+      </symbol>
+      <!-- 还可以定义很多个 icon  -->
+    </svg>
+
+    <!-- 大 -->
+    <svg width="60" height="80">
+      <use fill="red" href="#pre"></use>
+    </svg>
+
+    <!-- 中 -->
+    <svg width="30" height="40">
+      <use href="#pre"></use>
+    </svg>
+
+    <!-- 这次的SVG支持等比例缩放了 -->
+    <svg width="30" height="40">
+      <!-- use 也支持 宽高了 -->
+      <use x="0" width="15" height="20" href="#pre"></use>
+      <use y="20" width="15" height="20" href="#pre"></use>
+    </svg>
+  </body>
+</html>

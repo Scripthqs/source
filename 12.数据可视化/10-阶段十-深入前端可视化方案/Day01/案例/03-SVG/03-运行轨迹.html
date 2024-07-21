@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .three-box {
+        width: 630px;
+        height: 330px;
+        background: url(https://mapopen-website-wiki.cdn.bcebos.com/index/newIndex/track.jpg);
+        background-size: 100% 100%;
+      }
+
+      #loc1 {
+        animation: move1 1.2s linear infinite alternate;
+      }
+
+      @keyframes move1 {
+        0% {
+          y: 30;
+        }
+
+        100% {
+          y: 50;
+        }
+      }
+
+      #linePath1 {
+        stroke-width: 3;
+        stroke-dasharray: 416;
+        animation: linePath1 7s linear infinite;
+      }
+      @keyframes linePath1 {
+        0% {
+          stroke-dashoffset: 416;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+      #linePath2 {
+        stroke-width: 3;
+        stroke-dasharray: 458;
+        animation: linePath2 7s linear infinite;
+      }
+      @keyframes linePath2 {
+        0% {
+          stroke-dashoffset: -458;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box-left three-box">
+      <svg
+        height="400"
+        version="1.1"
+        width="744"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <desc>Created with Snap</desc>
+        <defs>
+          <linearGradient
+            x1="100%"
+            y1="40.7087699%"
+            x2="4.9797314%"
+            y2="60.8683027%"
+            id="botLine"
+          >
+            <stop stop-color="#F5533D" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#F5533D" offset="44.5180532%"></stop>
+            <stop stop-color="#F5533D" stop-opacity="0" offset="100%"></stop>
+          </linearGradient>
+          <linearGradient
+            y2="58.3724103%"
+            x2="96.9326332%"
+            y1="42.713995%"
+            x1="0%"
+            id="topLine"
+          >
+            <stop
+              offset="0%"
+              stop-opacity="0.09801"
+              stop-color="#F5533D"
+            ></stop>
+            <stop offset="50.3914618%" stop-color="#F5533D"></stop>
+            <stop offset="100%" stop-opacity="0" stop-color="#F5533D"></stop>
+          </linearGradient>
+        </defs>
+        <image
+          id="loc1"
+          xlink:href="https://mapopen-website-wiki.cdn.bcebos.com/shouye/redPoint.png"
+          preserveAspectRatio="none"
+          x="345"
+          y="41.230000000000004"
+          width="55"
+          height="74"
+        ></image>
+        <image
+          xlink:href="https://mapopen-website-wiki.cdn.bcebos.com/index/newIndex/pillar.png"
+          preserveAspectRatio="none"
+          x="478"
+          y="118"
+          width="3"
+          height="79"
+        ></image>
+        <g transform="matrix(1,0,0,1,170,140)">
+          <path
+            id="linePath1"
+            d="m-11.20703,177c44.13802,-17.33333 100.54036,-41 169.20703,-71c68.66667,-30 138.1224,-64.91471 208.36719,-104.74414"
+            fill="rgba(0,0,0,0)"
+            transform="matrix(1,0,0,1,-32,-5)"
+            stroke="url(#botLine)"
+          ></path>
+        </g>
+        <image
+          xlink:href="https://mapopen-website-wiki.cdn.bcebos.com/index/newIndex/path-qiao.png"
+          preserveAspectRatio="none"
+          x="383"
+          y="151"
+          width="75"
+          height="48"
+        ></image>
+        <g transform="matrix(1,0,0,1,225,105)">
+          <path
+            id="linePath2"
+            d="m2,2c73.33333,21.17188 140.37374,42.06462 201.12121,62.67823c60.74748,20.61362 136.04041,54.05421 225.87879,100.32177"
+            fill="rgba(0,0,0,0)"
+            transform="matrix(1,0,0,1,-32,-5)"
+            stroke="url(#topLine)"
+          ></path>
+        </g>
+        <image
+          xlink:href="https://mapopen-website-wiki.cdn.bcebos.com/index/newIndex/path-lou.png"
+          preserveAspectRatio="none"
+          x="111"
+          y="12"
+          width="198"
+          height="233"
+        ></image>
+        <image
+          xlink:href="https://mapopen-website-wiki.cdn.bcebos.com/index/newIndex/pillar.png"
+          preserveAspectRatio="none"
+          x="247"
+          y="182"
+          width="3"
+          height="79"
+        ></image>
+        <image
+          xlink:href="https://mapopen-website-wiki.cdn.bcebos.com/index/newIndex/pillar.png"
+          preserveAspectRatio="none"
+          x="330"
+          y="65"
+          width="3"
+          height="79"
+        ></image>
+      </svg>
+    </div>
+  </body>
+</html>

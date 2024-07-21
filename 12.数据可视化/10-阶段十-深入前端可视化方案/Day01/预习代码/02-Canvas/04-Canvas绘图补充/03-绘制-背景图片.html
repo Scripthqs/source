@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 编写样式 */
+      body {
+        padding: 0;
+        margin: 0;
+        background-image: url(../images/grid.png);
+      }
+      canvas {
+        /* color: purple; */
+        background-color: rgba(255, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <!-- onload="draw()" -->
+  <body>
+    <!-- 编写canvas -->
+    <canvas id="tutorial" width="150" height="150">
+      该浏览器不支持Canvas，请更新你的浏览器
+    </canvas>
+  </body>
+
+  <script>
+    window.onload = function () {
+      draw();
+    };
+
+    function draw() {
+      var canvas = document.getElementById("tutorial");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+
+        var image = new Image();
+        // 只有一张图片，如果有多种图片怎么办？使用定时器：requestAnimationFrame
+        image.onload = function () {
+          // 1.绘制背景图片（放在最底层）
+          ctx.drawImage(image, 0, 0, 150, 150);
+
+          // 2.绘制路径（这个在最顶层）
+          ctx.beginPath();
+          ctx.moveTo(40, 100);
+          ctx.lineTo(60, 60);
+          ctx.lineTo(100, 50);
+          ctx.lineTo(130, 20);
+          ctx.stroke();
+        };
+        image.src = "../images/backdrop.png";
+      }
+    }
+  </script>
+</html>

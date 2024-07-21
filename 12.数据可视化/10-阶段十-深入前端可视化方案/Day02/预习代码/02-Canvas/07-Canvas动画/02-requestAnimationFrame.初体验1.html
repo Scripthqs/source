@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 1.在浏览器下次重绘之前会回调给函数（一般1s会回调60次）
+      requestAnimationFrame(draw);
+      function draw() {
+        console.log("绘制一帧动画");
+      }
+    </script>
+  </body>
+</html>

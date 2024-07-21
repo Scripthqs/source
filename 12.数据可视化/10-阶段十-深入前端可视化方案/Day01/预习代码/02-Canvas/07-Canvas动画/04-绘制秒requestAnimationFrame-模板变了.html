@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        background-image: url(../images/grid.png);
+      }
+      canvas {
+        background-color: rgba(255, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="tutorial" width="200" height="200">
+      该浏览器不支持Canvas，请更新你的浏览器
+    </canvas>
+  </body>
+
+  <script>
+    window.onload = function () {
+      var canvas = document.getElementById("tutorial");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+      }
+      // 1.在浏览器下次重绘之前会回调给函数（一般1s会回调60次）
+      requestAnimationFrame(draw);
+
+      // 这方法一秒会执行 60 次左右（在浏览器下一次重绘之前会回调）
+      function draw() {
+        let second = new Date().getSeconds();
+        // 第一步：用 clearRect(x,y, w,h)方法，清空 canvas 。
+        ctx.clearRect(0, 0, 200, 200);
+        // 第二步：保存 canvas 状态 。
+        ctx.save();
+        // 第三步：修改 canvas 状态 （样式、移动坐标、旋转等）。
+        ctx.translate(100, 100);
+        ctx.rotate(((Math.PI * 2) / 60) * second);
+        ctx.strokeStyle = "red";
+        ctx.lineWidth = 8;
+        ctx.lineCap = "round";
+
+        // 第四步：绘制秒针图形（即绘制动画中的一帧）。
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(0, -80);
+        ctx.stroke();
+        // 第五步：恢复 canvas 状态 ，准备重绘下一帧。
+        ctx.restore();
+
+        // 2.在回调函数中再次调用 requestAnimationFrame
+        requestAnimationFrame(draw);
+      }
+    };
+  </script>
+</html>

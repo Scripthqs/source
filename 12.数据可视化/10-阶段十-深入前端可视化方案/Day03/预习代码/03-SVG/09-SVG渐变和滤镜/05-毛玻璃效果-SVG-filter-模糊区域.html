@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        /* background-image: url(../images/grid.png); */
+      }
+      svg {
+        background-color: rgba(255, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- svg 2.0 语法 -->
+    <svg width="600" height="200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- 
+          x = -10%
+          y = -10%
+
+          width = 120%
+          height = 120%
+         -->
+        <filter id="blueFilter" x="50%" y="50%" width="50%" height="25%">
+          <feGaussianBlur stdDeviation="8"></feGaussianBlur>
+        </filter>
+      </defs>
+
+      <image
+        x="0"
+        y="0"
+        width="200"
+        height="200"
+        href="../images/avatar.jpeg"
+        filter="url(#blueFilter)"
+      ></image>
+    </svg>
+  </body>
+</html>

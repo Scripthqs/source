@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 编写样式 */
+      body {
+        padding: 0;
+        margin: 0;
+        background-image: url(../images/grid.png);
+      }
+      canvas {
+        /* color: purple; */
+        background-color: rgba(255, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <!-- onload="draw()" -->
+  <body>
+    <!-- 编写canvas -->
+    <canvas id="tutorial" width="150" height="150">
+      该浏览器不支持Canvas，请更新你的浏览器
+    </canvas>
+  </body>
+
+  <script>
+    window.onload = function () {
+      draw();
+    };
+
+    function draw() {
+      var canvas = document.getElementById("tutorial");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+
+        ctx.beginPath();
+        ctx.moveTo(0, 100);
+        ctx.lineTo(150, 100);
+        ctx.strokeStyle = "purple";
+        ctx.stroke();
+
+        ctx.font = "40px serif";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("Ay", 100, 100);
+      }
+    }
+  </script>
+</html>

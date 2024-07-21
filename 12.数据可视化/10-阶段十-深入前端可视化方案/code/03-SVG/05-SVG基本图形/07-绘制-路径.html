@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body, ul{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      background-image: url(../images/grid.png);
+    }
+    svg{
+      background-color: rgba(255, 0, 0, 0.1);
+    }
+  </style>
+
+</head>
+<body>
+
+  <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg" >
+  
+    <!-- 1.使用path 绘制一个三角形 -->
+    <!-- <path d="M 20 0, 80 50, 20 100" fill="transparent" stroke="red"></path> -->
+
+
+    <!-- 1.使用path 绘制一个闭合的三角形 -->
+    <!-- <path d="M 20 0, 80 50, 20 100 Z" fill="transparent" stroke="red"></path> -->
+
+
+    
+    <!-- 1.使用 path 绘图的命令:
+      M  moveTo
+      Z  close path
+      L  lineTo  
+    -->
+    <path d="M 20 0,L 80 50,L 20 100 Z" fill="transparent" stroke="red"></path>
+
+  </svg>
+
+</body>
+</html>

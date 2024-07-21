@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      svg {
+        background-color: rgba(255, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <svg id="tutorial">
+        <circle id="c1" cx="100" cy="100" r="20" fill="green"></circle>
+      </svg>
+    </div>
+    <script src="./libs/snap.svg.js"></script>
+    <script>
+      // 1.创建svg
+      let svg = Snap("#tutorial");
+      // 2.拿到Pager纸张
+      let paper = svg.paper;
+      // 3.绘制一个矩形
+      let rectangle = paper.rect(10, 10, 100, 50);
+      // 添加样式
+      rectangle.attr({
+        fill: "red",
+        stroke: "green",
+        strokeWidth: 5,
+      });
+      // 获取存在的矩形，并添加样式
+      // let c1 = paper.select("#c1");
+      let c1 = svg.select("#c1");
+      c1.attr({
+        stroke: "yellow",
+        strokeWidth: 10,
+      });
+      // 4.将svg添加到页面上
+      document.getElementById("app").appendChild(svg.node);
+    </script>
+  </body>
+</html>

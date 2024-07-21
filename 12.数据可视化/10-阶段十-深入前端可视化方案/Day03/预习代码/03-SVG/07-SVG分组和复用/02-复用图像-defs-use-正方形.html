@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        background-image: url(../images/grid.png);
+      }
+      svg {
+        background-color: rgba(255, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 1.第一个SVG -->
+    <svg width="300" height="150" xmlns="http://www.w3.org/2000/svg">
+      <!-- 1.1定义可复用的图形，默认不可以见 -->
+      <defs>
+        <style>
+          #rectangle {
+          }
+        </style>
+        <rect id="rectangle" x="10" y="10" width="30" height="30"></rect>
+      </defs>
+
+      <!-- 1.2引用可复用的图形 -->
+      <use href="#rectangle"></use>
+      <use x="10" y="10" stroke="red" href="#rectangle"></use>
+    </svg>
+
+    <!-- 2.在第二个SVG -->
+    <svg width="300" height="150" xmlns="http://www.w3.org/2000/svg">
+      <!-- 
+        存在的问题：width height 无效
+       -->
+      <use width="100" height="100" stroke="red" href="#rectangle"></use>
+    </svg>
+  </body>
+</html>

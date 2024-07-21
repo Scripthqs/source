@@ -1,0 +1,234 @@
+/* 左边线的光斑移动 */
+@keyframes leftYd {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  39% {
+    opacity: 1;
+  }
+
+  /* 关键点 */
+  41.67%,
+  100% {
+    transform: translate(49px, 28px);
+    opacity: 0;
+  }
+}
+/* 左边线的光斑移动 */
+@keyframes leftYdA {
+  /* 关键点 */
+  41.67% {
+    transform: translate(0);
+    opacity: 0;
+  }
+
+  43%,
+  60% {
+    opacity: 1;
+  }
+
+  62.5%,
+  100% {
+    transform: translate(20px, -13px);
+    opacity: 0;
+  }
+}
+
+@keyframes rightYd {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+
+  39% {
+    opacity: 1;
+  }
+
+  41.67%,
+  100% {
+    transform: translate(-77px, -47px);
+    opacity: 0;
+  }
+}
+@keyframes rightYdA {
+  41.67% {
+    transform: translate(0);
+    opacity: 0;
+  }
+
+  43%,
+  51% {
+    opacity: 1;
+  }
+
+  54.17%,
+  100% {
+    transform: translate(-15px, 8px);
+    opacity: 0;
+  }
+}
+/*光线 上移动  */
+@keyframes guangA {
+  40% {
+    opacity: 1;
+  }
+
+  70%,
+  100% {
+    transform: translateY(-70px);
+    opacity: 0;
+  }
+}
+@keyframes guangB {
+  30% {
+    opacity: 1;
+  }
+
+  80%,
+  100% {
+    transform: translateY(-55px);
+    opacity: 0;
+  }
+}
+/* 左边文件夹等icon 浮动 */
+@keyframes leftTbA {
+  35% {
+    transform: translateY(7px);
+  }
+
+  80% {
+    transform: translateY(-3px);
+  }
+}
+/* 背景方框 */
+@keyframes houLiangA {
+  50% {
+    opacity: 1;
+  }
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+}
+/* 云朵的浮动 */
+@keyframes rightTbA {
+  30% {
+    transform: translateY(-2px);
+  }
+
+  70% {
+    transform: translateY(6px);
+  }
+}
+/*中间红包 和 硬币 */
+@keyframes centerA {
+  35%,
+  85% {
+    transform: translateY(-6px);
+  }
+
+  50%,
+  100%,
+  85% {
+    transform: translateY(2px);
+  }
+}
+/* 中间光线 */
+@keyframes guA {
+  41.67% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  44%,
+  60% {
+    opacity: 1;
+  }
+
+  62.5% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  63%,
+  100% {
+    opacity: 1;
+    transform: translateY(-40px);
+  }
+}
+
+@keyframes guB {
+  39.67% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  46%,
+  59% {
+    opacity: 1;
+  }
+
+  62.5% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  63%,
+  100% {
+    opacity: 1;
+    transform: translateY(-40px);
+  }
+}
+@keyframes guC {
+  45.67% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  48%,
+  58% {
+    opacity: 1;
+  }
+
+  62.5% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  63%,
+  100% {
+    opacity: 1;
+    transform: translateY(-40px);
+  }
+}
+/* 中间面板 */
+@keyframes xiazai {
+  62.5%,
+  100% {
+    opacity: 20%;
+  }
+
+  85% {
+    opacity: 1;
+  }
+}
+/* 中间 推出数据面板 */
+@keyframes xsPing {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+
+  1% {
+    opacity: 0.5;
+  }
+
+  80%,
+  100% {
+    transform: translate(14px, 4px);
+    opacity: 1;
+  }
+}

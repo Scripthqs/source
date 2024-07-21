@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="./libs/snap.svg.js"></script>
+    <script>
+      // 1.创建svg
+      // Snap -> SVG Element 别名 paper
+      let svg = Snap(300, 200);
+      // console.log(svg)
+      // 2.拿到Pager纸张
+      // let paper = svg.paper;
+      // 3.绘制一个圆
+     let c =  svg.circle(50, 50, 25);
+     console.log(c)
+    //  console.log(c.getBBox())
+    //  console.log(c.node)
+      // 4.将svg添加到页面上
+      document.getElementById("app").appendChild(svg.node);
+    </script>
+  </body>
+</html>

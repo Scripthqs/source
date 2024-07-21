@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="my-lucky"></div>
+
+<script src="./libs/lucky-canvas-1.7.11.js"></script>
+<script>
+  const myLucky = new LuckyCanvas.LuckyWheel('#my-lucky', {
+    width: '240px',
+    height: '240px',
+    blocks: [
+      { padding: '20px' },
+      {
+        padding: '20px',
+        imgs: [{
+          src: './block-img.png',
+          width: '100%',
+          rotate: true
+        }]
+      }
+    ],
+    prizes: [
+      { title: '0' },
+      { title: '1' },
+      { title: '2' },
+      { title: '3' },
+      { title: '4' },
+      { title: '5' },
+      { title: '6' },
+      { title: '7' },
+    ],
+    defaultConfig: {
+      speed: 7
+    },
+    buttons: [
+     
+      {
+        radius: '30%', background: '#869cfa',
+        pointer: true,
+        fonts: [{ text: '开始', top: '-10px' }]
+      },
+    ],
+    end: function(prize) {
+      alert('恭喜中奖: ' + prize.title)
+    }
+  })
+  // 开始
+  myLucky.play()
+  // 假设接口的请求速度是1s
+  setTimeout(_ => {
+    // 中奖数字(0-7)
+    myLucky.stop(parseInt(Math.random() * 100 % 7))
+  }, 3000)
+</script>
+</body>
+</html>

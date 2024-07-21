@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        background-image: url(../../images/grid.png);
+      }
+      canvas {
+        background-color: rgba(255, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="tutorial" width="300" height="300">
+      该浏览器不支持Canvas，请更新你的浏览器
+    </canvas>
+  </body>
+
+  <script>
+    window.onload = function () {
+      var canvas = document.getElementById("tutorial");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+      }
+
+      var sum = new Image();
+      var moon = new Image();
+      var earth = new Image();
+      sum.src = "../../images/canvas_sun.png";
+      // sum.onload = function() {
+      //   // 开始绘制背景
+      // }
+      moon.src = "../../images/canvas_moon.png";
+      earth.src = "../../images/canvas_earth.png";
+
+      requestAnimationFrame(draw);
+
+      function draw() {
+        ctx.clearRect(0, 0, 300, 300);
+        ctx.save();
+        ctx.strokeStyle = "rgba(0, 153, 255, 0.4)";
+
+        // 4.开始绘制太阳背景
+        ctx.save();
+        ctx.drawImage(sum, 0, 0, 300, 300);
+        ctx.beginPath();
+        ctx.arc(150, 150, 105, 0, Math.PI * 2, false);
+        ctx.stroke();
+        ctx.restore();
+
+        // 5.开始绘制地球（24小时一圈）
+        ctx.save();
+        let time = new Date();
+        let second = time.getSeconds();
+        let millSecond = time.getMilliseconds();
+        ctx.translate(150, 150); // 移动坐标
+
+        // 1 分钟旋转一圈 (位置只能放到这里)：
+        // 1秒移动的弧度：Math.PI * 2 / 60
+        // 1毫秒移动的弧度：Math.PI * 2 / 60 / 1000
+        // ctx.rotate(((Math.PI * 2) / 60) * second);
+
+        // 当前时间：1秒 + 10 毫秒
+        ctx.rotate(
+          ((Math.PI * 2) / 60) * second +
+            ((Math.PI * 2) / 60 / 1000) * millSecond
+        );
+
+        ctx.translate(105, 0); // 移动到 圆 的开始点
+        ctx.drawImage(earth, -12, -12); // 24 * 24
+
+        ctx.restore();
+
+        ctx.restore();
+
+        requestAnimationFrame(draw);
+      }
+    };
+  </script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 编写样式 */
+      body {
+        padding: 0;
+        margin: 0;
+        background-image: url(../images/grid.png);
+      }
+      canvas {
+        background-color: rgba(255, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <!-- onload="draw()" -->
+  <body>
+    <!-- 编写canvas -->
+    <canvas id="tutorial" width="150" height="150">
+      该浏览器不支持Canvas，请更新你的浏览器
+    </canvas>
+  </body>
+
+  <script>
+    window.onload = function () {
+      draw();
+    };
+
+    // 1.当页面加载完成之后会回调该函数
+    function draw() {
+      // 2.拿到canvas对象
+      var canvas = document.getElementById("tutorial");
+      // 3.判断浏览器是否支持Canvas
+      if (canvas.getContext) {
+        // 4.拿到Canvas的上下文（绘图用）
+        var ctx = canvas.getContext("2d");
+
+        ctx.beginPath(); // 开始路径
+        ctx.strokeStyle = "green";
+        ctx.arc(30, 30, 20, 0, Math.PI * 2);
+        ctx.rect(100, 100, 40, 30);
+        // ctx.strokeStyle = "orange"; // 只用 orange
+        ctx.stroke(); // 只填充当前的路径，不会自动closePath
+
+        ctx.beginPath(); // 开始路径
+        ctx.rect(100, 20, 40, 30);
+        ctx.strokeStyle = "red";
+        ctx.stroke(); // 只填充当前的路径，会自动closePath
+      }
+    }
+  </script>
+</html>

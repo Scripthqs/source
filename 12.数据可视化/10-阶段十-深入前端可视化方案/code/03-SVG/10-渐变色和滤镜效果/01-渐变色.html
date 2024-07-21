@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body, ul{
+      margin: 0;
+      padding: 0;
+    }
+
+    body{
+      background-image: url(../images/grid.png);
+    }
+    svg{
+      background-color: rgba(255, 0, 0, 0.1);
+    }
+  </style>
+
+</head>
+<body>
+
+  <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg" >
+    <!-- 定义可以复用的元素: 样式, 渐变, 图形, 滤镜... -->
+    <defs>
+      <!-- 默认的渐变色 -->
+      <linearGradient id="gradient1">
+        <stop offset="0%" stop-color="red"></stop>
+        <stop offset="50%" stop-color="green"></stop>
+        <stop offset="100%" stop-color="blue"></stop>
+      </linearGradient>
+
+      <!-- 这个是制定渐变的方向 -->
+      <linearGradient id="gradient2" x1="0" y1="0" x2="1" y2="1"  >
+        <stop offset="0%" stop-color="red"></stop>
+        <stop offset="50%" stop-color="green"></stop>
+        <stop offset="100%" stop-color="blue"></stop>
+      </linearGradient>
+
+      <!-- 通过形变 渐变色(了解 ) -->
+      <linearGradient id="gradient3" gradientTransform="rotate(0)">
+        <stop offset="0%" stop-color="red"></stop>
+        <stop offset="50%" stop-color="green"></stop>
+        <stop offset="100%" stop-color="blue"></stop>
+      </linearGradient>
+
+    </defs>
+
+    <rect x="0" y="0" width="100" height="50" fill="url(#gradient3)"></rect>
+    
+  </svg>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <svg style="border: 1px solid red" xmlns="http://www.w3.org/2000/svg">
+      <rect x="10" y="10" width="100" height="100"></rect>
+    </svg>
+
+    <script>
+      // 1.命名空间
+      let xmlns = "http://www.w3.org/2000/svg";
+      let boxWidth = 300;
+      let boxHeight = 150;
+
+      // 2.创建SVG元素
+      let svgEl = document.createElementNS(xmlns, "svg");
+      let rectEl = document.createElementNS(xmlns, "rect");
+
+      // 3.给SVG元素添加属性
+      svgEl.setAttributeNS(null, "version", "1.1");
+      svgEl.setAttributeNS(null, "width", boxWidth);
+      svgEl.setAttributeNS(null, "height", boxHeight);
+      svgEl.style.border = "1px solid green";
+
+      rectEl.setAttributeNS(null, "width", 100);
+      rectEl.setAttributeNS(null, "height", 40);
+
+      // 4.把SVG元素插入到DOM中
+      svgEl.appendChild(rectEl);
+      document.body.appendChild(svgEl);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        background-image: url(../images/grid.png);
+      }
+      svg {
+        background-color: rgba(255, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+      <!-- <rect
+        x="0"
+        y="0"
+        width="100"
+        height="50"
+        fill="red"
+        transform="translate(100, 100)"
+      ></rect> -->
+
+      <!-- 会移动坐标原点 -->
+      <g transform="translate(100, 100)">
+        <rect
+          x="0"
+          y="0"
+          width="100"
+          height="50"
+          fill="red"
+          transform="translate(-10, -10)"
+        ></rect>
+      </g>
+    </svg>
+  </body>
+</html>

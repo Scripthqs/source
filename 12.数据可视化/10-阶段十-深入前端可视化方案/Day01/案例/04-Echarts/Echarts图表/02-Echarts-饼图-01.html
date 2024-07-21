@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="main" style="height: 400px"></div>
+
+    <script src="../libs/echarts-5.3.3.js"></script>
+    <script>
+      // 1.基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById("main"), null, {
+        renderer: "svg",
+      });
+
+
+      var colorList = ['#73DDFF', '#73ACFF', '#FDD56A', '#FDB36A', '#FD866A', '#9E87FF', '#58D5FF']
+
+      // 2.指定图表的配置项和数据
+      var option =  {
+      title: {
+          text: 'Pie',
+          x: 'center',
+          y: 'center',
+          textStyle: {
+              fontSize: 20
+          }
+      },
+      tooltip: {
+          trigger: 'item'
+      },
+    series: [{
+        type: 'pie',
+        center: ['50%', '50%'],
+        radius: ['24%', '45%'],
+        clockwise: true,
+        avoidLabelOverlap: true,
+        hoverOffset: 15,
+        itemStyle: {
+            normal: {
+                color: function(params) {
+                    return colorList[params.dataIndex]
+                }
+            }
+        },
+        label: {
+            show: true,
+            position: 'outside',
+            formatter: '{a|{b}：{d}%}\n{hr|}',
+            rich: {
+                hr: {
+                    /*
+            再次声明一下，大家在这里修改之后不要点击上面的保存！
+    不要点击保存！不要点击保存！重要的事情说三遍！
+    你的修改会覆盖我的原代码的！感谢理解！
+                                --2020/8/4  by--suwanqing
+                    */
+                    backgroundColor: 't',
+                    borderRadius: 3,
+                    width: 3,
+                    height: 3,
+                    padding: [3, 3, 0, -12]
+                },
+                a: {
+                    padding: [-30, 15, -20, 15]
+                }
+            }
+        },
+        labelLine: {
+            normal: {
+                length: 20,
+                length2: 30,
+                lineStyle: {
+                    width: 1
+                }
+            }
+        },
+        data: [{
+            'name': '一月',
+            'value': 1.45
+        }, {
+            'name': '二月',
+            'value': 2.93
+        }, {
+            'name': '三月',
+            'value': 3.15
+        }, {
+            'name': '四月',
+            'value': 4.78
+        }, {
+            'name': '五月',
+            'value': 5.93
+        }, {
+            'name': '六月',
+            'value': 5.73
+        }
+        ],
+        }
+        ]
+    };
+      myChart.setOption(option);
+    </script>
+  </body>
+</html>

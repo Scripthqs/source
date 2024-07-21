@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="main" style="height: 600px"></div>
+
+    <script src="../libs/echarts-5.3.3.js"></script>
+    <script src="./geojson/china_json.js"></script>
+    <script src="./geojson/gd_geojson.js"></script>
+    <script src="./geojson/南昌.js"></script>
+    <script>
+      echarts.registerMap("china", { geoJSON: china_json });
+      echarts.registerMap("gd", { geoJSON: gd_geojson });
+      // 1.基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById("main"), null, {
+        renderer: "svg",
+      });
+
+      // 2.指定图表的配置项和数据
+      var option = {
+        backgroundColor: "rgba(40,46,72, 0.2)",
+        // grid: {
+        //   show: true,
+        //   backgroundColor: "rgba(0, 0, 255, 0.2)",
+        // },
+        geo: {
+          map: "南昌", // china 、gd、南昌
+        },
+        series: [],
+      };
+      myChart.setOption(option);
+    </script>
+  </body>
+</html>

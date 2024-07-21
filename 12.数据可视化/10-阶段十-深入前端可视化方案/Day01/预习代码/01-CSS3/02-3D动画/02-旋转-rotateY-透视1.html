@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      .box {
+        position: relative;
+        width: 200px;
+        height: 100px;
+        background-color: skyblue;
+        /* 1.透视 */
+        perspective: 200px;
+      }
+      .item {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 100px;
+        background-color: orange;
+        text-align: center;
+
+        /* 2.旋转 */
+        transform: rotateY(60deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      div
+      <div class="item">10</div>
+    </div>
+  </body>
+</html>

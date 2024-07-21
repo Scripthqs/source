@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+  
+    // 在浏览器下一次重绘之前会回调该函数的回调函数draw
+    requestAnimationFrame(draw)
+
+    let startTime = new Date().getTime()
+
+    /*
+      一秒钟会被回调  61s 次
+    */
+    function draw() {
+      let endTime = new Date().getTime()
+      if(endTime - startTime > 1000){
+        return
+      }
+      console.log('draw')
+      requestAnimationFrame(draw)
+    }
+
+
+  </script>
+</body>
+</html>

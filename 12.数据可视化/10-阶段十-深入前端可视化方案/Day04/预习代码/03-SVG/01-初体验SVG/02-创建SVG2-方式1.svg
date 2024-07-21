@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no" ?>
+<!-- 
+  svg 2.0 语法 
+  1) version 已被删除，写了1.1对SVG2.0渲染和处理没有任何影响
+-->
+<svg
+  width="300"
+  height="150"
+  xmlns="http://www.w3.org/2000/svg"
+  style="border:1px solid pink"
+>
+  <rect x="10" y="10" width="100" height="50"></rect>
+</svg>

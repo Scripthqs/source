@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 编写样式 */
+      body {
+        padding: 0;
+        margin: 0;
+        background-image: url(../images/grid.png);
+      }
+      canvas {
+        background-color: rgba(255, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <!-- onload="draw()" -->
+  <body>
+    <!-- 编写canvas -->
+    <canvas id="tutorial" width="150" height="150">
+      该浏览器不支持Canvas，请更新你的浏览器
+    </canvas>
+  </body>
+
+  <script>
+    window.onload = function () {
+      draw();
+    };
+
+    // 1.当页面加载完成之后会回调该函数
+    function draw() {
+      // 2.拿到canvas对象
+      var canvas = document.getElementById("tutorial");
+      // 3.判断浏览器是否支持Canvas
+      if (canvas.getContext) {
+        // 4.拿到Canvas的上下文（绘图用）
+        var ctx = canvas.getContext("2d");
+
+        ctx.beginPath(); // 开始路径
+        // 设置🖌状态
+        ctx.strokeStyle = "red";
+        ctx.lineWidth = 5;
+        // 绘图
+        ctx.moveTo(10, 10);
+        ctx.lineTo(100, 10);
+        ctx.closePath(); // 闭合路径
+        // 描边
+        ctx.stroke();
+      }
+    }
+  </script>
+</html>

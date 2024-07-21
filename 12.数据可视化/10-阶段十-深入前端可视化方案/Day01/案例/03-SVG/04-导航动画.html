@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        /* border: 1px solid red; */
+        padding-top: 100px;
+      }
+      .five-box {
+        width: 600px;
+        height: 314px;
+        background: url(https://mapopen-website-wiki.cdn.bcebos.com/index/newIndex/service-left-loc.png);
+        background-size: 100% 100%;
+      }
+
+      .line {
+        transform: translate(50px, 90px);
+      }
+
+      .line path {
+        stroke-width: 4;
+
+        stroke-dasharray: 521;
+        /* stroke-dashoffset: 450; */
+        stroke-dashoffset: 0;
+        animation: linePath 7s linear infinite;
+      }
+
+      @keyframes linePath {
+        0% {
+          stroke-dashoffset: 538;
+        }
+        100% {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      #loc1 {
+        animation: move1 1.2s linear infinite alternate;
+      }
+
+      #c1 {
+        animation: moveC1 1.2s linear infinite alternate;
+      }
+
+      #c2 {
+        animation: moveC2 1.2s linear infinite alternate;
+      }
+
+      @keyframes move1 {
+        0% {
+          y: 80;
+        }
+
+        100% {
+          y: 100;
+        }
+      }
+      @keyframes moveC1 {
+        0% {
+          y: 185;
+        }
+
+        100% {
+          y: 230;
+        }
+      }
+      @keyframes moveC2 {
+        0% {
+          y: 230;
+        }
+
+        100% {
+          y: 185;
+        }
+      }
+      #hyCir {
+        transform: translate(50px, 90px);
+      }
+
+      #pics {
+        /* transform: translate(-100px, -100px); */
+        /* 回到原点 */
+        /* transform: translate(-100px, -100px); */
+        /* transform: translate(-127.5px, -182px); */
+        /* 路径平移： 50 + 90 */
+        transform: translate(-77.5px, -170px);
+      }
+      svg {
+        overflow: visible;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box-left five-box">
+      <svg
+        height="400"
+        version="1.1"
+        width="744"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <desc>Created with Snap</desc>
+        <defs>
+          <linearGradient
+            x1="100%"
+            y1="40.7087699%"
+            x2="4.9797314%"
+            y2="60.8683027%"
+            id="linearGradient-5"
+          >
+            <stop stop-color="#F5533D" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#F5533D" offset="44.5180532%"></stop>
+            <stop stop-color="#F5533D" stop-opacity="0" offset="100%"></stop>
+          </linearGradient>
+        </defs>
+        <circle id="hyCir" r="10" cx="0" , cy="0"></circle>
+        <image
+          xlink:href="https://mapopen-website-wiki.cdn.bcebos.com/index/newIndex/projection.png"
+          preserveAspectRatio="none"
+          x="60"
+          y="45"
+          width="466"
+          height="234"
+        ></image>
+        <g id="pics">
+          <image
+            id="loc1"
+            xlink:href="https://mapopen-website-wiki.cdn.bcebos.com/shouye/redPoint.png"
+            preserveAspectRatio="none"
+            x="100"
+            y="98.82"
+            width="55"
+            height="74"
+            style="opacity: 1"
+          ></image>
+
+          <image
+            xlink:href="https://mapopen-website-wiki.cdn.bcebos.com/index/newIndex/navLight.png"
+            preserveAspectRatio="none"
+            x="113"
+            y="155"
+            width="30"
+            height="107"
+            style="opacity: 1"
+          ></image>
+          <image
+            id="c1"
+            xlink:href="https://mapopen-website-wiki.cdn.bcebos.com/index/newIndex/bigCircle.png"
+            preserveAspectRatio="none"
+            x="112"
+            y="195.73"
+            width="32"
+            height="11"
+            style="opacity: 1"
+          ></image>
+          <image
+            id="c2"
+            xlink:href="https://mapopen-website-wiki.cdn.bcebos.com/index/newIndex/smCircle.png"
+            preserveAspectRatio="none"
+            x="117"
+            y="214.27"
+            width="21"
+            height="8"
+            style="opacity: 1"
+          ></image>
+          <image
+            xlink:href="https://mapopen-website-wiki.cdn.bcebos.com/index/newIndex/nav-tuo.png"
+            preserveAspectRatio="none"
+            x="115"
+            y="252"
+            width="26"
+            height="11"
+            style="opacity: 1"
+          ></image>
+        </g>
+        <g class="line">
+          <path
+            id="line-path"
+            d="M0,194.179092 C141.464844,148.340947 237.798177,115.607166 289,95.9777477 C365.802734,66.5336204 453.195733,26 482.349179,1"
+            fill="rgba(0,0,0,0)"
+            stroke="url(#linearGradient-5)"
+          ></path>
+        </g>
+        <animateMotion href="#pics" dur="7s" repeatCount="indefinite">
+          <mpath href="#line-path" />
+        </animateMotion>
+      </svg>
+    </div>
+  </body>
+</html>

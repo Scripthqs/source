@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+    }
+    .box{
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+
+    .bg-cover{
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+
+      /* 做毛玻璃效果 */
+      background-color: transparent;
+      backdrop-filter: blur(8px);
+    }
+  </style>
+</head>
+<body>
+  
+
+  <div class="box">
+    <img src="../images/avatar.jpeg" alt="">
+    <div class="bg-cover"></div>
+  </div>
+</body>
+</html>

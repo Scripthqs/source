@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      .box {
+        position: relative;
+        width: 200px;
+        height: 100px;
+        background-color: skyblue;
+
+        /* 3d 空间*/
+        transform-style: preserve-3d;
+        perspective: 800px;
+      }
+      .item {
+        position: absolute;
+        top: 0px;
+        left: 0;
+        width: 200px;
+        height: 100px;
+        background-color: orange;
+
+        /* 3d */
+        transform: rotateX(70deg) translateX(50px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      div
+      <div class="item">10</div>
+    </div>
+  </body>
+</html>

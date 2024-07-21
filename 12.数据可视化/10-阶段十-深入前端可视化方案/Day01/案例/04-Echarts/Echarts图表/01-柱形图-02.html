@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="main" style="height: 400px; width: 800px"></div>
+
+    <script src="../libs/echarts-5.3.3.js"></script>
+    <script>
+      // 1.基于准备好的dom，初始化echarts实例
+      var myChart = echarts.init(document.getElementById("main"));
+      // 2.指定图表的配置项和数据
+      var option = {
+        backgroundColor: "#00265f",
+        tooltip: {
+          trigger: "axis",
+          axisPointer: {
+            type: "shadow",
+          },
+        },
+        grid: {
+          top: "15%",
+          right: "3%",
+          left: "8%",
+          bottom: "12%",
+        },
+        xAxis: [
+          {
+            type: "category",
+            data: [
+              "星期一",
+              "星期二",
+              "星期三",
+              "星期四",
+              "星期五",
+              "星期六",
+              "星期天",
+            ],
+
+            axisLine: {
+              lineStyle: {
+                color: "#FFFFFF",
+              },
+            },
+            axisLabel: {
+              margin: 10,
+              color: "#e2e9ff",
+              textStyle: {
+                fontSize: 14,
+              },
+            },
+            axisTick: {
+              show: false,
+            },
+          },
+        ],
+        yAxis: [
+          {
+            axisLabel: {
+              color: "#e2e9ff",
+            },
+            axisTick: {
+              show: false,
+            },
+            axisLine: {
+              show: false,
+              lineStyle: {
+                color: "rgba(0,186,255,.6)",
+              },
+            },
+            splitLine: {
+              lineStyle: {
+                color: "rgba(255,255,255,0.12)",
+              },
+            },
+          },
+        ],
+        series: [
+          {
+            type: "bar",
+            data: [80, 80, 97, 53, 95, 26, 72],
+            barWidth: "28px",
+            itemStyle: {
+              color: new echarts.graphic.LinearGradient(
+                0,
+                0,
+                0,
+                1,
+                [
+                  {
+                    offset: 0,
+                    color: "rgba(0,244,255,1)", // 0% 处的颜色
+                  },
+                  {
+                    offset: 1,
+                    color: "rgba(0,77,167,1)", // 100% 处的颜色
+                  },
+                ],
+                false
+              ),
+              shadowColor: "rgba(0,160,221,1)",
+              shadowBlur: 4,
+            },
+            label: {
+              show: true,
+              lineHeight: 30,
+              position: "top",
+              textStyle: {
+                color: "#00D6F9",
+                fontSize: 20,
+              },
+            },
+          },
+        ],
+      };
+      // 3.使用刚指定的配置项和数据显示图表。
+      myChart.setOption(option);
+    </script>
+  </body>
+</html>

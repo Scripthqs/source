@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body, ul{
+      margin: 0;
+      padding: 0;
+    }
+
+    body{
+      background-image: url(../images/grid.png);
+    }
+    svg{
+      background-color: rgba(255, 0, 0, 0.1);
+    }
+
+    /* text{
+      fill: red;
+    } */
+
+  </style>
+
+</head>
+<body>
+
+  <svg width="300" height="300" xmlns="http://www.w3.org/2000/svg" >
+   
+    <!-- 1.在svg中绘制一个文字 -->
+    <!-- <text x="100" y="100" font-size="50" fill="red">Ay</text> -->
+
+    <!-- 2.文本的对齐方式 -->
+    <!-- <text x="100" y="100" text-anchor="middle"  font-size="50" fill="red">Ay</text> -->
+
+    <!-- 3.基线对齐方式 :
+      有 auto 、middle 或 hanging 值, 默认值：auto
+    -->
+       <text x="100" y="100" dominant-baseline="middle" font-size="50" fill="red">Ay</text>
+
+
+  </svg>
+
+</body>
+</html>

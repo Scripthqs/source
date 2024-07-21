@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- https://www.esensoft.comhttps://www.esensoft.com/static -->
+    <!-- 1.基本样式 -->
+    <style>
+        html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+            background: transparent;
+        }
+        html,body{
+            width: 100%;
+            position: relative;
+        }
+        #banner{
+            position: absolute;
+            min-width: 100%;
+            min-height: 500px;
+            height: auto;
+            width: auto;
+            right: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            z-index: -10;
+            background-image: url(./images/ban-PetaBase-s-Bg.jpeg);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .maxCon {
+            height: 500px;
+            width: 100%;
+            max-width: 1200px;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+    </style>
+
+    <!-- 2.图片布局样式 -->
+    <style>
+
+      .pbs-move {
+        width: 473px;
+        height: 296px;
+        float: right;
+        margin-top: 134px;
+        position: relative
+    }
+
+      .pbs-move img {
+        position: absolute;
+        border: 0
+    }
+
+    .ban-polygons1 {
+        top: 229px;
+        left: 306px
+    }
+
+    .ban-polygons2 {
+        top: 37px;
+        left: 28px
+    }
+
+    .ban-polygons3 {
+        top: -19px;
+        left: 360px
+    }
+
+    .pbs-move .move-left1 {
+        left: 0;
+        top: 154px
+    }
+
+    .pbs-move .ban-line1 {
+        left: 33px;
+        bottom: 112px;
+        animation: fadeup 1s infinite
+    }
+
+
+
+      .pbs-move .ban-line2 {
+        left: 63px;
+        bottom: 175px;
+        animation: fadeup 1s .8s infinite;
+        opacity: 0
+    }
+
+      .pbs-move .ban-line3 {
+        left: 73px;
+        bottom: 135px;
+        animation: fadeup 1s .4s infinite;
+        opacity: 0
+    }
+
+      .pbs-move .ban-line4 {
+        left: 104px;
+        bottom: 114px;
+        animation: fadeup 1s .2s infinite;
+        opacity: 0
+    }
+
+      .pbs-move .ban-left-icon1 {
+        top: 168px;
+        left: 37px;
+        animation: left-updown 1.7s infinite ease-in both
+    }
+
+
+
+    .pbs-move .ban-left-icon2 {
+        top: 153px;
+        left: 64px;
+        animation: left-updown1 1.3s infinite ease-in both
+    }
+
+
+
+
+      .pbs-move .ban-left-icon3 {
+        top: 134px;
+        left: 51px;
+        animation: left-downup 1.7s infinite ease-in both
+    }
+
+      .pbs-move .ban-left-icon4 {
+        top: 142px;
+        left: 84px;
+        animation: left-downup 1.7s .5s infinite ease-in both
+    }
+
+      .pbs-move .ban-left-icon5 {
+        top: 181px;
+        left: 67px;
+        animation: left-updown 1.7s .7s infinite ease-in both
+    }
+
+      .pbs-move .move-left2 {
+        left: 65px;
+        top: 150px
+    }
+
+      .pbs-move .move-center1 {
+        left: 87px;
+        top: 4px
+    }
+
+      .pbs-move .move-center2 {
+        top: 92px;
+        left: 153px
+    }
+
+    .move-center-rectangles {
+        position: absolute;
+        left: 186px;
+        top: 84px;
+        width: 20px;
+        height: 27px;
+        overflow: hidden;
+        transform: skewY(27deg)
+    }
+
+    .move-center-rectangles div {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 20px;
+        height: 14px;
+        background: #0254bf;
+        animation: move-center-rectangles 2.2s linear infinite
+    }
+
+
+
+
+
+
+
+
+    .move-center-heyslim {
+        position: absolute;
+        left: 174px;
+        top: 71px;
+        width: 20px;
+        height: 11px;
+        overflow: hidden;
+        transform: skewY(27deg)
+    }
+
+    .move-center-heyslim .line1 {
+        width: 20px;
+        height: 2px;
+        background: #7dbfef;
+        position: absolute;
+        left: 0;
+        top: 0;
+        animation: heyslimline1 2s linear infinite forwards
+    }
+
+  
+
+
+    .move-center-heyslim .line2 {
+        width: 16px;
+        height: 2px;
+        background: #7dbfef;
+        position: absolute;
+        left: 0;
+        top: 4px;
+        animation: heyslimline2 1.6s linear infinite forwards
+    }
+
+
+  
+    .move-center-heyslim .line3 {
+        width: 10px;
+        height: 2px;
+        background: #7dbfef;
+        position: absolute;
+        left: 0;
+        top: 8px;
+        animation: heyslimline3 1.6s linear infinite forwards
+    }
+
+  
+    .ban-center-tu3 {
+        left: 116px;
+        bottom: 180px;
+        animation: ban-center-tu3 1.6s linear infinite forwards;
+        opacity: 0
+        
+    }
+
+   
+
+    .ban-center-tu13 {
+        left: 212px;
+        bottom: 119px;
+        animation: ban-center-tu3 1.6s .3s linear infinite forwards;
+        opacity: 0
+    }
+
+    .ban-center-tu23 {
+        left: 320px;
+        bottom: 182px;
+        animation: ban-center-tu3 1.6s .6s linear infinite forwards;
+        opacity: 0
+    }
+
+    .ban-center-tu4 {
+        left: 201px;
+        top: -10px;
+        animation: ban-center-tu4 1.6s linear infinite forwards
+    }
+
+
+
+      .pbs-move .small-circle1 {
+        width: 7px;
+        height: 7px;
+        background: #14919f;
+        border-radius: 50%;
+        position: absolute;
+        left: 150px;
+        top: 148px
+    }
+
+      .pbs-move .small-circle2 {
+        width: 8px;
+        height: 8px;
+        background: #0e43ce;
+        border-radius: 50%;
+        position: absolute;
+        left: 302px;
+        top: 134px
+    }
+
+      .pbs-move .move-right8 {
+        top: 135px;
+        left: 305px
+    }
+
+      .pbs-move .move-right1 {
+        top: 103px;
+        left: 292px
+    }
+
+    .move-left-path {
+        position: absolute;
+        left: 91px;
+        bottom: 106px;
+        width: 64px;
+        height: 40px
+    }
+
+    .ban-left-path1 {
+        left: 0;
+        top: 0;
+        offset-path: path('M0.500,40.500 L64.500,0.500 ');
+        animation: ban-left-path1 4s ease-out infinite
+    }
+
+
+
+    .ban-left-path2 {
+        left: 0;
+        top: 0;
+        offset-path: path('M0.500,40.500 L64.500,0.500 ');
+        animation: ban-left-path2 4s ease-out infinite forwards;
+        opacity: 0
+    }
+
+
+    .move-right-path {
+        position: absolute;
+        left: 305px;
+        top: 135px;
+        width: 69px;
+        height: 47px
+    }
+
+    .move-right-path1 {
+        left: 0;
+        top: 0;
+        offset-path: path('M1.030,0.500 L69.530,42.000 ');
+        animation: move-right-path1 4s ease-out infinite;
+        opacity: 0
+    }
+
+
+    .move-right-path2 {
+        left: 0;
+        top: 0;
+        offset-path: path('M1.030,0.500 L69.530,42.000 ');
+        animation: move-right-path2 4s ease-out infinite forwards;
+        opacity: 0
+    }
+
+  
+
+    .ban-right-tu2 {
+        left: 355px;
+        top: 166px;
+        animation: ban-right-tu2 4s ease-out infinite;
+        opacity: 0
+    }
+
+    .ban-right-tu4 {
+        left: 341px;
+        top: 178px;
+        animation: ban-right-tu4 4s ease-out infinite;
+        opacity: 0
+    }
+
+
+    .ban-right-tu3 {
+        left: 402px;
+        top: 166px;
+        animation: ban-right-tu3 4s ease-out infinite;
+        opacity: 0
+    }
+
+ 
+
+    .ban-right-tu5 {
+        left: 416px;
+        top: 178px;
+        animation: ban-right-tu5 4s ease-out infinite;
+        opacity: 0
+    }
+
+    .ban-right-tu6 {
+        top: 113px;
+        right: 60px;
+        animation: ban-right-tu6 4s ease-out infinite forwards;
+        opacity: 0
+    }
+
+ 
+
+    .ban-right-tu7 {
+        top: 92px;
+        right: 55px;
+        animation: ban-right-tu7 4s ease-out infinite forwards;
+        transform: scale(0)
+    }
+
+ 
+    </style>
+
+    <!-- 3.动画样式 -->
+    <style>
+    /* 左边烟花效果 */
+    @keyframes fadeup {
+        0 {
+            transform: translateY(0);
+            opacity: 0;
+        }
+
+        40% {
+            opacity: 1;
+        }
+
+        60% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateY(-70px);
+            opacity: 0;
+        }
+    }
+    /* 左边图片的动画 */
+    @keyframes left-updown {
+        0,100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    @keyframes left-updown1 {
+        0,100% {
+            transform: translateY(0)
+        }
+
+        50% {
+            transform: translateY(-5px)
+        }
+    }
+    @keyframes left-downup {
+        0,100% {
+            transform: translateY(0)
+        }
+
+        50% {
+            transform: translateY(10px)
+        }
+    }
+
+   /* 中间关闸特效 */
+    @keyframes move-center-rectangles {
+        from {
+            transform: translateY(14px)
+        }
+
+        70%,to {
+            transform: translateY(-10px)
+        }
+    }
+    
+    /* 中间水平进度条 */
+    @keyframes heyslimline1 {
+        from {
+            transform: translateX(-20px)
+        }
+
+        80%,to {
+            transform: translateX(0)
+        }
+    }
+    @keyframes heyslimline2 {
+        from {
+            transform: translateX(-16px)
+        }
+
+        80%,to {
+            transform: translateX(0)
+        }
+    }
+
+    @keyframes heyslimline3 {
+        from {
+            transform: translateX(-10px)
+        }
+
+        80%,to {
+            transform: translateX(0)
+        }
+    }
+    /* 中间光束效果 */
+    @keyframes ban-center-tu3 {
+        50% {
+            opacity: 1
+        }
+    }
+    /* 中间顶部盒子浮动特效 */
+    @keyframes ban-center-tu4 {
+        0,100% {
+            transform: translateY(0)
+        }
+
+        50% {
+            transform: translateY(-12px)
+        }
+    }
+    
+    /* 左边管管道光束移动 */
+    @keyframes ban-left-path1 {
+        0 {
+            opacity: 0;
+            offset-distance: 0
+        }
+
+        2%,12.8% {
+            opacity: 1
+        }
+
+        14.8%,100% {
+            offset-distance: 100%;
+            opacity: 0
+        }
+    }
+    /* 左边管管道面板移动 */
+    @keyframes ban-left-path2 {
+        14.8% {
+            opacity: 0;
+            offset-distance: 0
+        }
+
+        16.8%,30.7% {
+            opacity: 1
+        }
+
+        32.7%,100% {
+            offset-distance: 100%;
+            opacity: 0
+        }
+    }
+    /* 右边管管道光束移动 */
+    @keyframes move-right-path1 {
+        32.7% {
+            opacity: 0;
+            offset-distance: 0
+        }
+
+        34.7%,48.5% {
+            opacity: 1
+        }
+
+        50.5%,100% {
+            offset-distance: 100%;
+            opacity: 0
+        }
+    }
+    /* 右边管管道面板移动 */
+    @keyframes move-right-path2 {
+        50.5% {
+            offset-distance: 0;
+            opacity: 0
+        }
+
+        52.5%,66.4% {
+            opacity: 1
+        }
+
+        68.4%,100% {
+            offset-distance: 100%;
+            opacity: 0
+        }
+    }
+
+    /* 右边向左推出方块1 */
+    @keyframes ban-right-tu2 {
+        68.4% {
+            transform: translate(0,0);
+            opacity: 0
+        }
+
+        70.4%,73.7% {
+            opacity: 1
+        }
+
+        75.7%,100% {
+            transform: translate(-18px,10px);
+            opacity: 1
+        }
+    }
+    /* 右边向左推出方块2 */
+    @keyframes ban-right-tu4 {
+        75.7% {
+            transform: translate(0,0);
+            opacity: 0
+        }
+
+        77.7%,80% {
+            opacity: 1
+        }
+
+        82%,100% {
+            transform: translate(-14px,7px);
+            opacity: 1
+        }
+    }
+   /* 右边向右推出方块1 */
+    @keyframes ban-right-tu3 {
+        68.4% {
+            transform: translate(0,0);
+            opacity: 0
+        }
+
+        70.4%,73.7% {
+            opacity: 1
+        }
+
+        75.7%,100% {
+            transform: translate(20px,10px);
+            opacity: 1
+        }
+    }
+  /* 右边向右推出方块2 */
+    @keyframes ban-right-tu5 {
+        75.7% {
+            transform: translate(0,0);
+            opacity: 0
+        }
+
+        77.7%,80% {
+            opacity: 1
+        }
+
+        82%,100% {
+            transform: translate(17px,4px);
+            opacity: 1
+        }
+    }
+    /* 右边向上推出方块2 */
+    @keyframes ban-right-tu6 {
+        68.4% {
+            opacity: 0
+        }
+
+        69.4%,100% {
+            opacity: 1
+        }
+    }
+    /* 右边向上推出方块2 */
+    @keyframes ban-right-tu7 {
+        68.4% {
+            transform: scale(0)
+        }
+
+        75.7%,100% {
+            transform: scale(1)
+        }
+    }
+
+    
+
+
+
+    </style>
+
+
+</head>
+<body>
+    <div id="banner">
+        <div class="maxCon">
+            <div class="pbs-move">
+                <img class="ban-polygons1" src="./images/ban-polygons1.png">
+                <img class="ban-polygons2" src="./images/ban-polygons2.png">
+                <img class="ban-polygons3" src="./images/ban-polygons3.png">
+                <img class="move-center1"  src="./images/ban-center-tu1.png">
+                <div class="move-center-rectangles">
+                    <div></div>
+                </div>
+                <div class="move-center-heyslim">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+                <img class="move-center2"    src="./images/ban-center-tu2.png">
+                <img class="ban-center-tu3"  src="./images/ban-left-line.png">
+                <img class="ban-center-tu13" src="./images/ban-center-line.png">
+                <img class="ban-center-tu23" src="./images/ban-right-line.png">
+                <img class="ban-center-tu4"  src="./images/ban-center-tu4.png">
+                <div class="small-circle1"></div>
+                <div class="small-circle2"></div>
+                <img class="move-left2" src="./images/ban-left-tu2.png">
+                <div class="move-left-path">
+                    <img class="ban-left-path1" src="./images/ban-left-tu3.png">
+                    <img class="ban-left-path2" src="./images/ban-right-tu9.png">
+                </div>
+                <img class="move-left1" src="./images/ban-left-tu1.png">
+                <img class="ban-line1" src="./images/ban-line1.png">
+                <img class="ban-line2" src="./images/ban-line1.png">
+                <img class="ban-line3" src="./images/ban-line1.png">
+                <img class="ban-line4" src="./images/ban-line1.png">
+                <img class="ban-left-icon1" src="./images/ban-left-icon1.png">
+                <img class="ban-left-icon2" src="./images/ban-left-icon2.png">
+                <img class="ban-left-icon3" src="./images/ban-left-icon3.png">
+                <img class="ban-left-icon4" src="./images/ban-left-icon4.png">
+                <img class="ban-left-icon5" src="./images/ban-left-icon5.png">
+                <img class="move-right8" src="./images/ban-right-tu8.png">
+                <div class="move-right-path">
+                    <img class="move-right-path1" src="./images/ban-left-tu3.png">
+                    <img class="move-right-path2" src="./images/ban-right-tu09.png">
+                </div>
+                <img class="move-right1" src="./images/ban-right-tu1.png">
+                <img class="ban-right-tu6" src="./images/ban-right-tu6.png">
+                <img class="ban-right-tu7" src="./images/ban-right-tu7.png">
+                <img class="ban-right-tu2" src="./images/ban-right-tu2.png">
+                <img class="ban-right-tu4" src="./images/ban-right-tu4.png">
+                <img class="ban-right-tu3" src="./images/ban-right-tu3.png">
+                <img class="ban-right-tu5" src="./images/ban-right-tu5.png">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

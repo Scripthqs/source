@@ -1,0 +1,14 @@
+/* 
+  reset.css
+  normalize.css
+*/
+body{
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+
+  /* border: 3px solid red; */
+  box-sizing: border-box;
+
+  transform-origin: left top;
+}

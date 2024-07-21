@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- 
+  svg 1.1 的语法：
+
+  1)XML声明:（可选） 
+    standalone="no"：XML文档会依赖外部标记声明来验证XML的数据是否有效
+
+  2）文档的声明（即外部标记声明）（可选） 
+    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+      "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+  3）baseProfile="full" 适用pc， tiny适用手机
+ -->
+<svg
+  version="1.1"
+  baseProfile="full"
+  width="300"
+  height="150"
+  xmlns="http://www.w3.org/2000/svg"
+  style="border:1px solid pink"
+>
+  <rect x="10" y="10" width="100" height="50"></rect>
+</svg>

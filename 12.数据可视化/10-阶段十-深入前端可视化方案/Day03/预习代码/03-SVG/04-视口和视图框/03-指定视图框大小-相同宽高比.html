@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        background-image: url(../images/grid.png);
+      }
+      svg {
+        background-color: rgba(255, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+      视口大小：400 400
+      视图框大小：100 100
+      有相同的宽高比
+        viewBox显示的区域会被拉伸填满viewport
+     -->
+    <svg width="400" height="400" viewBox="50 50 100 100">
+      <circle cx="50" cy="50" r="50"></circle>
+    </svg>
+  </body>
+</html>

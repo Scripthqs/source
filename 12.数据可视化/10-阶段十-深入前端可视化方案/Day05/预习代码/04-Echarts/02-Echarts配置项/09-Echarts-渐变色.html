@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 必须设置高度 -->
+    <div id="tutorial" style="width: 800px; height: 400px"></div>
+    <!-- 
+      window.echarts 对象
+     -->
+    <script src="../libs/echarts-5.3.3.js"></script>
+    <script>
+      // 1.拿到echarts的实例对象
+      var myChart = echarts.init(document.getElementById("tutorial"));
+      // 2.编写图表配置项和数据
+      // 指定图表的配置项和数据
+      var option = {
+        backgroundColor: "rgba(255, 0, 255, 0.1)",
+        title: {
+          text: "Echart 5.x 条形图",
+          left: 20,
+          top: 10,
+        },
+        grid: {
+          show: true,
+          backgroundColor: "rgba(255, 0, 0, 0.1)",
+        },
+        xAxis: {
+          name: "类目坐标",
+          type: "category",
+          data: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
+        },
+        yAxis: {},
+        series: [
+          {
+            name: "产品销量柱形图",
+            type: "bar",
+            data: [5, 20, 36, 10, 10, 20],
+            itemStyle: {
+              color: {
+                // 渐变
+                type: "linear",
+                x: 0,
+                y: 0,
+                x2: 0,
+                y2: 1,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: "red",
+                  },
+                  {
+                    offset: 1,
+                    color: "blue",
+                  },
+                ],
+              },
+            },
+          },
+        ],
+      };
+      // 3.将图表显示到界面上
+      myChart.setOption(option);
+    </script>
+  </body>
+</html>

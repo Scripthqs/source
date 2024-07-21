@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        background-image: url(../images/grid.png);
+      }
+      canvas {
+        background-color: rgba(255, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="tutorial" width="150" height="150">
+      该浏览器不支持Canvas，请更新你的浏览器
+    </canvas>
+  </body>
+
+  <script>
+    window.onload = function () {
+      draw();
+    };
+
+    function draw() {
+      var canvas = document.getElementById("tutorial");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+
+        // 1.旋转 （如何修改形变原点？）
+        ctx.save();
+        ctx.translate(100, 0); // 改变坐标点
+        ctx.rotate((Math.PI / 180) * 45); // 改变坐标
+        ctx.translate(0, 0); // 改变坐标点
+
+        ctx.fillStyle = "green";
+        ctx.fillRect(0, 0, 40, 40);
+
+        // 2.旋转（修改形变原点）
+        ctx.restore(); // 恢复状态
+        ctx.translate(100, 100); // 改变坐标点
+        ctx.rotate((Math.PI / 180) * 45);
+        ctx.fillStyle = "red";
+        ctx.fillRect(-20, -20, 40, 40);
+      }
+    }
+  </script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        background-image: url(../images/grid.png);
+      }
+      svg {
+        background-color: rgba(255, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- svg 1.1 语法 -->
+    <svg width="300" height="150" xmlns="http://www.w3.org/2000/svg">
+      <!-- 
+        1.文字定位 和 字体大小 和 基线对齐
+        alignment-baseline 基线对齐属性：auto 、baseline、middle、top、bottom ... ,默认是auto
+       -->
+      <text font-size="30" x="10" y="100">
+        iPhone14
+        <tspan fill="red" alignment-baseline="middle">￥10 Ay</tspan>
+      </text>
+    </svg>
+  </body>
+</html>

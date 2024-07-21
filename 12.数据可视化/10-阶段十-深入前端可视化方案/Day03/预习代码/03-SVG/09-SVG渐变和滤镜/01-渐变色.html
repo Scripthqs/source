@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        background-image: url(../images/grid.png);
+      }
+      svg {
+        background-color: rgba(255, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body>
+    <svg width="300" height="150" xmlns="http://www.w3.org/2000/svg">
+      <linearGradient id="Gradiend1">
+        <stop offset="0%" stop-color="red"></stop>
+        <stop offset="50%" stop-color="green"></stop>
+        <stop offset="100%" stop-color="blue"></stop>
+      </linearGradient>
+
+      <!-- moveTo 左到右 -->
+      <linearGradient id="Gradiend2" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="red"></stop>
+        <stop offset="50%" stop-color="green"></stop>
+        <stop offset="100%" stop-color="blue"></stop>
+      </linearGradient>
+
+      <!-- 给渐变设置动画 -->
+      <linearGradient id="Gradiend3" gradientTransform="rotate(90)">
+        <stop offset="0%" stop-color="red"></stop>
+        <stop offset="50%" stop-color="green"></stop>
+        <stop offset="100%" stop-color="blue"></stop>
+      </linearGradient>
+
+      <rect x="20" y="10" width="100" height="50" fill="url(#Gradiend3)"></rect>
+    </svg>
+  </body>
+</html>
